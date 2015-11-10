@@ -1,0 +1,308 @@
+<script>
+    ga('send', 'pageview', { 'page': '/PatientDashboard/Patient-visit-records', 'title': 'Patient Visit Records'});
+</script>
+
+<div>
+    <link href="/afya-portal/static/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-6 col-xs-12 mt501"  id="nameDiv">
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--menu-->
+<div>
+    <div class="container">
+        <div class="row" id="Afya-liteblue" >
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                <div class="menu">
+                    <ul>
+                        <li><a href="#PatientDashboard/Patient-upcoming-smart-services">Upcoming Services</a></li>
+                        <li> <a href="#PatientDashboard">Account Summary</a></li>
+                        <li class="active" ><a href="#PatientDashboard/Patient-service-list">Services &amp History</a></li>
+                        <li><a href="#PatientDashboard/Patient-consent">Consent &amp; Notifications</a></li>
+                        <li><a href="#PatientDashboard/Patient_account_policies">Afya Policies</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row"  >
+            <div class="underlinemenu">
+                <ul>
+                    <li><a href="#PatientDashboard/Patient-service-list" >Service List</a></li>
+                    <li><a href="#PatientDashboard/Patient-visit-records" class="selected">Visit History</a></li>
+                    <li><a href="#PatientDashboard/Patient-smart-service" >Smart Service History</a></li>
+                    <li><a href="#PatientDashboard/Patient-previous-record" > Previous Records</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--menu end-->
+<!--menu end-->
+<section>
+    <div class="container" ng-controller="PatientVisitHistoryController">
+        <div class="row mb30">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="pack-wraper hvr-grow1">
+                    <div style="height:350px; overflow-y:scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+                            <tr class="sub333-tr">
+                                <th style="text-align: center;">Provider Type</th>
+                                <th style="text-align: center;">Provider</th>
+                                <th style="text-align: center;">Visit Date</th>
+                                <th style="text-align: center;">View Records</th>
+                            </tr>
+                            <tr ng-show="!visitHistoryList.length"  style="text-align: center">
+                                <td colspan="4"><text><i>No Data Found</i></text></td>
+                            </tr>
+                            <tbody ng-repeat="visit in visitHistoryList">
+                            <tr class="sub33-tr">
+                                <td ng-bind="visit.providerType"></td>
+                                <td ng-bind="visit.doctor"></td>
+                                <td ng-bind="visit.visitDate | date :  'dd/MM/yyyy'">&nbsp;</td>
+                                <td>
+                                    <a data-target="#myModalSome" data-toggle="modal" class="" ng-click="openModal(visit)"><i class="fa fa-eye"></i>View</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModalSome" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">History View</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                        <table width="100%" border="0" class="table table-bordered">
+                            <!--<tr class="sub333-tr">
+                                <td>
+                                    <label>Appointment Slip</label>
+                                </td>
+                                <td><a href="" ng-click="openPage('AppointmentSlip')"><i class="fa fa-eye"></i>View</a></td></td>
+                            </tr>-->
+                            <tr class="sub33-tr">
+                                <td>
+                                    <label>Invoice</label>
+                                </td>
+                                <td><a href="" ng-click="openPage('Invoice')" ng-show="visitModal.showInvToSelect == false"><i class="fa fa-eye"></i>View</a>
+                                    <table ng-show="visitModal.showInvToSelect"  border="0">
+                                        <!--<tr class="sub33-tr"><td><label>Select a Invoice</label></td></tr>-->
+                                        <tbody ng-repeat="inv in visitModal.invoiceList">
+                                            <tr class="sub33-tr" style="border: 0">
+                                                <td>
+                                                    <a href="" ng-show="visit.providerType == 'Clinic'" ng-click="displayClinicInvoice(inv)"><i class="fa fa-eye"></i><label ng-bind="inv.invoiceNumber"></label></a>
+                                                    <a href="" ng-show="visit.providerType == 'Pharmacy'" ng-click="displayPharmacyInvoice(inv)"><i class="fa fa-eye"></i><label ng-bind="inv.invoiceId"></label></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <!--<tbody ng-repeat="inv in visitModal.invoiceList">
+                                            <tr>
+                                                <td><a ng-show="visit.providerType == 'Clinic'" ng-bind="inv.invoiceNumber" ng-click="displayClinicInvoice(inv)"></a><a ng-show="visit.providerType == 'Pharmacy'" ng-bind="inv.invoiceId" ng-click="displayPharmacyInvoice(inv)"></a></td>
+                                            </tr>
+                                        </tbody>-->
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr class="sub333-tr" ng-show="visit.providerType == 'Clinic'">
+                                <td>
+                                    <label>Prescription</label>
+                                </td>
+                                <td><a href="" ng-click="openPage('Prescription')"><i class="fa fa-eye"></i>View</a></td>
+                            </tr>
+                            <tr class="sub33-tr" ng-show="visit.providerType == 'Clinic'">
+                                <td>
+                                    <label>Encounter Summary</label>
+                                </td>
+                                <td><a href="" ng-click="openPage('Encounter')"><i class="fa fa-eye"></i>View</a></td>
+                            </tr>
+                        </table>
+                        </p>
+                    </div>
+                    <div class="modal-footer" style="margin-bottom: 20px;">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--/.container-->
+</section>
+<!--/#care-provider-payer-->
+
+
+
+
+<section id="adapt-method">
+    <div class="center container">
+
+    </div>
+
+</section>
+
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>-->
+<!--<script type="text/javascript">-->
+    <!--$(document).ready(function ($) {-->
+
+        <!--// delegate calls to data-toggle="lightbox"-->
+        <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+            <!--event.preventDefault();-->
+            <!--return $(this).ekkoLightbox({-->
+                <!--onShown: function () {-->
+                    <!--if (window.console) {-->
+                        <!--return console.log('Checking our the events huh?');-->
+                    <!--}-->
+                <!--},-->
+                <!--onNavigate: function (direction, itemIndex) {-->
+                    <!--if (window.console) {-->
+                        <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+
+        <!--//Programatically call-->
+        <!--$('#open-image').click(function (e) {-->
+            <!--e.preventDefault();-->
+            <!--$(this).ekkoLightbox();-->
+        <!--});-->
+        <!--$('#open-youtube').click(function (e) {-->
+            <!--e.preventDefault();-->
+            <!--$(this).ekkoLightbox();-->
+        <!--});-->
+
+        <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+            <!--event.preventDefault();-->
+            <!--return $(this).ekkoLightbox({-->
+                <!--onShown: function () {-->
+                    <!--var a = this.modal_content.find('.modal-footer a');-->
+                    <!--if (a.length > 0) {-->
+                        <!--a.click(function (e) {-->
+                            <!--e.preventDefault();-->
+                            <!--this.navigateTo(2);-->
+                        <!--}.bind(this));-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+
+
+        <!--// fade in #back-top-->
+        <!--$(function () {-->
+
+            <!--// scroll body to 0px on click-->
+            <!--$('#back-top').click(function () {-->
+                <!--$('body,html').animate({-->
+                    <!--scrollTop: 0-->
+                <!--}, 800);-->
+                <!--return false;-->
+            <!--});-->
+        <!--});-->
+
+    <!--});-->
+<!--</script>-->
+<script>
+    $(function() {
+        $( ".btn" ).click(function() {
+            var icon = $( this );
+            icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+            icon.closest( ".box" ).find( ".box-body" ).toggle();
+        });
+    });
+
+
+</script>
+<script>
+    $(document).ready(function () {
+        //rotation speed and timer
+        var speed =5000;
+
+        var run = setInterval(rotate, speed);
+        var slides = $('.slide');
+        var container = $('#slides ul');
+        var elm = container.find(':first-child').prop("tagName");
+        var item_width = container.width();
+        var previous = 'prev'; //id of previous button
+        var next = 'next'; //id of next button
+        slides.width(item_width); //set the slides to the correct pixel width
+        container.parent().width(item_width);
+        container.width(slides.length * item_width); //set the slides container to the correct total width
+        container.find(elm + ':first').before(container.find(elm + ':last'));
+        resetSlides();
+
+
+        //if user clicked on prev button
+
+        $('#buttons a').click(function (e) {
+            //slide the item
+
+            if (container.is(':animated')) {
+                return false;
+            }
+            if (e.target.id == previous) {
+                container.stop().animate({
+                    'left': 0
+                }, 1500, function () {
+                    container.find(elm + ':first').before(container.find(elm + ':last'));
+                    resetSlides();
+                });
+            }
+
+            if (e.target.id == next) {
+                container.stop().animate({
+                    'left': item_width * -2
+                }, 1500, function () {
+                    container.find(elm + ':last').after(container.find(elm + ':first'));
+                    resetSlides();
+                });
+            }
+
+            //cancel the link behavior
+            return false;
+
+        });
+
+        //if mouse hover, pause the auto rotation, otherwise rotate it
+        container.parent().mouseenter(function () {
+            clearInterval(run);
+        }).mouseleave(function () {
+            run = setInterval(rotate, speed);
+        });
+
+
+        function resetSlides() {
+            //and adjust the container so current is in the frame
+            container.css({
+                'left': -1 * item_width
+            });
+        }
+
+    });
+    //a simple function to click next link
+    //a timer will call this function, and the rotation will begin
+
+    function rotate() {
+        $('#next').click();
+    }
+</script>
+</div>

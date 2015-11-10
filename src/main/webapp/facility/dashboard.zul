@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <borderlayout>
+            <north title="North" maxsize="300" size="50%" splittable="true" collapsible="true">
+                <borderlayout>
+                    <west title="West" size="25%" flex="true" maxsize="250" splittable="true" collapsible="true">
+                        <div>
+                            <label value="Facilty DASHBOARD 5"
+                                   style="color:white;font-size:50px"/>
+                        </div>
+                    </west>
+                    <center border="none" flex="true">
+                        <div>
+                            Facilty DASHBOARD
+                        </div>
+                    </center>
+                </borderlayout>
+            </north>
+            <center border="0">
+                <borderlayout>
+                    <west maxsize="600" size="30%" flex="true" border="0" splittable="true">
+                        <div>
+                            <label value="FACILITY ADMIN DASHBOARD 3"
+                                   style="color:white;font-size:50px"/>
+                        </div>
+                    </west>
+                    <center>
+                        <label value="Here is a border"
+                               style="color:gray;font-size:30px"/>
+                    </center>
+                    <east title="East" size="30%" flex="true" collapsible="true">
+                        <div>
+                            <label value="FACILITY ADMIN DASHBOARD 4"
+                                   style="color:white;font-size:50px"/>
+                        </div>
+                    </east>
+                </borderlayout>
+            </center>
+        </borderlayout>
+</zk>

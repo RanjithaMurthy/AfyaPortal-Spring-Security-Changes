@@ -1,0 +1,341 @@
+<script>
+    ga('send', 'pageview', { 'page': '/ProviderDashboard/Provider_account_Service_Non_Subscribe', 'title': 'Provider Account Service Non Subscribe'});
+</script>
+
+<div>
+
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <style>
+        .clickable {
+        cursor: pointer;
+        margin-top: -22px;
+        }
+    </style>
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#ProviderDashboard">Account Summary</a></li>
+                            <li class="active"> <a href="#ProviderDashboard/Provider_account_Service_Subscribe">Services</a></li>
+                            <!--<li><a href="#ProviderDashboard/Provider_account_LoyaltyProg_information">Loyalty Program</a></li>-->
+                            <!--<li><a href="#">Training</a></li>-->
+                            <!--<li><a href="#">Consent &amp; Notifications</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_ExistingNetwork">My Network</a></li>
+                            <!--<li><a href="#">Member Support</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_policies">Afya Policies</a></li>
+                            <li><a class="clickable" onclick="redirectClinic()">My Facility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row"  >
+                <div class="underlinemenu">
+                    <ul>
+                        <li><a href="#ProviderDashboard/Provider_account_Service_Subscribe">Subscribed</a></li>
+                        <li><a href="#ProviderDashboard/Provider_account_Service_Non_Subscribe" class="selected">Non Subscribed</a></li>
+                        <li><a href="#ProviderDashboard/Provider_account_Service_History">History</a></li>
+                        <li><a href="#ProviderDashboard/Provider_account_Member_Settings">Member Settings</a></li>
+                        <!--<li><a href="#ProviderDashboard/Provider_account_Service_Transaction">Transactions</a></li>-->
+                        <li><a href="#ProviderDashboard/Provider_account_Service_News">News</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <section>
+        <div ng-controller="ProviderNonSubscribeController" class="container">
+            <!-- Visitor Message Panel -->
+            <div class="col-sm-12 col-xs-12 col-md-12" ng-show="MemberType=='VISITOR'">
+                <div class="alert alert-info" role="alert">
+                    <strong>Please click the following <a href="#AfyaServices/care-provider-services" target="_blank">link </a> to visit Afya Services for Care Provider for viewing Services and subscribing it.</strong>
+                </div>
+            </div>
+            <!-- Visitor Message Panel -->
+
+            <div class="row mb30" ng-repeat="package in packages">
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-white-box">
+                            <div class="row">
+                                <div class="col-sm-4 ">
+                                    <div class="blue-white-text-2"></div>
+                                    <div class="blue-white-text-1" ng-bind-template="{{package.packageName}} ({{package.totalServices}})"></div>
+                                </div>
+                                <div class="col-sm-4 blue-white-text-1">Free Trial - <span ng-bind="package.trialPeriodDays"></span> Days</div>
+                                <div class="col-sm-4 "></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading ">
+                                    <h3 class="panel-title" ng-bind="package.solutionName"></h3>
+                                    <span class="pull-right clickable"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1">
+                                    <table width="100%" border="0" class="table table-bordered ">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <td>Services</td>
+                                            <td>User#</td>
+                                            <td>Half Yearly(Currency)</td>
+                                            <td>Annual(Currency)</td>
+                                            <td>Subscription Type</td>
+                                            <td>Amount</td>
+                                            <td>Expiry Days</td>
+                                            <td>Expiry Date</td>
+                                            <td>Activate</td>
+                                        </tr>
+                                        <tr class="sub4-tr">
+                                            <td ng-bind="package.solutionName"></td>
+                                            <td><label>
+                                                <input type="text" name="textfield" id="textfield" class="s-small2"
+                                                       ng-model="package.numberOfUsers" ng-readonly="true"/>
+                                            </label></td>
+                                            <td align="center" ng-bind="package.halfYearlyPricePerUom"></td>
+                                            <td align="center" ng-bind="package.annuallyPricePerUom"></td>
+                                            <td><select class="fsize s-small1" ng-model="package.priceOption" ng-disabled="true">
+                                                <option value="HALF_YEARLY">Half Yearly</option>
+                                                <option value="ANNUALLY">Annually</option>
+                                            </select></td>
+                                            <td align="center" ng-bind="package.amount"></td>
+                                                <td>&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            <td><p>
+                                                <input ng-model="package.activated" type="radio" name="RadioGroup_p_{{package.packageId}}" value="1" onclick="javascript: return false;" />
+                                                Yes
+                                                <input ng-model="package.activated" type="radio" name="RadioGroup_p_{{package.packageId}}" value="0" onclick="javascript: return false;"/>
+                                                No <br/>
+                                            </p></td>
+                                        </tr>
+                                        <tr class="sub5-tr">
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table width="100%" border="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="2%">&nbsp;</td>
+                                            <td>
+                                                <div style="float:left;" ng-repeat="service in package.services"><i
+                                                        class="fa fa-check"></i> <span ng-bind="service.serviceName"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Smart Services for Patients</h3>
+                                    <span class="pull-right clickable"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Activate</th>
+                                        </tr>
+                                        <tr class="sub4-tr">
+                                            <td>Smart Services for Patients</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr class="sub5-tr" ng-repeat="service in package.patientServices">
+                                            <td ng-bind="service.serviceName"></td>
+                                            <td>
+                                                <table width="200">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><label>
+                                                            <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="1"
+                                                                   onclick="javascript: return false;" />
+                                                            Yes</label></td>
+                                                        <td><label>
+                                                            <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="0"
+                                                                   onclick="javascript: return false;"  />
+                                                            No</label></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Smart Services Enabled for Care Providers </h3>
+                                    <span class="pull-right clickable"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Activate</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.providerServices">
+                                            <td ng-bind="service.serviceName"></td>
+                                            <td>
+                                                <table width="200">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><label>
+                                                            <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="1"
+                                                                   onclick="javascript: return false;" />
+                                                            Yes</label></td>
+                                                        <td><label>
+                                                            <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="0"
+                                                                   onclick="javascript: return false;" />
+                                                            No</label></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Notifications</h3>
+                                    <span class="pull-right clickable"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Pack</th>
+                                            <th>Rate</th>
+                                            <th>Amount</th>
+                                            <th>Expiry Days</th>
+                                            <th>Activate</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.notificationServices">
+                                            <td ng-bind="service.serviceName"></td>
+                                            <td><label>
+                                                <input type="text" class="s-small2" ng-model="service.packs"/>
+                                            </label></td>
+                                            <td ng-bind="service.rate"></td>
+                                            <td ng-bind="service.amount"></td>
+                                            <td ng-bind="service.expireDays"></td>
+                                            <td>
+                                                <table width="200">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><label>
+                                                            <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="1"
+                                                                   onclick="javascript: return false;" />
+                                                            Yes</label></td>
+                                                        <td><label>
+                                                            <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="0"
+                                                                   onclick="javascript: return false;" />
+                                                            No</label></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--3rd row-->
+            <div class="row mb30" ng-repeat="package in trainingPackages">
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-white-box">
+                            <div class="blue-white-text-2">
+
+                            </div>
+                            <div class="blue-white-text-1" ng-bind="package.packageName"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div>
+                            <div class="panel panel-default panel222">
+                                <div class="panel-heading ">
+                                    <h3 class="panel-title" ng-bind="package.solutionName"></h3>
+                                    <span class="pull-right clickable"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services Pack</th>
+                                            <th>Per Hour</th>
+                                            <th>Hours Required</th>
+                                            <th> Total Amount</th>
+                                            <th>Subscription</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.services">
+                                            <td ng-bind="service.serviceName"></td>
+                                            <td ng-bind="service.rate"></td>
+                                            <td><label>
+                                                <input type="text" name="textfield_{{service.serviceId}}" id="textfield_{{service.serviceId}}" class="s-small2"
+                                                       ng-readonly="true" ng-model="service.numberOfHours">
+                                            </label>
+                                            </td>
+                                            <td ng-bind="service.amount"></td>
+                                            <td>
+                                                <label>
+                                                    <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="1" onclick="javascript: return false;"/>
+                                                Yes</label>
+                                                <label>
+                                                    <input ng-model="service.activated" type="radio" name="RadioGroup_{{service.serviceId}}" value="0" onclick="javascript: return false;"/>
+                                                No</label></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--3rd row end-->
+
+            </div>
+            <!--/.container-->
+        </div>
+    </section>
+    <div class="clearfix"></div>
+
+    <script src="/afya-portal/static/js/jquery.aCollapTable.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.collaptable').aCollapTable({
+                startCollapsed: true,
+                addColumn: false,
+                plusButton: '&amp;lt;span class="i"&amp;gt;(+)&amp;amp;nbsp;&amp;lt;/span&amp;gt;',
+                minusButton: '&amp;lt;span class="i"&amp;gt;(-)&amp;amp;nbsp;&amp;lt;/span&amp;gt;'
+            });
+        });
+    </script>
+    <div id="__zsc_once"></div>
+</div>

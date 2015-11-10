@@ -1,0 +1,502 @@
+<script>
+    ga('send', 'pageview', { 'page': '/PatientDashboard/Patient_account_policies', 'title': 'Patient Account Policies'});
+</script>
+
+<div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            assignWelcomeUserName();
+        });
+    </script>
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+            <div class="menu">
+              <ul>
+                  <li><a href="#PatientDashboard/Patient-upcoming-smart-services">Upcoming Services</a></li>
+                  <li><a href="#PatientDashboard">Account Summary</a></li>
+                  <li><a href="#PatientDashboard/Patient-service-list">Services &amp History</a></li>
+                  <li><a href="#PatientDashboard/Patient-consent">Consent &amp; Notifications</a></li>
+                  <li class="active"><a href="#PatientDashboard/Patient_account_policies">Afya Policies</a></li>
+              </ul>
+           </div>
+           </div>
+           </div>
+           <div class="row"  >
+                    <!--<div class="underlinemenu">
+                        <ul>
+                        <li><a href="Provider_account_MyNetwork_ExistingNetwork.html"class="selected">Existing Network</a></li>
+                        <li><a href="Provider_account_MyNetwork_NewNetworkRequest.html" >New Network</a></li>
+                         <li><a href="Provider_account_MyNetwork_NetworkRequestReceived.html" >Network Request Received</a></li>
+                         <li><a href="Provider_account_MyNetwork_Contracts.html"> Contracts</a></li>
+                          <li><a href="#" >Block</a></li>
+
+                        </ul>
+                  </div>-->
+            </div>
+        </div>
+
+    </div>
+<!--menu end-->
+<!--menu end-->
+        <section>
+            <div class="container">
+                <div class="row mb30">
+                   
+                    
+                  <div class="col-sm-12 col-xs-12 col-md-12">
+                    <div class="pack-wraper hvr-grow1">
+                       <div class="pack-whitebg-box">
+                    
+                         <table width="100%" border="0">
+                              <tbody><tr>
+                                <td width="33%"><strong>Afya’s Policy for Smart Services: Patients</strong></td>
+                                <td width="11%">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                         </table>
+
+                    <div class="clearfix"></div>
+                  </div>
+                        <div >
+                        <table width="100%" border="0" class="table table-bordered">
+                          
+                          <tr class="sub333-tr">
+                            <th width="2%">                            
+                            <th width="35%">Appointment Premium – Doctors
+                            <th width="63%">Policy
+                          </td>                          </tr>
+                            <tr class="sub33-tr">
+                              <td>1</td>
+                            <td align="left" valign="middle">Appointment Booking</td>
+                            <td>The Patient can book for a Premium Appointment 7 days in advance from the booking time.</td>
+                          </tr>
+                            <tr class="sub33-tr">
+                              <td>2</td>
+                              <td>Cancellation by Patient</td>
+                              <td>Cancellation of an appointment can be done only 48 hrs prior to appointment time. Upon cancellation, on behalf of the Clinic/Doctor Afya will refund the 100% amount paid by the Patient. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                              <td>3</td>
+                              <td>Cancellation by Clinic/Doctor</td>
+                              <td>If the Clinic/Doctor cancel the appointment then on behalf of the Clinic/Doctor Afya will refund 100% advance to the Patient in 10 days from the date of cancellation. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                              <td>4</td>
+                              <td>Rescheduling by Patient </td>
+                              <td>The Patient can reschedule an appointment 48 hrs prior to the appointment time.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                              <td>5</td>
+                              <td>Rescheduling by Clinic / Doctor</td>
+                              <td>The Clinic/Doctor can reschedule the appointment 48 hrs prior to the appointment time. If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then rescheduling by the doctor is deemed valid. Else, Afya would consider this as “Cancellation by Clinic/Doctor”. Then on behalf of the Clinic/Doctor Afya will refund 100% advance to the Patient in 10 days from the date of cancellation. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>6</td>
+                                <td>No Show of Patient</td>
+                                <td>If the Patient does not visit the Clinic/Doctor on the appointment date & time, this will be considered as “No Show” of the Patient & and the advance is non-refundable.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>7</td>
+                                <td>No Show of Doctor (not rescheduled by communicating with Patient) </td>
+                                <td>If the Doctor is not available for Consultation on the Appointment date and if this is appointment was not rescheduled by communicating with the Patient by the Clinic/Doctor, then Afya treats this as “No Show” by the Doctor and 100% advance is to be refunded to the Patient by the Clinic/Doctor. The Patient needs to collect the refund amount, from the Clinic.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                              <th class="sub333-tr">&nbsp;</th>
+                              <th class="sub333-tr">Appointment Request - Clinics / Doctors
+                              <th class="sub333-tr">
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td></td>
+                                <td>The Patient can request for appointment in advance by requesting multiple preferred time slots.</td>
+                                <td></td>
+                            </tr>
+                            <tr class="sub33-tr">
+                              <td>1.</td>
+                              <td>Cancellation by Patient</td>
+                              <td>The Patient can cancel an appointment 48 hrs. prior to appointment time.  Upon cancellation, On behalf of the Clinic/Doctor Afya will refund the 100% amount paid by the Patient. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>2.</td>
+                                <td>Cancellation by Clinic/Doctor</td>
+                                <td>If the Clinic/Doctor cancels the appointment then on behalf of the Clinic/Doctor Afya will refund 100% advance to the Patient in 10 days from the date of cancellation. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>3.</td>
+                                <td>Rescheduling by Patient</td>
+                                <td>The Patient can reschedule an appointment 48 hrs prior to the appointment.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>4.</td>
+                                <td>Rescheduling by Clinic/Doctor </td>
+                                <td>The Clinic/Doctor can reschedule the appointment 48 hrs prior to the appointment time. If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then appointment rescheduling by the doctor is deemed valid. Else, Afya would consider this as “Cancellation by Clinic/Doctor”. Then on behalf of the Clinic/Doctor Afya will refund 100% advance to the Patient in 10 days from the date of cancellation. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>5.</td>
+                                <td>No Show by Patient</td>
+                                <td>If the Patient is not able to make to the appointment by visiting the Clinic/Doctor, this is treated as “No Show” & the advance is non-refundable.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>6.</td>
+                                <td>No Show by Doctor (not rescheduled by communicating with Patient) </td>
+                                <td>If the Doctor is not available for Consultation on the Appointment date/time & if this was not rescheduled by the Clinic/Doctor by communicating with the patient, then this is treated as “No Show”. 100% advance is to be refunded to the Patient by the Clinic/Doctor. The Patient is expected to collect the refund amount, from the Clinic.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <th class="sub333-tr">&nbsp;</th>
+                                <th class="sub333-tr">Appointment - Home Visit Doctor
+                                <th class="sub333-tr">
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>1</td>
+                                <td>Appointment Booking</td>
+                                <td>The Patient can book for an Appointment for a planned Home Visit by Doctor 7 days in advance from the booking time.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>2</td>
+                                <td>Cancellation by Patient</td>
+                                <td>The Patient can cancel an appointment 48 hrs prior to appointment time. Upon cancellation, Afya on behalf of Doctor/Clinic will refund 100% amount paid. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>3</td>
+                                <td>Cancellation by Clinic/Doctor</td>
+                                <td>The Patient can cancel an appointment 48 hrs prior to appointment time. In case the appointment is cancelled by the Clinic/Doctor for Home Visit of the Doctor, then Afya on behalf of the Doctor/Clinic will refund 100% advance to the Patient in 10 days from the date of cancellation.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>4</td>
+                                <td>Rescheduling by Patient </td>
+                                <td>The Patient can reschedule an appointment 48 hrs prior to the appointment time.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>5</td>
+                                <td>Rescheduling by Clinic/Doctor</td>
+                                <td>The Clinic/Doctor can reschedule the appointment 48 hrs prior to the appointment time. If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then rescheduling by the doctor is deemed valid. Else, Afya would consider this as “Cancellation by Clinic/Doctor”. Then on behalf of the Clinic/Doctor Afya will refund 100% advance to the Patient in 10 days from the date of cancellation.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>6</td>
+                                <td>No Show of Patient</td>
+                                <td>If the Patient is not available at home on the appointment date & time, this will be considered as “No Show” of the Patient. The advance is non-refundable.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>7</td>
+                                <td>No Show of Doctor (not rescheduled by communicating with Patient)</td>
+                                <td>If the Doctor is not able to visit the Patient’s home on the decided Appointment date and if this is was not rescheduled by communicating with the Patient by the Clinic/Doctor, then this is treated as “No Show”. Patient needs to write to Afya and on confirmation from Clinic/Doctor, On behalf of the Clinic / Doctor, Afya will refund 100% advance to the Patient. The Patient can view the status of refund by logging in to “My Account”.</td>
+                            </tr>
+
+                            <tr class="sub333-tr">
+                                <th width="2%">
+                                <th width="35%">Tele Consultation
+                                <th width="63%">
+                                </td>                          </tr>
+                            <tr class="sub33-tr">
+                                <td></td>
+                                <td align="left" valign="middle" colspan="2">Tele consultation is available through Afya App installed on Smart Phone which is downloadable from Google Play & Apple App Store, Afya enables a service to book an Appointment with the Care Provider for Tele consultation. <br><br>
+
+                                    Afya App enables by reminding the appointment time. The Patient can initiate the Tele consultation to by dialing through the Smart Phone i.e using the present GSM/CDMA facility rendered by your telecom operator.
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>1</td>
+                                <td align="left" valign="middle">Appointment Booking</td>
+                                <td>The Patient can book for a Tele Consultation 7 days in advance from the booking time.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>2</td>
+                                <td align="left" valign="middle">Cancellation by Patient</td>
+                                <td>Cancellation facility is not available for Tele Consultation.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>3</td>
+                                <td align="left" valign="middle">Cancellation by Clinic/Doctor</td>
+                                <td>Cancellation facility is not available for Tele Consultation.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>4</td>
+                                <td align="left" valign="middle">Rescheduling by Patient</td>
+                                <td>The appointment can be rescheduled only 24 hrs prior to the appointment time.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>5</td>
+                                <td align="left" valign="middle">Rescheduling by Clinic/Doctor</td>
+                                <td>The Clinic/Doctor can reschedule the appointment 24 hrs prior to the appointment time. If the Patient agrees for the rescheduling as proposed by the Clinic/Doctor, then rescheduling by the doctor is deemed valid. Else, Afya would consider this as “Cancellation by Clinic/Doctor”. Then on behalf of the Clinic/Doctor Afya will refund 100% advance to the Patient in 10 days from the date of cancellation.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>6</td>
+                                <td align="left" valign="middle">No Show of Patient</td>
+                                <td>If the Patient does not initiate the call for Tele Consultation on the scheduled time or any time within the booked slot, this will be considered as “No Show” of the Patient. The advance is non-refundable.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>7</td>
+                                <td align="left" valign="middle">No Show of Doctor (not rescheduled by communicating with Patient)</td>
+                                <td>If the Doctor does not respond to the Patient’s call during the booked slot, and if the Clinic/Doctor does not reschedule the appointment by communicating to the Patient, then it is considered as “No Show”. Patient needs to write to Afya and on confirmation from Clinic/Doctor, On behalf of the Care Provider Afya will refund 100% advance to the Patient.</td>
+                            </tr>
+
+
+                            <!--<tr class="sub333-tr">
+                                <th width="2%">
+                                <th width="35%">Home Pharmacy
+                                <th width="63%">
+                                </td>                          </tr>
+                            <tr class="sub33-tr">
+                                <td>1</td>
+                                <td align="left" valign="middle">Requesting for Home Pharmacy</td>
+                                <td>This service can be availed by the patients on following scenarios:<br><br>
+
+                                    1.	During Consultation, If the Doctor/Clinic is an Afya Member then while prescribing the medicines you can request the Doctor / Clinic for the service of Home Pharmacy, i.e on paying for the Pharmacy Order online the prescribed medicines will be delivered home by Pharmacy.<br>
+
+                                     <span style="text-decoration: underline;">NOTE: It is important for the Doctor to choose the desired Pharmacy while prescribing, as Afya would send the electronic prescription order to the Pharmacy selected by the Doctor while prescribing.</span><br>
+
+                                    2.	In Afya App/Afya Portal the Patient can refer to Doctor’s active prescription and request for Home Pharmacy online. It’s a pre-paid service.<br>
+
+                                    3.	The patient also has the facility to buy the medicines by visiting the Pharmacy that has received the electronic prescription from Afya Doctor.
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>2</td>
+                                <td align="left" valign="middle">Cancellation by Patient</td>
+                                <td>Cancellation facility is not available for this service.</td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>3</td>
+                                <td align="left" valign="middle">Cancellation by Pharmacy</td>
+                                <td>Cancellation facility is not available for this service.</td>
+                            </tr>-->
+
+                            <tr class="sub333-tr">
+                                <th width="2%">
+                                <th width="35%">Queries related to refund
+                                <th width="63%">
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td></td>
+                                <td align="left" valign="middle" colspan="2">In case of any clarification related to refund, the Patient can send an email with details at info@afyaarabia.com.</td>
+                            </tr>
+
+                            <tr class="sub33-tr">
+                                <td></td>
+                                <td align="left" valign="middle" colspan="2"><b>Important Note:</b><br>
+                                    <ul>
+                                        <li style="list-style-type:circle">Afya’s Smart Services are for Cash Paying Patients only.</li>
+                                        <li style="list-style-type:circle">Afya’s policies are applicable as per the local standard time.</li>
+                                       <!-- <li style="list-style-type:circle">Afya’s Home Pharmacy smart service can be ordered only in full i.e partial orders cannot be accepted.</li>-->
+                                    </ul>
+                                </td>
+
+                            </tr>
+
+                            <tr class="sub33-tr">
+                                <td></td>
+                                <td align="left" valign="middle" colspan="2">End of Policy Document.</td>
+                            </tr>
+                          </table>
+                      </div>
+                      
+                      
+                        <div class="clearfix"></div>
+                      </div>
+                      
+                      
+                      
+                  </div>
+</div>
+
+          </div>
+            <!--/.container--> 
+        </section>
+        <section id="approach1">
+        <div class="container">
+        <!--    row1 start-->
+  			<div class="row mb30">
+                    
+                  
+                  
+                 
+			</div>
+            
+        <!--    row1 end-->
+        
+        </div>
+        </section>
+        <!--/#care-provider-payer-->
+
+
+
+
+<section id="adapt-method">
+            <div class="center container">
+           
+            </div>
+
+        </section>
+
+
+
+
+
+        <script src="/afya-portal/static/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script> -->
+        <!--<script type="text/javascript">-->
+                            <!--$(document).ready(function ($) {-->
+
+                                <!--// delegate calls to data-toggle="lightbox"-->
+                                <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+                                    <!--event.preventDefault();-->
+                                    <!--return $(this).ekkoLightbox({-->
+                                        <!--onShown: function () {-->
+                                            <!--if (window.console) {-->
+                                                <!--return console.log('Checking our the events huh?');-->
+                                            <!--}-->
+                                        <!--},-->
+                                        <!--onNavigate: function (direction, itemIndex) {-->
+                                            <!--if (window.console) {-->
+                                                <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                                            <!--}-->
+                                        <!--}-->
+                                    <!--});-->
+                                <!--});-->
+
+                                <!--//Programatically call-->
+                                <!--$('#open-image').click(function (e) {-->
+                                    <!--e.preventDefault();-->
+                                    <!--$(this).ekkoLightbox();-->
+                                <!--});-->
+                                <!--$('#open-youtube').click(function (e) {-->
+                                    <!--e.preventDefault();-->
+                                    <!--$(this).ekkoLightbox();-->
+                                <!--});-->
+
+                                <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+                                    <!--event.preventDefault();-->
+                                    <!--return $(this).ekkoLightbox({-->
+                                        <!--onShown: function () {-->
+                                            <!--var a = this.modal_content.find('.modal-footer a');-->
+                                            <!--if (a.length > 0) {-->
+                                                <!--a.click(function (e) {-->
+                                                    <!--e.preventDefault();-->
+                                                    <!--this.navigateTo(2);-->
+                                                <!--}.bind(this));-->
+                                            <!--}-->
+                                        <!--}-->
+                                    <!--});-->
+                                <!--});-->
+
+
+                                <!--// fade in #back-top-->
+                                <!--$(function () {-->
+
+                                    <!--// scroll body to 0px on click-->
+                                    <!--$('#back-top').click(function () {-->
+                                        <!--$('body,html').animate({-->
+                                            <!--scrollTop: 0-->
+                                        <!--}, 800);-->
+                                        <!--return false;-->
+                                    <!--});-->
+                                <!--});-->
+
+                            <!--});-->
+        <!--</script> -->
+        <script>
+            $(function() {
+
+                $( ".btn" ).click(function() {
+                var icon = $( this );
+                icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+                icon.closest( ".box" ).find( ".box-body" ).toggle();
+                });
+            });
+        </script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+<script>
+$(document).ready(function () {
+    //rotation speed and timer
+    var speed =5000;
+    
+    var run = setInterval(rotate, speed);
+    var slides = $('.slide');
+    var container = $('#slides ul');
+    var elm = container.find(':first-child').prop("tagName");
+    var item_width = container.width();
+    var previous = 'prev'; //id of previous button
+    var next = 'next'; //id of next button
+    slides.width(item_width); //set the slides to the correct pixel width
+    container.parent().width(item_width);
+    container.width(slides.length * item_width); //set the slides container to the correct total width
+    container.find(elm + ':first').before(container.find(elm + ':last'));
+    resetSlides();
+    
+    
+    //if user clicked on prev button
+    
+    $('#buttons a').click(function (e) {
+        //slide the item
+        
+        if (container.is(':animated')) {
+            return false;
+        }
+        if (e.target.id == previous) {
+            container.stop().animate({
+                'left': 0
+            }, 1500, function () {
+                container.find(elm + ':first').before(container.find(elm + ':last'));
+                resetSlides();
+            });
+        }
+        
+        if (e.target.id == next) {
+            container.stop().animate({
+                'left': item_width * -2
+            }, 1500, function () {
+                container.find(elm + ':last').after(container.find(elm + ':first'));
+                resetSlides();
+            });
+        }
+        
+        //cancel the link behavior            
+        return false;
+        
+    });
+    
+    //if mouse hover, pause the auto rotation, otherwise rotate it    
+    container.parent().mouseenter(function () {
+        clearInterval(run);
+    }).mouseleave(function () {
+        run = setInterval(rotate, speed);
+    });
+    
+    
+    function resetSlides() {
+        //and adjust the container so current is in the frame
+        container.css({
+            'left': -1 * item_width
+        });
+    }
+    
+});
+//a simple function to click next link
+//a timer will call this function, and the rotation will begin
+
+function rotate() {
+    $('#next').click();
+}
+</script>
+</div>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html ng-app="PharmacyInvoiceDetailModule">
+    <head>
+    <title>Invoice</title>
+    <meta charset="utf-8" />
+        <style type="text/css">
+               .bold{
+                   font-weight:bold;
+               }
+               .td-bolder tr th, .td-bolder tr td, .td-bolder {
+                    border:01px solid black;
+                    border-collapse: collapse;
+                }
+                .text-right{
+                    text-align:right;
+                }
+                .text-center{
+                    text-align: center;
+                }
+                .right{
+                    float:right;
+                }
+                .left{
+                   float:left; 
+                }
+               .logoImg{
+                   max-width: 230px;
+                   height: 80px;
+               }
+               .no-borders{
+                    border-collapse:collapse;
+               }
+               .no-borders td{
+                    border:none !important;
+                    outline:none;
+               }
+
+        </style>
+        <!--<link href="/afya-portal/static/css/custom.css" rel="stylesheet" type="text/css">-->
+        <script src="/afya-portal/static/js/sweet-alert.min.js"></script>
+        <link href="/afya-portal/static/css/sweet-alert.css" rel="stylesheet" type="text/css">
+    </head>
+    <body style="font-family:Arial;font-size: 12px;">
+        <div id="printContent" style="width:90%;margin:0% 5% 0% 5%" ng-controller="PharmacyInvoiceDetailsController" ng-init="getInvoiceDetailsForLastInvoiceForGivenTenant()">
+		    <div>
+			    <div style="float:left">
+                    <img ng-src="{{logoURL}}" alt="logo" class="logoImg"/>
+                </div>
+                <div style="float:left; margin-left:30px;" ng-hide="logoWithAddress == true">
+                    <table>
+                        <tr><td><strong  ng-bind="visit.provider"></strong></td></tr>
+                        <tr><td ng-bind="visit.providerAddress"></td></tr>
+                        <tr><td ng-bind="visit.providerAdditionalAddress"></td></tr>
+                        <tr><td ng-bind="visit.providerPostalCode"> - <span ng-bind="visit.providerState"></span>, <span ng-bind="visit.providerCountry"></span>.</td></tr>
+                        <tr><td>Email : {{visit.providerEmail? visit.providerEmail : ''}}</td></tr> <!-- Tel : {{visit.providerMobile ? visit.providerMobile : ''}}  -->
+                    </table>
+                </div>
+		    </div>
+            <div style="clear:both;">
+            </div>
+            <hr />
+            <div>
+                <h3 style="text-align:center">Sales Invoice</h3>
+                <table align="center" style="border:1px solid black;width:100%">
+                    <tr>
+                        <td class="bold">Afya Id </td>
+                        <td>: {{invoice.afyaId}}</td>
+                        <td class="bold">Doctor</td>
+                        <td>: {{invoice.doctorName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Civil Id</td>
+                        <td>: {{invoice.civilId}}</td>
+                        <td class="bold">Invoice Date</td>
+                        <td>: {{invoice.invoiceDate}}</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Patient Name </td>
+                        <td>: {{invoice.patientFirstName}} {{invoice.patientLastName}}</td>
+                        <td class="bold">Invoice No</td>
+                        <td>: {{invoice.invoiceId}}</td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Gender</td>
+                        <td>: {{invoice.patientGender}}</td>
+                        <td class="bold">Patient Type </td>
+                        <td>: {{invoice.patientType}}</td>
+                    </tr>
+                    <!--<tr>
+                        <td class="bold">Gender</td>
+                        <td>: {{invoice.patientGender}}</td>
+                        <td class="bold">Employer Name</td>
+                        <td>:</td>
+                    </tr>-->
+                </table>
+                <table class="td-bolder" align="center" style="width:100%;margin-top:30px;">
+                    <tr>
+                        <td class="text-center"><strong>Code</strong></td>
+                        <td class="text-center"><strong>Description</strong></td>
+                        <td class="text-center"><strong>Quantity</strong></td>
+                        <td class="text-center"><strong>Unit</strong></td>
+                        <td class="text-center"><strong>Unit Price</strong></td>
+                        <td class="text-center"><strong>Gross Price</strong></td>
+                    </tr>
+                    <tr ng-show="!invoiceDetails.length"  style="text-align: center">
+                        <td colspan="6"><text><i>No Data Found</i></text></td>
+                    </tr>
+                    <tbody ng-repeat="invoiceItem in invoiceDetails">
+                    <tr>
+                        <td class="text-center">{{invoiceItem.productId}}</td>
+                        <td>{{invoiceItem.description}}</td>
+                        <td class="text-center">{{invoiceItem.quantity}}</td>
+                        <td class="text-center">{{invoiceItem.uom}}</td>
+                        <td class="text-right">{{invoiceItem.currencyUom}} {{invoiceItem.unitPrice ? invoiceItem.unitPrice : 0 | number : 3}}</td>
+                        <td class="text-right">{{invoiceItem.currencyUom}} {{invoiceItem.amount ? invoiceItem.amount : 0 | number : 3}}</td>
+                        <!--<td class="text-right">KD {{invoiceItem.invoiceItemFactor ? InvoiceItem.invoiceItemFactor:0 | number : 3}}</td>
+                        <td class="text-right" width="250px">KD {{invoiceItem.invoiceItemAmount ? InvoiceItem.invoiceItemAmount:0 | number : 3}}</td>-->
+                    </tr>
+                    </tbody>
+                    <tbody>
+                    <tr>
+                        <td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                    </tbody>
+                    <!-- bottom details -->
+                    <tbody style="font-size:1.2em; line-height: 3em; " class="bold">
+                    <tr>
+                        <td colspan="2" rowspan="3" style="padding:0 0 0 5px;">
+                            <table class="no-borders" style="margin:0;">
+                                <tr><td>Checked By:________________________</td></tr>
+                                <tr><td>Sign:_____________________&nbsp;&nbsp;Date:________________</td></tr>
+                            </table>
+                        </td>
+                        <td colspan="2">&nbsp;&nbsp;Gross Total</td>
+                        <td colspan="2" style="text-align: right">KD <span>{{invoiceAmount ? invoiceAmount : 0 | number : 3}}</span></td>
+                    </tr>
+                    <tr>
+                        <!--<td>occupied by first column <td> -->
+                        <td colspan="2">&nbsp;&nbsp;Discount</td>
+                        <td colspan="2" style="text-align: right">KD <span>{{invoiceDiscount ? invoiceDiscount :0 | number : 3}}</span></td>
+                    </tr>
+                    <tr>
+                        <!--<td>occupied by first column <td> -->
+                        <td colspan="2">&nbsp;&nbsp;Net Total</td>
+                        <td colspan="2" style="text-align: right">KD <span>{{netAmount ? netAmount : 0 | number : 3}}</span></td>
+                    </tr>
+                    </tbody>
+
+                    <!--<tr>
+                        <td colspan="2"></td>
+                        <td>Gross Amount: </td>
+                        <td class="text-right">KD 0.000 </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>Discount: </td>
+                        <td class="text-right">KD 0.000 </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>Net Amount: </td>
+                        <td class="text-right">KD 0.000 </td>
+                    </tr>-->
+                </table>
+                <table class="td-bolder" style="float: right; width: 255px; margin-top: 2px;display:none">
+                    <tr>
+                        <td>
+                            <span class="bold" style="width: 60px;">Gross Total : </span>
+                        </td>
+                        <td style="text-align: right">
+                            KD <span class="bold" style="text-align: right">{{invoiceAmount ? invoiceAmount : 0 | number : 3}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="bold">Discount : </span>
+                        </td>
+                        <td style="text-align: right">
+                            KD <span class="bold">{{invoiceDiscount ? invoiceDiscount :0 | number : 3}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="bold">Net Total : </span>
+                        </td>
+                        <td style="text-align: right">
+                            KD <span class="bold">{{netAmount ? netAmount : 0 | number : 3}}</span>
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td>
+                            <span class="bold">Patient Payable : </span>
+                        </td>
+                        <td style="text-align: right">
+                            KD <span class="bold"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="bold">Insurance Payable : </span>
+                        </td>
+                        <td style="text-align: right">
+                            KD <span class="bold"></span>
+                        </td>
+                    </tr>-->
+                    <!--<tr>
+                        <td>
+                            <span class="bold">User : </span>
+                        </td>
+                        <td>
+                            <span class="bold">{{InvoiceItem.providerFirstname}} {{InvoiceItem.providerLastName}}</span>
+                        </td>
+                    </tr>-->
+                </table>
+                <!--<div>
+                    <div class="left">
+                        &nbsp;
+                    </div>
+                    <div class="right">
+                        <table class="td-bolder">
+                            <tr>
+                                <td>
+                                    <span class="bold">Gross Amount : </span>Zero KD
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="bold">Discount : </span>Zero KD
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="bold">Net Amount : </span>Zero KD
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>-->
+            </div>
+            <!--<div style="margin-top: 10px;">
+                <div class="left">
+                    <span class="bold">Amount in Words:</span>Zero KD
+                </div>
+                <div class="right">
+                    <table>
+                        <tr>
+                            <td class="bold">Patient Payable:</td>
+                            <td>KD 0.000</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">Insurance Payable:</td>
+                            <td>KD 0.000</td>
+                        </tr>
+                        <tr>
+                            <td class="bold">User:</td>
+                            <td>{{InvoiceItem.providerFirstname}} {{InvoiceItem.providerLastName}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="clear:both"></div>
+            </div>-->
+
+            <div style="clear:both"></div>
+            <div style="margin:50px 0px; padding: 10px; border-style:solid; border-width: 2px;">
+                <div ng-bind-html="patientServicePolicyContent"></div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <div align="center">
+            <button id="btnPrint" onclick="onPrintClick('printContent')" style="padding:10px;margin-top:20px;font-size:18px"><strong>Print</strong></button>
+        </div>
+        <div class="clearfix"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../../../static/js/jquery.js" type="text/javascript"></script>
+        <script src="../../../static/js/jquery_cookie.js" type="text/javascript"></script>
+        <script src="../../../static/js/angular.min.js"></script>
+        <script src="../../../static/js/angular-messages.min.js"></script>
+        <script src="../../../static/js/PastVisitInvoiceDetailsForPharmacy.js"></script>
+        <script type="text/javascript">
+            function onPrintClick(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+            }
+        </script>
+	</body>
+
+</html>

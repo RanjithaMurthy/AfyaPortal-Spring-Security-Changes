@@ -1,0 +1,316 @@
+<script>
+    ga('send', 'pageview', { 'page': '/ProviderDashboard/Provider_account_MyNetwork_NetworkRequestBlocked', 'title': 'Provider Account MyNetwork NetworkRequestBlocked'});
+</script>
+
+<div>
+    <link href="/afya-portal/static/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+
+    <div ng-controller="BlockNetworkRequestController">
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 text-right mt501 ">
+                    <!--<button data-target="" class="btn btn-grey xs-mb15 mt501" onClick="window.location.href = 'security.html'" type="button"><span class="label label-primary pull-left">12</span>  <i class="fa fa-envelope-o"></i> Messages</button>
+                    <button data-target="" class="btn btn-grey xs-mb15 mt501" onClick="window.location.href = 'security.html'" type="button"> <i class="fa fa-cog fa-3"></i> Settings &nbsp;</button>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <!--menu-->
+
+        <div>
+            <div class="container">
+                <div class="row" id="Afya-liteblue" >
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#ProviderDashboard">Account Summary</a></li>
+                                <li><a href="#ProviderDashboard/Provider_account_Service_Subscribe">Services</a></li>
+                                <!--<li><a href="#ProviderDashboard/Provider_account_LoyaltyProg_information">Loyalty Program</a></li>-->
+                                <!--<li><a href="#">Training</a></li>-->
+                                <!--<li><a href="#">Consent &amp; Notifications</a></li>-->
+                                <li class="active"><a href="#ProviderDashboard/Provider_account_MyNetwork_ExistingNetwork">My Network</a></li>
+                                <!--<li><a href="#">Member Support</a></li>-->
+                                <li><a href="#ProviderDashboard/Provider_account_policies">Afya Policies</a></li>
+                                <li><a class="clickable" onclick="redirectClinic()">My Facility</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row"  >
+                    <div class="underlinemenu">
+                        <ul>
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_ExistingNetwork" >Existing Network</a></li>
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_NewNetworkRequest" >New Network</a></li>
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_NetworkRequestReceived" >Network Request Received</a></li>
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_Contracts">Contracts</a></li>
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_NetworkRequestBlocked" class="selected">Block</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--menu end-->
+        <section>
+            <div class="container">
+                <!-- Visitor Message Panel -->
+                <div class="col-sm-12 col-xs-12 col-md-12" ng-show="MemberType=='VISITOR'">
+                    <div class="alert alert-info" role="alert">
+                        <strong>Subscribe immediately to Afya Services & build your Professional Network.</strong>
+                    </div>
+                </div>
+                <!-- Visitor Message Panel -->
+
+                <div class="row">
+                    <p class=" text-center p-text"> </p>
+                    
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                    <div class="pack-wraper hvr-grow1">
+                       <div class="pack-whitebg-box">
+                    
+                     <table width="100%" border="0">
+                      <tbody>
+                    </tbody></table>
+
+                    <div class="clearfix"></div>
+                  </div>
+                      <div  style="overflow-y : scroll; height:250px;" >
+                        <table width="100%" border="0" class="table table-bordered">
+
+                            <tr class="sub333-tr">
+                                <th>Date</th>
+                                <th>Sent by</th>
+                                <th>Facility Type</th>
+                                <th>Facility Name</th>
+                                <th>Key Person</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th colspan="3">Action </th>
+                            </tr>
+                            <tbody ng-repeat="data in datas">
+                            <tr class="sub33-tr">
+                                <td valign="middle" ng-bind-template="{{data.createdOn | date:'dd/MM/yyyy'}}"></td>
+                                <td ng-bind-template="{{data.firstName}} {{data.lastName}}"></td>
+                                <td>Clinic</td>
+                                <td ng-bind="data.facilityName">  </td>
+                                <td ng-bind-template="{{data.keyPersonFirstName}} {{data.keyPersonLastName}}"></td>
+                                <td ng-bind="data.email"></td>
+                                <td ng-bind="data.address"></td>
+                                <td>
+                                    <button data-target="" ng-click="unBlock(data,$index)" class="btn btn-dash xs-mb15 " type="button">Unblock</button>
+                                </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+
+                      <div class="pack-gry-box">
+                      
+                      <!--<div class="col-sm-2">
+                      	 <div class=" pull-left">
+                          <label>Reset search Filters</label>
+                         </div>
+                      </div>
+                      <div class="col-sm-6 ">
+                      	<span class="pull-right">
+                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                    <ul class="pagination">
+                    <li class="paginate_button previous disabled" id="example1_previous">
+                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li>
+                    <li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li>
+                    <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a></li>
+                    <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a></li>
+                    <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a></li>
+                    <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a></li
+                    ><li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a></li>
+                    <li class="paginate_button next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a></li></ul></div>
+                    </span> 
+                      
+                      </div>-->
+                    <div class="clearfix"></div>
+                  </div>
+                        <div class="clearfix"></div>
+                      </div>
+                      
+                      
+                      
+                  </div>
+</div>
+
+
+
+
+
+
+
+            </div>
+            <!--/.container--> 
+        </section>
+        <section id="approach1">
+        <div class="container">
+        <!--    row1 start-->
+  			<div class="row mb30">
+			</div>
+            
+        <!--    row1 end-->
+        </div>
+        </section>
+        <!--/#care-provider-payer-->
+        <section id="adapt-method">
+            <div class="center container">
+           
+            </div>
+
+        </section>
+        <script src="/afya-portal/static/js/bootstrap-datepicker.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script> -->
+        <!--<script type="text/javascript">-->
+                            <!--$(document).ready(function ($) {-->
+
+                                <!--// delegate calls to data-toggle="lightbox"-->
+                                <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+                                    <!--event.preventDefault();-->
+                                    <!--return $(this).ekkoLightbox({-->
+                                        <!--onShown: function () {-->
+                                            <!--if (window.console) {-->
+                                                <!--return console.log('Checking our the events huh?');-->
+                                            <!--}-->
+                                        <!--},-->
+                                        <!--onNavigate: function (direction, itemIndex) {-->
+                                            <!--if (window.console) {-->
+                                                <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                                            <!--}-->
+                                        <!--}-->
+                                    <!--});-->
+                                <!--});-->
+
+                                <!--//Programatically call-->
+                                <!--$('#open-image').click(function (e) {-->
+                                    <!--e.preventDefault();-->
+                                    <!--$(this).ekkoLightbox();-->
+                                <!--});-->
+                                <!--$('#open-youtube').click(function (e) {-->
+                                    <!--e.preventDefault();-->
+                                    <!--$(this).ekkoLightbox();-->
+                                <!--});-->
+
+                                <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+                                    <!--event.preventDefault();-->
+                                    <!--return $(this).ekkoLightbox({-->
+                                        <!--onShown: function () {-->
+                                            <!--var a = this.modal_content.find('.modal-footer a');-->
+                                            <!--if (a.length > 0) {-->
+                                                <!--a.click(function (e) {-->
+                                                    <!--e.preventDefault();-->
+                                                    <!--this.navigateTo(2);-->
+                                                <!--}.bind(this));-->
+                                            <!--}-->
+                                        <!--}-->
+                                    <!--});-->
+                                <!--});-->
+
+
+                                <!--// fade in #back-top-->
+                                <!--$(function () {-->
+
+                                    <!--// scroll body to 0px on click-->
+                                    <!--$('#back-top').click(function () {-->
+                                        <!--$('body,html').animate({-->
+                                            <!--scrollTop: 0-->
+                                        <!--}, 800);-->
+                                        <!--return false;-->
+                                    <!--});-->
+                                <!--});-->
+
+                            <!--});-->
+        <!--</script> -->
+        <script>
+            $(function() {
+                $( ".btn" ).click(function() {
+                var icon = $( this );
+                icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+                icon.closest( ".box" ).find( ".box-body" ).toggle();
+                });
+            });
+        </script>
+        <script>
+$(document).ready(function () {
+    //rotation speed and timer
+    var speed =5000;
+    
+    var run = setInterval(rotate, speed);
+    var slides = $('.slide');
+    var container = $('#slides ul');
+    var elm = container.find(':first-child').prop("tagName");
+    var item_width = container.width();
+    var previous = 'prev'; //id of previous button
+    var next = 'next'; //id of next button
+    slides.width(item_width); //set the slides to the correct pixel width
+    container.parent().width(item_width);
+    container.width(slides.length * item_width); //set the slides container to the correct total width
+    container.find(elm + ':first').before(container.find(elm + ':last'));
+    resetSlides();
+    
+    
+    //if user clicked on prev button
+    
+    $('#buttons a').click(function (e) {
+        //slide the item
+        
+        if (container.is(':animated')) {
+            return false;
+        }
+        if (e.target.id == previous) {
+            container.stop().animate({
+                'left': 0
+            }, 1500, function () {
+                container.find(elm + ':first').before(container.find(elm + ':last'));
+                resetSlides();
+            });
+        }
+        
+        if (e.target.id == next) {
+            container.stop().animate({
+                'left': item_width * -2
+            }, 1500, function () {
+                container.find(elm + ':last').after(container.find(elm + ':first'));
+                resetSlides();
+            });
+        }
+        
+        //cancel the link behavior            
+        return false;
+        
+    });
+    
+    //if mouse hover, pause the auto rotation, otherwise rotate it    
+    container.parent().mouseenter(function () {
+        clearInterval(run);
+    }).mouseleave(function () {
+        run = setInterval(rotate, speed);
+    });
+    
+    
+    function resetSlides() {
+        //and adjust the container so current is in the frame
+        container.css({
+            'left': -1 * item_width
+        });
+    }
+    
+});
+//a simple function to click next link
+//a timer will call this function, and the rotation will begin
+
+function rotate() {
+    $('#next').click();
+}
+</script>
+    </div>
+</div>

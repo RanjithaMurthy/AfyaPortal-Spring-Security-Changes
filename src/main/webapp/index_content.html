@@ -1,0 +1,442 @@
+<script>
+    ga('send', 'pageview', { 'page': '/index', 'title': 'Index'});
+</script>
+<script>
+    <!--// using for Home Pharmacy Login-->
+    <!--function onLoginClick() {-->
+        <!--// hide login modal-->
+        <!--$('#myLogin').modal('hide');-->
+        <!--var userName = $('#login_username').val();-->
+        <!--var password = $('#login_password').val();-->
+
+        <!--$.ajax({-->
+             <!--url: "/afya-portal/loginViaPopUp?username=" + userName + "&password=" + password,-->
+             <!--type: 'post',-->
+             <!--async: false,-->
+             <!--success: function (data) {-->
+                    <!--$('#myLogin').modal('hide');-->
+                    <!--// Set header and footer after post login-->
+                    <!--initializePage();-->
+                    <!--if(readCookieFromUserName("role") != "ROLE_PATIENT"){-->
+                        <!--sweetAlert({ title: "", text: 'Hi, This service is available only if you are logged in as a Patient.', type: "warning" });-->
+                        <!--return false;-->
+                    <!--}-->
+                    <!--// Calling Post login methods-->
+                    <!--window.location.href = '#homePharmacy';// redirect homePharmacy-->
+             <!--},-->
+             <!--error : function(data){-->
+                <!--console.log(data);-->
+                <!--sweetAlert({ title: "Error", text: data.responseJSON.message, type: "error" });-->
+             <!--}-->
+        <!--});-->
+    <!--}-->
+
+    // On Login Submit
+    $('#loginform_appointment').submit(function (event) {
+        event.preventDefault();
+        var url= location.href;
+        //alert(url);
+        var data = 'username=' + $('#homePhrmacyUsername').val() + '&password=' + $('#homePhrmacyPassword').val();
+        //alert(data);
+        $.ajax({
+            data: data,
+            timeout: 1000,
+            type: 'POST',
+            url: '/afya-portal/login'
+
+        }).done(function(data, textStatus, jqXHR) {
+        // $("#member_login_spring_ajax").modal("hide");
+             $("#myModal").modal("hide");
+            // Set header and footer after post login
+            initializePage();
+            if(readCookieFromUserName("role") != "ROLE_PATIENT"){
+                sweetAlert({ title: "", text: 'Hi, This service is available only if you are logged in as a Patient.', type: "warning" });
+                return false;
+            }
+            // Calling Post login methods
+            window.location.href = '#homePharmacy';// redirect homePharmacy
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            //alert('Booh! Wrong credentials, try again!');
+            var errormessage= JSON.parse(jqXHR.responseText)
+			console.log(errormessage);
+            sweetAlert({ title: "Sorry", text: errormessage.message, type: "error" });
+        });
+    });
+
+    //$('#myLogin').on('shown.bs.modal', function () {
+        //$('#login_username').focus();
+    //})
+</script>
+<link type='text/css' href='https://fonts.googleapis.com/css?family=Lato:300,700' />
+<div>
+        <!--slider-->
+        <section id="main-slider" class="no-margin">
+
+
+            <div class="carousel slide" data-interval="3000" data-ride="carousel">
+                <center>
+                    <ol class="carousel-indicators">
+                        <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                        <li class="" data-target="#main-slider" data-slide-to="1"></li>
+                        <li class="" data-target="#main-slider" data-slide-to="2"></li>
+                        <li class="" data-target="#main-slider" data-slide-to="3"></li>
+                    </ol>
+                </center>
+                <!--requ div start-->
+                <div class="container">
+                    <div class="row">
+                        <div class="requ-div-adj hidden-xs">
+                            <div class="requ-div">
+                                <h5 class="text-center">Request for</h5>
+                                <div class="text-center blue-down-arrow"></div>
+                                <ul class="requ-nav">
+                                    <!--<li>
+                                        <a href="#" class="icon-tele" >Teleconsultation</a></li>
+                                    <li>
+                                        <a href="web_pages/afya_member_request/appointments.html" class="icon-appo" >Appointment</a></li>
+                                    <li>
+                                        <a href="#" class="icon-visit" >Home Visit</a></li>-->
+                                    <li>
+                                        <!--<a href="#" data-target="#mySmallModalLabel2" data-toggle="modal" class="icon-visit" >Appointment Request</a></li>-->
+                                        <a href="#appointmentRequest" class="icon-visit" >Appointment Request</a></li>
+                                    <li>
+                                        <a href="#appointment?visitType=Premium Visit" class="icon-appo" >Premium Appointment</a></li>
+
+                                    <li>
+                                        <a href="#appointment?visitType=Tele Consultation Visit" class="icon-tele" >Tele Consultation</a></li>
+                                    <li>
+                                        <a href="#appointment?visitType=Home Visit" class="icon-visit" >Home Visit</a></li>
+
+                                    <!--<li>
+                                        <a href="#" class="icon-care" >Home Care </a></li>-->
+                                    <li>
+                                        <a href="#" data-target="#mySmallModalLabel2" data-toggle="modal" class="icon-phar" >Home Pharmacy</a></li>
+                                    <!--<a href="#" onclick="homePharmacyClick()" class="icon-phar" >Home Pharmacy</a></li>-->
+                                    <!--<li>
+                                        <a href="#" class="icon-phle" >Home Phlebotomy</a></li>-->
+                                    <li><button type="button" class="btn-join" ui-sref="JoinIn">Not a Member? <strong>JOIN IN!</strong></button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--requ div end-->
+                <div class="carousel-inner">
+
+                    <div class="item active" style="background-image: url(/afya-portal/static/images/slider/bg1.jpg)">
+                        <div class="container">
+                            <div class="row slide-margin">
+                                <div class="col-md-2 hidden-xs hidden-sm  ">
+                                    <div class="slider-img1">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-10 col-lg-12">
+                                    <div class="carousel-content">
+                                        <!--                                    <h1 >Afya - an emerging social innovation <br/>building trust in the </h1>
+                                                                                <h2 >Patient,Care Provider & Payer <br/>Relationship</h2>-->
+                                        <br><br>
+                                        <span style="color:#3b4958;font-size:45px; font-weight:100;text-shadow: 1px 2px #fff;">Building a </span>
+                                        <span style="font-family: 'Lato', arial;color:#3b4958; font-size:45px; font-weight:bold;text-shadow: 1px 2px #ffffff;">Smart Care <br><br>
+                                            Community </span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div><!--/.item-->
+
+                    <div class="item" style="background-image: url(/afya-portal/static/images/slider/bg2.jpg)">
+                        <div class="container">
+                            <div class="row slide-margin">
+                                <div class="col-md-2 hidden-xs hidden-sm">
+                                    <div class="slider-img2">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-10 col-lg-12">
+                                    <div class="carousel-content">
+                                        <!--                                        <h1 >Afya - providing on-demand healthcare<br/> services through </h1>
+                                                                                <h2 >Seeker,Care Provider & Payer’s <br/> Continuous Engagement </h2>-->
+                                        <br><br>
+                                        <span style="color:#3b4958;font-size:45px; font-weight:100;text-shadow: 1px 2px #fff;">Care Service </span><br><br>
+                                        <span style="font-family: 'Lato', arial;color:#3b4958; font-size:45px; font-weight:bold;text-shadow: 1px 2px #ffffff;">On Finger Tips </span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div><!--/.item-->
+
+                    <div class="item" style="background-image: url(/afya-portal/static/images/slider/bg3.jpg)">
+                        <div class="container">
+                            <div class="row slide-margin">
+                                <div class="col-md-2 hidden-xs hidden-sm">
+                                    <div class="slider-img3">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-10 col-lg-12">
+                                    <div class="carousel-content">
+                                        <!--                                        <h1 >Afya - enabling  </h1>
+                                                                                <h2 >New Care Experiences for<br/> Anxiety, Safety & Quality</h2>-->
+                                        <br><br>
+                                        <span style="color:#3b4958;font-size:45px; font-weight:100;text-shadow: 1px 2px #fff;">Social Innovation </span>
+                                        <br><br> <span style="font-family: 'Lato', arial;color:#3b4958; font-size:45px; font-weight:bold;text-shadow: 1px 2px #ffffff;">  In Healthcare</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div><!--/.item-->
+                    <div class="item" style="background-image: url(/afya-portal/static/images/slider/bg4.jpg)">
+                        <div class="container">
+                            <div class="row slide-margin">
+                                <div class="col-md-2 hidden-xs hidden-sm">
+                                    <div class="slider-img4">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-10 col-lg-12">
+                                    <div class="carousel-content">
+                                        <!--                                        <h1 >Afya - a new wave of change in care delivery <br/>with care seekers, payers and Care Providers</h1>
+                                                                                <h2 >Leading Healthcare <br/>Transformation</h2>-->
+                                        <br><br>
+                                        <span style="color:#3b4958;font-size:45px; font-weight:100;text-shadow: 1px 2px #fff;">Connecting </span>
+                                        <span style="font-family: 'Lato', arial;color:#3b4958; font-size:45px; font-weight:bold;text-shadow: 1px 2px #ffffff;"> Patients,<br> <br> Care Providers &amp; Payers</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/.item-->
+                </div><!--/.carousel-inner-->
+                <!--/.carousel-inner-->
+
+
+            </div><!--/.carousel-->
+
+        </section>
+        <!--slider end-->
+
+        <!--tour for-->
+        <div class="clearfix"></div>
+        <!-- Login Modal Starts-->
+        <div class="modal fade" id="myLogin" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="container">
+                <div class="row">
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-member mw370">
+                            <div class="modal-header modal-header-member text-left xs-text-left">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="member_login_close_spring_ajax"><span aria-hidden="true">&times;</span></button>
+                                <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                                <span class="modal-head mrm30" style="margin-left:50px">Member Login</span>
+                            </div>
+                            <div class="modal-body pd30">
+                                <div style="display:none" class="login-error-box text-center">
+                                    <!--succe-box-->
+                                    <img src="/afya-portal/static/images/error-icon.png" alt="error-img"/> &nbsp;<span>Please fix the errors in the form.</span>
+                                </div>
+                                <form id="loginform_appointment" name="loginform_appointment">
+                                    <div class="form-group mb30">
+                                        <div class="input-icon">
+                                            <i class="fa fa-user"></i>
+                                            <input type="text" class="form-control fsize" id="homePhrmacyUsername" name="homePhrmacyUsername" placeholder="Username"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb30">
+                                        <div class="input-icon">
+                                            <i class="fa fa-key"></i>
+                                            <input type="password" class="form-control fsize" id="homePhrmacyPassword" name="homePhrmacyPassword" placeholder="Password" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="mb20">
+                                            <button type="submit" class="btn btn-all mrm30" id="homePhrmacyPasswordLog_in_spring_ajax" name="log_in">Log In &nbsp;
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-all-learn" name="sign_up_link" id="homePhrmacyPasswordSign_up_link_ajax" value="click here"
+                                                    onclick="onJoinInClicked('myLogin')">
+                                                Join in &nbsp;
+                                                <i class="fa fa-chevron-right"></i>
+                                            </button>
+                                            <hr>
+                                            <a href="#" data-toggle="modal" data-target="#member-forget-psd" class="link-log-in" onClick="$('#member_login_close').trigger('click')">Forgot Password</a>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Login Modal Ends-->
+
+        <div class="div-take"> <span class="left-corner"></span>
+            <p class="text-center"> Take a Virtual Tour for</p>
+            <span class="right-corner"></span> </div>
+        <!--tour for - end-->
+
+        <section id="services" class="pd0">
+            <div class="virtu-div clearfix threeboxrow">
+                <div class="container xs-no-pd-mr">
+                    <a href="https://www.youtube.com/watch?v=MCq2g56vEME" class="videoBtn" data-toggle="lightbox">
+                        <div class="col-sm-4 col-xs-12 col-md-4 bg-green">
+                            <div class="img-div"> <img src="/afya-portal/static/images/seeker1.svg" alt=""> </div>
+                            <div class="text-div">
+                                <h4 class="no-margin">&nbsp;</h4>
+                                <h5 class="no-margin">Patients</h5>
+                                <h3 class="no-margin">Citizens</h3>
+                            </div>
+                            <div class="left-arrow-divVideo">
+                                <img src="/afya-portal/static/images/video_button.png" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=mCtKYLM1kWI" class="videoBtn" data-toggle="lightbox">
+                        <div class="col-sm-4 col-xs-12 col-md-4 bg-blue pdr0">
+                            <div class="img-div"> <img src="/afya-portal/static/images/provider1.svg" alt=""> </div>
+                            <div class="text-div">
+                                <h4 class="no-margin">Care-</h4>
+                                <h5 class="no-margin">Provider</h5>
+                                <h3 class="no-margin">Clinic, Pharma, Lab, etc</h3>
+                            </div>
+                            <div class="left-arrow-divVideo"><img src="/afya-portal/static/images/video_button.png" alt=""></div>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=qI6BR5Q5_fI" class="videoBtn" data-toggle="lightbox">
+                        <div class="col-sm-4 col-xs-12 col-md-4 bg-lig-blue">
+                            <div class="img-div"> <img src="/afya-portal/static/images/payor.svg" alt=""> </div>
+                            <div class="text-div">
+                                <h4 class="no-margin">Care -</h4>
+                                <h5 class="no-margin">Payer</h5>
+                                <h3 class="no-margin"> TPA / Insurance</h3>
+                            </div>
+                            <div class="left-arrow-divVideo"><img src="/afya-portal/static/images/video_button.png" alt="">  </div>
+                        </div>
+                    </a> </div>
+            </div>
+        </section>
+        <!--/#services-->
+        <div class="clearfix"></div>
+        <section id="apps-faqs" class="pdb0">
+            <div class="container">
+                <div class="col-md-6 col-sm-12">
+                    <h4>Download Afya App for Patient &amp; Care Provider</h4>
+                    <div class="col-sm-9">
+                        <img src="/afya-portal/static/images/xs-sm-mobile.png" alt="" class="img-responsive visible-xs visible-sm">
+                        <img src="/afya-portal/static/images/lg-md-mobile.png" alt="" class="visible-lg visible-md">
+                        <button data-target=""  ui-sref="AfyaServices/afya-mobile-app" class="btn btn-all-learn mobile-btn-adj" type="button">View all Afya Apps &nbsp;<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                    <div class="col-sm-3">
+                        <ul class="phone-ul">
+                            <li><a href="https://www.apple.com/itunes/charts/free-apps/" ><img src="/afya-portal/static/images/apple.png" alt="apple"></a></li>
+                            <li><a href="https://play.google.com/store/search?q=afyaarabia" ><img src="/afya-portal/static/images/android.png" alt="android"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div >
+                <div class="col-md-5 col-md-offset-1 col-sm-12" ng-controller="FAQIndexController">
+                    <h4>FAQs</h4>
+                    <ul class="faq-ul">
+                        <div ng-repeat="faq in faqs">
+                            <h3> {{faq.questionLevel}} </h3>
+                            <a href="#ExperienceAfya/faq?searchParam={{faq.question}}" >
+                                <li style="font-weight: bold;font-size: 17px;">{{faq.question}}</li>
+                                <!--<span class="glyphicon glyphicon-chevron-right adj-left"></span>-->
+                            </a>
+                        </div>
+                    </ul>
+                    <button type="button" class="btn btn-all-learn center-block" ui-sref="ExperienceAfya/faq"   >View all FAQs <i class="fa fa-chevron-right"></i></button>
+                </div>
+                </div>
+            </div>
+        </section>
+        <!--/#apps-faqs-->
+
+        <section id="care-provider-payer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <h4>Care Provider</h4>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-4"> <img src="/afya-portal/static/images/1.png" class="img-circle" alt=""> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <p>Build your own care community </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-4"> <img src="/afya-portal/static/images/2.png" class="img-circle" alt=""> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <p>Collaborate and contribute to a wellness community </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-4"> <img src="/afya-portal/static/images/3.png" class="img-circle" alt=""> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <p>Enabling service excellence </p>
+                            </div>
+                        </div>
+                        <button type="button" ui-sref="appointment" class="btn center-block btn-ser-provider" >Search a Care-Provider &nbsp;<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 pl62">
+                        <h4>Care  Payer</h4>
+                        <div class="row ml-5">
+                            <div class="col-md-3 col-sm-4 col-xs-4"> <img src="/afya-portal/static/images/4.png" class="img-circle" alt=""> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <p>Collaborate in the care and wellness landscape</p>
+                            </div>
+                        </div>
+                        <div class="row ml-5">
+                            <div class="col-md-3 col-sm-4 col-xs-4"> <img src="/afya-portal/static/images/5.png" class="img-circle" alt=""> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <p>Quick and smooth claims settlement </p>
+                            </div>
+                        </div>
+                        <div class="row ml-5">
+                            <div class="col-md-3 col-sm-4 col-xs-4"> <img src="/afya-portal/static/images/6.png" class="img-circle" alt=""> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <p>Stay connected and strategic advantage </p>
+                            </div>
+                        </div>
+                        <button class="btn center-block btn-ser-provider" data-target=".bs-example-modal-sm" data-toggle="modal" type="button">
+                            Search a Care-Payer
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--/.container-->
+        </section>
+        <!--/#care-provider-payer-->
+
+
+
+
+
+
+
+    <div id="pop_up_window">
+
+    </div>
+
+    <script type="text/javascript">
+                           $(document).ready(function () {
+                                    $('.carousel').carousel();
+
+                                });
+        </script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>-->
+    <script src="/afya-portal/static/js/ekko-lightbox.min.js"></script>
+
+
+
+</div>

@@ -1,0 +1,211 @@
+
+
+
+<script>
+    ga('send', 'pageview', { 'page': '/ExperienceAfya/faq', 'title': 'FAQ'});
+</script>
+
+<div id="faqDiv">
+<link href="/afya-portal/static/css/chosen.css" rel="stylesheet" type="text/css"/>
+<div class="clearfix"></div>
+<section id="faq-afya-slider2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left ">
+                <h2>Afya FAQs,</h2>
+                <h1>To clarify all your immediate questions</h1>
+            </div>
+        </div>
+    </div>
+    <div class="faq-afya-strip">
+        <div class="container">
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                <a href="/afya-portal">Home</a>
+                <span><i class="fa fa-angle-right"></i></span>
+                <span><a ui-sref="ExperienceAfya">Experience Afya</a></span>
+                <span><i class="fa fa-angle-right"></i></span>
+                <span>FAQs</span>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+<div ng-controller="FAQController">
+    <section id="search-box-div" class="pdb0" style="padding: 45px 0 0 0">
+        <div class="container">
+            <div class="row pull-right">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group wd200">
+                        <input class="form-control fsize" id="search-faq" name="search-faq" ng-model="searchParam" placeholder="Search FAQs" type="text">
+                    </div>
+                    <button type="button" class="btn btn-all"  id="search-faq-btn" name="search-faq-btn" ng-click="search()">Search &nbsp;
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<section id="membership-info-accordion" class="pdb0">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-md-12 col-sm-12 col-xs-12">-->
+
+
+                   <!--&lt;!&ndash; <select data-placeholder="Eco System Stakeholder" class="chzn-select" tabindex="1">-->
+                        <!--<option value="United States">Eco System Stakeholder</option>-->
+                        <!--<option value="United Kingdom">Service Provider</option>-->
+                    <!--</select>-->
+
+
+                    <!--<select data-placeholder="Queries" class="chzn-select" tabindex="2">-->
+                        <!--<option>Queries</option>-->
+                        <!--<option>What is Afya Ecosystem?</option>-->
+                        <!--<option>How is it different from operating in the existing business Ecosystem?</option>-->
+                        <!--<option>How does afya provide a new &amp; better experience for the Care Provider by being part of the Ecosystem?</option>-->
+                        <!--<option>What is the process for adapting the Ecosystem?</option>-->
+                        <!--<option>How much time does it take to adapt to the Ecosystem and what are the activities my team has to do?</option>-->
+                        <!--<option>What are the unique benefits with Afya for the Care Seekers?</option>-->
+                    <!--</select>&ndash;&gt;-->
+
+                    <!--<select data-placeholder="Category" class="chzn-select" tabindex="3">-->
+                        <!--<option>Category</option>-->
+                        <!--<option>Care Provider-G</option>-->
+                        <!--<option>Care Seeker</option>-->
+                    <!--</select>-->
+
+
+                   <!--&lt;!&ndash; <select data-placeholder="Afya response" class="chzn-select" tabindex="4">-->
+                        <!--<option>Afya response</option>-->
+                        <!--<option>Afya is a social innnovation initiative to build a SMART Care community. Afya enables<br/>-->
+                            <!--Healthcare Stakeholders (i.e. Providers, Seekers & Payors) to  have the process continuity to <br/>-->
+                            <!--operate in a seamless manner thereby providing better, faster, efficient & affordable healthcare <br/>-->
+                            <!--to seekers using the Afya ICT Ecosystem. Please click this link for more information.</option>-->
+                        <!--<option>In today's scenario, discreet & complementary stakeholders operate in their own space <br/>-->
+                            <!--i.e. a disconnected care delivery ecosystem with very little or no connect between providers, <br/>-->
+                            <!--seekers & payors. Afya enables SMART services even between the discreet stakeholders to be rendered<br/>-->
+                            <!--in a SMART way thereby building a SMART Care community.</option>-->
+                        <!--<option>Providers by defintion can be institutions or individuals. Afya welcomes both  types of<br/>-->
+                            <!--providers to operate in the Ecosystem. Please do click this link for more information of understanding <br/>-->
+                            <!--the new experience for being part of the Ecosystem. Please do click this link for information.</option>-->
+                        <!--<option>Please download our Adaption methdology for Providers. If you are already a member & have registered<br/>-->
+                            <!--for services, please go to the Online estimation for more information & understanding or call our Membership<br/>-->
+                            <!--Care Team, If you are not a member, please register yourself first and contact our Membership Care team.</option>-->
+                        <!--<option>The Time for adaption is corelated to the type of services being used by the Care Provider in Afya. <br/>-->
+                            <!--If you are already a member & have registered for services please go to the Online estimation for a more<br/>-->
+                            <!--information, or call our Membership Care Team. If you are not a member, please register yourself and contact<br/>-->
+                            <!--our Membership Care team.</option>-->
+                        <!--<option>The unique benefits for your Care Seekers is by becoming Members they can make use of the set of<br/>-->
+                            <!--SMART services which are enabled for Member Care Seekers.<br/>-->
+                            <!--Any Care Seeker can make use of all the services from the Care Provider like Pharmacy at Home, Care at Home,<br/>-->
+                            <!--Phlebotomy at Home, etc. All these services are appointment based and Pre Paid with a confirmation from the <br/>-->
+                            <!--Care Provider. To view the entire suite of services and benefits Care Seekers can have please  click on this link.</option>-->
+                    <!--</select>-->
+
+
+                    <!--<select data-placeholder="Satisfactory level" class="chzn-select" tabindex="5">-->
+                        <!--<option>Satisfactory level</option>-->
+                        <!--<option>Few of the Benefits:<br/>-->
+                            <!--Plug into Afya for enabling connected healthcare service model. <br/>-->
+
+                            <!--Avail Services:<br/>-->
+                            <!--A pre-programmed business software with good practices.<br/>-->
+
+                            <!--Render Services:<br/>-->
+                            <!--Appointments from Care seekers  for Visits / Advice / Opinions, which could be rendered through<br/>                                                Online Consulting or Visits;-->
+                            <!--Refer Care Seekers within the ecosystem for complementary / specialized services; OR <br/>-->
+                            <!--Render complimentary services for the complementary partners to the seekers at the first point of contact;<br/>-->
+                            <!--Time Share of free assets with complementary seekers; & <br/>-->
+                            <!--Many more services...<br/>-->
+
+                            <!--IMPACT :<br/>-->
+                            <!--Enable faster Revenue realization with Insurance providers / TPA, thereby improving cash flow.<br/>-->
+                            <!--Enable support care in the community and at home.<br/>-->
+                            <!--Enable exchange of health information among health care professionals.<br/>-->
+                            <!--Support shared decision-making with patients / peers / other providers.<br/>-->
+                            <!--Enable new opportunities by connecting with hard-to-reach populations.<br/>-->
+                            <!--Build and be part of various social community networks.<br/>-->
+                            <!--There is no need for huge investments in ICT.<br/>-->
+                        <!--</option>-->
+
+
+                    <!--</select>&ndash;&gt;-->
+
+
+                    <!--<select data-placeholder="Resolution" class="chzn-select" tabindex="6">-->
+                        <!--<option>Resolution</option>-->
+                    <!--</select>-->
+
+
+                    <!--&lt;!&ndash;<select data-placeholder="Mitigation" class="chzn-select lg-l-155" tabindex="7">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<option>Mitigation</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</select>&ndash;&gt;-->
+
+
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+    <div class="clearfix"></div>
+    <div id="dvLoading"></div>
+    <section id="membership-info-accordion">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 text-center ">
+
+                    <div class="glossymenu">
+
+
+
+
+                        <div  ng-repeat="data in datas">
+                            <div class="accor-main" role="tab" id="heading_{{$index}}">
+
+                                <a id="questionA_{{$index}}" data-toggle="collapse" class="menuitem submenuheader1" data-parent="#accordion" href="#collapse_{{$index}}" aria-expanded="false" aria-controls="collapse_{{$index}}">
+                                       <span style="font-weight: bold;font-size: 17px;"> {{data.question}} </span>
+                                </a>
+
+                                <div id="collapse_{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{$index}}" style="background: #ebf3f0 none repeat scroll 0 0;">
+                                    <div class="panel-body">
+
+                                        <p>
+                                <span >
+                                <b>Afya response: </b></span> <span ng-bind-html="toTrustedHTML(data.answer)"></span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                </div>
+            </div>
+    </section>
+</div>
+<div class="clearfix"></div>
+<!--
+<script type="text/javascript">
+    $(".chzn-select").chosen();
+    function toggleSubMenu(obj)
+    {
+        var elm = $(obj).find('.submenu1').toggle();
+    }
+</script>-->
+
+</div>
+<script src="/afya-portal/static/js/ekko-lightbox.min.js"></script>
+<script>
+    $('#faqDiv').ready(function(){
+        $('#dvLoading').fadeOut(2000);
+    });
+</script>

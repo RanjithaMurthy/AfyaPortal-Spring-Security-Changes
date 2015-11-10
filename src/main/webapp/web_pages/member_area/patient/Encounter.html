@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html ng-app="PatientVisitEncounterModule">
+<head>
+    <title>Encounter</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .bold{
+            font-weight:bold;
+        }
+        .td-bolder tr th, .td-bolder tr td, .td-bolder {
+            border:01px solid black;
+            border-collapse: collapse;
+        }
+        .text-right{
+            text-align:right;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .right{
+            float:right;
+        }
+        .logoImg{
+            width: 230px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body style="font-family:Arial; font-size: 12px;" ng-controller="PatientVisitEncounterController" >
+<div id ="printContent" style="width:90%;margin:0% 5% 0% 5%" ng-init="getEncounterDetailsForVisitForGivenPatientVisitAndTenant()">
+    <div>
+        <div style="float:left">
+            <img ng-src="{{logoURL}}" alt="logo" class="logoImg"/>
+        </div>
+        <div style="float:left" ng-hide="logoWithAddress">
+            <table>
+                <tr><td ng-bind="visit.provider"></td></tr>
+                <tr><td ng-bind="visit.providerAddress"></td></tr>
+                <tr><td ng-bind="visit.providerAdditionalAddress"></td></tr>
+                <tr><td>Tel : {{visit.providerMobile ? visit.providerMobile : ''}}  Email : {{visit.providerEmail? visit.providerEmail : ''}}</td></tr>
+            </table>
+        </div>
+    </div>
+    <div style="clear:both;"></div>
+    <hr />
+    <div>
+        <h3 style="text-align:center">Patient Encounter</h3>
+        <table align="center" style="border:1px solid black;width:100%">
+            <tr>
+                <td class="bold">Afya Id </td>
+                <td>: {{patientDetailItem.afyaId}}</td>
+                <td class="bold">Doctor</td>
+                <td>: {{patientDetailItem.providerFirstname}} {{patientDetailItem.providerLastName}}</td>
+            </tr>
+            <tr>
+                <td class="bold">Civil Id</td>
+                <td>: {{patientDetailItem.civilId}}</td>
+                <td class="bold">Patient Name</td>
+                <td>: {{patientDetailItem.patientFirstName}} {{patientDetailItem.patientLastName}}</td>
+            </tr>
+            <tr>
+                <td class="bold">Age/Gender</td>
+                <td>: {{patientDetailItem.age}} / {{patientDetailItem.gender}}</td>
+                <td class="bold">Visit Date</td>
+                <td>: {{visit.visitDate | date :'dd/MM/yyyy'}}</td>
+            </tr>
+        </table>
+        <div>
+            <h3>Chief Complaints</h3>
+        </div>
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%">
+            <tr>
+                <td class="bold text-center">Chief Complaint</td>
+                <td class="bold text-center">Complaints Remarks</td>
+            </tr>
+            <tr ng-show="!chiefComplaints.length"  style="text-align: center">
+                <td colspan="6"><text><i>No Data Found</i></text></td>
+            </tr>
+            <tr ng-repeat="chiefComplaint in chiefComplaints">
+                <td ng-bind="chiefComplaint.chiefComplaint"></td>
+                <td ng-bind="chiefComplaint.chiefComplaintsRemarks"></td>
+            </tr>
+        </table>
+        <div>
+            <h3>Allergy</h3>
+        </div>
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%;">
+            <tr>
+                <td class="bold text-center">Allergy Name</td>
+                <td class="bold text-center">Allergy Type</td>
+                <td class="bold text-center">Allergy Status</td>
+                <td class="bold text-center">Reaction Name</td>
+                <td class="bold text-center">Onset Date</td>
+            </tr>
+            <tr ng-show="!allegies.length"  style="text-align: center">
+                <td colspan="6"><text><i>No Data Found</i></text></td>
+            </tr>
+            <tr ng-repeat="allergy in allegies">
+                <td ng-bind="allergy.allergyName"></td>
+                <td ng-bind="allergy.allergyType"></td>
+                <td ng-bind="allergy.allergyStatus"></td>
+                <td ng-bind="allergy.reactionName"></td>
+                <td ng-bind="allergy.onSetDate | date : 'dd/MM/yyyy'"></td>
+            </tr>
+        </table>
+        <div>
+            <h3>Diagnosis</h3>
+        </div>
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%;">
+            <tr>
+                <td class="bold text-center">Diagnosis Code</td>
+                <td class="bold text-center">Diagnosis Description</td>
+                <td class="bold text-center">Onset Date</td>
+            </tr>
+            <tr ng-show="!diagnosis.length"  style="text-align: center">
+                <td colspan="6"><text><i>No Data Found</i></text></td>
+            </tr>
+            <tr ng-repeat="diagnosis in diagnosis">
+                <td ng-bind="diagnosis.icdCode"></td>
+                <td ng-bind="diagnosis.icdDescription"></td>
+                <td ng-bind="diagnosis.onSetDate | date : 'dd/MM/yyyy'"></td>
+            </tr>
+        </table>
+        <div>
+            <h3>Procedures</h3>
+        </div>
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%;">
+            <tr>
+                <td class="bold text-center">Procedure Code</td>
+                <td class="bold text-center">Procedure Description</td>
+                <td class="bold text-center">Procedure long Description</td>
+            </tr>
+            <tr ng-show="!procedures.length"  style="text-align: center">
+                <td colspan="6"><text><i>No Data Found</i></text></td>
+            </tr>
+            <tr ng-repeat="procedure in procedures">
+                <td ng-bind="procedure.cptCode" width="10%"></td>
+                <td ng-bind="procedure.description" width="30%"></td>
+                <td ng-bind="procedure.longDesc"></td>
+            </tr>
+        </table>
+        <div>
+            <h3>Doctor Orders</h3>
+        </div>
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%;">
+            <tr>
+                <td class="bold text-center">Test Name</td>
+                <td class="bold text-center">Test Start Date</td>
+                <td class="bold text-center">Test End Date</td>
+                <td class="bold text-center">Reason For Test</td>
+            </tr>
+            <tr ng-show="!labOrders.length"  style="text-align: center">
+                <td colspan="6"><text><i>No Data Found</i></text></td>
+            </tr>
+            <tr ng-repeat="labOrder in labOrders">
+                <td ng-bind="labOrder.testName"></td>
+                <td ng-bind="labOrder.testStartDate"></td>
+                <td ng-bind="labOrder.testEndDate"></td>
+                <td ng-bind="labOrder.reasonOfTest"></td>
+            </tr>
+        </table>
+        <div>
+            <h3>Prescription</h3>
+        </div>
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%;">
+            <tr>
+                <td class="text-center"><strong>Drug Name</strong></td>
+                <td class="text-center"><strong>Start Date</strong> </td>
+                <td class="text-center"><strong>Frequency </strong></td>
+                <td class="text-center"><strong>Frequency Qualifier</strong></td>
+                <td class="text-center"><strong>Number Of Days</strong></td>
+                <td class="text-center"><strong>Total Count</strong> </td>
+            </tr>
+            <tr ng-show="!prescriptions.length"  style="text-align: center">
+                <td colspan="6"><text><i>No Data Found</i></text></td>
+            </tr>
+            <tr ng-repeat="prescription in prescriptions">
+                <td ng-bind="prescription.TRADE_NAME"></td>
+                <td ng-bind="prescription.START_DATE | date : 'dd/MM/yyyy'"></td>
+                <td ng-bind="prescription.freqDescription"></td>
+                <td ng-bind="prescription.freqQualifierDescription"></td>
+                <td ng-bind="prescription.noOfDays" class="text-right"></td>
+                <td ng-bind="prescription.totalCount" class="text-right"></td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <div>
+            <div class="right">
+                <span class="bold">Doctor : </span>{{patientDetailItem.providerFirstname}} {{patientDetailItem.providerLastName}}</br>
+                <span class="bold">Dated : </span>{{currentDate | date :'dd/MM/yyyy hh:mm:ss'}}
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div align="center">
+    <button id="btnPrint" onclick="onPrintClick('printContent')" style="padding:10px;margin-top:20px;font-size:18px"><strong>Print</strong></button>
+</div>
+<div class="clearfix"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../../../static/js/jquery.js" type="text/javascript"></script>
+<script src="../../../static/js/jquery_cookie.js" type="text/javascript"></script>
+<script src="../../../static/js/angular.min.js"></script>
+<script src="../../../static/js/angular-messages.min.js"></script>
+<script src="../../../static/js/PatientVisitEncounterDetails.js"></script>
+<script type="text/javascript">
+    function onPrintClick(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
+</body>
+</html>

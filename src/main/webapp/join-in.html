@@ -1,0 +1,1012 @@
+<script>
+    ga('send', 'pageview', { 'page': '/JoinIn', 'title': 'JoinIn'});
+</script>
+<script type="text/javascript">
+    $( document ).ready(function() {
+
+        $("#payerMobile").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
+        });
+
+        $("#patientMobile").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
+        });
+
+        $("#providerMobile").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
+        });
+    });
+</script>
+
+<div>
+        <div class="clearfix"></div>
+        <section id="regi-afya-slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left ">
+                        <h2 > Afya Registration</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="regi-afya-strip">
+                <div class="container">
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left"> 
+                        <a href="/afya-portal">Home</a>
+                        <span><i class="fa fa-angle-right"></i></span>
+                       <span>Afya Join In</span>   
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <section id="content">
+            <div class="container">
+                <div class="row">                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
+                        
+                        <h1 class="heading-text text-center mb30">Afya Member Registration</h1>
+                        <!--step 1 start-->                
+                        <div class="tab-regi mb30">
+                            <ul class="nav nav-tabs">
+                                <li class="active patient-li">
+                                    <a href="#patient-tab" data-toggle="tab">
+                                        Patients
+                                    </a></li>
+                                <li class="care-provider-li">
+                                    <a href="#care-provider-tab" data-toggle="tab">
+                                        Care Provider
+                                    </a>
+                                </li>
+                                <li class="care-payer-li">
+                                    <a href="#care-payer-tab" data-toggle="tab">                     	
+                                        Care Payer
+                                    </a>
+                                </li>
+                            </ul>                    
+                            <!-- Tab panes -->
+                            <div class="tab-content" >
+                                <div class="tab-pane fade in active" id="patient-tab" ng-controller="PatientController">
+                                    <div id="patient_registration_tab" class="tab-info step1">
+                                        <ul class="tab-info-ul ">
+                                            <li>
+                                                <span id="patient_registration_step_1_number" class="no-tab">1</span>
+                                                <span id="patient_registration_step_1_text" class="selected-stage-text">Patients Detail</span>
+                                            </li>
+                                            <li>
+                                                <span id="patient_registration_step_2_number" class="no-tab-unselected">2</span>
+                                                <span id="patient_registration_step_2_text" class="unselected-stage-text">Verification</span>
+                                             </li>
+                                            <li>
+                                                <span id="patient_registration_step_3_number" class="no-tab-unselected">3</span>
+                                                <span  id="patient_registration_step_3_text" class="unselected-stage-text">Success</span>
+                                            </li>
+                                        </ul>                            
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div id="patient_registration_step_1">
+                                             <form  class="form_member_login"
+                                                  name="patientForm" id="patientForm" no-validate="true">
+                                                 <div class="row">
+                                                   <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control fsize"
+                                                                       id="patientFn" name="patientFn" placeholder="First Name *"
+                                                                       ng-model="patient.firstName"
+                                                                       ng-required="true"/>
+                                                                    <ng-messages class="has-error" for="patientForm.patientFn.$error"
+                                                                             role="alert" ng-if="patientForm.patientFn.$dirty">
+                                                                            <ng-message when="required" class="help-block">Please enter First Name
+                                                                            </ng-message>
+                                                                     </ng-messages>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control fsize" ng-model="patient.middleName" name="patientMn" placeholder="Middle Name"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control fsize" name="patientLn" ng-model="patient.lastName"
+                                                                       ng-required="true" placeholder="Last Name *"/>
+                                                                <ng-messages class="has-error" for="patientForm.patientLn.$error"
+                                                                             role="alert" ng-if="patientForm.patientLn.$dirty">
+                                                                    <ng-message when="required" class="help-block">Please enter Last Name
+                                                                    </ng-message>
+                                                                </ng-messages>
+
+                                                            </div>
+                                                        </div>
+                                         </div>
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input name="patientEmail" ng-model="patient.emailId"
+                                                           ng-required="true"
+                                                           type="email" class="form-control fsize"  placeholder="Email *"/>
+                                                       <ng-messages class="has-error" for="patientForm.patientEmail.$error"
+                                                                 role="alert" ng-if="patientForm.patientEmail.$dirty">
+                                                        <ng-message when="required" class="help-block">Please enter Email
+                                                        </ng-message>
+                                                        <ng-message when="email" class="help-block">Please enter valid email
+                                                            address.
+                                                        </ng-message>
+                                                    </ng-messages>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" ng-model="patient.mobileNumber" class="form-control fsize" ng-maxlength="8" ng-minlength="8" maxlength="8"
+                                                           id="patientMobile" ng-required="true" name="patientMobile" placeholder="Mobile *"/>
+                                                    <ng-messages class="has-error" for="patientForm.patientMobile.$error"
+                                                                 role="alert" ng-if="patientForm.patientMobile.$dirty">
+                                                        <ng-message when="required" class="help-block">Please enter Mobile Number
+                                                        </ng-message>
+                                                        <ng-message when="minlength" class="help-block">Mobile Number Should be 8 Digit
+                                                        </ng-message>
+                                                    </ng-messages>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                             <div class="col-md-4">
+                                                 <div class="form-group">
+                                                     <input type="password" class="form-control fsize" name="patientAdminPassword"
+                                                            ng-model="patient.password"
+                                                            ng-required="true" placeholder="Password *" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+
+                                                     <ng-messages class="has-error" for="patientForm.patientAdminPassword.$error"
+                                                                  role="alert" ng-if="patientForm.patientAdminPassword.$dirty">
+                                                         <ng-message when="required" class="help-block">Please enter Password
+                                                         </ng-message>
+                                                     </ng-messages>
+                                                     <password-strength ng-model="patient.password"></password-strength>
+                                                 </div>
+
+                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control fsize" name="patientAdminPassword2"
+                                                           ng-model="patient.confirmPassword"
+                                                           ng-required="true" placeholder="Confirm Password *" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+
+                                                    <ng-messages class="has-error" for="patientForm.patientAdminPassword2.$error"
+                                                                 role="alert" ng-if="patientForm.patientAdminPassword2.$dirty">
+                                                        <ng-message when="required" class="help-block">Please enter confirm Password
+                                                        </ng-message>
+                                                    </ng-messages>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-default btn-sm pull-center"
+                                                    onclick="$('#passwordPolysis').modal('show')">
+                                                <i class="fa fa-info"></i></button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="login-pref">Login Preference</p>
+                                                <div class="radio">
+                                                    <div class="radio-btn-adj">
+                                                        <input id="radio1" name="r2" type="radio" ng-model="patient.loginPreference" value="EMAIL">
+                                                        <label for="radio1" class="mr30">Email OR </label>
+                                                    </div>
+
+                                                    <div class="radio-btn-adj">
+                                                        <input id="radio2" name="r2" type="radio" ng-model="patient.loginPreference" value="MOBILE">
+                                                        <label for="radio2">Mobile No.</label>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!-- <div class="form-group">
+                                                     <input type="radio" id="r1" checked name="radio-login-pref"><label for="r1" class="radio-label"><span></span>Email OR</label>
+                                                     <input type="radio" id="r2" name="radio-login-pref"><label for="r2" class="radio-label"><span></span>Mobile No.</label>
+                                                 </div>-->
+                                                <div class="checkbox">
+                                                    <input id="patientTermCondition" type="checkbox" ng-model="termCondition" ng-disabled="readTermsOfServiceClicked == false || readPrivacyPolicyClicked == false"/>
+                                                    <label for="patientTermCondition">I have read and agree to Afya <a href="" ng-click="Navigation('#AboutAfya/terms-of-use');readTermsOfServiceClicked=true;">Terms of Service</a> and <a href="" ng-click="Navigation('#AboutAfya/privacy-confidentiality'); readPrivacyPolicyClicked = true;">Privacy Policy</a>  </label>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="has-error"><label style="font-weight: normal" class="help-block">To enable Join In please  click and read Afya <u>Terms of Service</u> and <u>Privacy Policy</u>.</label></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                   <button class="btn btn-all mrm30 xs-mb10 xs-mr-auto" ng-disabled="!patientForm.$valid ||!termCondition "
+                                                           ng-click="submitPatientData()"
+                                                           id="patient_sign_up" name="patient_sign_up">Join In &nbsp;
+                                                        <i class="fa fa-chevron-right"></i>
+                                                    </button>
+                                                    <button type="reset" class="btn btn-all-learn" name="sign_up_link" id="sign_up_link" value="click here">
+                                                        Reset &nbsp;
+                                                        <i class="fa fa-chevron-right"></i>
+                                                    </button>
+                                                </div>
+                                             </div>
+                                         </form>
+                                    </div>
+                                    <div id="patient_registration_step_2" style="display:none">
+                                        <div class="row">
+                                            <form  class="form_member_login"
+                                                   name="patientOTPForm" id="patientOTPForm" no-validate="true">
+                                            <div class="col-md-8">
+                                                <div class="clearfix" id="patientAlreadyVerificationDiv" style="color:green">
+                                                </div>
+                                                <div class="clearfix" id="patientEmailDiv">
+                                                    <p class="regi-text">
+                                                        Congrats, your first step to becoming Afya Member is done. Now please check your mail id <a href="#" style="text-decoration: none"><span ng-bind="patient.emailId"></span></a> and follow the link in the mail Id to complete the registration.
+                                                        <br/>Please check your Junk E-mail folder just in case the email got delivered there instead of your inbox.
+                                                        <!--Please check your email id <a href="#" style="text-decoration: none"><span ng-bind="patient.emailId"></span></a> follow the link given in email to complete the registration.-->
+                                                    </p>
+                                                    <div class="clearfix"></div>
+                                                    <button type="button" class="btn btn-all-learn mr22" ng-click="backToStep1()">
+                                                        Back
+                                                    </button>
+                                                    <button type="button" class="btn btn-all-learn mr22" id="btnResendEmail" name="btnResendEmail"  ng-click="resendEmail()">
+                                                        Resend Confirm Email
+                                                    </button>
+                                                    <span class="regi-text">to send again</span>
+                                                </div>
+                                                <div class="clearfix" id="patientOTPFormDiv">
+
+                                                        <p class="regi-text">
+                                                            Congrats, you are near to become a Member in Afya. Please enter the OTP (One Time Password) below.
+                                                            <!--Please enter OTP (one time password) below that you received on your
+                                                            mobile number<a href="#" style="text-decoration: none"> <span ng-bind="patient.mobileNumber"></span></a>-->
+                                                        </p>
+
+                                                        <div class="opt">
+                                                            <span class="regi-text pull-left mt14">
+                                                                Enter OTP
+                                                            </span>
+                                                            <input type="text" id="patientOTP" name="patientOTP"
+                                                                   ng-model="patient.otpToken"
+                                                                   class="form-control fsize pull-left otp-text"/>
+                                                            <ng-messages class="has-error" for="patientOTPForm.patientOTP.$error"
+                                                                         role="alert" ng-if="patientOTPForm.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter OTP
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                            <button type="button" class="btn btn-all xs-opt-btn"
+                                                                    ng-click="submitOTP()" ng-disabled="patientOTPForm.$invalid">Submit &nbsp;
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div><label id="lblPatientErrorMessage" style="color:red;margin-left:25px;"></label></div>
+                                                        <div class="clearfix"></div>
+                                                        <p>
+                                                            <a href="#" class="regi-text">Did not received OTP?</a>
+                                                        </p>
+                                                        <button type="button" class="btn btn-all-learn mr22" ng-click="backToStep1()">
+                                                            Back
+                                                        </button>
+                                                        <button type="button" class="btn btn-all-learn mr22" id="submit" name="submit"  ng-click="regenerateOTP()">
+                                                            Resend OTP
+                                                        </button>
+                                                            <span class="regi-text">to generate again</span>
+                                                </div>
+                                            </div>
+                                          </form>
+                                        </div>
+                                    </div>
+                                    <div id="patient_registration_step_3" style="display:none">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="div-conform">
+                                                    <img src="/afya-portal/static/images/conform-sign.png" alt="registered" class="mb30"/>
+                                                    <p class="regi-conform">
+                                                        Welcome to Afya, the new Care Ecosystem. You are now a Member of Afya. You can login to the Portal from Afyaarabia home page by clicking on Memeber Login
+                                                        <!--Welcome to Afya, the new Care Ecosystem. You are now a Member of Afya.-->
+                                                        <!--Thank You for verification you have registrated with Afya ( as Patients ) Successfully.-->
+                                                    </p>
+                                                    <button type="button" class="btn btn-all mr20 xs-mb10" data-toggle="modal" data-target="#member_login" style="display:none">
+                                                        Login <i class="fa fa-chevron-right"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-all-learn" id="submit" name="submit"
+                                                            onClick="window.location.href = '/afya-portal'">
+                                                        Go Back to Site
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                               </div>
+                                <div class="tab-pane fade" id="care-provider-tab" ng-controller="ProviderController">
+                                        <div id="provider_registration_tab" class="tab-info step1">
+                                            <ul class="tab-info-ul ">
+                                                <li>
+                                                    <span id="prvider_registration_step_1_number" class="no-tab">1</span>
+                                                    <span id="provider_registration_step_1_text" class="selected-stage-text">Provider Detail</span>
+                                                </li>
+                                                <li>
+                                                    <span id="provider_registration_step_2_number" class="no-tab-unselected">2</span>
+                                                    <span id="provider_registration_step_2_text" class="unselected-stage-text">Verification</span>
+                                                </li>
+                                                <li>
+                                                    <span id="provider_registration_step_3_number" class="no-tab-unselected">3</span>
+                                                    <span  id="provider_registration_step_3_text" class="unselected-stage-text">Success</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div id="provider_registration_step_1">
+                                            <form  class="form_member_login"
+                                                   name="providerForm" id="providerForm" no-validate="true">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <select  class="faci-text-box" id="facility_type"  ng-model="provider.facilityType" name="facility_type"
+                                                                     required="true" tabindex="3">
+                                                                <option value="">Provider Type*</option>
+                                                                <option value="PHARMACY">Pharmacy</option>
+                                                                <option value="CLINIC">Clinic</option>
+                                                                <option value="LABORATORY">Laboratory</option>
+                                                                <option value="DIAGNOSTIC_CENTER">Diagnostic Center</option>
+                                                                <option value="REHAB_CENTER">Rehab Center</option>
+                                                                <option value="DAY_CARE">Day Care</option>
+                                                                <option value="HOSPITAL">Hospital</option>
+                                                                 <!--<option value="LABORATORY">Laboratory</option>-->
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control fsize"
+                                                                   id="providerFacilityName"
+                                                                   ng-model="provider.facilityName"
+                                                                   name="providerFacilityName" placeholder="Organization Name *"
+                                                                   ng-required="true"/>
+                                                            <ng-messages class="has-error" for="providerForm.providerFacilityName.$error"
+                                                                         role="alert" ng-if="providerForm.providerFacilityName.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter Organization Name
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="officePhoneNumber" class="form-control fsize" name="officePhoneNumber"
+                                                                   ng-model="provider.officePhoneNumber"
+                                                                   placeholder="Office Number"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control fsize"
+                                                                   id="providerFn" name="providerFn" placeholder="First Name *"
+                                                                   ng-model="provider.firstName"
+                                                                   ng-required="true"/>
+                                                            <ng-messages class="has-error" for="providerForm.providerFn.$error"
+                                                                         role="alert" ng-if="providerForm.providerFn.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter First Name
+                                                                </ng-message>
+                                                            </ng-messages>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control fsize" ng-model="provider.middleName" name="providerMn" placeholder="Middle Name"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control fsize" name="providerLn" ng-model="provider.lastName"
+                                                                   ng-required="true" placeholder="Last Name *"/>
+                                                            <ng-messages class="has-error" for="providerForm.providerLn.$error"
+                                                                         role="alert" ng-if="providerForm.providerLn.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter Last Name
+                                                                </ng-message>
+                                                            </ng-messages>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-init="getAllCities()" >
+                                                            <select type="text" class="form-control fsize"
+                                                                   id="city" name="city" placeholder="Select City*" ng-options="cityObj.city for cityObj in allCities"
+                                                                   ng-required="true" ng-change="populateStateAndCountryByCity(provider.selectedCity)" ng-model="provider.selectedCity" >
+                                                                <option value="">Select City</option>
+                                                            </select>
+                                                            <ng-messages class="has-error" for="providerForm.city.$error"
+                                                                         role="alert" ng-if="providerForm.$dirty">
+                                                                <ng-message when="required" class="help-block">Please select city
+                                                                </ng-message>
+                                                            </ng-messages>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control fsize" ng-model="provider.selectedState" name="state" placeholder="City"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control fsize" ng-model="provider.selectedCountry" name="country" placeholder="Country"/>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input name="providerEmail" ng-model="provider.email"
+                                                                   ng-required="true"
+                                                                   type="email" class="form-control fsize"  placeholder="Email *"/>
+                                                            <ng-messages class="has-error" for="providerForm.providerEmail.$error"
+                                                                         role="alert" ng-if="providerForm.providerEmail.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter Email
+                                                                </ng-message>
+                                                                <ng-message when="email" class="help-block">Please enter valid email
+                                                                    address.
+                                                                </ng-message>
+                                                            </ng-messages>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="text" ng-model="provider.mobile" class="form-control fsize" ng-minlength="8" ng-maxlength="8" maxlength="8"
+                                                                   id="providerMobile" name="providerMobile" placeholder="Mobile *" ng-required="true"/>
+                                                            <ng-messages class="has-error" for="providerForm.providerMobile.$error"
+                                                                         role="alert" ng-if="providerForm.providerMobile.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter Mobile Number
+                                                                </ng-message>
+                                                                <ng-message when="minlength" class="help-block">Mobile Number Should be 8 Digit
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                <!-- Gevernorate & Registration No -->
+                                                <div class="row" >
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-init="getAllCities()" >
+                                                            <!--<input name="textfield" type="text" class="smart-pack2-dropdown" id="txtCity" ng-model="registerData.providerCity" />-->
+                                                            <select type="text" class="form-control fsize"
+                                                                    id="txtCity" name="txtCity" placeholder="Select City *" ng-options="cityObj.city for cityObj in allCities"
+                                                                    ng-required="true" ng-model="cityList" ng-required="true">
+                                                                <option value="">Select City *</option>
+                                                            </select>   <!-- ng-change="populateStateAndCountryByCity(cityList)" -->
+                                                            <ng-messages class="has-error" for="providerForm.txtCity.$error"
+                                                                         role="alert" ng-if="providerForm.txtCity.$dirty">
+                                                                <ng-message when="required" class="help-block">Please Select City
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                            <label style="color:red" ng-bind="validateCity" ng-show="validateCity.length > 0"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input name="txtRegNo" type="text" class="form-control fsize" id="txtRegNo" ng-model="provider.providerRegistrationNo" placeholder="REG No *" ng-required="true"/>
+                                                            <ng-messages class="has-error" for="providerForm.txtRegNo.$error"
+                                                                         role="alert" ng-if="providerForm.txtRegNo.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter Reg.no
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row" >
+                                                      <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control fsize" name="providerAdminPassword"
+                                                                   ng-model="provider.password"
+                                                                   ng-required="true" placeholder="Password *" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+
+                                                            <ng-messages class="has-error" for="providerForm.providerAdminPassword.$error"
+                                                                         role="alert" ng-if="providerForm.providerAdminPassword.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter Password
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                            <password-strength ng-model="provider.password"></password-strength>
+                                                        </div>
+                                                      </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control fsize" name="providerAdminConfirmPassword"
+                                                                   ng-model="provider.confirmPassword"
+                                                                   ng-required="true" placeholder="Confirm Password *" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+
+                                                            <ng-messages class="has-error" for="providerForm.providerAdminConfirmPassword.$error"
+                                                                         role="alert" ng-if="providerForm.providerAdminConfirmPassword.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter confirm Password
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="btn btn-default btn-sm pull-center" onclick="$('#passwordPolysis').modal('show')"> <i class="fa fa-info"></i></button>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p class="login-pref">Login Preference</p>
+                                                        <div class="radio">
+                                                            <div class="radio-btn-adj">
+                                                                <input id="radio3" name="r2" type="radio" ng-model="provider.loginPreference" value="EMAIL">
+                                                                <label for="radio3" class="mr30">Email OR </label>
+                                                            </div>
+
+                                                            <div class="radio-btn-adj">
+                                                                <input id="radio4" name="r2" type="radio" ng-model="provider.loginPreference" value="MOBILE">
+                                                                <label for="radio4">Mobile No.</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- <div class="form-group">
+                                                         <input type="radio" id="r1" checked name="radio-login-pref"><label for="r1" class="radio-label"><span></span>Email OR</label>
+                                                         <input type="radio" id="r2" name="radio-login-pref"><label for="r2" class="radio-label"><span></span>Mobile No.</label>
+                                                     </div>-->
+                                                    <div class="checkbox">
+                                                        <input id="providerTermCondition" type="checkbox" ng-model="termCondition" ng-disabled="readTermsOfServiceClicked == false || readPrivacyPolicyClicked == false"/>
+                                                        <label for="providerTermCondition">I have read and agree to Afya <a href="" ng-click="Navigation('#AboutAfya/terms-of-use');readTermsOfServiceClicked=true;">Terms of Service</a> and <a href="" ng-click="Navigation('#AboutAfya/privacy-confidentiality'); readPrivacyPolicyClicked = true;">Privacy Policy</a>  </label>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="has-error"><label style="font-weight: normal" class="help-block">To enable Join In please  click and read Afya <u>Terms of Service</u> and <u>Privacy Policy</u>.</label></div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <button class="btn btn-all mrm30 xs-mb10 xs-mr-auto"  ng-disabled="!providerForm.$valid || !termCondition"
+                                                                ng-click="submitProviderData()"
+                                                                id="provider_sign_up" name="provider_sign_up">Join In &nbsp;
+                                                            <i class="fa fa-chevron-right"></i>
+                                                        </button>
+                                                        <button type="reset" class="btn btn-all-learn" name="sign_up_link" id="sign_up_link" value="click here">
+                                                            Reset &nbsp;
+                                                            <i class="fa fa-chevron-right"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div id="provider_registration_step_2" style="display:none">
+                                            <div class="row">
+                                                <form  class="form_member_login"
+                                                       name="providerOTPForm" id="providerOTPForm" no-validate="true">
+                                                    <div class="col-md-8">
+                                                        <div class="clearfix" id="providerAlreadyVerificationDiv" style="color:green">
+                                                        </div>
+                                                        <div class="clearfix" id="providerEmailDiv">
+                                                            <p class="regi-text">
+                                                                Congrats, your first step to becoming Afya Member is done. Now please check your mail id <a href="#" style="text-decoration: none"><span ng-bind="provider.email"></span></a> and follow the link in the mail Id to complete the registration.
+                                                                <br/>Please check your Junk E-mail folder just in case the email got delivered there instead of your inbox.
+                                                                <!--Please check your email id <a href="#" style="text-decoration: none"><span ng-bind="provider.email"></span></a> follow the link given in email to complete the registration.-->
+                                                            </p>
+                                                            <div class="clearfix"></div>
+                                                            <button type="button" class="btn btn-all-learn mr22" ng-click="backToStep1()">
+                                                                Back
+                                                            </button>
+                                                            <button type="button" class="btn btn-all-learn mr22" id="btnProviderResendEmail" name="btnProviderResendEmail"  ng-click="resendEmail()">
+                                                                Resend Confirm Email
+                                                            </button>
+                                                            <span class="regi-text">to send again</span>
+                                                        </div>
+                                                        <div class="clearfix" id="providerOTPFormDiv">
+
+                                                                <p class="regi-text">
+                                                                    Congrats, you are near to become a Member in Afya. Please enter the OTP (One Time Password) below.
+                                                                    <!--Please enter OTP (one time password) below that you received on your
+                                                                    mobile number<a href="#" style="text-decoration: none"> <span ng-bind="provider.mobile"></span></a>-->
+                                                                </p>
+
+                                                                <div class="opt">
+                                                                    <span class="regi-text pull-left mt14">
+                                                                        Enter OTP
+                                                                    </span>
+                                                                    <input type="text" id="providerOTP" name="providerOTP"
+                                                                           ng-model="provider.otpToken"
+                                                                           class="form-control fsize pull-left otp-text"/>
+                                                                    <ng-messages class="has-error" for="providerOTPForm.providerOTP.$error"
+                                                                                 role="alert" ng-if="providerOTPForm.$dirty">
+                                                                        <ng-message when="required" class="help-block">Please enter OTP
+                                                                        </ng-message>
+                                                                    </ng-messages>
+                                                                    <button type="button" class="btn btn-all xs-opt-btn"
+                                                                            ng-click="submitOTP()" ng-disabled="providerOTPForm.$invalid">Submit &nbsp;
+                                                                        <i class="fa fa-chevron-right"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div><label id="lblProviderErrorMessage" style="color:red;margin-left:25px;"></label></div>
+                                                                <div class="clearfix"></div>
+                                                                <p>
+                                                                    <a href="#" class="regi-text">Did not received OTP?</a>
+                                                                </p>
+                                                                <button type="button" class="btn btn-all-learn mr22" ng-click="backToStep1()">
+                                                                    Back
+                                                                </button>
+                                                                <button type="button" class="btn btn-all-learn mr22" id="submit" name="submit"  ng-click="regenerateOTP()">
+                                                                    Resend OTP
+                                                                </button>
+                                                                <span class="regi-text">to generate again</span>
+                                                            </div>
+
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div id="provider_registration_step_3" style="display:none">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="div-conform">
+                                                        <img src="/afya-portal/static/images/conform-sign.png" alt="registrated" class="mb30"/>
+                                                        <p class="regi-conform">
+                                                            Welcome, Thanks for being part of the Afya Care Community. We have initiated the setup process and will come back to you after its successful completion.
+                                                            <!--You have registered with Afya successfully. We have initiated the setup process. I will come back to you after successful setup.-->
+                                                        </p>
+                                                        <button type="button" class="btn btn-all mr20 xs-mb10" onClick="window.location.href = 'login'">
+                                                            Login <i class="fa fa-chevron-right"></i>
+                                                        </button>
+
+                                                        <button type="button" class="btn btn-all-learn" id="submit" name="submit"
+                                                                onClick="window.location.href = '/afya-portal'">
+                                                            Go Back to Site
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="tab-pane fade " id="care-payer-tab" ng-controller="PayerController">
+                                    <div id="payer_registration_tab" class="tab-info step1">
+                                        <ul class="tab-info-ul ">
+                                            <li>
+                                                <span id="care_payer_registration_step_1_number" class="no-tab">1</span>
+                                                <span id="care_payer_registration_step_1_text" class="selected-stage-text">Care Payer Detail</span>
+                                            </li>
+                                            <li>
+                                                <span id="care_payer_registration_step_2_number" class="no-tab-unselected">2</span>
+                                                <span id="care_payer_registration_step_2_text" class="unselected-stage-text">Verification</span>
+                                            </li>
+                                            <li>
+                                                <span id="care_payer_registration_step_3_number" class="no-tab-unselected">3</span>
+                                                <span  id="care_payer_registration_step_3_text" class="unselected-stage-text">Success</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div id="payer_registration_step_1">
+                                        <form class="form_member_login" name="carePayerForm" id="carePayerForm" method="post">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <select class="faci-text-box" id="carePyaer_type"  ng-model="carePayer.payerType" name="carePyaer_payerType"
+                                                                 required="true" tabindex="3">
+                                                            <option value="">Payer *</option>
+                                                            <option value="INSURANCE">Insurance</option>
+                                                            <option value="TPA">TPA</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control fsize" id="carePayerOrganizationName" name="carePayerOrganizationName"
+                                                               ng-model="carePayer.payerOrganizationName" placeholder="Organization Name *" ng-required="true"/>
+                                                        <ng-messages class="has-error" for="carePayerForm.carePayerOrganizationName.$error"
+                                                                     role="alert" ng-if="carePayerForm.carePayerOrganizationName.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter Organization Name
+                                                            </ng-message>
+                                                        </ng-messages>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="officePhoneNumber" class="form-control fsize" id="payerofficePhoneNumber" name="payerofficePhoneNumber"
+                                                               ng-model="carePayer.payerOfficeNumber" placeholder="Office Number"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control fsize" id="payerFn" name="payerFn" placeholder="First Name *"
+                                                               ng-model="carePayer.firstName" ng-required="true"/>
+                                                        <ng-messages class="has-error" for="carePayerForm.payerFn.$error"
+                                                                     role="alert" ng-if="carePayerForm.payerFn.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter First Name
+                                                            </ng-message>
+                                                        </ng-messages>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control fsize" ng-model="carePayer.middleName" name="PayerMn" id="PayerMn" placeholder="Middle Name"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control fsize" name="payerLn" id="payerLn" ng-model="carePayer.lastName"
+                                                               ng-required="true" placeholder="Last Name *"/>
+                                                        <ng-messages class="has-error" for="carePayerForm.payerLn.$error"
+                                                                     role="alert" ng-if="carePayerForm.payerLn.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter Last Name
+                                                            </ng-message>
+                                                        </ng-messages>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group" ng-init="getAllCities()" >
+                                                        <select type="text" class="form-control fsize"
+                                                                id="payerCity" name="payerCity" placeholder="Select City*" ng-options="cityObj.city for cityObj in allCities"
+                                                                ng-required="true" ng-change="populateStateAndCountryByCity(carePayer.selectedCity)" ng-model="carePayer.selectedCity" >
+                                                            <option value="">Select City</option>
+                                                        </select>
+                                                        <ng-messages class="has-error" for="carePayerForm.payerCity.$error" role="alert" ng-if="carePayerForm.$dirty">
+                                                            <ng-message when="required" class="help-block">Please select city
+                                                            </ng-message>
+                                                        </ng-messages>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control fsize" ng-model="carePayer.selectedState" name="payerState" placeholder="City"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control fsize" ng-model="carePayer.selectedCountry" name="payerCountry" placeholder="Country"/>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <div class="row">
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input name="payerEmail" ng-model="carePayer.emailId" ng-required="true"
+                                                               type="email" class="form-control fsize"  placeholder="Email *"/>
+                                                        <ng-messages class="has-error" for="carePayerForm.payerEmail.$error"
+                                                                     role="alert" ng-if="carePayerForm.payerEmail.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter Email
+                                                            </ng-message>
+                                                            <ng-message when="email" class="help-block">Please enter valid email
+                                                                address.
+                                                            </ng-message>
+                                                        </ng-messages>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="text" ng-model="carePayer.mobileNumber" class="form-control fsize" ng-minlength="8" ng-maxlength="8" maxlength="8"
+                                                               id="payerMobile" name="payerMobile" placeholder="Mobile *" ng-required="true"/>
+                                                        <ng-messages class="has-error" for="carePayerForm.payerMobile.$error"
+                                                                     role="alert" ng-if="carePayerForm.payerMobile.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter Mobile Number
+                                                            </ng-message>
+                                                            <ng-message when="minlength" class="help-block">Mobile Number Should be 8 Digit
+                                                            </ng-message>
+                                                        </ng-messages>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="row" >
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control fsize" name="payerAdminPassword" id="payerAdminPassword"
+                                                               ng-model="carePayer.password"
+                                                               ng-required="true" placeholder="Password *" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+
+                                                        <ng-messages class="has-error" for="carePayerForm.payerAdminPassword.$error"
+                                                                     role="alert" ng-if="carePayerForm.payerAdminPassword.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter Password
+                                                            </ng-message>
+                                                        </ng-messages>
+                                                        <password-strength ng-model="carePayer.password"></password-strength>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control fsize" name="payerAdminConfirmPassword" ng-model="carePayer.confirmPassword"
+                                                               ng-required="true" placeholder="Confirm Password *" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+
+                                                        <ng-messages class="has-error" for="carePayerForm.payerAdminConfirmPassword.$error"
+                                                                     role="alert" ng-if="carePayerForm.payerAdminConfirmPassword.$dirty">
+                                                            <ng-message when="required" class="help-block">Please enter confirm Password
+                                                            </ng-message>
+                                                        </ng-messages>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-default btn-sm pull-center" onclick="$('#passwordPolysis').modal('show')"> <i class="fa fa-info"></i></button>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="login-pref">Login Preference</p>
+                                                    <div class="radio">
+                                                        <div class="radio-btn-adj">
+                                                            <input id="radio5" name="r2" type="radio" ng-model="carePayer.loginPreference" value="EMAIL">
+                                                            <label for="radio5" class="mr30">Email OR </label>
+                                                        </div>
+
+                                                        <div class="radio-btn-adj">
+                                                            <input id="radio6" name="r2" type="radio" ng-model="carePayer.loginPreference" value="MOBILE">
+                                                            <label for="radio6">Mobile No.</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="checkbox">
+                                                    <input id="payerTermCondition" type="checkbox" ng-model="termCondition" ng-disabled="readTermsOfServiceClicked == false || readPrivacyPolicyClicked == false"/>
+                                                    <label for="payerTermCondition">I have read and agree to Afya <a href="" ng-click="Navigation('#AboutAfya/terms-of-use');readTermsOfServiceClicked=true;">Terms of Service</a> and <a href="" ng-click="Navigation('#AboutAfya/privacy-confidentiality');readPrivacyPolicyClicked = true;">Privacy Policy</a>  </label>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="has-error"><label style="font-weight: normal" class="help-block">To enable Join In please  click and read Afya <u>Terms of Service</u> and <u>Privacy Policy</u>.</label></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button class="btn btn-all mrm30 xs-mb10 xs-mr-auto"  ng-disabled="!carePayerForm.$valid || !termCondition"
+                                                            ng-click="submitPayerData()" id="payer_sign_up" name="payer_sign_up">Join In &nbsp;
+                                                        <i class="fa fa-chevron-right"></i>
+                                                    </button>
+                                                    <button type="reset" class="btn btn-all-learn" name="payer_sign_up_link" id="payer_sign_up_link" value="click here">
+                                                        Reset &nbsp;
+                                                        <i class="fa fa-chevron-right"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                    <div id="payer_registration_step_2" style="display:none">
+                                        <div class="row">
+                                            <form  class="form_member_login" name="payerOTPForm" id="payerOTPForm" no-validate="true">
+                                                <div class="col-md-8">
+                                                    <div class="clearfix" id="payerAlreadyVerificationDiv" style="color:green">
+                                                    </div>
+                                                    <div class="clearfix" id="payerEmailDiv">
+                                                        <p class="regi-text">
+                                                            Congrats, your first step to becoming Afya Member is done. Now please check your mail id <a href="#" style="text-decoration: none"><span ng-bind="carePayer.emailId"></span></a> and follow the link in the mail Id to complete the registration.
+                                                            <br/>Please check your Junk E-mail folder just in case the email got delivered there instead of your inbox.
+                                                            <!--Please check your email id <a href="#" style="text-decoration: none"><span ng-bind="carePayer.emailId"></span></a> follow the link given in email to complete the registration.-->
+                                                        </p>
+                                                        <div class="clearfix"></div>
+                                                        <button type="button" class="btn btn-all-learn mr22" ng-click="backToStep1()">
+                                                            Back
+                                                        </button>
+                                                        <button type="button" class="btn btn-all-learn mr22" id="btnPayerResendEmail" name="btnPayerResendEmail"  ng-click="resendEmail()">
+                                                            Resend Confirm Email
+                                                        </button>
+                                                        <span class="regi-text">to send again</span>
+                                                    </div>
+                                                    <div class="clearfix" id="payerOTPFormDiv">
+
+                                                        <p class="regi-text">
+                                                            Congrats, you are near to become a Member in Afya. Please enter the OTP (One Time Password) below.
+                                                            <!--Please enter OTP (one time password) below that you received on your
+                                                            mobile number<a href="#" style="text-decoration: none"> <span ng-bind="carePayer.mobileNumber"></span></a>-->
+                                                        </p>
+
+                                                        <div class="opt">
+                                                            <span class="regi-text pull-left mt14">
+                                                                Enter OTP
+                                                            </span>
+                                                            <input type="text" id="payerOTP" name="payerOTP" ng-model="carePayer.otpToken" class="form-control fsize pull-left otp-text"/>
+                                                            <ng-messages class="has-error" for="payerOTPForm.payerOTP.$error" role="alert" ng-if="payerOTPForm.$dirty">
+                                                                <ng-message when="required" class="help-block">Please enter OTP
+                                                                </ng-message>
+                                                            </ng-messages>
+                                                            <button type="button" class="btn btn-all xs-opt-btn"
+                                                                    ng-click="submitOTP()" ng-disabled="payerOTPForm.$invalid">Submit &nbsp;
+                                                                <i class="fa fa-chevron-right"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div><label id="lblPayerErrorMessage" style="color:red;margin-left:25px;"></label></div>
+                                                        <div class="clearfix"></div>
+                                                        <p>
+                                                            <a href="#" class="regi-text">Did not received OTP?</a>
+                                                        </p>
+                                                        <button type="button" class="btn btn-all-learn mr22" ng-click="backToStep1()">
+                                                            Back
+                                                        </button>
+                                                        <button type="button" class="btn btn-all-learn mr22" id="payerResemdOPTsubmit" name="payerResemdOPTsubmit"  ng-click="regenerateOTP()">
+                                                            Resend OTP
+                                                        </button>
+                                                        <span class="regi-text">to generate again</span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div id="payer_registration_step_3" style="display:none">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="div-conform">
+                                                    <img src="/afya-portal/static/images/conform-sign.png" alt="registrated" class="mb30"/>
+                                                    <p class="regi-conform">
+                                                        Welcome to Afya, the new Care Ecosystem. You are now a Member of Afya.
+                                                        <!--Thank You for verification you have registrated with Afya ( as Care Payer ) Successfully.-->
+                                                    </p>
+                                                    <button type="button" class="btn btn-all mr20 xs-mb10" onClick="window.location.href = 'login'">
+                                                        Login <i class="fa fa-chevron-right"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-all-learn" id="payerSubmit" name="payerSubmit"
+                                                            onClick="window.location.href = '/afya-portal'">
+                                                        Go Back to Site
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                    
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade" id="passwordPolysis" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header" style="text-align: left">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                                        <span class="modal-head mrm30" style="margin-left:80px">Password Policy</span>
+                                    </div>
+                                    <div class="modal-body">
+                                        *&nbsp;&nbsp; Should contain at least 8 characters<br/>
+                                        *&nbsp;&nbsp; Should contain at least one digit<br/>
+                                        *&nbsp;&nbsp; Should contain at least one lower character and one upper<br/>&nbsp;&nbsp;&nbsp;&nbsp; character<br/>
+                                        *&nbsp;&nbsp; Should contain at least one special character from (!@%$^&*)<br/>
+                                        *&nbsp;&nbsp; Should not contain space<br/>
+                                        <hr>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-book btn-lg" data-dismiss="modal">Ok</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--step 1 end-->
+                           
+                    </div><!--/.row-->
+                </div><!--/.container-->
+            </div>
+        </section><!--/#content-->
+
+        <div class="clearfix"></div>
+</div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="PrescriptionDetailModule">
+    <head>
+    <title>Prescription</title>
+    <meta charset="utf-8" />
+        <style type="text/css">
+               .bold{
+                   font-weight:bold;
+               }
+               
+               .td-bolder tr th, .td-bolder tr td, .td-bolder {
+                    border:01px solid black;
+                    border-collapse: collapse;
+                }
+                .text-right{
+                    text-align:right;
+                }
+                .text-center{
+                    text-align: center;
+                }
+                .right{
+                    float:right;
+                }
+               .logoImg{
+                   width: 230px;
+                   height: 80px;
+               }
+        </style>
+    </head>
+    <body ng-controller="PrescriptionDetailController" style="font-family: Arial; font-size: 12px;">
+        <div id="printContent" style="width:90%;margin:0% 5% 0% 5%" ng-init="getIPrescriptionDetailsForVisitForGivenTenant()">
+		    <div>
+			    <div style="float:left">
+                    <img ng-src="{{logoURL}}" alt="logo" class="logoImg"/>
+                </div>
+                <div style="float:left" ng-hide="logoWithAddress">
+                    <table>
+                        <tr><td ng-bind="visit.provider"></td></tr>
+                        <tr><td ng-bind="visit.providerAddress"></td></tr>
+                        <tr><td ng-bind="visit.providerAdditionalAddress"></td></tr>
+                        <tr><td ng-bind-template="Tel : {{visit.providerMobile ? visit.providerMobile : ''}}  Email : {{visit.providerEmail? visit.providerEmail : ''}}"></td></tr>
+                    </table>
+                </div>
+		    </div>
+            <div style="clear:both;"></div>
+            <hr />
+            <div>
+                <h3 style="text-align:center">Patient Prescription</h3>
+                <table align="center" style="border:1px solid black;width:100%">
+                    <tr>
+                        <td class="bold">Afya Id </td>
+                        <td ng-bind-template=": {{prescription.afyaId}}"></td>
+                        <td class="bold">Doctor</td>
+                        <td ng-bind-template=": {{prescription.doctorFirstName}} {{prescription.doctorLastName}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Civil Id</td>
+                        <td ng-bind-template=": {{prescription.civilId}}"></td>
+                        <td class="bold">Patient Name </td>
+                        <td ng-bind-template=": {{prescription.patientFirstName}} {{prescription.patientLastName}}"></td>
+                    </tr>
+                    <tr>
+                        <td class="bold">Gender/Age</td>
+                        <td ng-bind-template=": {{prescription.gender}}/ {{prescription.age}}"></td>
+                        <td class="bold">Visit Date</td>
+                        <td ng-bind-template=": {{visit.visitDate | date : 'dd/MM/yyyy'}}"></td>
+                    </tr>
+                </table>
+                <table class="td-bolder" align="center" style="border:1px solid black;width:100%;margin-top:30px;">
+                    <tr>
+                        <td class="text-center"><strong>Drug Name</strong></td>
+                        <td class="text-center"><strong>Start Date</strong> </td>
+                        <td class="text-center"><strong>Frequency </strong></td>
+                        <td class="text-center"><strong>Frequency Qualifier</strong></td>
+                        <td class="text-center"><strong>Number Of Days</strong></td>
+                        <td class="text-center"><strong>Total Count</strong> </td>
+                    </tr>
+                    <tr ng-show="!prescriptiopnDetails.length"  style="text-align: center">
+                        <td colspan="6"><text><i>No Data Found</i></text></td>
+                    </tr>
+                    <tr ng-repeat="prescription in prescriptiopnDetails">
+                        <td ng-bind="prescription.TRADE_NAME"></td>
+                        <td ng-bind="prescription.START_DATE | date : 'dd/MM/yyyy'"></td>
+                        <td ng-bind="prescription.freqDescription"></td>
+                        <td ng-bind="prescription.freqQualifierDescription"></td>
+                        <td class="text-right" ng-bind="prescription.noOfDays"></td>
+                        <td class="text-right" ng-bind="prescription.totalCount"></td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <div>
+                    <div class="right" ng-bind-template="{{prescription.doctorFirstName}} {{prescription.doctorLastName}}">
+                           <span class="bold">Doctor:</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+        <div align="center">
+            <button id="btnPrint" onclick="onPrintClick('printContent')" style="padding:10px;margin-top:20px;font-size:18px"><strong>Print</strong></button>
+        </div>
+        <div class="clearfix"></div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../../../static/js/jquery.js" type="text/javascript"></script>
+        <script src="../../../static/js/jquery_cookie.js" type="text/javascript"></script>
+        <script src="../../../static/js/angular.min.js"></script>
+        <script src="../../../static/js/angular-messages.min.js"></script>
+        <script src="../../../static/js/PastVisitPrescriptionDetails.js"></script>
+        <script type="text/javascript">
+            function onPrintClick(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+            }
+        </script>
+	</body>
+
+</html>

@@ -1,0 +1,555 @@
+<script>
+    ga('send', 'pageview', { 'page': '/PatientDashboard/Patient-previous-record', 'title': 'Patient Previous Record'});
+</script>
+
+<div>
+    <link href="/afya-portal/static/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <style>
+        .rightAlign{
+            text-align: right;
+        }
+    </style>
+
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!--menu-->
+<div>
+    <div class="container">
+        <div class="row" id="Afya-liteblue" >
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                <div class="menu">
+                    <ul>
+                        <li><a href="#PatientDashboard/Patient-upcoming-smart-services">Upcoming Services</a></li>
+                        <li> <a href="#PatientDashboard">Account Summary</a></li>
+                        <li class="active" ><a href="#PatientDashboard/Patient-service-list">Services &amp History</a></li>
+                        <li><a href="#PatientDashboard/Patient-consent">Consent &amp; Notifications</a></li>
+                        <li><a href="#PatientDashboard/Patient_account_policies">Afya Policies</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="underlinemenu">
+                <ul>
+                    <li><a href="#PatientDashboard/Patient-service-list">Service List</a></li>
+                    <li><a href="#PatientDashboard/Patient-visit-records" >Visit History</a></li>
+                    <li><a href="#PatientDashboard/Patient-smart-service" >Smart Service History</a></li>
+                    <li><a href="#PatientDashboard/Patient-previous-record"  class="selected"> Previous Records</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--menu end-->
+<!--menu end-->
+<section>
+    <div class="container">
+        <div class="row mb30" ng-controller="PatientInvoiceHistoryController">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+                        <table width="100%" border="0">
+                            <tbody>
+                            <tr style="height:50px;">
+                                <td width="65%"><strong>Invoices</strong></td>
+                                <td width="18%" valign="middle">
+                                    <select class="form-control" ng-model="invoiceSortOrderExp">
+                                        <option value="PROVIDER_NAME">PROVIDER NAME</option>
+                                        <option value="DOCTOR_NAME">DOCTOR NAME</option>
+                                    </select>
+                                </td>
+                                <td width="17%" valign="middle">
+                                    <div class="search ">
+                                        <form role="form">
+                                            <input type="text" class="form-control" placeholder="Search" ng-model="invoiceQuery" title="Type to Search">
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="height:220px; overflow-y:scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+
+                            <tr class="sub333-tr">
+                                <th style="text-align: center;">Provider Name</th>
+                                <th style="text-align: center;">Doctor</th>
+                                <th style="text-align: center;">Invoice No.</th>
+                                <th style="text-align: center;">Invoice Date</th>
+                                <th style="text-align: center;">Invoice Amount (KD)</th>
+                                <th style="text-align: center;">Patient Payable (KD)</th>
+                                <th style="text-align: center;">Insurance Payable (KD)</th>
+                                <th style="text-align: center;">Action</th>
+                            </tr>
+                            <tr ng-show="!visitInvoiceList.length"  style="text-align: center">
+                                <td colspan="8"><text><i>No Data Found</i></text></td>
+                            </tr>
+                            <tbody ng-repeat="invoice in visitInvoiceList | filter : invoiceQuery | orderBy : invoiceSortOrderExp">
+                            <tr class="sub33-tr">
+                                <td ng-bind="invoice.PROVIDER_NAME"></td>
+                                <td ng-bind="invoice.DOCTOR_NAME"></td>
+                                <td ng-bind="invoice.INVOICE_NUMBER"></td>
+                                <td ng-bind="invoice.INVOICE_DATE | date :'dd/MM/yyyy'"></td>
+                                <td class="rightAlign" ng-bind="invoice.AMOUNT | number : 3"></td>
+                                <td class="rightAlign" ng-bind="invoice.PATIENT_PAYABLE | number : 3"></td>
+                                <td class="rightAlign" ng-bind="invoice.INSURANCE_PAYABLE | number : 3"></td>
+                                <td>
+                                    <a class="clickable" data-toggle="modal" data-target="#myModalForInvoice" ng-click="storeInvoiceInScopeWhenModalViewClicked(invoice)"><i class="fa fa-eye"></i>&nbsp;View</a>
+                                    <a class="clickable" data-toggle="modal" style="margin-left:20px;" ng-click="onPrintInvoiceContentClicked(invoice, 'printInvoiceContent')"><i class="fa fa-print"></i>&nbsp;Print</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModalForInvoice" role="dialog">
+                <!--<div class="modal-dialog">-->
+                <div class="modal-dialog" style="max-width: 900px; width:100%; margin: 30px auto;">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Invoice Item Details</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table width="100%" border="0" class="table table-bordered">
+                                <tr  class="sub333-tr">
+                                    <th>Service Name</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price (KD)</th>
+                                    <th>Currency</th>
+                                    <th>Gross Amount (KD)</th>
+                                </tr>
+                                <tr ng-show="!invoiceLineItems.length"  style="text-align: center">
+                                    <td colspan="5"><text><i>No Data Found</i></text></td>
+                                </tr>
+                                <tbody ng-repeat="invoiceItem in invoiceLineItems">
+                                <tr class="sub33-tr">
+                                    <td ng-bind="invoiceItem.invoiceItemDescription"></td>
+                                    <td ng-bind="invoiceItem.invoiceItemQuanity"></td>
+                                    <td class="rightAlign" ng-bind="invoiceItem.invoiceItemFactor?invoiceItem.invoiceItemFactor : 0 | number : 3"></td>
+                                    <td ng-bind="invoiceItem.factorDescription"></td>
+                                    <td class="rightAlign" ng-bind="invoiceItem.invoiceItemAmount?invoiceItem.invoiceItemAmount : 0 | number : 3"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row mb30" ng-controller="PatientPrescriptionHistoryController">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+                        <table width="100%" border="0">
+                            <tbody>
+                            <tr style="height:50px;">
+                                <td width="65%"><strong>Prescription</strong></td>
+                                <td width="18%" valign="middle">
+                                    <!--<select class="smart-pack1-dropdown" ng-options="prescription.clinicName for prescription in visitPrescriptionList" ng-model="prescription.clinicName">-->
+                                    <select class="form-control" ng-model="prescriptionSortOrderExp">
+                                        <option value="pharmacyName">PROVIDER NAME</option>
+                                        <option value="doctorName">DOCTOR</option>
+                                        <!--<option value="drugName">DRUG NAME</option>-->
+                                    </select>
+                                </td>
+                                <td width="17%" valign="middle"><div class="search ">
+                                    <form role="form">
+                                        <input type="text" class="form-control" placeholder="Search" ng-model="prescriptionQuery" title="Type to Search">
+                                    </form>
+                                </div></td>
+                            </tr>
+                            </tbody></table>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="height:220px; overflow-y:scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+                            <tr class="sub333-tr">
+                                <th style="text-align: center;">Provider Name</th>
+                                <th style="text-align: center;">Doctor</th>
+                                <th style="text-align: center;">Invoice No</th>
+                                <th style="text-align: center;">Invoice Date</th>
+                                <th style="text-align: center;">Invoice Amount (KD)</th>
+                                <th style="text-align: center;">Patient Payable (KD)</th>
+                                <th style="text-align: center;">Insurance Payable (KD)</th>
+                                <th style="text-align: center;">Action</th>
+                            </tr>
+                            <tr ng-show="!visitPrescriptionList.length"  style="text-align: center">
+                                <td colspan="8"><text><i>No Data Found</i></text></td>
+                            </tr>
+                            <tbody ng-repeat="prescription in visitPrescriptionList | orderBy : prescriptionSortOrderExp | filter : prescriptionQuery">
+                            <tr class="sub33-tr">
+                                <td ng-bind="prescription.pharmacyName"></td>
+                                <td ng-bind="prescription.doctorName"></td>
+                                <td ng-bind="prescription.invoiceId"></td>
+                                <td ng-bind="prescription.invoiceDate | date :'dd/MM/yyyy'"></td>
+                                <td class="rightAlign" ng-bind="prescription.invoiceAmount ? prescription.invoiceAmount : 0 | number : 3"></td>
+                                <td class="rightAlign" ng-bind="prescription.patientPayable ? prescription.patientPayable : 0 | number : 3"></td>
+                                <td class="rightAlign" ng-bind="prescription.insurancePayable ? prescription.insurancePayable : 0 | number : 3"></td>
+                                <td>
+                                    <a class="clickable" data-toggle="modal" data-target="#myModalForPrescription" ng-click="storePrescriptionInScopeWhenModalViewClicked(prescription)"><i class="fa fa-eye"></i>&nbsp;View</a>
+                                    <a class="clickable" data-toggle="modal" style="margin-left:20px;" ng-click="onPrintPrescriptionContentClicked(prescription, 'printPrescriptionContent')"><i class="fa fa-print"></i>&nbsp;Print</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModalForPrescription" role="dialog">
+                <!--<div class="modal-dialog" width="800px">-->
+                    <div class="modal-dialog" style="max-width: 900px; width:100%; margin: 30px auto;">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Prescription Invoice Details</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table width="100%" border="0" class="table table-bordered">
+                                <tr  class="sub333-tr">
+                                    <th>Pharmacy Name</th>
+                                    <th>Invoice Id</th>
+                                    <th>Invoice Date</th>
+                                    <th>Product Name</th>
+                                    <th>Product Description</th>
+                                    <th>Quantity</th>
+                                    <th>Unit Price (KD)</th>
+                                    <th>Amount (KD)</th>
+                                    <th>Comments</th>
+                                </tr>
+                                <tr ng-show="!prescriptionInvoiceLineItems.length"  style="text-align: center">
+                                    <td colspan="9"><text><i>No Data Found</i></text></td>
+                                </tr>
+                                <tbody ng-repeat="prescriptionInvoiceItem in prescriptionInvoiceLineItems">
+                                <tr class="sub33-tr">
+                                    <td ng-bind="prescriptionInvoiceItem.pharmacyName"></td>
+                                    <td ng-bind="prescriptionInvoiceItem.invoiceId"></td>
+                                    <td ng-bind="prescriptionInvoiceItem.invoiceDate | date : 'dd/MM/yyyy'"></td>
+                                    <td ng-bind="prescriptionInvoiceItem.productName"></td>
+                                    <td ng-bind="prescriptionInvoiceItem.description"></td>
+                                    <td ng-bind="prescriptionInvoiceItem.quantity"></td>
+                                    <td class="rightAlign" ng-bind="prescriptionInvoiceItem.unitPrice?prescriptionInvoiceItem.unitPrice : 0 | number :3"></td>
+                                    <td class="rightAlign" ng-bind="prescriptionInvoiceItem.amount?prescriptionInvoiceItem.amount : 0 | number : 3"></td>
+                                    <td ng-bind="prescriptionInvoiceItem.comments"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row mb30" style="display:none">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+
+                        <table width="100%" border="0">
+                            <tbody><tr>
+                                <td width="65%"><strong>Doctors Consultation Summary</strong></td>
+                                <td width="18%" valign="middle"><select class="smart-pack1-dropdown">
+                                    <option>Clinic</option>
+                                    <option>Clinic1</option>
+                                    <option>Clinic2</option>
+                                </select>&nbsp;</td>
+                                <td width="17%" valign="middle"><div class="search ">
+
+                                    <form role="form">
+                                        <input type="text" class="smart-pack2-dropdown" placeholder="Search">
+                                    </form>
+                                </div></td>
+                            </tr>
+                            </tbody></table>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="height:220px; overflow-y:scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+
+                            <tbody><tr class="sub333-tr">
+                                <th>Provider Name
+                                </th><th>Doctor
+                            </th><th>Invoice No.</th>
+                                <th>Invoice Date</th>
+                                <th>Invoice Amount (KD)</th>
+                                <th>Patient Payable (KD)</th>
+                                <th>Insurance Payable (KD)</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>Abc lab</td>
+                                <td>Dr Abtl</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <a class="" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye"></i>&nbsp;View</a>
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>Abc lab</td>
+                                <td>Dr Abtl</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><a class="" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye"></i>&nbsp;View</a>
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td>Abc lab</td>
+                                <td>Dr Abtl</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><a class="" data-toggle="modal" data-target="#myModal"><i class="fa fa-eye"></i>&nbsp;View</a>
+                                </td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--/.container-->
+</section>
+<!--/#bottom-->
+
+<section id="adapt-method">
+    <div class="center container">
+
+    </div>
+
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">History View</h4>
+            </div>
+            <div class="modal-body">
+                <p><table width="100%" border="0" class="table table-bordered">
+                <tr class="sub333-tr">
+                    <th height="28">Date </th>
+                    <th>Status</th>
+                    <th>View Comments</th>
+                    <th>View       </th>
+                </tr>
+                <tr class="sub33-tr">
+                    <td>Abc lab</td>
+                    <td>Dr Abtl</td>
+                    <td>Clinic</td>
+                    <td><i class="fa fa-eye"></i>View</td>
+                </tr>
+                <tr class="sub33-tr">
+                    <td>Abc lab</td>
+                    <td>Dr Abtl</td>
+                    <td>Clinic</td>
+                    <td><i class="fa fa-eye"></i>View</td>
+                </tr>
+                <tr class="sub33-tr">
+                    <td>Abc lab</td>
+                    <td>Dr Abtl</td>
+                    <td>Clinic</td>
+                    <td><i class="fa fa-eye"></i>View</td>
+                </tr>
+            </table></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>-->
+<!--<script type="text/javascript">-->
+    <!--$(document).ready(function ($) {-->
+
+        <!--// delegate calls to data-toggle="lightbox"-->
+        <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+            <!--event.preventDefault();-->
+            <!--return $(this).ekkoLightbox({-->
+                <!--onShown: function () {-->
+                    <!--if (window.console) {-->
+                        <!--return console.log('Checking our the events huh?');-->
+                    <!--}-->
+                <!--},-->
+                <!--onNavigate: function (direction, itemIndex) {-->
+                    <!--if (window.console) {-->
+                        <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+
+        <!--//Programatically call-->
+        <!--$('#open-image').click(function (e) {-->
+            <!--e.preventDefault();-->
+            <!--$(this).ekkoLightbox();-->
+        <!--});-->
+        <!--$('#open-youtube').click(function (e) {-->
+            <!--e.preventDefault();-->
+            <!--$(this).ekkoLightbox();-->
+        <!--});-->
+
+        <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+            <!--event.preventDefault();-->
+            <!--return $(this).ekkoLightbox({-->
+                <!--onShown: function () {-->
+                    <!--var a = this.modal_content.find('.modal-footer a');-->
+                    <!--if (a.length > 0) {-->
+                        <!--a.click(function (e) {-->
+                            <!--e.preventDefault();-->
+                            <!--this.navigateTo(2);-->
+                        <!--}.bind(this));-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+
+
+        <!--// fade in #back-top-->
+        <!--$(function () {-->
+
+            <!--// scroll body to 0px on click-->
+            <!--$('#back-top').click(function () {-->
+                <!--$('body,html').animate({-->
+                    <!--scrollTop: 0-->
+                <!--}, 800);-->
+                <!--return false;-->
+            <!--});-->
+        <!--});-->
+
+    <!--});-->
+<!--</script>-->
+<script>
+    $(function() {
+        $( ".btn" ).click(function() {
+            var icon = $( this );
+            icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+            icon.closest( ".box" ).find( ".box-body" ).toggle();
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        //rotation speed and timer
+        var speed =5000;
+
+        var run = setInterval(rotate, speed);
+        var slides = $('.slide');
+        var container = $('#slides ul');
+        var elm = container.find(':first-child').prop("tagName");
+        var item_width = container.width();
+        var previous = 'prev'; //id of previous button
+        var next = 'next'; //id of next button
+        slides.width(item_width); //set the slides to the correct pixel width
+        container.parent().width(item_width);
+        container.width(slides.length * item_width); //set the slides container to the correct total width
+        container.find(elm + ':first').before(container.find(elm + ':last'));
+        resetSlides();
+
+
+        //if user clicked on prev button
+
+        $('#buttons a').click(function (e) {
+            //slide the item
+
+            if (container.is(':animated')) {
+                return false;
+            }
+            if (e.target.id == previous) {
+                container.stop().animate({
+                    'left': 0
+                }, 1500, function () {
+                    container.find(elm + ':first').before(container.find(elm + ':last'));
+                    resetSlides();
+                });
+            }
+
+            if (e.target.id == next) {
+                container.stop().animate({
+                    'left': item_width * -2
+                }, 1500, function () {
+                    container.find(elm + ':last').after(container.find(elm + ':first'));
+                    resetSlides();
+                });
+            }
+
+            //cancel the link behavior
+            return false;
+
+        });
+
+        //if mouse hover, pause the auto rotation, otherwise rotate it
+        container.parent().mouseenter(function () {
+            clearInterval(run);
+        }).mouseleave(function () {
+            run = setInterval(rotate, speed);
+        });
+
+
+        function resetSlides() {
+            //and adjust the container so current is in the frame
+            container.css({
+                'left': -1 * item_width
+            });
+        }
+
+    });
+    //a simple function to click next link
+    //a timer will call this function, and the rotation will begin
+
+    function rotate() {
+        $('#next').click();
+    }
+</script>
+</body>
+</div>

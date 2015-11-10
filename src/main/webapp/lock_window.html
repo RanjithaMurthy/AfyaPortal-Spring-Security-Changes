@@ -1,0 +1,61 @@
+<div class="modal fade" id="LockModal" role="dialog" style="background-color:black;" data-backdrop="static" data-keyboard="false">
+    <div class="container">
+        <div class="row">
+            <div class="modal-dialog">
+                <div class="modal-content modal-member mw370">
+                    <div class="modal-header" style="text-align: left">
+
+                        <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                        <span class="modal-head mrm30" style="margin-left:90px">UnLock</span>
+                    </div>
+                    <div class="modal-body pd30">
+                        <form class="form_member_lock" id="form_member_lock">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        User Name
+                                    </div>
+                                </div><!-- /.col-lg-6 -->
+                                <div class="col-md-3">
+                                    <div class="form-group" id="lblUserName">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        Password
+                                    </div><!-- /input-group -->
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control fsize" id="txtUnlockPassword" name="txtUnlockPassword"
+                                               placeholder="Password" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+                                    </div><!-- /input-group -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                    </div><!-- /input-group -->
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group" id="lblLockError">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="mb20">
+                                    <button type="button" class="btn btn-all mrm30" id="btnUnlock" name="btnUnlock" onclick="btnUnlockClicked()">Unlock&nbsp;</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

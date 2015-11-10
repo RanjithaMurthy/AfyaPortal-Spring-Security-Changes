@@ -1,0 +1,542 @@
+<script>
+    ga('send', 'pageview', { 'page': '/PatientDashboard/Patient-upcoming-member-settings', 'title': 'Patient Upcoming Member Settings'});
+</script>
+
+<div ng-controller="MemberSettingController">
+    <link href="/afya-portal/static/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .btn-xs {
+            padding: 1px 5px;
+            font-size: 12px;
+            line-height: 1.5;
+            border-radius: 3px;
+            background-color: #337ab7;
+            color : #fff;
+        }
+        .btn-xs:hover, .btn-xs:focus {
+            color : #fff;
+        }
+    </style>
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-6 col-xs-12 mt501"  id="nameDiv"></div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li class="active" ><a href="#PatientDashboard/Patient-upcoming-smart-services">Upcoming Services</a></li>
+                            <li><a href="#PatientDashboard">Account Summary</a></li>
+                            <li><a href="#PatientDashboard/Patient-service-list">Services &amp History</a></li>
+                            <li><a href="#PatientDashboard/Patient-consent">Consent &amp; Notifications</a></li>
+                            <li><a href="#PatientDashboard/Patient_account_policies">Afya Policies</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row"  >
+                <div class="underlinemenu">
+                    <ul>
+                        <li><a href="#PatientDashboard/Patient-upcoming-smart-services">Smart Services</a></li>
+                        <li><a href="#PatientDashboard/Patient-upcoming-new-messages">New Messages</a></li>
+                        <li><a href="#PatientDashboard/Patient-upcoming-member-settings" class="selected">Member Settings</a></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+    <!--menu end-->
+    <section>
+    <div class="container">
+        <div class="row mb30">
+
+
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+
+                        <table width="100%" border="0">
+                            <tbody>
+                            <tr>
+                                <td width="90%"><strong>Member Profile :</strong> You are logged in as <strong ng-bind="memberSettingObj.username"></strong></td>
+                                <!--<td width="10%" align="right"><button class="btn btn-xs" ng-click="displayEditWindow()">Edit</button></td>-->
+
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="">
+                        <table width="100%" border="0" class="table table-bordered" ng-show="IsView">
+
+                            <tbody>
+                            <tr class="sub33-tr">
+                                <td style="font-weight:bold">Name</td>
+                                <td ng-bind-template="{{memberSettingObj.salutation}} {{memberSettingObj.firstName}} {{memberSettingObj.lastName}}"></td>
+                                <td style="font-weight:bold">Date Of Birth</td>
+                                <td ng-bind="memberSettingObj.dateOfBirth | date : 'dd/MM/yyyy'"></td>
+                                <td style="font-weight:bold">Gender</td>
+                                <td ng-bind="memberSettingObj.gender"></td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td style="font-weight:bold">Afya ID</td>
+                                <td ng-bind="memberSettingObj.afyaId"></td>
+                                <td style="font-weight:bold">Age</td>
+                                <td ng-bind="calculateAgeByDateOfBirth(memberSettingObj.age, memberSettingObj.dateOfBirth)"></td>
+                                <td style="font-weight:bold">Member Type</td>
+                                <td ng-bind="memberSettingObj.MemberType"></td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td style="font-weight:bold">Member Since</td>
+                                <td ng-bind="memberSettingObj.memberSince | date: 'dd/MM/yyyy'"></td>
+                                <td style="font-weight:bold">Email</td>
+                                <td ng-bind="memberSettingObj.emailId"></td>
+                                <td style="font-weight:bold">Password</td>
+                                <td>
+                                    ********* &nbsp;&nbsp; <button class="btn btn-xs" ng-click="changePassword()">Change</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table width="100%" border="0" class="table table-bordered" ng-show="IsEdit">
+
+                            <tbody>
+                            <tr class="sub33-tr">
+                                <td style="font-weight:bold">Name</td>
+                                <td>
+                                    <input name="textfield" type="text" style="width:120px" class="smart-pack2-dropdown" id="txtFirstName" value="{{memberSettingObj.firstName}}" ng-model="memberSettingObj.firstName"/>
+                                    <input name="textfield" type="text" style="width:120px" class="smart-pack2-dropdown" id="txtLastName" value="{{memberSettingObj.lastName}}" ng-model="memberSettingObj.lastName"/>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td style="font-weight:bold">Date Of Birth</td>
+                                <td>
+                                    <input name="textfield" type="text" class="smart-pack2-dropdown" id="RegDateOfBirth" ng-model="memberSettingObj.dateOfBirth" ng-change="calculateAgeByDateOfBirth(memberSettingObj.age, memberSettingObj.dateOfBirth)" data-max-date="today" bs-datepicker ng-model="DateOfBirth" ng-model="memberSettingObj.dateOfBirth"
+                                           onchange="calculateAgeByDateOfBirth(memberSettingObj.age, memberSettingObj.dateOfBirth)"/>
+                                    <!--<div class="input-daterange" id="datepicker"/>
+                                        <input type="text" class="input-small" placeholder="DOB as dd/mm/yyyy" name="start" style="display:inline-block; height: 30px; width : 120px;"
+                                               ng-model="memberSettingObj.dateOfBirth | date : 'dd/MM/yyyy'"/>
+                                    </div>-->
+                                </td>
+                                <td>&nbsp;</td>
+                                <td style="font-weight:bold">Gender</td>
+                                <td>
+                                    <select class="smart-pack1-dropdown" id="ddlGender" ng-model="memberSettingObj.gender" value="{{memberSettingObj.gender}}">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td style="font-weight:bold">Afya ID</td>
+                                <td ng-bind="memberSettingObj.afyaId"></td>
+                                <td>&nbsp;</td>
+                                <td style="font-weight:bold">Age</td>
+                                <td ng-bind="calculateAgeByDateOfBirth(memberSettingObj.age, memberSettingObj.dateOfBirth)"></td>
+                                <td>&nbsp;</td>
+                                <td style="font-weight:bold">Member Type</td>
+                                <td ng-bind="memberSettingObj.MemberType">
+
+                                    <!--<input name="textfield" type="text" class="smart-pack2-dropdown" id="txtMemberType" value="{{memberSettingObj.MemberType}}" ng-model="memberSettingObj.MemberType"/>-->
+                                </td>
+                            </tr>
+                            <tr class="sub33-tr">
+                                <td style="font-weight:bold">Mobile Number</td>
+                                <td ng-bind="memberSettingObj.mobileNumber"></td>
+                                <td>&nbsp;</td>
+                                <td style="font-weight:bold">Email</td>
+                                <td ng-bind="memberSettingObj.emailId">
+                                </td>
+                                <td>&nbsp;</td>
+                                <td style="font-weight:bold">Password</td>
+                                <td>
+                                    **********
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" align="right"  align="center">
+                                    <button type="button" class="btn btn-success" id="btnUpdate" name="btnUpdate" ng-click="updateMemberDetails()">Update &nbsp;
+                                        <i class="fa fa-chevron-right"></i> </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><div class="pack-whitebg-box">
+                    <table width="100%" border="0">
+                        <tbody>
+                        <tr>
+                            <td width="90%"><strong>Insurance Membership Details :</strong> You are logged in as <strong ng-bind="memberSettingObj.username"></strong></td>
+                            <!--<td width="10%" valign="middle"><strong>Edit</strong></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="clearfix"></div>
+                </div>
+                    <table width="100%" border="0" class="table table-bordered">
+                        <tr class="sub33-tr">
+                            <th style="font-weight:bold">Group Name</th>
+                            <th style="font-weight:bold">Health Policy Name</th>
+                            <th style="font-weight:bold">Insurance Name</th>
+                            <th style="font-weight:bold">Policy No</th>
+                            <th style="font-weight:bold">Start Date</th>
+                            <th style="font-weight:bold">End Date</th>
+                            <th style="font-weight:bold">Membership Number</th>
+                        </tr>
+                        <tr ng-show="!insuranceDetailsList.length"  style="text-align: center">
+                            <td colspan="9"><text><i>No Data Found</i></text></td>
+                        </tr>
+                        <tbody ng-repeat="insurance in insuranceDetailsList">
+                        <tr class="sub33-tr">
+                            <td ng-bind="insurance.groupName"></td>
+                            <td ng-bind="insurance.healthPolicyName"></td>
+                            <td ng-bind="insurance.insuranceName"></td>
+                            <td ng-bind="insurance.policyNo"></td>
+                            <td ng-bind="insurance.startDate | date : 'dd/MM/yyyy'"></td>
+                            <td ng-bind="insurance.endDate | date : 'dd/MM/yyyy'"></td>
+                            <td ng-bind="insurance.UHID"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </section>
+    <!--/#care-provider-payer-->
+
+    <section id="adapt-method">
+        <div class="center container">
+
+        </div>
+
+    </section>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">History View</h4>
+                </div>
+                <div class="modal-body">
+                    <p><table width="100%" border="0" class="table table-bordered">
+                    <tr class="sub333-tr">
+                        <th height="28">Date </th>
+                        <th>Status</th>
+                        <th>View Comments</th>
+                        <th>View       </th>
+                    </tr>
+                    <tr class="sub33-tr">
+                        <td>Abc lab</td>
+                        <td>Dr Abtl</td>
+                        <td>Clinic</td>
+                        <td><i class="fa fa-eye"></i>View</td>
+                    </tr>
+                    <tr class="sub33-tr">
+                        <td>Abc lab</td>
+                        <td>Dr Abtl</td>
+                        <td>Clinic</td>
+                        <td><i class="fa fa-eye"></i>View</td>
+                    </tr>
+                    <tr class="sub33-tr">
+                        <td>Abc lab</td>
+                        <td>Dr Abtl</td>
+                        <td>Clinic</td>
+                        <td><i class="fa fa-eye"></i>View</td>
+                    </tr>
+                </table></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--/.container-->
+    <div class="modal fade bs-example-modal-lg" id="changePasswordModel" role="dialog">
+        <!--<div class="modal-dialog modal-lg">-->
+        <div style="max-width: 600px; width:100%; margin: 30px auto;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: left">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                    <span class="modal-head mrm30" style="margin-left:150px">Change Password</span>
+                </div>
+
+                <div class="modal-body pd30">
+                    <form  name="myForm">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    Current Password *
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <input type="password" class="form-control fsize" id="currentPassword" name="currentPassword" ng-model="currentPassword" oncopy="return false;"
+                                           oncut="return false;" required  placeholder="Current Password"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    New Password *
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <input type="password" class="form-control fsize" id="newPassword" name="newPassword" ng-model="newPassword" oncopy="return false;"
+                                           oncut="return false;" ng-click="clearErr()" required  placeholder="New Password"/>
+
+                                    <password-strength ng-model="newPassword"></password-strength>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-default btn-sm pull-center" onclick="$('#passwordPolysis').modal('show')">
+                                <i class="fa fa-info"></i></button>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    Confirm Password *
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <input type="password" class="form-control fsize" ng-model="confirmPassword" id="confirmPassword" name="confirmPassword" oncopy="return false;" onpaste="return false;"
+                                           oncut="return false;" ng-click="clearErr()" required  placeholder="Confirm Password"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row"  ng-hide="isSubmit">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group" style="color:red;">
+                                    Oops, Password does not match, please reenter the password.
+                                    <label ng-bind="message"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-book btn-lg" ng-click="submit()">submit</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="passwordPolysis" role="dialog" style="z-index: 2000 !important;">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: left">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                    <span class="modal-head mrm30" style="margin-left:80px">Password Policy</span>
+                </div>
+                <div class="modal-body">
+                    *&nbsp;&nbsp; Should contain at least 8 characters<br/>
+                    *&nbsp;&nbsp; Should contain at least one digit<br/>
+                    *&nbsp;&nbsp; Should contain at least one lower character and one upper<br/>&nbsp;&nbsp;&nbsp;&nbsp; character<br/>
+                    *&nbsp;&nbsp; Should contain at least one special character from (!@%$^&*)<br/>
+                    *&nbsp;&nbsp; Should not contain space<br/>
+                    <hr>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-book btn-lg" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>-->
+    <!--<script type="text/javascript">-->
+        <!--$(document).ready(function ($) {-->
+
+            <!--// delegate calls to data-toggle="lightbox"-->
+            <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+                <!--event.preventDefault();-->
+                <!--return $(this).ekkoLightbox({-->
+                    <!--onShown: function () {-->
+                        <!--if (window.console) {-->
+                            <!--return console.log('Checking our the events huh?');-->
+                        <!--}-->
+                    <!--},-->
+                    <!--onNavigate: function (direction, itemIndex) {-->
+                        <!--if (window.console) {-->
+                            <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                        <!--}-->
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+
+            <!--//Programatically call-->
+            <!--$('#open-image').click(function (e) {-->
+                <!--e.preventDefault();-->
+                <!--$(this).ekkoLightbox();-->
+            <!--});-->
+            <!--$('#open-youtube').click(function (e) {-->
+                <!--e.preventDefault();-->
+                <!--$(this).ekkoLightbox();-->
+            <!--});-->
+
+            <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+                <!--event.preventDefault();-->
+                <!--return $(this).ekkoLightbox({-->
+                    <!--onShown: function () {-->
+                        <!--var a = this.modal_content.find('.modal-footer a');-->
+                        <!--if (a.length > 0) {-->
+                            <!--a.click(function (e) {-->
+                                <!--e.preventDefault();-->
+                                <!--this.navigateTo(2);-->
+                            <!--}.bind(this));-->
+                        <!--}-->
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+
+
+            <!--// fade in #back-top-->
+            <!--$(function () {-->
+
+                <!--// scroll body to 0px on click-->
+                <!--$('#back-top').click(function () {-->
+                    <!--$('body,html').animate({-->
+                        <!--scrollTop: 0-->
+                    <!--}, 800);-->
+                    <!--return false;-->
+                <!--});-->
+            <!--});-->
+
+        <!--});-->
+        <!--</script>-->
+    <script>
+        $(function() {
+
+            $( ".btn" ).click(function() {
+                var icon = $( this );
+                icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+                icon.closest( ".box" ).find( ".box-body" ).toggle();
+            });
+        });
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            //rotation speed and timer
+            var speed =5000;
+
+            var run = setInterval(rotate, speed);
+            var slides = $('.slide');
+            var container = $('#slides ul');
+            var elm = container.find(':first-child').prop("tagName");
+            var item_width = container.width();
+            var previous = 'prev'; //id of previous button
+            var next = 'next'; //id of next button
+            slides.width(item_width); //set the slides to the correct pixel width
+            container.parent().width(item_width);
+            container.width(slides.length * item_width); //set the slides container to the correct total width
+            container.find(elm + ':first').before(container.find(elm + ':last'));
+            resetSlides();
+
+
+            //if user clicked on prev button
+
+            $('#buttons a').click(function (e) {
+                //slide the item
+
+                if (container.is(':animated')) {
+                    return false;
+                }
+                if (e.target.id == previous) {
+                    container.stop().animate({
+                        'left': 0
+                    }, 1500, function () {
+                        container.find(elm + ':first').before(container.find(elm + ':last'));
+                        resetSlides();
+                    });
+                }
+
+                if (e.target.id == next) {
+                    container.stop().animate({
+                        'left': item_width * -2
+                    }, 1500, function () {
+                        container.find(elm + ':last').after(container.find(elm + ':first'));
+                        resetSlides();
+                    });
+                }
+
+                //cancel the link behavior
+                return false;
+
+            });
+
+            //if mouse hover, pause the auto rotation, otherwise rotate it
+            container.parent().mouseenter(function () {
+                clearInterval(run);
+            }).mouseleave(function () {
+                run = setInterval(rotate, speed);
+            });
+
+
+            function resetSlides() {
+                //and adjust the container so current is in the frame
+                container.css({
+                    'left': -1 * item_width
+                });
+            }
+
+        });
+        //a simple function to click next link
+        //a timer will call this function, and the rotation will begin
+
+        function rotate() {
+            $('#next').click();
+        }
+    </script>
+
+    <script type="text/javascript">
+        // When the document is ready
+        $(document).ready(function () {
+
+            $('.input-daterange').datepicker({
+                todayBtn: "linked",
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                endDate: '+0d'
+            });
+
+        });
+    </script>
+    <script src="/afya-portal/static/js/bootstrap-datepicker.js"></script>
+</div>

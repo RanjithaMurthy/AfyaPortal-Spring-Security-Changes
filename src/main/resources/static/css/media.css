@@ -1,0 +1,597 @@
+@charset "utf-8";
+
+@media(max-width:480px) {
+    /*for all small mobile (xs)*/
+    body {background: #FFF; font-family: "Open Sans",sans-serif; color: #4E4E4E; line-height: 22px; margin-top: 0px;}
+    .sub-menu p{color:#3D3F40;font-size:16px;font-weight:600;border-bottom:1px solid #CCC;padding-bottom:5px}
+    .top-bar{background:#f5f5f5;height:auto;line-height:none}
+    .pl62{padding-left:0}
+    .xs-mr-auto{margin: auto!important;}
+    .xs-opt-btn{float: left; margin: 15px auto;}
+    .xs-sm-text-center{text-align: center;}
+    #care-provider-payer{
+        background: -webkit-linear-gradient(to top,#F3F3F3 50%,#EEEDED 50%); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(to top,#F3F3F3 50%,#EEEDED 50%); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(to top,#F3F3F3 50%,#EEEDED 50%); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to top,#F3F3F3 50%,#EEEDED 50%); /* Standard syntax */
+    }
+    .xs-mb10{margin-bottom:10px}
+    ul.social-share li a{font-size:14px;display:inline-block;color:#37393a;background:#f5f5f5;text-align:center;font-weight:400;padding:0 23px;border:0 #d5dadd solid;border-top:none;border-bottom:none;height:50px;line-height:50px}
+    .mar8-fa{display:inline-block;font-family:FontAwesome;font-style:normal;font-weight:400;margin-right:8px!important}
+    .navbar-inverse .navbar-nav > li > a{color:#37393a;display:inline-block;font-size:16px;font-weight:600;margin-bottom:0;margin-left:0;margin-right:0;padding:10px 15px;text-align:left;width:95%}
+    .navbar-nav{margin:18px -15px!important}
+    .btn-regi a{background:#fff none repeat scroll 0 0;border-bottom:0 solid #29a37a;border-radius:0;color:#37393a!important;margin-left:0!important;margin-top:0!important;padding:10px 12px!important;width:90%!important}
+    .btn-regi a:hover{background:#eff9f7!important;color:#3298CB!important}
+    .navbar-toggle{background-color:transparent;background-image:none;border:1px solid transparent;border-radius:4px;float:right;margin-bottom:8px;margin-right:15px;margin-top:34px;padding:9px 10px;position:relative}
+    .navbar-inverse .navbar-brand{color:#fff;font-size:36px;line-height:50px;margin-top:1px;position:relative;z-index:1000}
+    .text-div h5{font-size:37px}
+    .text-div{float:left;margin:25px 0 0}
+    .img-div{margin-right:10px;margin-left:0;margin-top:45px}
+    .left-arrow-div{margin-top:50px;margin-bottom:20px;float:left;
+                    transition:all .1s ease-in 0;
+                    -webkit-transition: all .1s ease-in 0; /* Safari 3.1 to 6.0 */
+    }
+    .bg-green{background:#3C9 none repeat scroll 0 0;
+              -webkit-transition: all .2s ease-in 0; /* Safari 3.1 to 6.0 */
+              transition: all .2s ease-in 0; /* Safari 3.1 to 6.0 */
+    }
+    .bg-blue{background:#0C9B8C none repeat scroll 0 0;transition:all .2s ease-in 0;-webkit-transition: all .2s ease-in 0; /* Safari 3.1 to 6.0 */;}
+    .bg-lig-blue{background:#60CDCB none repeat scroll 0 0;transition:all .2s ease-in 0;-webkit-transition: all .2s ease-in 0; /* Safari 3.1 to 6.0 */}
+    threeboxrow{
+        background: -webkit-linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* Standard syntax */
+
+    }
+    .faq-ul{padding:0}
+    .ml-5{margin-left:-5px!important}
+    .xs-no-pd-mr{margin:0;padding:0}
+    .xs1-mb15{margin-bottom:15px}
+    .xs-sm-center{text-align:center !important;}
+    .navbar-brand{padding:0;margin:0!important}
+    .navbar-nav > li > a{padding-bottom:0;padding-top:0}
+    .navbar-nav{margin:18px 0!important;text-align:left}
+    .yamm .yamm-content{padding:20px 10px!important}
+    .sub-menu{margin-left:0!important;padding-left:0!important}
+    .navbar-default .navbar-nav > li > a{color:#37393a;font-size:16px!important;font-weight:600;padding:0}
+    .btn-regi a{border-bottom:0 solid #29a37a!important;background:none!important;color:#37393a!important;margin-left:0!important;margin-top:13px!important;padding:5px 10px!important}
+    .mt155 {margin-top: 50px; text-align: left;}
+    .service-circle {width: 80px;height: 80px;border-radius: 50%; float: left; margin-right: 10px;    margin-bottom: 0;}
+    .footer-services {border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background: #3298CB none repeat scroll 0% 0%; width: 100%;
+                      height: 45px; line-height: 45px;}
+    .footer-services a { font-size: 12px; font-weight: normal; color: #FFF; text-align: center;}
+    .service-text h3 {font-size: 20px;font-weight: normal;color: #454444;margin-bottom: 30px; text-align: left;}
+    .btn-regi a{background:#3c9 none repeat scroll 0 0;border-bottom:2px solid #29a37a;border-radius:3px;color:#fff;margin-left:0!important;margin-top:13px!important;padding:5px 10px!important;transition:all .4s linear 0;-webkit-transition: all .4s ease-in 0; /* Safari 3.1 to 6.0 */}
+    .navbar-default .navbar-nav > li > a{color:#37393a;font-size:13.5px;font-weight:600;padding:6px}
+    .navbar-brand > img{width:100px}
+    .lg-pl140{padding-left:15px;}
+    #afya-services-join { background: #37393A; text-align: center;}
+    #adapt-method h1 {font-size: 23px; font-weight: normal; color: #37393A; text-align: center;}	
+    .service-circle {width: 80px; height: 80px;border-radius: 50%;float: none; margin:auto;}
+    .service-text h3 {font-size: 20px;font-weight: normal;color: #454444;margin-bottom: 30px;text-align: center;  padding-top:10px;}		
+    #member-area-afya { background: #F3F3F3;}
+    #member-area-afya h1{ font-size:28px; font-weight:normal; color:#37393a; text-align:left; max-width:none; width:100%;}
+    #member-area-afya p{ font-size:16px; font-weight:normal; color:#37393a; text-align:justify; max-width:none; width:100%;}
+    #main-slider .carousel .item{height:252px;}
+    #main-slider .carousel .slide-margin{ margin-top: 30px;}	
+    #main-slider .carousel h1 {font-size: 19px; margin:0; text-align:center;}	
+    #main-slider .carousel h2 {font-size: 21px; text-align:center; line-height: 35px;}
+    #main-slider .carousel .item.active {background-position: right bottom;}	
+
+    /*footer logo and social icon*/
+    .widget img{display:none;}
+    .xs-text-left{text-align:left;}
+    .mtb25 { margin: 0;}
+    .circle-icon {width: 38px; height: 38px;background: #2195C4 none repeat scroll 0% 0%; color: #FFF; border-radius: 50%; line-height: 38px;
+                  margin-right: 22px; transition: all 0.2s linear 0s;text-align: center;}
+
+    .accor-main-faq a.menuitem-faq-cata {background: #3298CB none repeat scroll 0% 0%; font-size: 16px; color: #FFF; position: relative;    padding: 17px 17px 17px 10px; text-decoration: none; border-radius: 3px; display: block; width:100%;}
+    .faq-info-about-ul{width: 100%;padding: 0px; margin:0;}
+    .faq-info-about-ul li { float: left; margin-right: 8px;width: 100%;margin-bottom: 10px;}
+    .btn-faq {background: #EBF3F0 none repeat scroll 0px 0px; border: medium none;border-radius: 2px;color: #26ABE2;font-size: 14px;
+              padding: 13px 26px;transition: all 0.2s linear 0s; margin-top: 20px;margin-bottom: 20px;}
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        color: #FFF; cursor: default;background-color: #3C9;border-width: 1px; border-style: solid; border-color: #DDD #DDD transparent;
+        -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none;
+        border-image: none; font-size: 17px; padding: 15px; height:75px;}
+    .nav-tabs > li > a { font-size: 17px; padding: 15px; color: #0C9B8C;  height:113px;}
+    .tab-info-ul .unselected {color: #37393A;font-size: 14px; background: #E5E5E5 none repeat scroll 0% 0%; border: 1px solid rgb(157, 162, 165);}
+    .corner-span-unselected { width: 36px; height: 36px;background: #E5E5E5 none repeat scroll 0% 0%; position: absolute; margin-left: 42px;
+                              margin-top: 6px; border-top: 1px solid #9DA2A5;border-right: 1px solid #9DA2A5;transform: rotate(45deg);}
+    .tab-info-ul li{background: none;}
+
+    .nav-tabs > .patient-li.active > a, .nav-tabs > .patient-li.active > a:hover, .nav-tabs > .patient-li.active > a:focus{background-image: none !important;font-size: 17px}
+    .patient-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > .care-provider-li.active > a, .nav-tabs > .care-provider-li.active > a:hover, .nav-tabs > .care-provider-li.active > a:focus{background-image: none !important;font-size: 17px}
+    .care-provider-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > .care-payer-li.active > a, .nav-tabs > .care-payer-li.active > a:hover, .nav-tabs > .care-payer-li.active > a:focus{background-image: none !important;font-size: 17px}
+    .care-payer-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > li > a{background-image: none;font-size: 17px; height: 75px;}
+    .step1{background-image: none;}
+    .step2{background-image: none;}
+    .step3{background-image: none;}
+    .tab-info-ul li{background: #f3f3f3; float: left; width: 100%; height: 45px; line-height: 45px; margin-bottom: 10px;   margin-left: 0px;}
+    .tab-info-ul li:last-child{background: #f3f3f3;}
+    .tab-info-ul li{height: 50px;}
+    .selected-stage-text {color: #FFF; font-size: 14px; display:block; background:#37393A ;}
+    .no-tab{margin-left: 11px; height:30px; width:30px;}
+    .otp-text {width: auto!important; margin: auto!important;}
+    .select-box-faq{width: 100% ;}
+    .navbar-fixed-bottom, .navbar-fixed-top {position: relative;right: 0;left: 0;z-index: 1030;}
+    #leadership{background: url(../images/afya-about-bg.jpg) no-repeat right 0; background-size: cover;}
+    #afya-privacy {background: #F3F3F3;}
+    #ecosystem-afya-about p{text-align: center;}
+    .security-p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px; text-align: center;}
+    .right-arrow-p {background: url(../images/right-blue-icon.png) no-repeat 0 0; margin-left: 22%; text-align: left !important; margin-bottom: 30px !important; margin-top: 0 !important;}
+    .mobile-btn-adj{position: absolute;right: 0;bottom: 0;margin-bottom: 0px;margin-right: 0px;}    
+    .chosen-container {width: 100% !important;}
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /*for large small mobile (xs)*/
+        .xs1-mb15{margin-bottom:15px}
+    body {background: #FFF; font-family: "Open Sans",sans-serif; color: #4E4E4E; line-height: 22px; margin-top: 100px;}
+    .threeboxrow{
+        background: -webkit-linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to bottom,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* Standard syntax */
+
+    }
+    .xs-sm-text-center{text-align: center;}
+    .xs-no-pd-mr{margin:0;padding:0}
+    .footer-services a { font-size: 14px; font-weight: normal; color: #FFF; text-align: center;}
+    .service-text h3 {font-size: 20px;font-weight: normal;color: #454444;margin-bottom: 30px; text-align: left; padding-top:10px;}
+    .btn-regi a{background:#3c9 none repeat scroll 0 0;border-bottom:2px solid #29a37a;border-radius:3px;color:#fff;margin-left:0!important;margin-top:13px!important;padding:5px 10px!important;transition:all .4s linear 0;-webkit-transition: all .4s ease-in 0; /* Safari 3.1 to 6.0 */}
+    .navbar-default .navbar-nav > li > a{color:#37393a;font-size:13.5px;font-weight:600;padding:6px}
+    .navbar-brand > img{width:100px}
+    .lg-pl140{padding-left:15px;}
+    .xs-sm-center{text-align:center !important;}	
+    .apps-class-wrap a img{width:110px;float:left;margin-right:0}
+    .service-circle {width: 80px;height: 80px;border-radius: 50%; float: left; margin-right: 10px;    margin-bottom: 0;}
+    .sm-mr-auto{margin:auto}
+    .xs-mb15{margin-bottom:15px}
+    .xs-float-right{float:right}
+    .apps-class-wrap a{margin-right:0}
+
+    .carousel-indicators{display:inline-block;margin-left:-50px;}		
+    #afya-care-services {background: #F3F3F3;}
+    #afya-services-join { background: #37393A; text-align: center;}	
+    #adapt-method h1 {font-size: 23px; font-weight: normal; color: #37393A; text-align: center;}		
+    .service-circle {width: 80px; height: 80px;border-radius: 50%;float: none; margin:auto;}
+    .service-text h3 {font-size: 20px;font-weight: normal;color: #454444;margin-bottom: 30px;text-align: center;}		
+    #member-area-afya { background: #F3F3F3;}	
+    #member-area-afya h1{ font-size:28px; font-weight:normal; color:#37393a; text-align:left; max-width:none; width:100%;}
+    #member-area-afya p{ font-size:16px; font-weight:normal; color:#37393a; text-align:justify; max-width:none; width:100%;}
+    #main-slider .carousel .item{height:252px;}	
+    #main-slider .carousel h1 {font-size: 20px; margin:0; text-align:center;}	
+    #main-slider .carousel h2 {font-size: 25px; text-align:center;line-height: 30px; margin-top: 0;}
+    #main-slider .carousel .item.active {background-position: right bottom;}
+    .navbar-toggle { position: relative; float: right;padding: 9px 10px; margin-top: -15px;margin-right: 15px;margin-bottom: 8px;   background-color: transparent; background-image: none; border: 1px solid transparent; border-radius: 4px;}	
+
+    /*footer logo and social icon*/
+    .widget img{display:none;}
+    .xs-text-left{text-align:left;}
+    .mtb25 { margin: 0;}
+    .circle-icon {width: 38px; height: 38px;background: #2195C4 none repeat scroll 0% 0%; color: #FFF; border-radius: 50%; line-height: 38px;
+                  margin-right: 22px; transition: all 0.2s linear 0s;text-align: center;}
+
+    .accor-main-faq a.menuitem-faq-cata {background: #3298CB none repeat scroll 0% 0%; font-size: 16px; color: #FFF; position: relative;    padding: 17px 17px 17px 10px; text-decoration: none; border-radius: 3px; display: block; width:100%;}
+    .faq-info-about-ul{width: 100%;padding: 0px; margin:0;}
+    .faq-info-about-ul li { float: left; margin-right: 8px;width: 100%;margin-bottom: 10px;}	
+    .btn-faq {background: #EBF3F0 none repeat scroll 0px 0px; border: medium none;border-radius: 2px;color: #26ABE2;font-size: 14px;
+              padding: 13px 26px;transition: all 0.2s linear 0s; margin-top: 20px;margin-bottom: 20px;}
+    .nav-tabs > li > a { font-size: 17px;padding: 0px 5px; 	height:77px; line-height:77px;color: #0C9B8C;}
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {color: #FFF; cursor: default;  background-color: #3C9; border-width: 1px;border-style: solid;border-color: #DDD #DDD transparent; -moz-border-top-colors: none;   -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; font-size: 17px;
+                                                                                                 height:77px; line-height:77px; padding: 0px 5px;}
+    .tab-info-ul .unselected {color: #37393A;font-size: 14px;background: #E5E5E5 none repeat scroll 0% 0%; border-bottom: 1px solid #9DA2A5;
+                              border-top: 1px solid #9DA2A5; border-left: 1px solid #9DA2A5;}
+    .tab-info-ul li{background: none;}
+
+    .nav-tabs > .patient-li.active > a, .nav-tabs > .patient-li.active > a:hover, .nav-tabs > .patient-li.active > a:focus{background-image: none !important;font-size: 17px; padding: 0;}
+    .patient-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > .care-provider-li.active > a, .nav-tabs > .care-provider-li.active > a:hover, .nav-tabs > .care-provider-li.active > a:focus{background-image: none !important;font-size: 17px; padding: 0;}
+    .care-provider-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > .care-payer-li.active > a, .nav-tabs > .care-payer-li.active > a:hover, .nav-tabs > .care-payer-li.active > a:focus{background-image: none !important;font-size: 17px; padding: 0;}
+    .care-payer-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > li > a{background-image: none;font-size: 17px;}
+    .step1{background-image: none;}
+    .step2{background-image: none;}
+    .step3{background-image: none;}
+    .tab-info-ul li{background: #f3f3f3; float: left; width: 100%; line-height: 45px; margin-bottom: 10px;   margin-left: 0px;}
+    .tab-info-ul li:last-child{background: #f3f3f3;}
+    .selected-stage-text {color: #FFF; font-size: 14px; display:block; background:#37393A ;}
+    .no-tab{margin-left: 11px; height:30px; width:30px;}
+    .select-box-faq{ 
+        font-size: 16px;color: #FFF;position: relative;padding: 17px 35px 17px 10px;text-decoration: none;border-radius: 3px;
+        width: 170px;display: block;background: #3298cb url("../images/down-white-arrow.png") no-repeat 90% center !important;
+        -moz-appearance: none;appearance: none; border: none; height: 60px;}
+    .faq-info-about-ul li{width: auto;}    
+    #afya-privacy {background: #F3F3F3;}
+    #ecosystem-afya-about p{text-align: center;}
+    .security-p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px; text-align: center;}
+    .right-arrow-p {background: url(../images/right-blue-icon.png) no-repeat 0 0; margin-left: 22%; text-align: left !important; margin-bottom: 30px !important; margin-top: 0 !important;}
+    
+    
+}
+@media (min-width: 768px) and (max-width: 991px) {    
+    /*for all tablet (sm)*/
+        .xs1-mb15{margin-bottom:15px}
+    b.caret { margin-left: 0 !important;}
+    body {background: #FFF; font-family: "Open Sans",sans-serif; color: #4E4E4E; line-height: 22px; margin-top: 100px;}
+    .tab-info-ul li{background: none;}	
+    .lg-pl140{padding-left:15px;}	
+    .xs-sm-text-center{text-align: center;}
+    #header .search{display:none}
+    .btn-regi a{background:#3c9 none repeat scroll 0 0;border-bottom:2px solid #29a37a;border-radius:3px;color:#fff!important;margin-left:8px!important;margin-top:13px!important;padding:5px 10px!important;transition:all .4s linear 0;-webkit-transition: all .4s ease-in 0; /* Safari 3.1 to 6.0 */}
+    .navbar-default .navbar-nav > li > a{color:#37393a;font-size:13.5px;font-weight:600;padding:6px}
+    .navbar-brand > img{width:100px}
+    .xs-mb15{margin-bottom:15px}
+    .aml-100{margin-left:0;}
+    .xs-float-right { float: left;}	
+    .navbar-default .navbar-nav > li > a{color:#37393a;font-size:13.5px;font-weight:600;padding:6px}
+    .navbar-brand > img{width:100px}	
+    .footer-services a {font-size: 14px;font-weight: normal;color: #FFF; text-align: center; display: block;}	
+    #member-area-afya h1 {font-size: 28px;font-weight: normal;color: #37393A;text-align: center; max-width: 370px; width: 100%;}	
+    .xs-sm-center{text-align:center !important;}
+    .carousel-indicators{display:inline-block; margin-left:-50px;}
+
+    .img-div {margin-top: 70px;float: left;margin-right: 0px;}
+    .img-div img{width:70%;}
+    .text-div { margin-bottom: 54px; margin-top: 54px; float: left; margin-right: 10px;}
+    .left-arrow-div { display:none;}
+    .left-arrow-div img{width:80%;}
+    .text-div h5 {color: #FFF;font-size: 25px;font-weight: 400;}
+    .text-div h4 {color: #FFF;font-size: 22px;font-weight: 400;}
+    .text-div h3 {color: #FFF;font-size: 14px;font-weight: 400;}	
+    .requ-div-adj {float: right;}
+    .requ-div {width: 300px; padding-bottom: 10px; position: absolute; background: #FFF none repeat scroll 0% 0%; margin-top: 40px;     border-radius: 2px; z-index: 1000; 
+               transform: translateX(50%); 
+               -ms-transform: translateX(50%);  /* IE 9 */
+               -webkit-transform: translateX(50%);  /* Chrome, Safari, Opera */ left: 50%; margin-left: -85px;}	
+    .carousel-content { width: 100%; width: 440px;}
+    .carousel-content h1 { font-size: 24px; font-weight: 300; color: #37393A; text-align: left;}
+    .carousel-content h2 { font-size: 32px; font-weight: normal;color: #26ABE2;text-align: left;line-height: 40px;}
+    .phone-ul {margin-top: 55px; list-style: outside none none;padding: 0;}
+    .faq-info-about-ul li { float: left; margin-right: 8px; margin-bottom: 10px;}
+    .btn-faq {background: #EBF3F0 none repeat scroll 0px 0px; border: medium none;border-radius: 2px;color: #26ABE2;font-size: 14px;
+              padding: 13px 26px;transition: all 0.2s linear 0s; margin-top: 20px;margin-bottom: 20px;}
+
+    .nav-tabs > .patient-li.active > a, .nav-tabs > .patient-li.active > a:hover, .nav-tabs > .patient-li.active > a:focus{background-image: none !important;font-size: 17px}
+    .patient-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > .care-provider-li.active > a, .nav-tabs > .care-provider-li.active > a:hover, .nav-tabs > .care-provider-li.active > a:focus{background-image: none !important;font-size: 17px}
+    .care-provider-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > .care-payer-li.active > a, .nav-tabs > .care-payer-li.active > a:hover, .nav-tabs > .care-payer-li.active > a:focus{background-image: none !important;font-size: 17px}
+    .care-payer-li a:hover{background-image: none !important;font-size: 17px}
+    .nav-tabs > li > a{background-image: none;font-size: 17px; height: 75px;}
+    .step1{background-image: none;}
+    .step2{background-image: none;}
+    .step3{background-image: none;}
+    .tab-info-ul li{background: #f3f3f3; float: left; width: 100%; height: 45px; line-height: 45px; margin-bottom: 10px;   margin-left: 0px;}
+    .tab-info-ul li:last-child{background: #f3f3f3;}
+    .tab-info-ul li{height: 50px;}
+    .selected-stage-text {color: #FFF; font-size: 14px; display:block; background:#37393A ;}
+    .no-tab{margin-left: 11px; height:30px; width:30px;}   
+    #afya-privacy {background: #F3F3F3;}
+    
+    .widget img{display:none;}
+    .xs-text-left{text-align:left;}
+    .mtb25 { margin: 0;}
+    .circle-icon {width: 38px; height: 38px;background: #2195C4 none repeat scroll 0% 0%; color: #FFF; border-radius: 50%; line-height: 38px;
+                  margin-right: 22px; transition: all 0.2s linear 0s;text-align: center;}
+
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    /*for all small desktop (md)*/	
+    .carousel-indicators{display:inline-block; margin-left:-50px;}
+    .btn-regi a{margin-left:0!important}
+    .container2{width:990px;background-color:#EFF9F7;border-bottom:3px solid #26ABE2;padding:60px;margin-left:-175px}
+    #header .search{display:none}
+    .navbar-default .navbar-nav > li > a {color: #37393A;font-size: 14px; font-weight: 600;}
+    .text-div {margin-bottom: 54px;margin-top: 54px;float: left;margin-right: 10px;}
+    .img-div {margin-top: 70px;float: left; margin-right: 10px;}
+
+    .requ-div-adj {float: right;}
+    .requ-div {width: 300px; padding-bottom: 10px; position: absolute; background: #FFF none repeat scroll 0% 0%; margin-top: 40px;     border-radius: 2px; z-index: 1000; 
+               transform: translateX(50%); 
+               -ms-transform: translateX(50%);  /* IE 9 */
+               -webkit-transform: translateX(50%);  /* Chrome, Safari, Opera */ 
+               left: 50%; margin-left: 10px;}	
+    .carousel-content { width: 100%; width: 440px;}
+    .carousel-content h1 { font-size: 24px; font-weight: 300; color: #37393A; text-align: left;}
+    .carousel-content h2 { font-size: 32px; font-weight: normal;color: #26ABE2;text-align: left;}	
+    .tab-info-ul li:first-child{float:left; width:240px; height:45px; line-height:45px; margin-bottom:30px; margin-left:18px;}
+    .tab-info-ul li{float:left; width:240px; height:45px; line-height:45px; margin-bottom:30px; margin-left:-5px;}
+
+    .faq-info-about-ul li { float: left; margin-right: 8px; margin-bottom: 10px;}
+    .mobile-btn-adj{position: absolute;right: 0;bottom: 0;margin-bottom: 80px;margin-right: -60px;}    
+    #afya-privacy {background: #F3F3F3;}
+    .circle-icon {width: 35px; height: 35px;background: #2195C4 none repeat scroll 0% 0%; color: #FFF; border-radius: 50%; line-height: 38px;
+                  margin-right: 5px; transition: all 0.2s linear 0s;text-align: center;}
+}
+@media (min-width: 1200px) {
+    /*for all large desktop (lg)*/	
+    .mtl50{margin-top: 50px;}
+    .mtl75{margin-top: 75px;}
+    .mtl100{margin-top: 100px;}
+    .lg-pdlr60{padding: 0 60px !important;}
+    .carousel-indicators{display:inline-block;margin-left: -50px;}		
+    .div-take p{color:#37393a;font-size:28px;font-weight:400;margin-top:18px}
+    .slider2-h3{color:#26ABE2;font-size:25px;font-weight:400;text-align:center;margin-top:10px}
+    .nav-h3 li{display:inline-block;float:left;padding-right:15px}
+    .nav-h3 li img{padding-right:5px}
+    .tab-info-ul li:first-child{float:left; width:240px; height:50px; line-height:50px; margin-bottom:30px; margin-left:18px;}
+    .tab-info-ul li{float:left; width:240px; height:50px; line-height:50px; margin-bottom:30px; margin-left:5px;}
+
+}
+
+
+
+/*only for slider strip bg start*/
+@media(min-width:320px) and (max-width: 412px) {
+    .modal-footer {padding: 19px 5px 20px;margin-top: 15px;text-align: center; border-top: 1px solid #E5E5E5;}/*for login model*/
+    .xs-text-left{text-align:left !important;}/*for login model*/
+    .carousel-indicators{display:inline-block; margin-left:-50px;}	
+
+    #afya-care-services {background:#F3F3F3;}	
+    #apps-store-afya-slider h2{font-size:23px}
+    #apps-store-afya-slider h1{font-size:35px}
+    .experience-afya-strip{margin-top:30px}	
+    .apps-class-wrap a{margin-right:0}
+    .experience-afya-strip span{padding-left:0}
+
+    #ecosystem-afya-slider h2{font-size:23px}
+    #ecosystem-afya-slider h1{font-size:35px}
+    .ecosystem-afya-strip{margin-top:30px}
+    .ecosystem-afya-strip span{padding-left:0}
+
+    .apps-class-wrap a img{width:110px;float:left;margin-right:0}
+    .xs-mb15{margin-bottom:15px}
+    #afya-apps h1{color:#37393A;font-size:23px}
+    #afya-apps-gray h1{color:#37393A;font-size:23px}
+    .xs-float-right{float:right}
+
+    #Afya-wordclass h1 { color: #37393A; font-size: 23px;}
+    #afya-care-services h1{ color: #37393A; font-size: 23px; font-weight:normal;}
+    #afya-care-services {background: #F3F3F3;}
+    .aml-100{margin-left:0;}
+
+    #future-care-afya-slider h2{font-size:23px;}		
+    #future-care-afya-slider h1{font-size:35px;}	
+    .future-care-afya-strip{margin-top:30px;}
+    .future-care-afya-strip span{padding-left:0px;}
+    
+    #trust-afya-slider h2{font-size:23px;}		
+    #trust-afya-slider h1{font-size:35px;}	
+    
+    #future-care-afya-slider1 h2{font-size:23px;}		
+    #future-care-afya-slider1 h1{font-size:35px;}	
+    #future-care-afya-slider2 h2{font-size:23px;}		
+    #future-care-afya-slider2 h1{font-size:35px;}	
+    .future-care-afya-strip1{margin-top:30px;}
+    .future-care-afya-strip1 span{padding-left:0px;}
+
+    #social-innovation-afya-slider h2{font-size:23px;}		
+    #social-innovation-afya-slider h1{font-size:35px;}	
+    .social-innovation-afya-strip{margin-top:30px;}
+    .social-innovation-afya-strip span{padding-left:0px;}
+
+    #smart-care-afya-slider h2{font-size:23px;}		
+    #smart-care-afya-slider h1{font-size:35px;}	
+    .smart-care-afya-strip{margin-top:30px;}
+    .smart-care-afya-strip span{padding-left:0px;}
+
+    #patient-service-afya-slider h2{font-size:23px;}		
+    #patient-service-afya-slider h1{font-size:35px;}	
+    .patient-service-afya-strip{margin-top:30px;}
+    .patient-service-afya-strip span{padding-left:0px;}
+
+    #experience-afya-slider h2{font-size:23px;}		
+    #experience-afya-slider h1{font-size:35px;}	
+    .experience-afya-strip{margin-top:30px;}
+    .experience-afya-strip span{padding-left:0px;}
+    .experience-afya-strip a { color:#ffffff;}
+
+    #services-afya-slider h2{font-size:23px;}		
+    #services-afya-slider h1{font-size:35px;}	
+    .services-afya-strip{margin-top:30px;}
+    .services-afya-strip span{padding-left:0px;}	
+
+    #member-area-afya-slider h2{font-size:23px;}		
+    #member-area-afya-slider h1{font-size:35px;}	
+    .member-area-afya-strip{margin-top:30px;}
+    .member-area-afya-strip span{padding-left:0px;}
+
+    #care-experience-afya-slider h2{font-size:23px;}		
+    #care-experience-afya-slider h1{font-size:35px;}	
+    .care-experience-afya-strip{margin-top:30px;}
+    .care-experience-afya-strip{padding-left:0px;}
+
+    #member-ship-afya-slider h2{font-size:23px;}		
+    #member-ship-afya-slider h1{font-size:35px;}	
+    .member-ship-afya-strip{margin-top:30px;}
+    .member-ship-afya-strip span{padding-left:0px;}	
+
+    #faq-afya-slider h2{font-size:23px;}		
+    #faq-afya-slider h1{font-size:35px;}	
+    .faq-afya-strip{margin-top:30px;}
+    .faq-afya-strip span{padding-left:0px;}
+
+    #care-service-afya-slider h2, #pro-service-afya-slider h2{font-size:23px;}		
+    #care-service-afya-slider h1, #pro-service-afya-slider h1{font-size:35px;}	
+    .care-service-afya-strip, .pro-service-afya-strip{margin-top:30px;}
+    .care-service-afya-strip span, .pro-service-afya-strip span{padding-left:0px;}
+
+    #eco-adapt-afya-slider h2{font-size:23px;}		
+    #eco-adapt-afya-slider h1{font-size:35px;}	
+    .eco-adapt-afya-strip{margin-top:30px;}
+    .eco-adapt-afya-strip span{padding-left:0px;}
+
+    #scalability-afya-slider h2{font-size:23px;}		
+    #scalability-afya-slider h1{font-size:35px;}	
+    .scalability-afya-strip{margin-top:30px;}
+    .scalability-afya-strip span{padding-left:0px;}
+
+    #about-afya-slider h2{font-size:23px;}		
+    #about-afya-slider h1{font-size:35px;}	
+    .about-afya-strip{margin-top:30px;}
+    .about-afya-strip span{padding-left:0px;}
+    
+    #security-afya-slider h2{font-size:23px;}		
+    #security-afya-slider h1{font-size:35px;}	
+    .security-afya-strip{margin-top:30px;}
+    .security-afya-strip span{padding-left:0px;}
+    
+    #faq-afya-slider2 h2{font-size:23px;}		
+    #faq-afya-slider2 h1{font-size:35px;}	
+    
+    
+    #after-login-afya-slider{height: 200px;}
+    #after-login-afya-slider h2{font-size:23px;}		
+    #after-login-afya-slider h1{font-size:35px;}	
+}
+@media(min-width:413px) and (max-width: 550px) {
+    .carousel-indicators{display:inline-block; margin-left:-50px}	
+    #afya-care-services {background:#F3F3F3;}		
+    #apps-store-afya-slider h2{font-size:23px}
+    #apps-store-afya-slider h1{font-size:35px}
+    .experience-afya-strip{margin-top:67px}
+    .experience-afya-strip span{padding-left:3px}
+
+    #ecosystem-afya-slider{height:252px}
+    #ecosystem-afya-slider h2{font-size:23px}
+    #ecosystem-afya-slider h1{font-size:35px}
+    .ecosystem-afya-strip{margin-top:67px}
+    .ecosystem-afya-strip span{padding-left:3px}
+
+    #trust-afya-slider{height:252px}
+    #trust-afya-slider h2{font-size:23px}
+    #trust-afya-slider h1{font-size:35px}
+    
+    .apps-class-wrap a img{width:110px;float:left;margin-right:0}
+    .sm-mr-auto{margin:auto}
+    .xs-mb15{margin-bottom:15px}
+    .apps-class-wrap a{margin-right:0}
+
+    #Afya-wordclass h1 { color: #37393A; font-size: 23px; font-weight:normal;}
+    #afya-care-services h1{ color: #37393A; font-size: 23px; font-weight:normal;}
+    #afya-care-services {background: #F3F3F3;}
+    .aml-100{margin-left:0;}
+
+    #future-care-afya-slider{height:252px;}
+    #future-care-afya-slider h2{font-size:23px;}		
+    #future-care-afya-slider h1{font-size:35px;}	
+    .future-care-afya-strip{margin-top:67px;}
+    .future-care-afya-strip span{padding-left:3px;}
+    
+    #future-care-afya-slider1{height:252px;}
+    #future-care-afya-slider1 h2{font-size:23px;}		
+    #future-care-afya-slider1 h1{font-size:35px;}	
+    #future-care-afya-slider2{height:252px;}
+    #future-care-afya-slider2 h2{font-size:23px;}		
+    #future-care-afya-slider2 h1{font-size:35px;}	
+    .future-care-afya-strip1{margin-top:67px;}
+    .future-care-afya-strip1 span{padding-left:3px;}
+
+    #social-innovation-afya-slider{height:252px;}
+    #social-innovation-afya-slider h2{font-size:23px;}		
+    #social-innovation-afya-slider h1{font-size:35px;}	
+    .social-innovation-afya-strip{margin-top:67px;}
+    .social-innovation-afya-strip span{padding-left:3px;}
+
+    #smart-care-afya-slider{height:252px;}
+    #smart-care-afya-slider h2{font-size:23px;}		
+    #smart-care-afya-slider h1{font-size:35px;}	
+    .smart-care-afya-strip{margin-top:67px;}
+    .smart-care-afya-strip span{padding-left:3px;}
+
+    #patient-service-afya-slider{height:252px;}
+    #patient-service-afya-slider h2{font-size:23px;}		
+    #patient-service-afya-slider h1{font-size:35px;}	
+    .patient-service-afya-strip{margin-top:67px;}
+    .patient-service-afya-strip span{padding-left:3px;}
+
+    #experience-afya-slider{height:252px;}
+    #experience-afya-slider h2{font-size:23px;}		
+    #experience-afya-slider h1{font-size:35px;}	
+    .experience-afya-strip{margin-top:67px;}
+    .experience-afya-strip span{padding-left:3px;}
+    .experience-afya-strip a { color:#ffffff;}
+
+    #services-afya-slider{height:252px;}
+    #services-afya-slider h2{font-size:23px;}		
+    #services-afya-slider h1{font-size:35px;}	
+    .services-afya-strip{margin-top:67px;}
+    .services-afya-strip span{padding-left:3px;}	
+
+    #member-area-afya-slider{height:252px;}
+    #member-area-afya-slider h2{font-size:23px;}		
+    #member-area-afya-slider h1{font-size:35px;}	
+    .member-area-afya-strip{margin-top:67px;}
+    .member-area-afya-strip span{padding-left:3px;}
+
+    #care-experience-afya-slider{height:252px;}
+    #care-experience-afya-slider h2{font-size:23px;}		
+    #care-experience-afya-slider h1{font-size:35px;}	
+    .care-experience-afya-strip{margin-top:67px;}
+    .care-experience-afya-strip span{padding-left:3px;}	
+
+    #member-ship-afya-slider{height:252px;}
+    #member-ship-afya-slider h2{font-size:23px;}		
+    #member-ship-afya-slider h1{font-size:35px;}	
+    .member-ship-afya-strip{margin-top:67px;}
+    .member-ship-afya-strip span{padding-left:3px;}	
+
+    #faq-afya-slider{height:252px;}
+    #faq-afya-slider h2{font-size:23px;}		
+    #faq-afya-slider h1{font-size:35px;}	
+    .faq-afya-strip{margin-top:67px;}
+    .faq-afya-strip span{padding-left:3px;}
+
+    #care-service-afya-slider, #pro-service-afya-slider{height:252px;}
+    #care-service-afya-slider h2, #pro-service-afya-slider h2{font-size:23px;}		
+    #care-service-afya-slider h1, #pro-service-afya-slider h1{font-size:35px;}	
+    .care-service-afya-strip, .pro-service-afya-strip{margin-top:67px;}
+    .care-service-afya-strip, .pro-service-afya-strip span{padding-left:3px;}
+
+    #eco-adapt-afya-slider{height:252px;}
+    #eco-adapt-afya-slider h2{font-size:23px;}		
+    #eco-adapt-afya-slider h1{font-size:35px;}	
+    .eco-adapt-afya-strip{margin-top:67px;}
+    .eco-adapt-afya-strip span{padding-left:3px;}
+
+    #scalability-afya-slider{height:252px;}
+    #scalability-afya-slider h2{font-size:23px;}		
+    #scalability-afya-slider h1{font-size:35px;}	
+    .scalability-afya-strip{margin-top:67px;}
+    .scalability-afya-strip span{padding-left:3px;}
+    
+    #about-afya-slider{height:252px;}
+    #about-afya-slider h2{font-size:23px;}		
+    #about-afya-slider h1{font-size:35px;}	
+    .about-afya-strip{margin-top:67px;}
+    .about-afya-strip span{padding-left:3px;}
+    
+    #security-afya-slider{height:252px;}
+    #security-afya-slider h2{font-size:23px;}		
+    #security-afya-slider h1{font-size:35px;}	
+    .security-afya-strip{margin-top:67px;}
+    .security-afya-strip span{padding-left:3px;}
+    
+    
+    #after-login-afya-slider{height: 200px;}
+    #after-login-afya-slider h2{font-size:23px;}		
+    #after-login-afya-slider h1{font-size:35px;}	
+    
+    #faq-afya-slider2{height: 200px;}
+    #faq-afya-slider2 h2{font-size:23px;}		
+    #faq-afya-slider2 h1{font-size:35px;}	
+}
+/*only for slider strip bg ends*/
+
+/*only for contact us page*/
+@media (max-width: 480px) { #contact-from p { color: #37393a; font-size: 16px; margin-top: 30px; text-align: center;}}
+@media (min-width: 481px) and (max-width: 768px) {#contact-from p {color: #37393a; font-size: 16px; margin-top: 30px; text-align: left;}}
+/*only for contact us page End*/

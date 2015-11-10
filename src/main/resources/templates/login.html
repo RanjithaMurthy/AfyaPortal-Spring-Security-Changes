@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{css/font-awesome.css}"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Afya | Home</title>
+    <!-- Bootstrap -->
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{css/style.css}" rel="stylesheet" type="text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'/>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+
+    <!-- creates country and state dynamically -->
+    <script type= "text/javascript" th:src="@{js/countries.js}"></script>
+
+    <style>
+        .inputName {
+            border: 2px solid red;
+            border-color: red!important;
+            /*width: 100%;
+            height: 40px;
+            border-radius: 3px;
+            background: #fff;
+            margin-bottom: 30px;
+            padding-left: 10px;*/
+
+        }
+        .inputEmail{
+            color: red;
+            /*width: 100%;
+            height: 40px;
+            border-radius: 3px;
+            background: #fff;
+            */
+            border: solid;
+            border-color: red!important;
+            /* margin-bottom: 30px;
+             padding-left: 10px;*/
+        }
+    </style>
+    <script>
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "role=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    </script>
+</head>
+
+<body class="landing">
+<div class="preloadimg"></div>
+<div class="container" style="margin-top:30px">
+    <div class="col-md-12">
+        <div class="modal-dialog">
+            <div class="modal-content modal-member">
+                <div class="modal-header modal-header-member text-left">
+                    <img src="images/popup-logo2.png" alt="logo" class="img-mr"/>
+                    <span class="modal-head" style="margin-left:50px">Member Login</span>
+
+                </div>
+                <div class="modal-body no-padding">
+                    <div style="display:none" class="login-error-box text-center">
+                        <!--succe-box-->
+                        <img src="images/error-icon.png" alt="error-img"/> &nbsp;<span>Please fix the errors in the form.</span>
+                    </div>
+                    <br/>
+
+                    <form class="frm_member_login" id="frm_member_login" method="post" action="login">
+                        <div class="form-group mb30">
+                            <input type="hidden" name="JavaScriptEnabled" value="Y"/>
+                            <input type="text" class="form-control fsize" id="username" name="username" placeholder="Username"
+                                   onBlur="if (this.value === '') {
+                                                   $(this).removeClass('input');
+                                                   $(this).addClass('inputName');
+                                                   /*$(this).focus();*/
+                                               } else {
+                                                   $(this).addClass('input');
+                                                   $(this).removeClass('inputName');
+                                               }" onkeyup="if (this.value === '') {
+                                                           $(this).removeClass('input');
+                                                           $(this).addClass('inputName');
+                                                       } else {
+                                                           $(this).removeClass('inputName');
+                                                           $(this).addClass('input');
+                                                       }" required="true" tabindex="1"/>
+                        </div>
+                        <div class="form-group mb30">
+                            <input type="password" class="form-control fsize" id="password" name="password" placeholder="Password"
+                                   onBlur="if (this.value === '') {
+                                                   $(this).removeClass('input');
+                                                   $(this).addClass('inputName');
+                                                   /*$(this).focus();*/
+                                               } else {
+                                                   $(this).addClass('input');
+                                                   $(this).removeClass('inputName');
+                                               }" onkeyup="if (this.value === '') {
+                                                           $(this).removeClass('input');
+                                                           $(this).addClass('inputName');
+                                                       } else {
+                                                           $(this).removeClass('inputName');
+                                                           $(this).addClass('input');
+                                                       }" required="true" tabindex="2"/>
+                        </div>
+                        <input type="hidden" name="j_password" id="j_password"/>
+                        <input type="hidden" name="j_username" id="j_username"/>
+                        <div class="modal-footer">
+                            <div class="mb20">
+                                <button type="button" class="btn btn-green" id="log_in"  name="log_in">Log In<span class="glyphicon glyphicon-chevron-right"></span></button>
+                            </div>
+                            <div th:if="${param.error}" align="center" style="color: red">
+                                Invalid username and password.
+                            </div>
+                            <div th:if="${param.logout}"  align="center" style="color: red">
+                                You have been logged out.
+                            </div>
+                            <!--<div class="forget-pwd">
+                                 &lt;!&ndash;<input type="checkbox" value="Remember me"/> Remember me&ndash;&gt;
+                                 <a href="#" data-toggle="modal" data-target="#member-forget-psd" class="ml25" onClick="$('.close').trigger('click');"><u>Forget Password?</u></a>
+                             </div>-->
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        /* on click of submit */
+        $("#log_in").on("click", function (e) {
+            /* validate all inputs first */
+            var username = $('#username').val();
+            var password = $('#password').val();
+            var facility_type = $('#facility_type').find(":selected").text();
+            var client_name = $('#client_name').val();
+            if (username == '') {
+                $('#username').addClass('inputName');
+                $('#username').removeClass('input');
+                $('#username').focus();
+                return false;
+            }
+            if (password == '') {
+                $('#password').addClass('inputName');
+                $('#password').removeClass('input');
+                $('#password').focus();
+                return false;
+            }
+
+            $('#frm_member_login').submit();
+        });
+        //forget password
+        $("#forgot_submit").on("click", function (e) {
+            e.preventDefault();
+            /* validate all inputs first */
+            var forgot_username = $('#forgot_username').val();
+            var forgot_facility_type = $('#forgot_facility_type').find(":selected").text();
+            var forgot_client_name = $('#forgot_client_name').val();
+            $('.error-box').attr('display', 'block');
+            setTimeout(function () {
+                $('.error-box').fadeIn();
+            }, 1000);
+            if (forgot_username == '') {
+                $('#forgot_username').addClass('inputName');
+                $('#forgot_username').removeClass('input');
+                $('#forgot_username').focus();
+                return false;
+            }
+            if (forgot_facility_type == '' || forgot_facility_type == 'Facility Type*') {
+                $('#forgot_facility_type').addClass('inputName');
+                $('#forgot_facility_type').removeClass('input');
+                $('#forgot_facility_type').focus();
+                return false;
+            }
+            if (forgot_client_name == '') {
+                $('#forgot_client_name').addClass('inputName');
+                $('#forgot_client_name').removeClass('input');
+                $('#forgot_client_name').focus();
+                return false;
+            }
+            if ($('#forgot_username').val() != "" || $('#forgot_facility_type').find(":selected").text() != "" || $('#forgot_client_name').val() != "") {
+                alert('Validation successful');
+                $('#forgot_username').val('');
+                $('#forgot_facility_type').find(":selected").text('Facility Type*');
+                $('#forgot_client_name').val('');
+                setTimeout(function () {
+                    $('.error-box').fadeOut();
+                }, 1000);
+            }
+            else {
+                alert('error');
+            }
+        });
+    });</script>
+<script src="js/bootstrap.js"></script>
+
+
+</body>
+
+</html>

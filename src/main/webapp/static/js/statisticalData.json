@@ -1,0 +1,37 @@
+[
+  {
+    "facility": "Clinics",
+    "visitCount": "25",
+    "facilityCount": "1"
+  },
+  {
+    "facility": "Pharmacies",
+    "visitCount": "1",
+    "facilityCount": "2"
+  },
+  {
+    "facility": "Labs",
+    "visitCount": "2",
+    "facilityCount": "1"
+  },
+  {
+    "facility": "Teleconsultation",
+    "visitCount": "3",
+    "facilityCount": "2"
+  },
+  {
+    "facility": "Home Pharmacy",
+    "visitCount": "2",
+    "facilityCount": "3"
+  },
+  {
+    "facility": "Home Phelbotomy",
+    "visitCount": "1",
+    "facilityCount": "3"
+  },
+  {
+    "facility": "Appointment",
+    "visitCount": "3",
+    "facilityCount": "1"
+  }
+]

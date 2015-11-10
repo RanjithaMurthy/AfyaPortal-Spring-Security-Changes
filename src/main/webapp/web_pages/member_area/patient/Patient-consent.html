@@ -1,0 +1,84 @@
+<script>
+    ga('send', 'pageview', { 'page': '/PatientDashboard/Patient-consent', 'title': 'Patient Consent'});
+</script>
+
+<div>
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-6 col-xs-12 mt501"  id="nameDiv">
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--menu-->
+
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#PatientDashboard/Patient-upcoming-smart-services">Upcoming Services</a></li>
+                            <li> <a href="#PatientDashboard">Account Summary</a></li>
+                            <li><a href="#PatientDashboard/Patient-service-list">Services &amp History</a></li>
+                            <li class="active" ><a href="#PatientDashboard/Patient-consent">Consent &amp; Notifications</a></li>
+                            <li><a href="#PatientDashboard/Patient_account_policies">Afya Policies</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--menu end-->
+    <section>
+        <div class="container"  ng-controller="PatientConsentController">
+
+            <!--    row1 start-->
+            <div class="row mb30">
+
+                <!-- 1st div-->
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <table  ng-repeat="consent in patientConsentList" style="width:100%">
+                        <tr class="pack-wraper hvr-grow1" style="margin:10px 0px 0px 10px;width:100%;padding:10px">
+                            <td style="padding-left:30px">
+                                <div id="patientConsentset">
+                                    <input type="checkbox" ng-model="selectedObjs" value="{{consent.consentId}}" ng-checked="{{consent.consentIsYes}}"/>
+                                </div>
+                            </td>
+                            <td style="padding-left:30px">
+                                <div class="profInfoContainer2">
+                                    <div>  <span ng-bind="consent.question"> </span></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                    <br/>
+                    <div style="margin-left:300px;">
+                        <button type="button" class="btn btn-all mrm30" id="btnUpdatePatientConsent" name="btnUpdatePatientConsent" ng-click="UpdatePatientConsent()">Update &nbsp;
+                            <i class="fa fa-chevron-right"></i> </button>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+    <section id="adapt-method">
+        <div class="center container">
+
+        </div>
+
+    </section>
+
+</div>

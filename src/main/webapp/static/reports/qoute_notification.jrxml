@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="qoute_notification" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a5ca2eef-5361-4a22-8617-dc003317d55e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="username" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select price_package.package_name,price_package.package_id,
+price_package_service.service_name,user_package_service.activated,user_package_service.packs,
+user_package_service.rate,user_package_service.amount,
+price_package_service.expire_days
+from price_package,  price_package_service, user_package, user_package_service
+where price_package.package_id = user_package.package_id
+and user_package_service.username = user_package.username
+and user_package_service.package_id = user_package.package_id
+and price_package_service.service_id = user_package_service.service_id
+and user_package_service.activated = 1
+and price_package_service.service_type="NOTIFICATION"
+and user_package.username = $P{username}]]>
+	</queryString>
+	<field name="package_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="package_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="service_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="activated" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="packs" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="expire_days" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="package_id">
+		<groupExpression><![CDATA[$F{package_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="10" width="100" height="20" uuid="2dab32b7-7023-4823-8536-1da82a9345f0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="10" width="48" height="20" uuid="028cf63e-e69c-4cce-8586-02fa61bfafa7"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Packs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="10" width="100" height="20" uuid="b7be7666-948e-4ae1-9a8c-8400622b53c8"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="10" width="100" height="20" uuid="e28da1bc-4db0-4d16-a11a-a89a9b2558be"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="10" width="100" height="20" uuid="f060fbf6-2c91-427d-92c3-20b0c2ad51ba"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Expire (Days)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="8" y="12" width="100" height="20" uuid="7d00e6ae-a749-4c61-8e35-a95d6b51ae65"/>
+				<textFieldExpression><![CDATA[$F{service_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="12" width="48" height="20" uuid="700a2dd6-5047-4640-984a-bd804c9bd862"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{packs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="12" width="100" height="20" uuid="fe590248-9d4a-469d-a7f9-e6aa29b2d69a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="11" width="100" height="20" uuid="8266abd0-1215-4ed8-bba2-1e7a4febf3ec"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="12" width="100" height="20" uuid="ef5639a6-20ae-48ac-854a-2af91d3c7649"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{expire_days}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

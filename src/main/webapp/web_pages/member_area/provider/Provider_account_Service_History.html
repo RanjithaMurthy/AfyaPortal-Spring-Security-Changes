@@ -1,0 +1,286 @@
+<script>
+    ga('send', 'pageview', { 'page': '/ProviderDashboard/Provider_account_Service_History', 'title': 'Provider Account Service History'});
+</script>
+
+<div>
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+
+    <style>
+        .clickable {
+        cursor: pointer;
+        margin-top: -22px;
+        }
+    </style>
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#ProviderDashboard">Account Summary</a></li>
+                            <li class="active" > <a href="#ProviderDashboard/Provider_account_Service_Subscribe">Services</a></li>
+                            <!--<li><a href="#ProviderDashboard/Provider_account_LoyaltyProg_information">Loyalty Program</a></li>-->
+                            <!--<li><a href="#">Training</a></li>-->
+                            <!--<li><a href="#">Consent &amp; Notifications</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_ExistingNetwork">My Network</a></li>
+                            <!--<li><a href="#">Member Support</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_policies">Afya Policies</a></li>
+                            <li><a class="clickable" onclick="redirectClinic()">My Facility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row"  >
+                <div class="underlinemenu">
+                    <ul>
+                        <li><a href="#ProviderDashboard/Provider_account_Service_Subscribe">Subscribed</a></li>
+                        <li><a href="#ProviderDashboard/Provider_account_Service_Non_Subscribe">Non Subscribed</a></li>
+                        <li><a href="#ProviderDashboard/Provider_account_Service_History" class="selected">History</a></li>
+                        <li><a href="#ProviderDashboard/Provider_account_Member_Settings">Member Settings</a></li>
+                        <!--<li><a href="#ProviderDashboard/Provider_account_Service_Transaction">Transactions</a></li>-->
+                        <li><a href="#ProviderDashboard/Provider_account_Service_News">News</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div ng-controller="ProviderServiceHistoryController" class="container">
+            <div class="container">
+                <!--    row1 start-->
+                <div class="row mb30">
+                    <!-- 1st div-->
+                    <!-- Commented out exiting Payment History to replace with Transactions -->
+
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="pack-wraper hvr-grow1">
+                            <div>
+                                <div class="pack-whitebg-box text-center">
+                                    <p><strong>Payment History</strong></p>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <table width="100%" border="0" class="table table-bordered">
+                                    <tr class="sub333-tr">
+                                        <th style="text-align: center">Online Payment Reference</th>
+                                        <th style="text-align: center">Package Name</th>
+                                        <th style="text-align: center">Transaction Amount</th>
+                                        <th style="text-align: center">Transaction Date</th>
+                                        <th style="text-align: center">Action</th>
+                                    </tr>
+                                    <tr ng-show="!paymentList.length"  style="text-align: center">
+                                        <td colspan="4"><text><i>No Data Found</i></text></td>
+                                    </tr>
+                                    <tbody ng-repeat="payment in paymentList">
+                                    <tr class="sub33-tr">
+                                        <td ng-bind="payment.isysTrackingRef"></td>
+                                        <td ng-bind="payment.packageName"></td>
+                                        <td ng-bind="payment.transactionAmount" class="text-right"></td>
+                                        <td ng-bind="payment.transactionDate | date :  'dd/MM/yyyy'" style="text-align: center">&nbsp;</td>
+                                        <td style="text-align: center">
+                                            <button type="button" class="btn btn-success" id="btnPrintReceipt" name="btnPrintReceipt" ng-click="onPrintReceiptClicked(payment)">Print&nbsp;
+                                                <i class="fa fa-print"></i> </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="pack-wraper hvr-grow1">
+                            <div class="pack-whitebg-box text-center">
+                                <p><strong>Payment History</strong></p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div  ng-repeat="history in PaymentHistory">
+                                <div style="min-height:100px;max-height:220px; overflow:auto;">
+                                    <div style="display:none;"></div>
+                                    <table class="table table-bordered table-bd1 text-left">
+                                        <tbody>
+                                            <tr class="sub33-tr">
+                                                <td width="25%" style="text-align: center;">Pack Name</td>
+                                                <td width="16%" style="text-align: center;">Payment Option</td>
+                                                <td width="14%" style="text-align: center;"> Payment (<span ng-bind="history.currency"></span>)</td>
+                                                <td width="18%" style="text-align: center;">Date of subscription</td>
+                                                <td width="14%" style="text-align: center;">Expiry Date</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong ng-bind="history.packageName"></strong></td>
+                                                <td  ng-bind="history.priceOption"></td>
+                                                <td style="text-align:right;"  ng-bind="history.amount"></td>
+                                                <td  ng-bind="history.subscriptionDate"></td>
+                                                <td ng-bind="history.expiryDate"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>-->
+                </div>
+                <!--    row1 end-->
+                <!--    row1 start-->
+                <div class="row mb30">
+
+                    <!-- 1st div-->
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="pack-wraper hvr-grow1">
+                            <div class="pack-whitebg-box text-center">
+                                <p><strong>Smart Services -To Patients</strong></p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div style="display:none;"></div>
+                                    <table class="table table-bordered table-bd1 text-left">
+                                        <tbody>
+                                            <tr class="sub33-tr">
+                                                <th width="28%" style="text-align: center;"><strong>Services</strong> <!--<a class="se" id="show_11" href="#">view more (+)</a>--></th>
+                                                <th width="7%">&nbsp;</th>
+                                                <th width="15%" style="text-align: center;">Requested</th>
+                                                <th width="13%" style="text-align: center;">Cancelled</th>
+                                                <th width="13%" style="text-align: center;">No Show</th>
+                                                <th width="13%" style="text-align: center;">Rendered</th>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="9">
+                                                    <table class="table table-bordered table-bd1 text-left">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td rowspan="2" width="28%" style="border: 1px solid #ddd !important">Request for appointment</td>
+                                                                <td width="7%" class="sub33-tr">Count</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getCount('Consult Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Consult Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Consult Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getCount('Consult Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="7%" class="sub33-tr" style="border: 1px solid #ddd !important">Value</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getValue('Consult Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Consult Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Consult Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getValue('Consult Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2" width="28%" style="border: 1px solid #ddd !important">Home Visit</td>
+                                                                <td width="7%" class="sub33-tr">Count</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getCount('Home Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Home Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Home Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getCount('Home Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="7%" class="sub33-tr" style="border: 1px solid #ddd !important">Value</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getValue('Home Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Home Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Home Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getValue('Home Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2" width="28%" style="border: 1px solid #ddd !important">Premium Visit</td>
+                                                                <td width="7%" class="sub33-tr">Count</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getCount('Premium Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Premium Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Premium Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getCount('Premium Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="7%" class="sub33-tr" style="border: 1px solid #ddd !important">Value</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getValue('Premium Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Premium Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Premium Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getValue('Premium Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td rowspan="2" width="28%" style="border: 1px solid #ddd !important">Tele Consultation Visit</td>
+                                                                <td width="7%" class="sub33-tr">Count</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getCount('Tele Consultation Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Tele Consultation Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getCount('Tele Consultation Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getCount('Tele Consultation Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td width="7%" class="sub33-tr" style="border: 1px solid #ddd !important">Value</td>
+                                                                <td style="text-align: right;" width="15%" ng-bind="getValue('Tele Consultation Visit', 'SCHEDULED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Tele Consultation Visit', 'CANCELLED')"></td>
+                                                                <td style="text-align: right;" width="13%" ng-bind="getValue('Tele Consultation Visit', 'NOSHOW')"></td>
+                                                                <td width="13%" style="border: 1px solid #ddd !important;text-align: right;" ng-bind="getValue('Tele Consultation Visit', 'READY_FOR_BILLING')"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb30">
+
+                    <!-- 1st div-->
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="pack-wraper hvr-grow1">
+                            <div class="pack-whitebg-box text-center">
+                                <p><strong>Notification -Services</strong></p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div>
+                                <table class="table table-bordered table-bd1 text-left">
+                                    <tbody>
+                                        <tr class="sub33-tr">
+                                            <td style="text-align: center;"><strong>Service</strong> </td>
+                                            <td style="text-align: center;"><strong>Pack</strong></td>
+                                            <td style="text-align: center;"><strong>Count</strong> </td>
+                                            <td style="text-align: center;"><strong>Unused</strong></td>
+                                        </tr>
+                                        <tr ng-repeat="notification in NotificationServices">
+                                            <td ng-bind="notification.serviceName"></td>
+                                            <td style="text-align: right;" ng-bind="notification.packs"></td>
+                                            <td style="text-align: right;" ng-bind="notification.totalCount"></td>
+                                            <td style="text-align: right;"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!--    row1 end-->
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <script src="/afya-portal/static/js/jquery.aCollapTable.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.collaptable').aCollapTable({
+                startCollapsed: true,
+                addColumn: false,
+                plusButton: '&amp;lt;span class="i"&amp;gt;(+)&amp;amp;nbsp;&amp;lt;/span&amp;gt;',
+                minusButton: '&amp;lt;span class="i"&amp;gt;(-)&amp;amp;nbsp;&amp;lt;/span&amp;gt;'
+            });
+        });
+    </script>
+
+    <div id="__zsc_once"></div>
+</div>

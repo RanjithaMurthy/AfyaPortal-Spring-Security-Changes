@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html ng-app="PrintPrescriptionModule">
+<head>
+    <title>Sales Invoice</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        .bold{
+        font-weight:bold;
+        }
+
+        .td-bolder tr th, .td-bolder tr td, .td-bolder {
+        border:01px solid black;
+        border-collapse: collapse;
+        padding:5px;
+        }
+
+        .text-right{
+        text-align:right;
+        }
+
+        .right{
+        float:right;
+        }
+        .tdDataWidth{
+        width: 200px;
+        }
+        .logoImg{
+        /*width: 230px;*/
+        height: 80px;
+        }
+        .no-border td
+        {
+        border-left:0px solid transparent !important;
+        border-top:0px solid transparent !important;
+        border-bottom:0px solid transparent !important;
+        }
+        .txt-right
+        {
+        text-align:right
+        }
+    </style>
+</head>
+<body ng-controller="PrintPrescriptionController" style="font-family:Arial !important;">
+
+<div id="printContent" style="width:90%;margin:0% 5% 0% 5%"  ng-init="getPrescriptionData()">
+    <div>
+        <div style="float:left">
+            <img ng-src="{{logoURL}}" alt="logo" class="logoImg"/>
+        </div>
+        <div style="float:left">
+            <table>
+                <tr><td ng-bind="detail.pharmacy_name"></td></tr>
+                <tr><td ng-bind="detail.address"></td></tr>
+                <tr><td ng-bind="detail.additional_address"></td></tr>
+                <tr><td ng-bind-template="{{detail.city ? detail.city + ',': ''}} {{detail.state ? detail.state + ',': ''}} {{detail.country ? detail.country + ',': ''}}"></td></tr>
+                <tr><td ng-bind-template="Tel : {{detail.mobile ? detail.mobile : ''}}   Email : {{detail.email? detail.email : ''}}"></td></tr>
+            </table>
+        </div>
+    </div>
+    <div style="clear:both;">
+    </div>
+    <hr />
+    <div>
+        <h3 style="text-align:center">Sales Invoice</h3>
+        <table align="center" style="border:1px solid black;width:100%;border-collapse: collapse;">
+            <tr>
+                <td class="tdDataWidth"><b>Afya ID </b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.afyaId"></td>
+                <td class="tdDataWidth"><b>Doctor </b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.doctorName"></td>
+            </tr>
+            <tr>
+                <td class="tdDataWidth"><b>Civil ID </b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.civilId"></td>
+                <td class="tdDataWidth"><b>Invoice Date </b></td>
+                <td><b>:</b></td>
+                <td  ng-bind-template="{{prescription.invoiceDate | date:'dd/MM/yyyy'}}"> </td>
+            </tr>
+            <tr>
+                <td class="tdDataWidth"><b>Patient Name </b></td>
+                <td><b>:</b></td>
+                <td ng-bind-template="{{prescription.firstName}} {{prescription.thirdName}}"> </td>
+                <td class="tdDataWidth"><b>Invoice No </b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.invoiceId"> </td>
+            </tr>
+            <tr>
+                <td class="tdDataWidth"><b>Gender </b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.gender"> </td>
+                <td class="tdDataWidth"><b>Patient Insurance </b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.insurancePayable"></td>
+            </tr>
+            <tr>
+                <td class="tdDataWidth"><b>Patient Type</b></td>
+                <td><b>:</b></td>
+                <td ng-bind="prescription.patientType"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br />
+        <table class="td-bolder" align="center" style="border:1px solid black;width:100%">
+            <tr>
+                <td><b>Description</b></td>
+                <td><b>Product Name</b></td>
+                <td><b>Quantity</b></td>
+                <td><b>Unit Price</b></td>
+                <td><b>Gross Amount</b></td>
+            </tr>
+            <tr class="no-border"  ng-repeat="prescriptionInvoiceItem in prescriptionInvoiceLineItems">
+                <td ng-bind="prescriptionInvoiceItem.description"></td>
+                <td ng-bind="prescriptionInvoiceItem.productName"></td>
+                <td ng-bind="prescriptionInvoiceItem.quantity"></td>
+                <td class="txt-right" ng-bind="'KD ' +(prescriptionInvoiceItem.unitPrice?prescriptionInvoiceItem.unitPrice : 0 | number :3)"></td>
+                <td class="txt-right" ng-bind="'KD ' +(prescriptionInvoiceItem.amount?prescriptionInvoiceItem.amount : 0 | number : 3)"></td>
+            </tr>
+            <tr>
+                <td colspan="2" rowspan="3">
+                    <label>Checked By:____________________________</label><br/><br/>
+                    <label>Sign_______________________&nbsp;&nbsp;&nbsp;Date_______________</label>
+                </td>
+                <td>Gross Total</td>
+                <td colspan="2" class="txt-right" ng-bind-template="KD {{GrossAmount ? GrossAmount:0 | number : 3}}"></td>
+            </tr>
+            <tr>
+                <td>Discount</td>
+                <td colspan="2"  class="txt-right" ng-bind-template="KD {{NetAmount ? NetAmount:0 | number : 3}}"></td>
+            </tr>
+            <tr>
+                <td>Net Total</td>
+                <td colspan="2" class="txt-right" ng-bind-template="KD {{GrossAmount + NetAmount ? GrossAmount + NetAmount:0 | number : 3}}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div align="center">
+    <button id="btnPrint" onclick="onPrintClick('printContent')" style="padding:10px;margin-top:20px;font-size:18px"><strong>Print</strong></button>
+</div>
+<div class="clearfix"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/afya-portal/static/js/jquery.js" type="text/javascript"></script>
+<script src="/afya-portal/static/js/jquery_cookie.js" type="text/javascript"></script>
+<script src="/afya-portal/static/js/angular.min.js"></script>
+<script src="/afya-portal/static/js/angular-messages.min.js"></script>
+<script src="/afya-portal/static/js/PrintHistory.js"></script>
+<script type="text/javascript">
+    function onPrintClick(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
+</body>
+
+</html>

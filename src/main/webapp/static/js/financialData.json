@@ -1,0 +1,20 @@
+[
+  {
+    "Service": "Consultation",
+    "patientPayable": 20,
+    "insurancePayable": 30,
+    "amount": 40
+  },
+  {
+    "Service": "Investigations",
+    "patientPayable": 10,
+    "insurancePayable": 20,
+    "amount": 30
+  },
+  {
+    "Service": "Medicines",
+    "patientPayable": 50,
+    "insurancePayable": 20,
+    "amount": 70
+  }
+]

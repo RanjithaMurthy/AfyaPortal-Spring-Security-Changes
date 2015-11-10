@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="22px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 24 24"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#333333;stroke-width:0.999685}
+    .fil3 {fill:none}
+    .fil2 {fill:#333333}
+    .fil0 {fill:#393939}
+    .fil4 {fill:#999999}
+    .fil1 {fill:white}
+   ]]>
+  </style>
+ </defs>
+ <g id="teleconsulting">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" x="9.61972" y="1.19182" width="13.8507" height="13.7977" rx="6.87496" ry="6.87496"/>
+  <polygon class="fil1" points="14.9471,4.07906 14.9471,6.45827 12.5509,6.45827 12.5509,9.68126 14.9688,9.68126 14.9688,12.103 18.1644,12.103 18.1644,9.68126 20.5389,9.68126 20.5389,6.43748 18.1427,6.43748 18.1181,4.07811 "/>
+  <path class="fil0" d="M7.80094 15.5386c1.69984,1.70079 3.66898,3.32598 4.44661,2.5474 1.11496,-1.11402 1.80094,-2.08441 4.25764,-0.110551 2.45575,1.9748 0.569764,3.29102 -0.510236,4.37008 -1.24535,1.24535 -5.88756,0.0661417 -10.4769,-4.52315 -4.58929,-4.58929 -5.76945,-9.23244 -4.52315,-10.4778 1.07906,-1.08 2.39528,-2.96504 4.36913,-0.509291 1.97386,2.4548 1.00441,3.14268 -0.110551,4.25669 -0.777638,0.778583 0.847559,2.74677 2.5474,4.44661z"/>
+ </g>
+ <g id="Layer_x0020_2" visibility="hidden">
+  <metadata id="CorelCorpID_1Corel-Layer"/>
+  <polygon class="fil2" points="14.3962,23.1279 14.3962,41.1789 30.5357,41.1789 30.5357,23.1307 "/>
+ </g>
+ <g id="Layer_x0020_3" visibility="hidden">
+  <metadata id="CorelCorpID_2Corel-Layer"/>
+  <g id="_38409184">
+   <polygon id="_38414560" class="fil3 str0" points="-14.2602,-1.90205 -13.8435,41.2828 37.5496,41.2828 37.5496,-4.16409 12.0661,-16.269 "/>
+   <path id="_38413256" class="fil2" d="M-23.64 0.0198425l12.8967 -10.2501 -0.105827 -12.4932 10.8709 0 0 3.84472 11.8318 -8.43591 35.7874 27.3978 -10.525 0c-15.6104,-9.86362 -32.3272,-12.2041 -50.949,-0.064252l-9.80693 0.000944882z"/>
+   <g>
+    <rect id="_38412464" class="fil4" x="-19.2852" y="26.4856" width="20.015" height="19.9383" rx="6.87496" ry="6.87496"/>
+    <polygon id="_38410464" class="fil1" points="-12.1332,29.2838 -12.1332,33.5367 -16.4173,33.5367 -16.4173,39.2976 -12.0954,39.2976 -12.0954,43.628 -6.38268,43.628 -6.38268,39.2976 -2.13732,39.2976 -2.13732,33.4989 -6.42142,33.4989 -6.46583,29.2819 "/>
+   </g>
+   <polygon id="_38409280" class="fil2" points="-4.44567,4.14614 10.6564,4.14614 10.6564,11.9754 -4.44661,11.9754 "/>
+  </g>
+ </g>
+</svg>

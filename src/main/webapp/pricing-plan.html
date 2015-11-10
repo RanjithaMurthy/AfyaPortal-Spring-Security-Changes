@@ -1,0 +1,927 @@
+<script>
+    ga('send', 'pageview', { 'page': '/AfyaServices/pricing-plan', 'title': 'Pricing-Plan'});
+</script>
+
+<div ng-controller="PriceController" ng-cloak>
+    <link href="css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <style>
+        .clickable {
+        cursor: pointer;
+        margin-top: -22px;
+        }
+    </style>
+<div class="clearfix"></div>
+    <div id="pricingPlanTop1"></div>
+    <div id="pricingPlanTop2"></div>
+    <div id="pricingPlanTop3"></div>
+<section id="regi-afya-slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left ">
+                <h2>Afya Pricing Plan : Calculate &amp; Generate Quote <span class="pull-right" style="display:none">
+          <button onclick="window.location.href = '#'" class="btn btn-all-learn1" type="button"><strong>Free
+              Trial</strong><br>
+              (30 Days)
+          </button>
+          </span></h2>
+            </div>
+        </div>
+    </div>
+    <div class="regi-afya-strip ">
+        <div class="container">
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left"><a href="/afya-portal">Home</a> <span><i
+                    class="fa fa-angle-right"></i></span> <span><a ui-sref="ExperienceAfya/afya-services">Afya Services</a></span>
+                <span><i class="fa fa-angle-right"></i></span> <span> Pricing Plan</span></div>
+        </div>
+    </div>
+</section>
+<!--         <section id="pro-service-afya-slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left ">
+                        <h2>Afya Pricing Plan,</h2>
+                        <h1>Pay as you grow </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="pro-service-afya-strip hidden-xs">
+                <div class="container">
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left"> 
+                        <a href="index.html">Home</a> 
+                        <span><i class="fa fa-angle-right"></i></span>
+                        <span><a href="afya-services.html">Afya Services</a></span>             
+                        <span><i class="fa fa-angle-right"></i></span>         
+                        <span> Pricing Plan</span>   
+                    </div>
+                </div>
+            </div>
+        </section>    -->
+<div class="clearfix"></div>
+<section>
+    <div class="container">     <!--ng-controller="PriceController"  -->
+        <div class="row ">
+            <!--<div class="breadcrumb">
+                <a href="#" class="active"><img src="/afya-portal/static/images/1.jpg">Calculate &amp;Generate</a>
+                <a href="#"><img src="/afya-portal/static/images/2.jpg">Subscribe with details</a>
+                <a href="#"><img src="/afya-portal/static/images/3.jpg">Pay &amp; Confirm</a>
+                <a href="#"></a>
+            </div>-->
+            <div id="price-breadcrumb">
+                <img src="/afya-portal/static/images/price_plan_step1.png" ng-show="subscribeStep == 'STEP_1'">
+                <img src="/afya-portal/static/images/price_plan_step2.png" ng-show="subscribeStep == 'STEP_2'" class="hide">
+                <img src="/afya-portal/static/images/price_plan_step3.png" ng-show="subscribeStep == 'STEP_3'" class="hide">
+            </div>
+        </div>
+
+        <!-- Warining Messages -->
+        <div id="expireMessage-div" style="padding: 1.3em;" class="error hide">
+            <h1 class="text-center sucess-meaasge" ng-show="showMessageAboutToExpire == true && subscribeStep == 'STEP_1'"><i class="fa fa-check-circle fa-1x"></i>Your Subscription is about to expire.</h1>
+            <h1 class="text-center sucess-meaasge" ng-show="showMessageExpired == true && subscribeStep == 'STEP_1'"><i class="fa fa-check-circle fa-1x"></i>Your Subscription has expired. Please Subscribe again.</h1>
+        </div>
+
+        <!-- Package Listing-->
+        <div ng-show="subscribeStep == 'STEP_1' ||  subscribeStep == 'STEP_2'">
+            <!-- Service Packages -->
+            <div class="row mb30 pricePackage" ng-repeat="package in packages" package-post-repeat-directive>
+                <div class="col-sm-12 col-xs-12 col-md-12" ng-show="hideInactivePacks == false || package.activated == 1">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-white-box">
+                            <div class="row">
+                                <div class="col-sm-4 ">
+                                    <div class="blue-white-text-2"></div>
+                                    <div class="blue-white-text-1">{{package.packageName}} ({{package.totalServices}})</div>
+                                </div>
+                                <div class="col-sm-4 blue-white-text-1"><span ng-show="showFreeTrialMessage">Free Trial - <span ng-bind="package.trialPeriodDays"></span> Days</span></div>
+                                <div class="col-sm-4 "></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading ">
+                                    <h3 class="panel-title">{{package.solutionName}}</h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered ">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <td>Services</td>
+                                            <td>User#</td>
+                                            <td>Half Yearly(Currency)</td>
+                                            <td>Annual(Currency)</td>
+                                            <td>Subscription Type</td>
+                                            <td>Amount</td>
+                                            <td>Expiry Days</td>
+                                            <td>Expiry Date</td>
+                                            <td>Activate</td>
+                                        </tr>
+                                        <tr class="sub4-tr">
+                                            <td>{{package.solutionName}}</td>
+                                            <td><label>
+                                                <input type="text" name="textfield" id="textfield" class="s-small2"
+                                                       ng-model="package.numberOfUsers"
+                                                       ng-change="calculateAmount(package)" ng-disabled="package.disablePackageSelection"/>
+                                            </label></td>
+                                            <td align="center">{{package.halfYearlyPricePerUom}}</td>
+                                            <td align="center">{{package.annuallyPricePerUom}}</td>
+                                            <td><select class="fsize s-small1" ng-model="package.priceOption"
+                                                        ng-change="calculateAmount(package);updateExpiryDays(package);"
+                                                        ng-disabled="package.disablePackageSelection">
+                                                <option value="HALF_YEARLY">Half Yearly</option>
+                                                <option value="ANNUALLY">Annually</option>
+                                            </select></td>
+                                            <td align="center">{{package.amount}}</td>
+                                            <td ng-bind="package.expiryDays"></td>
+                                            <td ng-bind="package.expiryDate | date: 'dd-MM-yyyy'"></td>
+                                            <td><p>
+                                                <input ng-change="calculateTotalAmount();" ng-model="package.activated" type="radio" name="RadioGroup_p_{{package.packageId}}" value="1" ng-disabled="package.disablePackageSelection"/>
+                                                Yes
+                                                <input ng-change="calculateTotalAmount();" ng-model="package.activated" type="radio" name="RadioGroup_p_{{package.packageId}}" value="0" ng-disabled="package.disablePackageSelection"/>
+                                                No <br/>
+                                            </p></td>
+                                        </tr>
+                                        <tr class="sub5-tr">
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <table width="100%" border="0">
+                                        <tbody>
+                                        <tr>
+                                            <td width="2%">&nbsp;</td>
+                                            <td>
+                                                <div style="float:left;" ng-repeat="service in package.services"><i
+                                                        class="fa fa-check"></i>{{service.serviceName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                            </div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Smart Services for Patients</h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Activate</th>
+                                        </tr>
+                                        <!--<tr class="sub4-tr">
+                                            <td>Smart Services for Patients</td>
+                                            <td>&nbsp;</td>
+                                        </tr>-->
+                                        <tr class="sub5-tr" ng-repeat="service in package.patientServices | orderBy : 'serviceSequence'">
+                                            <td ng-bind="service.serviceDisplayName"></td>
+                                            <td>
+                                                <table width="200">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><label>
+                                                            <input ng-change="displayAfyaPolicyAndCalculateTotalAmount(service);" ng-model="service.activated" type="radio"  value="1"
+                                                                   ng-disabled="package.disableAllServicesButNotification == 1 || service.disabled == 1"/>
+                                                            Yes</label></td>
+                                                        <td><label>
+                                                            <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio"  value="0"
+                                                                   ng-disabled="package.disableAllServicesButNotification == 1 || service.disabled == 1"/>
+                                                            No</label></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default panel222 ">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Smart Services Enabled for Care Providers </h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Activate</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.providerServices">
+                                            <td>{{service.serviceName}}</td>
+                                            <td>
+                                                <table width="200">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><label>
+                                                            <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio"  value="1"
+                                                                   ng-disabled="package.disableAllServicesButNotification"/>
+                                                            Yes</label></td>
+                                                        <td><label>
+                                                            <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio"  value="0"
+                                                            ng-disabled="package.disableAllServicesButNotification"/>
+                                                            No</label></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="panel panel-default panel222 " ng-disabled="package.disableNotificationService" ng-show="subscribeStep == 'STEP_1' || (subscribeStep == 'STEP_2' && saveOnly == 'N')">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Notifications</h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Pack</th>
+                                            <th>Rate</th>
+                                            <th>Messages</th>
+                                            <th>Amount</th>
+                                            <th>Expiry Days</th>
+                                             <th>Activate</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.notificationServices">
+                                            <td>{{service.serviceName}}</td>
+                                            <td><label>
+                                                <input type="text" class="s-small2"  ng-change="calculateNotificationAmount(service)" ng-model="service.packs" ng-disabled="package.disableNotificationService"/>
+                                            </label></td>
+                                            <td>{{service.rate}}</td>
+                                            <td>{{service.numberOfSMSToSubscribe}}</td>
+                                            <td>{{service.amount}}</td>
+                                            <td>{{service.expireDays}}</td>
+                                            <td>
+                                                <table width="200">
+                                                    <tbody>
+                                                    <tr>
+                                                        <td><label>
+                                                            <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio"  value="1"
+                                                                   ng-disabled="package.disableNotificationService"/>
+                                                            Yes</label></td>
+                                                        <td><label>
+                                                            <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio"  value="0"
+                                                                   ng-disabled="package.disableNotificationService"/>
+                                                            No</label></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Subscribed Active Notifications - kannan -->
+
+                            <div ng-show="subscribeStep == 'STEP_1'"><a href="#ProviderDashboard/Provider_account_Service_Subscribe">Click here to view Active Notification Subscriptions</a></div>
+                            <!-- ProviderDashboard/Provider_account_Service_Subscribe -->
+                            <div class="panel panel-default panel222 " ng-show="false"> <!-- subscribeStep == 'STEP_1' -->
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Subscribed Active Notifications</h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services</th>
+                                            <th>Pack</th>
+                                            <th>Rate</th>
+                                            <th>Messages</th>
+                                            <th>Amount</th>
+                                            <th>Expiry Days</th>
+                                            <th>Expiry Date</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.subscribedActiveNotificationServices">
+                                            <td>{{service.serviceName}}</td>
+                                            <td>{{service.packs}}</td>
+                                            <td>{{service.rate}}</td>
+                                            <td>{{service.numberOfSMS}}</td>
+                                            <td>{{service.amount}}</td>
+                                            <td>{{service.expiryDays}}</td>
+                                            <td>{{service.expiryDate}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Training Packages-->
+            <div class="row mb30 pricePackage" ng-repeat="package in trainingPackages"  ng-show="subscribeStep == 'STEP_1' || (subscribeStep == 'STEP_2' && saveOnly == 'N')" package-post-repeat-directive>
+                <div class="col-sm-12 col-xs-12 col-md-12" ng-show="hideInactivePacks == false || package.hasActiveService == true">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-white-box">
+                            <div class="blue-white-text-2">
+
+                            </div>
+                            <div class="blue-white-text-1">{{package.packageName}}</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div>
+                            <div class="panel panel-default panel222  ">
+                                <div class="panel-heading ">
+                                    <h3 class="panel-title">{{package.solutionName}}</h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services Pack</th>
+                                            <th>Per Hour</th>
+                                            <th>Hours Required</th>
+                                            <th> Total Amount</th>
+                                            <th>Subscription</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.services">
+                                            <td>{{service.serviceName}}</td>
+                                            <td>{{service.rate}}</td>
+                                            <td><label>
+                                                <input type="text" name="textfield_{{package.packageId}}_{{service.serviceId}}" id="textfield_{{package.packageId}}_{{service.serviceId}}" class="s-small2"
+                                                       ng-change="calculateTrainingAmount(service)" ng-model="service.numberOfHours" ng-disabled="package.disableTrainingPackage">
+                                            </label>
+                                            </td>
+                                            <td>{{service.amount}}</td>
+                                            <td><label>
+                                                <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio" value="1" ng-disabled="package.disableTrainingPackage"/>
+                                                Yes</label>
+                                            <label>
+                                                <input ng-change="calculateTotalAmount();" ng-model="service.activated" type="radio" value="0" ng-disabled="package.disableTrainingPackage"/>
+                                                No</label></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <div ng-show="subscribeStep == 'STEP_1'"><a href="#ProviderDashboard/Provider_account_Service_Subscribe">Click here to view Training Subscriptions</a></div>
+
+                            <!-- Subscribed Training Services -- kannan -->
+                            <div class="panel panel-default panel222  " ng-show="false"> <!--  subscribeStep == 'STEP_1'-->
+                                <div class="panel-heading ">
+                                    <h3 class="panel-title">Subscribed Training Services</h3>
+                                    <span class="pull-right clickable panel-collapsed"><i class="fa fa-plus"></i></span></div>
+                                <div class="panel-body1 collapse">
+                                    <table width="100%" border="0" class="table table-bordered">
+                                        <tbody>
+                                        <tr class="sub3-tr">
+                                            <th>Services Pack</th>
+                                            <th>Per Hour</th>
+                                            <th>Hours Subscribed</th>
+                                            <th> Total Amount</th>
+                                        </tr>
+                                        <tr class="sub4-tr" ng-repeat="service in package.subscribedActiveServices">
+                                            <td>{{service.serviceName}}</td>
+                                            <td>{{service.rate}}</td>
+                                            <td>{{service.numberOfHours}}</td>
+                                            <td>{{service.amount}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--3rd row end-->
+
+            </div>
+        </div>
+
+        <div class="row mb30">
+
+            <!-- Total Cost Display -->
+            <div class="col-sm-12 col-xs-12 col-md-12 mb30">
+                <div class="pack-wraper" ng-show="(subscribeStep == 'STEP_1' ||  (subscribeStep == 'STEP_2' && saveOnly == 'N'))">
+
+
+                    <div class="pack-gry-box">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td width="10%">&nbsp;</td>
+                                <td width="11%" align="right">
+                                    <button type="button" class="btn btn-grey" onclick="window.location.href = '#'" ng-show="false">
+                                        Calculate Price
+                                    </button>
+
+                                &nbsp;&nbsp;&nbsp;<strong>Total Payable: <span ng-bind="totalAmount" style="float:none;"></span> <span ng-bind="currency" style="float:none;"></span></strong></td>
+                            </tr>
+                        </table>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- Total Cost along with Try Again button if online payment does not go-through first time copied by Kannan -->
+                <div class="pack-wraper" ng-show="subscribeStep == 'STEP_3'">
+                    <div class="pack-gry-box" style="background-color:white !important">
+                        <table width="100%" border="0" ng-show="false" style="display:none">
+                            <tr>
+                                <td width="10%">&nbsp;</td>
+                                <td width="11%" align="left">
+                                    &nbsp;&nbsp;&nbsp;<strong>Amount: <span ng-bind="totalAmount" style="float:none;"></span> <span ng-bind="currency" style="float:none;"></span></strong></td>
+                            </tr>
+                            <tr>
+                                <td width="10%">&nbsp;</td>
+                                <td width="11%" align="left">
+                                    &nbsp;&nbsp;&nbsp;<strong>Payment Status : <span ng-bind="paymentStatus" style="float:none;"></span> </strong>
+                                    <button type="button" class="btn btn-grey" ng-show="paymentStatus == 'Declined' || paymentStatus == 'Error'" ng-click="goToStep3();">
+                                        Try Again
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div id="error" style="padding: 1.3em;" align="center">
+                            <h1 class="text-center"><img ng-src="{{processMessageIcon}}"></br>
+                                <label ng-bind="progressMessage" class="sucess-meaasge"></label>
+                                <label ng-bind-html="paymentTrackIdMessage" ng-show="paymentStatus == 'Subscribed'" class="sucess-meaasge"></label>
+                            </h1>
+                            <!-- <button type="button" class="btn btn-grey" ng-show="paymentStatus == 'Declined' || paymentStatus == 'Error' || paymentStatus == 'ERROR_CONNECTIVITY' || paymentStatus == 'ERROR_UNKNOWN'" ng-click="goToStep3();"> -->
+                            <button type="button" class="btn btn-grey" ng-show="showTrygainButton" ng-click="goToStep3();">
+                                Try Again
+                            </button>
+                            <button type="button" class="btn btn-grey" ng-show="paymentStatus == 'PAYMENT'" ng-click="goToStep3();">
+                                Do Payment
+                            </button>
+                            <button type="button" class="btn btn-grey" ng-show="paymentStatus == 'PAYMENT' || showTrygainButton == true" ng-click="goToStep2(trail, saveOnly);">
+                                Go Back
+                            </button>
+                            <!--<button type="button" class="btn btn-grey" ng-show="paymentStatus == 'Declined' || paymentStatus == 'Error' || paymentStatus == 'Subscribed' || paymentStatus == 'Saved Successfully' || paymentStatus == 'Subscribed Trial'" ng-click="goToPage('index')">
+                                Go Back to Website
+                            </button>-->
+                            <button type="button" class="btn btn-grey" ng-show="paymentStatus == 'Declined' || paymentStatus == 'Error' || paymentStatus == 'ERROR_CONNECTIVITY' || paymentStatus == 'ERROR_UNKNOWN'  || paymentStatus == 'Subscribed' || paymentStatus == 'Saved Successfully' || paymentStatus == 'Subscribed Trial'" ng-click="goToPage('ProviderDashboard')">
+                                Go To Dashboard
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <!-- button pannel-->
+                <div class="pack-wraper" ng-show="subscribeStep == 'STEP_1'">
+                    <div class="pack-white-box ">
+
+                        <table width="100%" border="0">
+                            <tr>
+                                <!--<td colspan="1" width="65%">Please view <a href="#AfyaServices/ecosystem-adaptation" target="_blank" ng-click="afyaTrainingProgramClick()">Afya Training & Certification Program</a> </td>
+                                <td colspan="4" width="35%"><label>
+                                    <input type="checkbox" name="checkbox" ng-model="chkViewedTrainingSchedule" ng-disabled="afyaProgram == false"/>
+                                </label>
+                                I have viewed Afya's training schedule & accept the same</td>
+                                -->
+                                <td colspan="1" width="55%"><label>
+                                    <input type="checkbox" name="checkbox" ng-model="chkTermsAndConditionsChecked" ng-disabled="afyaTermsCondition == false" title="Please click the link and view the Afya Terms & Conditions to accept it"/>
+                                    </label>
+                                    I have read and agreed to abide by <a href="#AboutAfya/membership-agreement" target="_blank" ng-click="afyaTermsAndConditionClick()">Afya Terms &amp; Conditions</a>
+                                </td>
+                                <td colspan="4" width="45%"><label>
+                                    <input type="checkbox" name="checkbox" ng-model="chkViewedTrainingSchedule" ng-disabled="afyaProgram == false" title="Please click the link and view the Afya's training schedule to accept it"/>
+                                </label>
+                                I have viewed <a href="#AfyaServices/ecosystem-adaptation" target="_blank" ng-click="afyaTrainingProgramClick()">Afya's training schedule</a> & accept the same</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td width="55%"><!--<label>
+                                    <input type="checkbox" name="checkbox" ng-model="chkTermsAndConditionsChecked" ng-disabled="afyaTermsCondition == false"/>
+                                </label>
+                                    I have read agreed to abide <a href="#AboutAfya/membership-agreement" target="_blank" ng-click="afyaTermsAndConditionClick()">Afya Terms &amp; Conditions</a>-->
+                                </td>
+                                <!--<td width="12%">
+                                    <button type="button" class="btn btn-grey" ng-click="onDisplaySMSSenderClick();" ng-show="hasActivePackage == true && hasNotificationSubscritpion == true && (SMSSenderId == null || SMSSenderId.length() == 0)">
+                                        Update SMS SenderID
+                                    </button>
+                                </td>-->
+                                <td width="12%" ng-show="!(hasActivePackage == true && hasNotificationSubscritpion == true && (SMSSenderId != null && SMSSenderId.length > 0 && SMSSenderIdVerified == false))">
+                                        <!-- Display this td, if 'SMS SenderID Verified' button is hidden -->
+                                </td>
+                                <td width="12%">
+                                    <button ng-click="generateQuotation();" type="button" class="btn btn-grey">
+                                        Generate Quote
+                                    </button>
+                                </td>
+                                <td width="12%" ng-show="hasActivePackage == true && (SMSSenderId != null && SMSSenderId != 'null' && SMSSenderId.length > 0 && SMSSenderIdVerified == false)">
+                                    <button type="button" class="btn btn-grey" ng-click="smsSenderIdHandler.showPopup('VERIFY')">   <!--ng-disabled="chkTermsAndConditionsChecked == false || chkViewedTrainingSchedule == false"-->
+                                        SMS SenderID Verified
+                                    </button>
+                                </td>
+                                <td width="9%">
+                                    <!--<button ng-click="goToStep2('N','N');" type="button" class="btn btn-grey" ng-disabled="chkTermsAndConditionsChecked == false || chkViewedTrainingSchedule == false">
+                                        Subscribe<span ng-show="hasActivePackage == true">/Save</span>
+                                    </button>-->
+                                    <button ng-click="goToStep2('N','N');" type="button" class="btn btn-grey" >     <!--ng-disabled="chkTermsAndConditionsChecked == false || chkViewedTrainingSchedule == false"-->
+                                        Subscribe<!--<span ng-show="hasActivePackage == true">/Save</span>-->
+                                    </button>
+                                </td>
+                                <td width="14%">
+                                    <button ng-click="goToStep2((providerData.subscriptionTrail ? 'Y' : 'N'), 'Y');" type="button" class="btn btn-grey"  ng-show="hasActivePackage == true">    <!--ng-disabled="chkTermsAndConditionsChecked == false || chkViewedTrainingSchedule == false"-->
+                                        Save Changes
+                                    </button>
+                                </td>
+                                <td width="14%">
+                                    <button ng-click="goToStep2('Y','N');" type="button" class="btn btn-grey"  ng-show="hasActivePackage == false">Free
+                                        Trial
+                                    </button>   <!--ng-disabled="chkTermsAndConditionsChecked == false || chkViewedTrainingSchedule == false"-->
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- kannan copied -- Step-2 : buttons for 'Confirm and Pay'-->
+                <div class="pack-wraper" ng-show="subscribeStep == 'STEP_2'">
+                    <div class="pack-white-box ">
+
+                        <table width="100%" border="0">
+                            <tr>
+                                <td width="65%" style="visibility: hidden;"><label>
+                                    <input type="checkbox" name="checkbox" id="checkbox"/>
+                                </label>
+                                    I have read agreed to abide Afya Terms &amp; Conditions
+                                </td>
+                                <td width="12%" style="visibility: hidden;">
+                                    <button type="button" class="btn btn-grey" onclick="window.location.href = '#'">
+                                        Generate Quote
+                                    </button>
+                                </td>
+                                <td width="9%">
+                                    <button ng-click="goToStep1();" type="button" class="btn btn-grey">
+                                        Back
+                                    </button>
+                                </td>
+                                <td width="14%">
+                                    <button ng-click="goToStep3();" type="button" class="btn btn-grey">
+                                        Confirm <span ng-show="trail == 'N' && saveOnly == 'N'"> and Pay</span><span ng-show="saveOnly == 'Y'"> and Save</span>
+                                        <!--Confirm<span ng-show="trail == 'N'"> and Pay</span><span ng-show="hasActivePackage == true">/Save</span>-->
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+        <!--/.container-->
+
+        <div class="modal fade bs-example-modal-lg" id="modalPaymentMode" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align: center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="member_pass_close"><span aria-hidden="true">&times;</span></button>
+                        <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                        <span class="modal-head mrm30">Payment Modes</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    Select mode
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input type="radio" ng-model="PayMode.mode" ng-value="PayMode.visaMasterValue"> VISA/MASTERCARD
+                                    <input type="radio" ng-model="PayMode.mode" ng-value="PayMode.knetValue"> KNET
+                                </div>
+                            </div>
+                            <!--<br><br>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    Payment Gateway Fees: <span ng-bind="PayMode.mode.fees"></span>&nbsp;<span ng-bind="currency"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    Total Payable: <span ng-bind="PayMode.mode.totalPayable"></span>&nbsp;<span ng-bind="currency"></span>
+                                </div>
+                            </div>-->
+                        </div>
+                        <div class="row">
+                            <br>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    Amount Payable:
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-right">
+                                    <span ng-bind="setDecimal(PayMode.amountPayable)"></span>&nbsp;<span ng-bind="currency"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    Payment Gateway Fees:
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-right">
+                                    <span ng-bind="setDecimal(PayMode.mode.fees)"></span>&nbsp;<span ng-bind="currency"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <strong>Total Payable:</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group text-right">
+                                    <strong><span ng-bind="setDecimal(PayMode.mode.totalPayable)"></span>&nbsp;<span ng-bind="currency"></span></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-book btn-lg" type="button" data-dismiss="modal" ng-click="onPaymentModeSelectionClick(PayMode.mode.name)"> Continue </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                        <hr ng-show="paymentGatewayMessage.visaNotAccepted.length > 0 || (paymentGatewayMessage.feesWaivedOffer.length > 0 && PayMode.mode.fees == 0)">
+                        <div class="gateway-message">
+                            <div ng-show="paymentGatewayMessage.visaNotAccepted.length > 0">*&nbsp;<span ng-bind="paymentGatewayMessage.visaNotAccepted"></span></div>
+                            <div ng-show="paymentGatewayMessage.feesWaivedOffer.length > 0 && PayMode.mode.fees == 0">*&nbsp;<span ng-bind="paymentGatewayMessage.feesWaivedOffer"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Provider Member Registration -->
+        <div class="modal fade bs-example-modal-lg" id="ProviderMemberRegistration" role="dialog">
+            <div class="modal-dialog modal-lg"  style="margin-bottom:20px;">
+                <!-- Modal content-->
+                <form  name="registerForm" id="registerForm" no-validate="true">
+                    <div class="modal-content" style="width:550px">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                            <span class="modal-head mrm30">Premium Provider Member Registration</span>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Address 1*</div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="smart-pack2-dropdown" id="txtaddress1" name="txtaddress1" ng-model="registerData.providerAddress1" ng-required="true"/>
+                                        <ng-messages class="has-error" for="registerForm.txtaddress1.$error"
+                                                     role="alert" ng-if="registerForm.txtaddress1.$dirty">
+                                            <ng-message when="required" class="help-block">Please enter Address1
+                                            </ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Address 2</div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="smart-pack2-dropdown" id="txtAddress2" name="txtAddress2" ng-model="registerData.providerAddress2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">City*</div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group" ng-init="getAllCities()" >
+                                        <!--<input name="textfield" type="text" class="smart-pack2-dropdown" id="txtCity" ng-model="registerData.providerCity" />-->
+                                        <select type="text" class="form-control fsize"
+                                                id="txtCity" name="txtCity" placeholder="Select City*" ng-options="cityObj.city for cityObj in allCities"
+                                                ng-required="true" ng-change="populateStateAndCountryByCity(cityList)" ng-model="cityList" ng-required="true">
+                                                <option value="">Select City</option>
+                                        </select>
+                                        <ng-messages class="has-error" for="registerForm.txtCity.$error"
+                                                     role="alert" ng-if="registerForm.txtCity.$dirty">
+                                            <ng-message when="required" class="help-block">Please Select City
+                                            </ng-message>
+                                        </ng-messages>
+                                        <label id="validateCity" style="color:red"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Governorate*
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="smart-pack2-dropdown" id="txtGovernorate" name="txtGovernorate" ng-model="registerData.providerGovernorate" ng-readonly="true" ng-required="true"/>
+                                        <ng-messages class="has-error" for="registerForm.txtGovernorate.$error"
+                                                     role="alert" ng-if="registerForm.txtGovernorate.$dirty">
+                                            <ng-message when="required" class="help-block">Please enter Governorate
+                                            </ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Country*
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control fsize" ng-model="registerData.providerCountry" id="txtCountry" name="txtCountry" placeholder="Country" ng-readonly="true" ng-required="true"/>
+                                        <ng-messages class="has-error" for="registerForm.txtCountry.$error"
+                                                     role="alert" ng-if="registerForm.txtCountry.$dirty">
+                                            <ng-message when="required" class="help-block">Please enter Country
+                                            </ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Postal Code*</div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input name="txtPostalCode" type="text" class="smart-pack2-dropdown" id="txtPostalCode" ng-model="registerData.providerPostalCode" ng-required="true"/>
+                                        <ng-messages class="has-error" for="registerForm.txtPostalCode.$error"
+                                                     role="alert" ng-if="registerForm.txtPostalCode.$dirty">
+                                            <ng-message when="required" class="help-block">Please enter Postal Code
+                                            </ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Reg No*
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input name="txtRegNo" type="text" class="smart-pack2-dropdown" id="txtRegNo" ng-model="registerData.providerRegistrationNo" ng-required="true"/>
+                                        <ng-messages class="has-error" for="registerForm.txtRegNo.$error"
+                                                     role="alert" ng-if="registerForm.txtRegNo.$dirty">
+                                            <ng-message when="required" class="help-block">Please enter Reg.no
+                                            </ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        License No*
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <input name="RegLicenseNo" type="text" class="smart-pack2-dropdown" id="RegLicenseNo" ng-model="registerData.providerLicenseNo" ng-required="true"/>
+                                        <ng-messages class="has-error" for="registerForm.RegLicenseNo.$error"
+                                                     role="alert" ng-if="registerForm.RegLicenseNo.$dirty">
+                                            <ng-message when="required" class="help-block">Please enter License No
+                                            </ng-message>
+                                        </ng-messages>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">Recommended by
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <select class="smart-pack1-dropdown" id="RegRecommendedBy" ng-model="registerData.providerRecommendedBy">
+                                            </select>
+                                            <!--<input name="textfield" type="text" class="smart-pack2-dropdown" id="RegRecommendedBy" ng-model="registerData.providerRecommendedBy" />-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-book btn-lg" type="button" ng-click="onRegistrationClick()" ng-disabled="!registerForm.$valid" > Update </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!--SMS SENDER ID UPDATE -->
+        <div class="modal fade bs-example-modal-lg" id="SMSSender" role="dialog">
+            <div class="modal-dialog modal-lg"  style="margin-bottom:20px;">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" ng-show="smsSenderIdHandler.mode == 'ACCEPT'">SMS Sender ID</h4>
+                        <h4 class="modal-title" ng-show="smsSenderIdHandler.mode == 'VERIFY'">Verify SMS Sender ID</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="input-group">Sender ID*</div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <input name="textfield" type="text" class="smart-pack2-dropdown" id="txtSMSSender" ng-required="true" maxlength="12" ng-model="SMSSenderId" style="width: 250px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-book btn-lg" type="button" data-dismiss="modal" ng-click="smsSenderIdHandler.onUpdateSMSSenderClick(smsSenderIdHandler.mode)"> Update </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Afya Policy for Service -->
+        <div class="modal fade bs-example-modal-lg" id="afyaProviderPolicyForService" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="text-align: center">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="member_pass_close"><span aria-hidden="true">&times;</span></button>
+                        <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                        <span class="modal-head mrm30">Afya Policy</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div ng-bind-html="providerServicePolicyContent" style="max-height:400px;overflow-y: scroll;"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-book btn-lg" type="button" data-dismiss="modal" ng-click="afyaProviderPolicyForServiceHandler.onAgreeClicked();"> I Agree </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<div class="clearfix"></div>
+
+
+<script>
+</script>
+<!--
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+<script src="js/wow.min.js" type="text/javascript"></script>
+<script src="js/angular.min.js" type="text/javascript"></script>
+<script src="js/angular-messages.min.js" type="text/javascript"></script>-->
+<script src="/afya-portal/static/js/payitHelper.js" type="text/javascript"></script>
+<script src="/afya-portal/static/js/afyaIsysPayit.js?version=1.005" type="text/javascript"></script>
+
+<!--<script src="js/pricelist.js?version=1.002" type="text/javascript"></script>-->
+
+<!--
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.carousel').carousel();
+        $('a').click(function () {
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 8000);
+            return false;
+        });
+    });
+</script>
+-->
+<div id="__zsc_once"></div>
+</div>

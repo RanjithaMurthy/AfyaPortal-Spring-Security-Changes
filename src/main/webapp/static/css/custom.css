@@ -1,0 +1,1912 @@
+@charset "utf-8";
+/* Added by shreedhar*/
+.btn-appoinment {
+    background: #3c9 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    transition: all 0.2s linear 0s;
+}
+.btn-appoinment:hover {
+    background: #45e6b0 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+}
+.btn-appoinment:active, .btn-book:focus {
+    background: #45e6b0 none repeat scroll 0 0;
+    border-bottom: 1px solid #29a37a;
+    color: #fff !important;
+}
+
+
+
+
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+
+body{background:#fff;font-family:'Open Sans',sans-serif;color:#4e4e4e;line-height:22px; margin-top: 120px;}
+h1,h2,h3,h4,h5,h6{font-weight:600;font-family:'Open Sans',sans-serif;color:#4e4e4e;}
+h1{font-size:36px;color:#fff;}
+h2{font-size:20px;}
+h3{font-size:16px;color:#787878;font-weight:400;line-height:24px;}
+h4{font-size:16px;}
+ul,li{list-style:none;}
+a{color:#c52d2f;-webkit-transition:color 300ms,background-color 300ms;-moz-transition:color 300ms,background-color 300ms;-o-transition:color 300ms,background-color 300ms;transition:color 300ms,background-color 300ms;}
+a:hover,a:focus{color:#d43133;}
+hr{border-top:1px solid #e5e5e5;border-bottom:1px solid #fff;}
+.btn-primary{padding:8px 20px;background:#428bca;color:#fff;border-radius:4px;border:none;margin-top:10px;}
+.btn-primary:hover,.btn-primary:focus{background:#286090;outline:none;box-shadow:none;}
+.btn-transparent{border:3px solid #fff;background:transparent;color:#fff;}
+.btn-transparent:hover{border-color:rgba(255,255,255,0.5);}
+a:hover,a:focus{color:#111;text-decoration:none;outline:none;}
+.dropdown-menu{margin-top:-1px;min-width:180px;}
+.center h2{font-size:36px;margin-top:0;margin-bottom:20px;}
+.media>.pull-left{margin-right:20px;}
+.media>.pull-right{margin-left:20px;}
+body > section{padding:45px 0;}
+.center{text-align:center;padding-bottom:24px;}
+.scaleIn{-webkit-animation-name:scaleIn;animation-name:scaleIn;}
+.lead{font-size:16px;line-height:24px;font-weight:400;}
+.transparent-bg{background-color:transparent!important;margin-bottom:0;}
+
+ .cur-pont{cursor: pointer;}
+
+.pdr0{padding-right:0;}
+.pdb0{padding-bottom:0;}
+.pd0{padding:0;}
+.mr0{margin: 0 !important;}
+.mt0{margin-top: 0 !important;}
+.mrr0{margin-right: 0 !important;}
+.mb0{margin-bottom: 0 !important;}
+.ml0{margin-left: 0 !important;}
+
+
+.ml64{margin-left:64px !important;}
+.pd30{padding:30px;}
+.mb40{margin-bottom:40px;}
+.mb90{margin-bottom:90px;}
+.mb50{margin-bottom:50px;}
+.mb30{margin-bottom:30px !important;}
+.mr30{margin-right:30px;}
+.mrm30{margin-right:30px;}
+.mt25{margin-top: 25px;}
+.mr10{margin-right:10px;}
+.mt501{margin-top:12px;}
+.mt50{margin-top:45px;}
+.mt60{margin-top:60px;}
+.mt40{margin-top:40px;}
+.mt160{margin-top:160px;}
+.mr22{margin-right:22px;}
+.mr20{margin-right:20px;}
+.ml53{margin-left:53px !important;}
+.ml12{margin-left:12px;}
+.br5{border-radius: 5px;}
+.otp-text{width:222px !important; margin:0 23px !important;}
+.mt{margin-top:14px;}
+.pl15{padding-left: 15px;}
+.lg-pl140{padding-left:140px;}
+.fs23{font-size:23px!important;}
+.fs14{font-size:14px!important;}
+.fwsemibold{font-weight:600 !important;}
+.mt155{margin-top:20px;text-align:left;}
+.btn-center{text-align:center;}
+.bl{border-left:1px solid #9DA2A5 !important;}
+.pd10{padding:10px;-webkit-box-shadow:-3px 4px 0 -2px rgba(161,152,154,1);-moz-box-shadow:-3px 4px 0 -2px rgba(161,152,154,1);box-shadow:-3px 4px 0 -2px rgba(161,152,154,1);}
+.no-border{border:none!important;}
+.navbar-inverse .navbar-nav > li > a i{font-size:16px;font-weight:800;}
+.fa-angle-right{color: #fff;}
+.video-icon{color: #fff;}
+.bg-gray-light{background: #f5f4f4 !important;}
+.input-icon{position: relative;}
+.input-icon i{position: absolute; margin: 12px; right: 0;}
+.block-login{display: block !important;}
+.block-login a { border: medium none;  width: 100% !important;}
+.login-adj{padding: 0px;margin-left: 7px;width: 219px;}
+.login-adj li{height: 33px;}
+.login-adj li a{text-align: left !important;}
+.bg-gray{background: #F2F5EF !important;}
+.right-arrow-p {background: url(/afya-portal/static/images/right-blue-icon.png) no-repeat 0 0; padding-left: 30px; text-align: left !important; margin-bottom: 30px !important; margin-top: 0 !important;}
+/*main slider strat*/
+#apps-store-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-apps-store.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#apps-store-afya-slider h1{font-size:48px;font-weight:300;color:#fff;margin:0;text-shadow: 0px 1px 0px #37393a;}
+#apps-store-afya-slider h2{font-size:30px;font-weight:300;color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.apps-store-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.apps-store-afya-strip span{color:#37393a;padding-left:10px;}
+.apps-store-afya-strip a{color:#fff;}
+
+#ecosystem-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-ecosystem.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#ecosystem-afya-slider h1{font-size:48px;font-weight:300;color:#fff;margin:0;text-shadow: 0px 1px 0px #37393a;}
+#ecosystem-afya-slider h2{font-size:30px;font-weight:300;color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.ecosystem-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.ecosystem-afya-strip span{color:#37393a;padding-left:10px;}
+.ecosystem-afya-strip a{color:#fff;}
+#ecosystem-afya-about p{font-size:16px;color:#37393A;line-height:24px;}
+#ecosystem-afya-about h2{color:#454444;font-size:24px;margin-bottom:25px;font-weight:400;}
+
+#scalability-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-apps-scalibility.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#scalability-afya-slider h1{font-size:48px;font-weight:300;color:#fff;margin:0;text-shadow: 0px 1px 0px #37393a;}
+#scalability-afya-slider h2{font-size:30px;font-weight:300;color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.scalability-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.scalability-afya-strip span{color:#37393a;padding-left:10px;}
+.scalability-afya-strip a{color:#fff;}
+#scalability-afya-about p{font-size:16px;color:#37393A;line-height:24px;}
+
+#future-care-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-future-care.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#future-care-afya-slider h1{font-size:48px;font-weight:300;color:#37393a;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#future-care-afya-slider h2{font-size:30px;font-weight:300;color:#37393a;text-shadow: 0px 1px 0px #FFF;}
+.future-care-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.future-care-afya-strip span{color:#37393a;padding-left:10px;}
+.future-care-afya-strip a{color:#fff;}
+#future-care-afya p{font-size:16px;color:#37393A;line-height:24px;text-align:justify;}
+
+#future-care-afya-slider1{background-image:url(/afya-portal/static/images/banner-afya-future-care1.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#future-care-afya-slider1 h1{font-size:48px;font-weight:300;color:#37393a;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#future-care-afya-slider1 h2{font-size:30px;font-weight:300;color:#37393a;text-shadow: 0px 1px 0px #FFF;}
+.future-care-afya-strip1{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.future-care-afya-strip1 span{color:#37393a;padding-left:10px;}
+.future-care-afya-strip1 a{color:#fff;}
+#future-care-afya1{ background: #e3f1f1;}
+#future-care-afya1 h1{ color: #26abe2; font-size: 28px; margin-bottom: 25px; font-weight: normal;}
+#future-care-afya1 h2{ color: #37393a; font-size: 21px; margin-bottom: 25px; font-weight: normal; line-height: 28px; margin-top: 0;}
+#future-care-afya1 p{font-size:16px;color:#37393A;line-height:24px;}
+#future-care-afya2{ background: #f4f5f5;}/*#a6dae9*/
+#future-care-afya2 h1{ color: #26abe2; font-size: 28px; margin-bottom: 30px; font-weight: normal;}
+#future-care-afya2 h2{ color: #37393a; font-size: 21px; margin-bottom: 30px; font-weight: normal; line-height: 28px;margin-top: 0;}
+#future-care-afya2 p{font-size:16px;color:#37393A;line-height:24px;}
+
+
+#social-innovation-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-socail-innovation.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#social-innovation-afya-slider h1{font-size:48px;font-weight:300;color:#37393a;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#social-innovation-afya-slider h2{font-size:30px;font-weight:300;color:#37393a;text-shadow: 0px 1px 0px #FFF;margin-top: 0;}
+.social-innovation-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:67px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.social-innovation-afya-strip span{color:#37393a;padding-left:10px;}
+.social-innovation-afya-strip a{color:#fff;}
+#social-care-afya p{font-size:16px;color:#37393A;line-height:24px;text-align:justify;}
+
+#smart-care-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-smart-care.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#smart-care-afya-slider h1{font-size:48px;font-weight:300;color:#37393a;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#smart-care-afya-slider h2{font-size:30px;font-weight:300;color:#37393a;text-shadow: 0px 1px 0px #FFF;}
+.smart-care-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.smart-care-afya-strip span{color:#37393a;padding-left:10px;}
+.smart-care-afya-strip a{color:#fff;}
+#smart-care-afya p{font-size:16px;color:#37393A;line-height:24px;text-align:justify;}
+
+#patient-service-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-patient-service.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#patient-service-afya-slider h1{font-size:48px;font-weight:300;color:#4e4e4e;margin:0;text-shadow: 0px 1px 0px #fff;}
+#patient-service-afya-slider h2{font-size:30px;font-weight:300;color:#4e4e4e;text-shadow: 0px 1px 0px #fff;}
+.patient-service-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.patient-service-afya-strip span{color:#37393a;padding-left:10px;}
+.patient-service-afya-strip a{color:#fff;}
+#patient-service-care-afya p{font-size:16px;color:#37393A;line-height:24px;text-align:justify;}
+#patient-service-afya-about{background:#f3f3f3;}
+#patient-service-afya-about p{font-size:16px;color:#37393A;line-height:24px;}
+
+.heading-h2, #Afya-patient-service h1{color:#37393A;font-size:28px;font-weight:400;}
+#services-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-services.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#services-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#services-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.services-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.services-afya-strip span{color:#37393a;padding-left:10px;}
+.services-afya-strip a{color:#fff;}
+
+#faq-afya-slider{ background-image:url(/afya-portal/static/images/banner-afya-faq.jpg); background-position:center top; height:252px; padding: 38px 0 !important; background-size:cover;}
+#faq-afya-slider h1 { font-size:48px; font-weight:300; color:#fff; margin: 0;text-shadow: 0px 1px 0px #37393a;}
+#faq-afya-slider h2 { font-size:30px; font-weight:300; color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.faq-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:46px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.faq-afya-strip span { color:#37393a; padding-left:10px;}
+.faq-afya-strip a { color:#ffffff;}
+
+#faq-afya-slider2{ background-image:url(/afya-portal/static/images/afya-ex-tra2.png); background-position:center top; height:252px; padding: 38px 0 !important; background-size:cover;}
+#faq-afya-slider2 h1 { font-size:48px; font-weight:300; color:#37393A; margin: 0;text-shadow: 0px 1px 0px #FFF;}
+#faq-afya-slider2 h2 { font-size:30px; font-weight:300; color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.faq-afya-strip2 { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:46px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.faq-afya-strip2 span { color:#37393a; padding-left:10px;}
+.faq-afya-strip2 a { color:#ffffff;}
+/*faq*/
+#regi-afya-slider{ padding: 0;}
+.regi-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:8px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.regi-afya-strip span { color:#37393a; padding-left:10px;}
+.regi-afya-strip a { color:#ffffff;}
+
+
+#pro-service-afya-slider{ background-image:url(/afya-portal/static/images/banner-afya-faq.jpg); background-position:center top; height:252px; padding: 38px 0 !important; background-size:cover;}
+#pro-service-afya-slider h1 { font-size:48px; font-weight:300; color:#fff; margin: 0;text-shadow: 0px 1px 0px #37393a;}
+#pro-service-afya-slider h2 { font-size:30px; font-weight:300; color:#fff;text-shadow: 0px 1px 0px #37393a;}
+
+.pro-service-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:46px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.pro-service-afya-strip span { color:#37393a; padding-left:10px;}
+.pro-service-afya-strip a { color:#ffffff;}
+
+#care-service-afya-slider{ background-image:url(/afya-portal/static/images/banner-afya-care-provider.jpg); background-position:center top; height:252px; padding: 38px 0 !important; background-size:cover;}
+#care-service-afya-slider h1 { font-size:43px; font-weight:300; color:#fff; margin: 0;text-shadow: 0px 1px 0px #37393a;}
+#care-service-afya-slider h2 { font-size:30px; font-weight:300; color:#fff;text-shadow: 0px 1px 0px #37393a;}
+
+.care-service-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:46px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.care-service-afya-strip span { color:#37393a; padding-left:10px;}
+.care-service-afya-strip a { color:#ffffff;}
+
+#after-login-afya-slider{ background-image:url(/afya-portal/static/images/banner-afya-faq.jpg); background-position:center top; height:225px; padding: 38px 0 !important; background-size:cover;}
+#after-login-afya-slider h1 { font-size:48px; font-weight:300; color:#fff; margin: 0;text-shadow: 0px 1px 0px #37393a;}
+#after-login-afya-slider h2 { font-size:30px; font-weight:300; color:#fff;text-shadow: 0px 1px 0px #37393a;}
+
+#security-afya-slider{ background-image:url(/afya-portal/static/images/banner-afya-apps-security.jpg); background-position:center top; height:252px; padding: 38px 0 !important; background-size:cover;}
+#security-afya-slider h1 { font-size:48px; font-weight:300; color:#37393A; margin: 0;text-shadow: 0px 1px 0px #FFF;}
+#security-afya-slider h2 { font-size:30px; font-weight:300; color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.security-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:46px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.security-afya-strip span { color:#37393a; padding-left:10px;}
+.security-afya-strip a { color:#ffffff;}
+
+#afya-apps-gray{background-color:#f5f5f5;}
+#afya-apps-gray h1{color:#37393a;font-size:28px;font-weight:400;}
+#afya-apps{background-color:#e9e9e9;}
+#afya-apps h1{color:#37393a;font-size:28px;font-weight:400;}
+.apps-class-wrap{background-color:#fff;padding:30px 20px 17px;border-radius:3px;}
+.apps-class-wrap h2{color:#37393a;font-size:18px;line-height:21px;margin-bottom:30px;font-weight:400; margin-top: 0;}
+.apps-class-wrap p{font-size:14px;line-height:21px;color:#37393a;font-weight:400;margin-bottom:25px;}
+.apps-class-wrap a{margin-right:10px;}
+.ecosystem-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#C1C8CB;line-height:15px;}
+.ecosystem-afya-strip a{color:#FFF;}
+
+#member-area-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-member-area.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#member-area-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#member-area-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.member-area-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.member-area-afya-strip span{color:#37393a;padding-left:10px;}
+.member-area-afya-strip a{color:#fff;}
+
+
+#trust-afya-slider{background-image:url(/afya-portal/static/images/banner-trust-afya-slider.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#trust-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#trust-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+
+#about-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-apps-about.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#about-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#about-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.about-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.about-afya-strip span{color:#37393a;padding-left:10px;}
+.about-afya-strip a{color:#fff;}
+
+
+#care-experience-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-care-experience.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#care-experience-afya-slider h1{font-size:48px;font-weight:300;color:#fff;margin:0;text-shadow: 0px 1px 0px #37393a;}
+#care-experience-afya-slider h2{font-size:30px;font-weight:300;color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.care-experience-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.care-experience-afya-strip span{color:#37393a;padding-left:10px;}
+.care-experience-afya-strip a{color:#fff;}
+
+#member-ship-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-member-ship.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#member-ship-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#member-ship-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.member-ship-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.member-ship-afya-strip span{color:#37393a;padding-left:10px;}
+.member-ship-afya-strip a{color:#fff;}
+
+#eco-adapt-afya-slider{ background-image:url(/afya-portal/static/images/ecosystem-adaptation.jpg); background-position:center top; height:252px; padding: 38px 0 !important; background-size:cover;}
+#eco-adapt-afya-slider h1 { font-size:48px; font-weight:300; color:#fff; margin: 0;text-shadow: 0px 1px 0px #37393a;}
+#eco-adapt-afya-slider h2 { font-size:30px; font-weight:300; color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.eco-adapt-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:46px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.eco-adapt-afya-strip span { color:#37393a; padding-left:10px;}
+.eco-adapt-afya-strip a, .eco-adapt-afya-strip span a { color:#ffffff !important;}
+
+
+#apps-store-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-apps-store.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#apps-store-afya-slider h1{font-size:48px;font-weight:300;color:#fff;margin:0;text-shadow: 0px 1px 0px #37393a;}
+#apps-store-afya-slider h2{font-size:30px;font-weight:300;color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.apps-store-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;}
+.apps-store-afya-strip span{color:#37393a;padding-left:10px;}
+.apps-store-afya-strip a{color:#fff;}
+
+
+#experience-afya-slider{background-image:url(/afya-portal/static/images/afya-ex-banner.png);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#experience-afya-slider h1{font-size:48px;font-weight:300;color:#fff;margin:0;text-shadow: 0px 1px 0px #37393a;}
+#experience-afya-slider h2{font-size:30px;font-weight:300;color:#fff;text-shadow: 0px 1px 0px #37393a;}
+.experience-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.experience-afya-strip span{color:#37393a;padding-left:10px;}
+.experience-afya-strip a{color:#fff;}
+
+
+/*main slider ends*/
+
+#afya-services-join{
+    background: url(/afya-portal/static/images/corner-service.png) no-repeat center top, url(/afya-portal/static/images/tweed-pattern.png)0 0 repeat fixed;
+    text-align:center;}
+#afya-services-join h1, #afya-services-join span{color:#fff;font-size:24px;margin-bottom:50px;font-weight:400;}
+#regi-member{background:#54c2c0;padding:0!important;}
+#regi-member img{padding:30px 0;}
+#regi-member h4{color:#fff;font-size:20px;font-weight:400;margin-top:50px;}
+.bg-member{background:#4eb4b2;
+           transition: all linear 0.2s;
+           -moz-transition: all linear 0.2s;
+           -o-transition: all linear 0.2s;
+           -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */
+}
+.bg-member1{transition: all linear 0.2s;
+            -moz-transition: all linear 0.2s;
+            -o-transition: all linear 0.2s;
+            -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.bg-member1:hover,.bg-member:hover{background:#197977;}
+@-webkit-keyframes scaleIn {
+    0%{opacity:0;-webkit-transform:scale(0);transform:scale(0);}
+    100%{opacity:1;-webkit-transform:scale(1);transform:scale(1);}
+}
+@keyframes scaleIn {
+    0%{opacity:0;-webkit-transform:scale(0);-ms-transform:scale(0);transform:scale(0);}
+    100%{opacity:1;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}
+}
+#header .search{display:inline-block; position: relative;}
+.navbar>.container .navbar-brand{margin-left:0;}
+.top-bar{background:#f5f5f5;height:50px;line-height:50px;}
+.top-number{color:#fff;}
+.top-number p{margin:0;}
+.social{text-align:right;}
+.social-share{display:inline-block;list-style:none;padding:0;margin:0;}
+ul.social-share li{display:inline-block;margin-left:-5px;}
+ul.social-share li a{font-size:14px;display:inline-block;color:#37393a;background:#Transparent;text-align:center;font-weight:400;padding:0 23px;border:1px #d5dadd solid;border-top:none;border-bottom:none;height:50px;line-height:50px;}
+ul.social-share li li a{border:none;width:auto;background:#Transparent!important;}
+ul.social-share li a:hover{background:#f9f9f9;color:#49a0cf;}
+.search i{color:#3298cb;}
+.navbar-inverse .navbar-toggle .icon-bar{background-color:#3298cb;}
+.navbar-inverse .navbar-toggle{border-color:#3298cb;}
+.navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus{background-color:transparent;}
+input.search-form{background:url(/afya-portal/static/images/search-icon.png) no-repeat right center #fff;border:0 none;width:40px;height:36px;
+                  padding: 0 30px 0 10px;color:#5daed6;margin-left:20px;-webkit-transition:all 400ms;-moz-transition:all 400ms;-ms-transition:all 400ms;-o-transition:all 400ms;transition:all 400ms; line-height:36px;}
+input.search-form::-webkit-input-placeholder{color:transparent;}
+input.search-form:hover::-webkit-input-placeholder{color:#fff;}
+input.search-form:hover, input.search-form:focus{width:180px;background:url(/afya-portal/static/images/search-hover-icon.png) no-repeat right center #fff;}
+
+.search-btn{background:transparent; width: 33px; height: 50px; float: right; margin-top: 0px; position: absolute;top:0;
+            right: -16px;  transform: translateX(-50%); border: none; outline: none;}
+.search-btn:active{border: none !important;}
+
+
+.navbar-brand{padding:0;margin:0;margin-top:-50px!important;}
+.navbar{border-radius:0;margin-bottom:0;background:#fff;-webkit-box-shadow:0 16px 12px -25px rgba(0,0,0,0.75);-moz-box-shadow:0 21px 12px -25px rgba(0,0,0,0.75);box-shadow:0 16px 12px -25px rgba(0,0,0,0.75);}
+.navbar-inverse .navbar-nav > li > a{padding:26px 15px;margin:0;display:inline-block;color:#37393A;font-size:16px;font-weight:600;}
+.navbar-inverse .navbar-nav > li > a:hover{background-color:#eff9f7;color:#3298CB;}
+.navbar-inverse{border:none;}
+.navbar-inverse .navbar-brand{font-size:36px;line-height:50px;color:#fff;position:absolute;margin-top:-54px;z-index:1000;top:0;}
+.navbar-inverse .navbar-nav > .active > a,.navbar-inverse .navbar-nav > .active > a:hover,.navbar-inverse .navbar-nav > .active > a:focus,.navbar-inverse .navbar-nav > .open > a,.navbar-inverse .navbar-nav > .open > a:hover,.navbar-inverse .navbar-nav > .open > a:focus{background-color:#EFF9F7;color:#3298CB;}
+.nmt{line-height:46px!important;}
+.navbar-inverse .navbar-nav .dropdown-menu{background-color:rgba(0,0,0,.85);-webkit-box-shadow:0 3px 8px rgba(0,0,0,0.125);-moz-box-shadow:0 3px 8px rgba(0,0,0,0.125);box-shadow:0 3px 8px rgba(0,0,0,0.125);border:0;padding:0;margin-top:0;border-top:0;border-radius:0;left:0;}
+.navbar-inverse .navbar-nav .dropdown-menu:before{position:absolute;top:0;}
+.navbar-inverse .navbar-nav .dropdown-menu > li > a{padding:8px 15px;color:#fff;}
+.navbar-inverse .navbar-nav .dropdown-menu > li:hover > a,.navbar-inverse .navbar-nav .dropdown-menu > li:focus > a,.navbar-inverse .navbar-nav .dropdown-menu > li.active > a{background-color:#eff9f7;color:#3298cb;}
+.navbar-inverse .navbar-nav .dropdown-menu > li > a,.navbar-inverse .navbar-nav .dropdown-menu > li > a,.navbar-inverse .navbar-nav .dropdown-menu > li > a{background-color:#eff9f7;color:#3d3f40;}
+.navbar-inverse .navbar-nav .dropdown-menu > li:last-child > a{border-radius:0 0 3px 3px;}
+.navbar-inverse .navbar-nav .dropdown-menu > li.divider{background-color:transparent;}
+.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form{border-top:0;padding-bottom:0;}
+
+.btn-regi a{padding:12px 20px!important;background:#3c9;color:#fff!important;margin-top:13px!important;border-radius:3px;border-bottom:#29a37a solid 2px;transition:.4s all linear;margin-left:40px!important;}
+.btn-regi a:hover{background:#45e6b0!important;color:#fff!important;border-bottom:#29a37a solid 2px;}
+.btn-regi a:active,.btn-regi a:focus{background-color:#45e6b0!important;color:#fff!important;border-bottom:#29a37a solid 1px;}
+
+.no-margin{margin:0 !important;padding:0 !important;}
+#bottom{background:#1a7499;}
+#bottom h3{margin-top:0;margin-bottom:20px;text-transform:capitalize;font-size:16px;color:#fff;font-weight:600;}
+#bottom h3 a{margin-top:0;margin-bottom:20px;text-transform:capitalize;font-size:16px;color:#fff;font-weight:600;}
+#bottom h3 a:hover{text-decoration:underline;}
+#bottom ul{list-style:none;padding:0;margin:0;}
+#bottom ul li{display:block;padding:5px 0;}
+#bottom ul li a{margin-bottom:20px;text-transform:capitalize;font-size:14px;color:#fff;font-weight:400;}
+#bottom ul li a:hover{ text-decoration:underline;}
+#bottom .widget{margin-bottom:0;}
+#footer{padding:20px 0;color:#fff;background:#2195c4;}
+#footer a{color:#fff;font-size:14px;text-decoration:underline;}
+#footer a:hover{color:#fff;}
+#footer ul{list-style:none;padding:0;margin:0;}
+#footer ul > li{display:inline-block;margin-left:15px;}
+.circle-icon{width:38px;height:38px;background:#2195c4;color:#fff;border-radius:50%;line-height:38px;margin-right:5px;
+             transition: all linear 0.2s;
+             -moz-transition: all linear 0.2s;
+             -o-transition: all linear 0.2s;
+             -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.circle-icon:hover{background:#fff;color:#2195c4;}
+.top-fb-circle-icon{background:#e6eeeb;color:#4862a3;border-radius:50%;line-height:38px;margin-left:10px;padding:0 15px;width:38px; transition: all linear 0.2s;
+                    -moz-transition: all linear 0.2s;
+                    -o-transition: all linear 0.2s;
+                    -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.top-fb-circle-icon:hover{background:#b5c2bd;}
+.top-tw-circle-icon{background:#e6eeeb;color:#00abe3;border-radius:50%;line-height:38px;margin-left:10px;padding:0 15px;width:38px;}
+.top-tw-circle-icon:hover{background:#b5c2bd;}
+.mtb25{margin:25px 0;}
+.sub-li{background:url(/afya-portal/static/images/dot.png) no-repeat; background-position: 0 15px;}
+.sub-li a{margin-left:13px;}
+#care-provider-payer{
+    background: -webkit-linear-gradient(left,#f3f3f3 50%,#eeeded 50%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* Standard syntax */
+}
+#care-provider-payer h4{color:#37393a;font-size:28px;font-weight:400;text-align:center;margin-bottom:30px; margin-top: 0;}
+#care-provider-payer p{color:#37393a;font-size:18px;font-weight:400;margin-bottom:30px;height:100px;padding-top:25px;}
+#care-provider-payer .img-circle{width:100px;height:100px;border-radius:50%;line-height:100px;margin-bottom:30px;}
+.pl62{padding-left:62px;}
+.btn-ser-provider{background:#3C9 none repeat scroll 0 0;color:#FFF;font-size:16px;padding:15px 20px;transition: all linear 0.2s;
+                  -moz-transition: all linear 0.2s;
+                  -o-transition: all linear 0.2s;
+                  -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */border-bottom:#29a37a solid 2px;}
+.btn-ser-provider:hover{background:#45e6b0!important;color:#fff!important;border-bottom:#29a37a solid 2px;}
+.btn-ser-provider:active,.btn-ser-provider:focus{background-color:#45e6b0!important;color:#fff!important;border-bottom:#29a37a solid 1px;}
+
+.sub-navi{min-width:52px;z-index:10000;}
+.sub-menu p{color:#3d3f40;font-size:16px;font-weight:600;border-bottom:1px solid #ccc;padding-bottom:16px;}
+.sub-menu li a{color:#3d3f40;font-size:16px;line-height:35px; background: url(/afya-portal/static/images/arrow-right.png) no-repeat 0 3px; padding-left: 25px;}
+.sub-menu li a:hover{color:#26abe2;}
+.list-styled{padding-left:0;margin-left:15px;color:#26abe2;}
+
+.list-styled-blue {padding-left: 0;list-style-type: disc;margin-left: 40px;color: #26abe2;}
+.list-styled-blue p{ border: none;}
+.list-styled-blue a{color: #3d3f40 !important;font-size: 16px !important;line-height: 35px; background-image:none !important; font-weight:normal !important;padding-left: 0px !important}
+.list-styled-blue a:hover{color:#428bca !important;}
+
+.threeboxrow{
+    background: -webkit-linear-gradient(left,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,#3C9 1%,#3C9 50%,#60CDCB 50%,#60CDCB 100%); /* Standard syntax */
+}
+.bg-green{background:#3C9 none repeat scroll 0 0;transition: all linear 0.2s;
+          -moz-transition: all linear 0.2s;
+          -o-transition: all linear 0.2s;
+          -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.bg-lig-blue{background:#60CDCB none repeat scroll 0 0;transition: all linear 0.2s;
+             -moz-transition: all linear 0.2s;
+             -o-transition: all linear 0.2s;
+             -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.bg-green1 {background: #3C9 none repeat scroll 0% 0% !important;}
+.bg-lig-blue1{background:#60CDCB none repeat scroll 0 0!important;}
+.bg-blue1{background:#0C9B8C none repeat scroll 0 0!important;}
+.img-div{margin-top:70px;float:left;margin-right:30px;}
+.text-div{margin-bottom:54px;margin-top:54px;float:left;margin-right:30px;}
+.left-arrow-div{margin-top:75px;float:left;transition: all linear 0.2s;
+                -moz-transition: all linear 0.2s;
+                -o-transition: all linear 0.2s;
+                -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.bg-green:hover .left-arrow-div{padding-left:10px;}
+.bg-blue:hover .left-arrow-div{padding-left:10px;}
+.bg-lig-blue:hover .left-arrow-div{padding-left:10px;}
+
+/**/
+.left-arrow-divVideo{margin-top:75px;float:left;
+                -moz-transition: all linear 0.2s;
+                -o-transition: all linear 0.2s;
+                -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+
+/**/
+
+
+
+
+.text-div h4{color:#FFF;font-size:24px;font-weight:400;}
+.no-margin{margin:0;}
+.text-div h5{color:#FFF;font-size:30px;font-weight:400;}
+.text-div h3{color:#FFF;font-size:16px;font-weight:400;}
+.bg-blue{background:#0C9B8C none repeat scroll 0 0;transition: all linear 0.2s;
+         -moz-transition: all linear 0.2s;
+         -o-transition: all linear 0.2s;
+         -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */}
+.bg-white{background-color:#fff;width:427px;height:70px;position:relative;display:block;margin:auto;}
+#apps-faqs h4{color:#37393A;font-size:28px;font-weight:400;padding-bottom:30px;padding-top:0px;text-align:center; margin: 0;}
+.phone-ul{margin-top:55px;list-style:none;}
+.faq-ul h3{color:#37393A;font-size:18px;font-weight:400;line-height:55px;margin:0;}
+.faq-ul li{background:transparent url(/afya-portal/static/images/faq-que.jpg) no-repeat scroll 0 bottom;min-height:56px;padding-left:75px;padding-right:20px;position:relative;font-size:16px;font-weight:400;color:#3298CB;line-height:24px;list-style:none;}
+
+.btn-faq{background:#EBF3F0 none repeat scroll 0 0;border:medium none;border-radius:2px;color:#26ABE2;font-size:14px;padding:13px 26px;
+         transition: all linear 0.2s;
+         -moz-transition: all linear 0.2s;
+         -o-transition: all linear 0.2s;
+         -webkit-transition: all linear 0.2s;  /* Safari 3.1 to 6.0 */ margin-top:20px;}
+.btn-faq:hover{background:#26ABE2 none repeat scroll 0 0;color:#FFF;}
+.adj-left{margin-left:10px;position:absolute;right:0;top:50%;
+          transform:translateY(-50%);
+          -ms-transform: translateY(-50%); /* IE 9 */
+          -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+}
+.faq-ul li:hover{background:url(/afya-portal/static/images/faq-que-hover.jpg) no-repeat 0 bottom;border-bottom:#26abe2 solid 1px;}
+.phone-ul li{margin-bottom:40px;}
+.div-take{background:url(/afya-portal/static/images/bg-take.png) center top no-repeat;height:100%;margin-top:-33px;max-height:70px;position:absolute;width:100%;z-index:10;background-size:425px;}
+.div-take p{color:#37393a;font-size:28px;font-weight:400;margin-top:13px;}
+
+.btn-all{background:#3C9 none repeat scroll 0 0;color:#FFF;font-size:16px;padding:10px 20px;border-bottom:#29a37a solid 2px;
+         transition: all linear 0.2s;
+         -webkit-transition: all linear 0.2s;
+         -moz-transition: all linear 0.2s;
+         -o-transition: all linear 0.2s;}
+.btn-all:hover{background:#45e6b0;color:#fff;border-bottom:#29a37a solid 2px;}
+.btn-all:active, .btn-all:focus{background:#45e6b0;color:#fff !important;border-bottom:#29a37a solid 1px;}
+
+.btn-grey{
+	background:#d2dbe4 none repeat scroll 0 0;
+	color:#666666;
+	font-size:16px;
+	padding:10px 20px;
+	transition: all linear 0.2s;
+	-webkit-transition: all linear 0.2s;
+	-moz-transition: all linear 0.2s;
+	-o-transition: all linear 0.2s;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #748EA7;
+}
+.btn-grey:hover{background:#abbbca;color:#fff;border-bottom:#29a37a solid 2px;}
+.btn-grey:active, .btn-all:focus{background:#abbbca;color:#fff !important;border-bottom:#29a37a solid 1px;}
+
+.btn-dash{
+	background: #d2dbe4 none repeat scroll 0 0;
+  color: #666666;
+  font-size: 13px;
+  padding: 5px 10px;
+  transition: all linear 0.2s;
+  -webkit-transition: all linear 0.2s;
+  -moz-transition: all linear 0.2s;
+  -o-transition: all linear 0.2s;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #748EA7;
+}
+
+.btn-dash:hover{  background: #abbbca;
+  color: #fff;
+  border-bottom: #29a37a solid 2px;
+  font-size: 12px;
+}
+.btn-dash:active, .btn-all:focus{background:#abbbca;color:#fff !important;border-bottom:#29a37a solid 1px;}
+
+.btn-dark{
+	background:#626c75 none repeat scroll 0 0;
+	color:#fff;
+	font-size:16px;
+	padding:5px 10px;
+	transition: all linear 0.2s;
+	-webkit-transition: all linear 0.2s;
+	-moz-transition: all linear 0.2s;
+	-o-transition: all linear 0.2s;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #748EA7;
+}
+.btn-dark1{
+	background:#626c75 none repeat scroll 0 0;
+	color:#fff;
+	font-size:16px;
+	padding:5px 10px;
+	margin-top:-8px;
+	transition: all linear 0.2s;
+	-webkit-transition: all linear 0.2s;
+	-moz-transition: all linear 0.2s;
+	-o-transition: all linear 0.2s;
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-bottom-color: #748EA7;
+}
+.btn-dark:hover{background:#6b7985;color:#fff;border-bottom:#29a37a solid 2px;}
+.btn-dark:active, .btn-all:focus{background:#838383;color:#fff !important;border-bottom:#29a37a solid 1px;}
+
+
+.btn-all-learn{background:#ebf3f0 none repeat scroll 0 0;color:#51bce8;font-size:16px;padding:10px 20px;transition: all linear 0.2s;
+               -webkit-transition: all linear 0.2s;
+               -moz-transition: all linear 0.2s;
+               -o-transition: all linear 0.2s;border-bottom:#cdd6ce solid 2px;}
+.btn-all-learn:hover{background:#d9ede6;color:#51bce8;border-bottom:#cdd6ce solid 2px;}
+.btn-all-learn:active, .btn-all-learn:focus{background:#d9ede6;color:#51bce8 !important; border-bottom:#cdd6ce solid 1px;}
+
+#care-experience-afya-about p{font-size:16px;color:#37393a;line-height:24px;}
+#care-experience-afya-about h2{color:#454444;font-size:24px;margin-bottom:26px;font-weight:400; margin-top: 0; padding: 0;}
+#experience-afya-about{background: #dbdfd7;}
+#experience-afya-about p{font-size:16px;color:#37393a;line-height:24px;}
+#experience-afya-about h2{color:#454444;font-size:24px;margin-bottom:25px;font-weight:400; margin-top: 0; padding: 0;}
+
+#Afya-blue{background-color:#626c75;}
+#Afya-blue h2{color:#d3dbe6;font-size:25px;margin-bottom:19px;font-weight:400;}
+#Afya-liteblue{background-color:#c7d0d7;}
+#Afya-liteblue h2{color:#d3dbe6;font-size:25px;margin-bottom:19px;font-weight:400;}
+
+
+#Afya-Ecosystem{background-color:#f2f5ef;}
+#Afya-Ecosystem h1{color:#37393a;font-size:28px;font-weight:400;}
+#Afya-Ecosystem h2{color:#454444;font-size:25px;margin-bottom:25px;font-weight:400;}
+#Afya-Ecosystem p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px; text-align: left;}
+
+#Afya-Ecosystem-2{background-color:#fff;}
+#Afya-Ecosystem-2 h1{color:#37393a;font-size:28px;font-weight:400;}
+#Afya-Ecosystem-2 h2{color:#454444;font-size:25px;margin-bottom:25px;font-weight:400;}
+#Afya-Ecosystem-2 p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px; text-align: left;}
+
+#afya-privacy{ background:#f3f3f3 url(/afya-portal/static/images/linear-security.png) repeat-y center 0;}
+#afya-privacy h1{color:#37393a;font-size:28px;font-weight:400;}
+#afya-privacy h2{color:#454444;font-size:25px;margin-bottom:25px;font-weight:400;}
+#afya-privacy p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px;}
+.security-p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px; text-align: left;}
+
+#leadership{background: url(/afya-portal/static/images/afya-about-bg.jpg) no-repeat 0 0; background-size: cover;}
+#leadership h1{color:#37393a;font-size:28px;font-weight:400;}
+#leadership p{color:#37393a;font-size:16px;line-height:24px;}
+
+#care-experience-info{background-color:#f2f5ef;}
+#care-experience-info h1{color:#37393a;font-size:28px;font-weight:400;}
+#care-experience-info h2{color:#454444;font-size:25px;margin-bottom:25px;font-weight:400;}
+#care-experience-info p{color:#37393a;font-size:16px;margin-bottom:45px;line-height:24px;}
+#membership-info-about{background-color:#f2f5ef;}
+#membership-info-about p{color:#37393a;font-size:16px;line-height:24px;}
+#membership-info-accordion{background-color:#fff;}
+#Afya-wordclass{background-color:#fff;}
+#Afya-wordclass h1{color:#37393a;font-size:28px;font-weight:400;}
+.world-class-wrap{background-color:#989a96;padding:30px;color:#fff;
+    -moz-border-radius-bottom-right:5px;
+    -webkit-border-bottom-right-radius:5px;
+    border-bottom-right-radius:5px;
+    -moz-border-radius-bottom-left:5px;
+    -webkit-border-bottom-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+.world-class-wrap h2{color:#fff;font-size:24px;line-height:21px;margin-top:0;}
+.world-class-wrap a{color:#fff;text-decoration:none;}
+.world-class-wrap a:hover{color:#000;text-decoration:none;}
+#afya-care-services{
+    background: -webkit-linear-gradient(left,#f3f3f3 50%,#eeeded 50%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* Standard syntax */
+}
+.heading-text,#afya-care-services h1{color:#37393a;font-size:28px;margin-top:0;font-weight:400;}
+.amb-40{margin-bottom:30px;}
+#afya-care-services p{font-size:16px;color:#454444;}
+.aml-100{margin-left:100px;}
+.alm-30{margin-left:40px;}
+#afya-care-services h4{font-size:24px;color:#35cc9a;line-height:70px;}
+
+/*Apps store Page*/
+
+.smart-service-sub-div{background:#f3f3f3;padding:30px;border-top-left-radius:5px;border-top-right-radius:5px;}
+
+.service-circle{width:100px;height:100px;border-radius:50%;float:left;margin-right:10px;margin-bottom:56px;}
+.service-text h3{font-size:24px;font-weight:400;color:#454444;margin-bottom:30px;text-align:left;}
+.service-text p{font-size:16px;font-weight:400;color:#37393a;line-height:24px;text-align:left;}
+.already-member{font-size:16px;font-weight:400;color:#37393a;}
+.link-forget-pass{font-size:16px;font-weight:400;color:#3298cb;}
+.link-log-in{font-size:16px;font-weight:400;color:#3298cb;text-decoration:underline;}
+.text-log-in{font-size:16px;font-weight:400;color:#37393a;}
+.link-log-in:hover{color:#07577f !important;text-decoration:underline !important;}
+.link-log-in:focus{color:#07577f !important;text-decoration:underline !important;}
+.service-btn{text-align:left;}
+.service-btn .btn-all{margin-right:10px;}
+#adapt-method{background:#f3f3f3;}
+#adapt-method h1{font-size:30px;font-weight:400;color:#37393a;text-align:center;}
+#adapt-method h4{font-size:18px;font-weight:400;color:#3298cb;text-align:left; margin-top: 20px;}
+#member-area-afya{
+    background: -webkit-linear-gradient(left,#f3f3f3 50%,#eeeded 50%); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,#f3f3f3 50%,#eeeded 50%); /* Standard syntax */
+}
+#member-area-afya h1{font-size:28px;font-weight:400;color:#37393a;text-align:left;max-width:370px;width:100%;}
+#member-area-afya p{font-size:16px;font-weight:400;color:#37393a;text-align:justify;max-width:370px;width:100%;}
+
+
+/*slider css start*/
+#main-slider { position: relative;}
+.carousel {position: relative;}
+.carousel-indicators {bottom: 20px; position:absolute;bottom:37px;z-index:15;width:110px;height:25px;border-radius:5px;padding-left:0;margin:auto;text-align:center;list-style:outside none none;background:rgba(0,0,0,0.2); line-height:25px;}
+.carousel-inner { position: relative;width: 100%; overflow: hidden;}
+#main-slider .carousel .item.active { opacity: 1;transition: opacity 500ms ease-in-out 0s; z-index: -1;}
+#main-slider .carousel .item:first-child { top: auto; position: relative;}
+#main-slider .carousel .item { background-position: 50% center; background-repeat: no-repeat; left: 0px !important; opacity: 0; top: 0px; position: absolute; width: 100%;display: block !important;height: 580px;transition: opacity 500ms ease-in-out 0s;}
+#main-slider .carousel .slide-margin {  margin-top: 70px;}
+#main-slider .carousel .carousel-content {}
+#main-slider .carousel .btn-slide {padding: 8px 20px;background: #C52D2F none repeat scroll 0% 0%;color: #FFF; border-radius: 4px;    margin-top: 25px; display: inline-block;}
+#main-slider .carousel .slider-img { text-align: right; position: absolute;}
+.carousel-content{width:100%;}
+.carousel-content h1{font-size:30px; font-weight:300; color:#37393a; text-align:left; margin-bottom: -5px; margin-top: 0;}
+.carousel-content h2{font-size:48px; font-weight:normal; color:#26abe2; text-align:left; line-height: 60px;text-shadow: 0 1px 0 #fff; margin-top: 0;}
+
+/*slider css end*/
+
+
+.requ-div-adj{float:right;}
+.requ-div{width:300px;padding-bottom:10px;position:absolute;background:#fff;margin-top:40px;border-radius:2px;z-index:1000;
+          -webkit-transform:translateX(50%);
+          -ms-transform:translateX(50%);
+          transform:translateX(50%);left:50%;margin-left:120px;}
+.requ-div h5{background-color:#26ABE2;color:#FFF;font-size:18px;padding:16px;margin:0 auto;}
+.blue-down-arrow{background:transparent url(/afya-portal/static/images/down-arrow.png) no-repeat scroll center top;display:block;height:8px;margin:0 auto;width:17px;}
+.requ-nav li:first-child{margin-top:20px;}
+.requ-nav{padding:0;}
+.requ-nav li{margin-bottom:30px;margin-left:30px;}
+.landing .requ-nav li a{padding-left:35px;min-height:25px;display:block;}
+.requ-nav li a{color:#37393A;font-size:16px;padding-left:37px;}
+.icon-tele{background:transparent url(/afya-portal/static/images/icon_requ.svg) no-repeat scroll -9px -4px;}
+.icon-tele:hover{background-position:-9px -36px;}
+.icon-appo{background:url(/afya-portal/static/images/icon_requ.svg) no-repeat;background-position:-10px -70px;}
+.icon-appo:hover{background-position:-10px -102px;}
+.icon-visit{background:url(/afya-portal/static/images/icon_requ.svg) no-repeat;background-position:-10px -130px;}
+.icon-visit:hover{background-position:-10px -160px;}
+.icon-care{background:url(/afya-portal/static/images/icon_requ.svg) no-repeat;background-position:-10px -193px;}
+.icon-phar{background:url(/afya-portal/static/images/icon_requ.svg) no-repeat;background-position:-10px -256px;}
+.icon-phle{background:url(/afya-portal/static/images/icon_requ.svg) no-repeat;background-position:-10px -320px;}
+.icon-care:hover{background-position:-10px -224px;}
+.icon-phar:hover{background-position:-10px -288px;}
+.icon-phle:hover{background-position:-10px -352px;}
+.btn-join{background:#ebf3f0;border:0;border-bottom:2px solid #CDD6CE;color:#37393a;font-size:16px;padding:10px 26px;
+          transition: all linear 0.2s;
+          -webkit-transition: all linear 0.2s;
+          -moz-transition: all linear 0.2s;
+          -o-transition: all linear 0.2s;}
+.btn-join:hover{background:#d9ede6;border-bottom:#cdd6ce solid 2px;}
+.btn-join:active,.btn-join:visited{background:#d9ede6;border-bottom:#cdd6ce solid 1px;}
+
+.mobile-btn-adj{position: absolute;right: 0;bottom: 0;margin-bottom: 80px; margin-right: 10px;}
+
+.btn-join strong{color:#51BCE8;}
+.requ-nav li a:hover{color:#3298CB;text-decoration:none;}
+.glossymenu{text-align:left;}
+.glossymenu a.menuitem{background:#ebf3f0;font-size:16px;color:#26abe2;display:block;position:relative;width:auto;padding:17px 28px;text-decoration:none;border-bottom:#d8dfdc solid 1px;}
+.glossymenu div.submenu1{background:#ebf3f0;}
+.glossymenu div.submenu1 p{font-size:14px;color:#727577;padding:20px 28px;text-decoration:none;border-bottom:#d8dfdc solid 2px;}
+.accordsuffix1,.statusicon1{float:right;margin-top:25px;top:0;position:absolute;right:0;margin-right:17px;}
+.accor-main{margin-bottom:30px;}
+
+/*login popup start*/
+.modal-header {min-height: 16.4286px; padding: 15px;border-bottom: 1px solid #E5E5E5;}
+/*.login-img-adj {float: left; margin-left: 12px;}
+.modal-head {font-size: 22px;color: #37393A; float:left; margin-top:20px; margin-left:20px;}*/
+.modal-head {font-size: 22px;color: #37393A;}
+.modal-dialog {max-width: 500px; width:100%; margin: 30px auto;}
+.patient-regi{ border-right: 1px solid #E5E5E5;;}
+.care-provider-regi{}
+.fsize {font-size: 16px;color: #8d8d8d; line-height: 40px;height: 40px;background: #f1f5f4 !important; border-radius: 2px;
+        width: 100%; border: #d0d3d2 1px solid !important;}
+		.fsize1{font-size: 13px;color: #8d8d8d; line-height: 28px;height: 30px;background: #f1f5f4 !important; border-radius: 2px;
+        width: 90%; border: #d0d3d2 1px solid !important;}
+.faci-text-box {width: 100%; height: 40px; background: #EBF3F0 none repeat scroll 0% 0%; border: 1px solid #D5DADD;    font-size: 16px; padding: 0px 15px;color: #a5a5a5; border-radius: 2px;}
+.modal-footer { padding:0px !important; margin-top: 15px; text-align: center; border: none;}
+.mw370{max-width: 370px !important; margin:30% auto !important;}
+.form-control:focus{
+    box-shadow: none !important;
+    border: 1px solid #26abe2 !important;
+}
+
+/*login popup ends*/
+
+/*for tabs start*/
+/*input[type=radio]{display:none;}
+input[type=radio] label{color:#717577; font-size:15px;}
+input[type=radio] label+span{width:19px; height:19px; background:url(/afya-portal/static/images/checkbox-radio-btn.png) no-repeat 0 0;}*/
+input[type=radio] label{color:#717577; font-size:15px;}
+.login-pref{color:#37393a; font-size:18px; margin-bottom: 15px;}
+.radio-label{color:#717577; font-size:15px; font-weight:normal; padding-left:10px; padding-right:18px;}
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    float: left;  margin-left: -12px !important;}
+.checkbox-label{color:#4d4d4d; font-size:16px; font-weight:normal; padding-left:10px;}
+.checkbox-label a{color:#4d4d4d; font-size:16px; font-weight:normal; text-decoration:underline;}
+
+.regi-text{color:#37393a; font-size:16px; line-height:24px; margin-bottom:30px;}
+.regi-conform{color:#37393a; font-size:18px; line-height:24px; margin-bottom:30px;}
+.regi-text a{color:#3298cb; text-decoration:underline;}
+.div-conform{text-align:center;}
+
+.selected-stage{background:url(/afya-portal/static/images/selected-stage.png) no-repeat 0 0; background-size:100%; padding-left:10px; padding-bottom:2px;}
+.selected-stage2{background:url(/afya-portal/static/images/selected-stage2.png) no-repeat 0 0; background-size:100%; padding-left:10px; padding-bottom:2px;}
+.unselected-stage{background-size:100%; padding-bottom:2px;}
+.unselected-stage2{background:url(/afya-portal/static/images/unselected-stage2.png) no-repeat 0 0;background-size:100%; padding-bottom:2px;}
+.selected-stage-text{color:#fff; font-size:14px;}
+.unselected-stage-text{color:#37393a; font-size:14px;}
+b.caret {margin-left: 8px !important;}
+
+.step1{background:url(/afya-portal/static/images/step1.png) no-repeat 0 0; width:100%; height:50px;}
+.step2{background:url(/afya-portal/static/images/step2.png) no-repeat 0 0; width:100%; height:50px;}
+.step3{background:url(/afya-portal/static/images/step3.png) no-repeat 0 0; width:100%; height:50px;}
+
+#methodology{background: #f3f3f3;}
+.icon-div{width: 100px; height: 100px; border-radius: 50%; float: left; margin-right: 30px; margin-bottom: 30px;}
+#methodology h2{font-size: 28px; color: #37393a; padding-bottom: 25px;font-weight: normal;}
+#methodology p{font-size: 16px; color: #37393a; line-height: 24px;}
+
+#download-methodology{background: #f2f5ef; text-align: center;}
+#download-methodology span{font-size: 16px; color: #848b92;}
+#download-methodology a{font-size: 16px; color: #3298cb; text-decoration: underline;}
+
+
+
+#smart-pack{background: #ffffff; text-align: center;}
+#smart-pack .heading{font-size: 28px; color: #37393a; padding-bottom: 50px;font-weight: normal;}
+.smart-pack-dropdown{font-size: 16px;color: #37393A;line-height: 40px;height: 40px;  border-radius: 2px;
+                     background: #EBF3F0 url("/afya-portal/static/images/down-select-arrow.png") no-repeat 90% center !important;
+                     -moz-appearance: none;appearance: none; -o-appearance: none; -webkit-appearance: none;
+                     padding-right: 20px; border:#e0e0e0 solid 1px; width: 235px;
+}
+.smart-pack1-dropdown{font-size: 14x;color: #8d8d8d; line-height: 30px;height: 30px;  border-radius: 2px;
+                     background: #F1F5F4 url("/afya-portal/static/images/down-select-arrow.png") no-repeat 90% center !important;
+                     -moz-appearance: none;appearance: none; -o-appearance: none; -webkit-appearance: none;
+                     padding-right: 20px; padding-left: 7px; border:#D0D3D2 solid 1px; width: 100%;
+}
+.smart-pack2-dropdown{font-size: 14x;color: #8d8d8d; line-height: 30px;height: 30px;  border-radius: 2px;
+                     background: #F1F5F4 no-repeat 90% center !important;
+                     -moz-appearance: none;appearance: none; -o-appearance: none; -webkit-appearance: none;
+                     padding-right: 20px; padding-left: 7px; border:#D0D3D2 solid 1px; width: 100%;   margin-bottom:6px;
+}
+#approach1 {background: #ffffff; padding:0; margin-bottom:30px;}
+#approach {background: #ffffff;}
+#approach h2{font-size: 28px; color: #37393a; padding-bottom: 25px; font-weight: normal; margin-bottom: 0;}
+#approach h3{font-size: 22px; color: #37393a; padding-bottom: 25px; font-weight: normal; margin-bottom: 0;}
+#approach p{font-size: 16px; color: 37393a; line-height: 24px;}
+
+#approach1 {background: #ffffff;}
+#approach1 h2{font-size: 28px; color: #37393a; padding-bottom: 30px; font-weight: normal; margin-bottom: 0;}
+#approach1 h3{font-size: 22px; color: #37393a; padding-bottom: 30px; font-weight: normal; margin-bottom: 0;}
+#approach1 p{font-size: 16px; color: 37393a; line-height: 24px;}
+
+/*fixed header start*/
+.navbar-fixed-bottom, .navbar-fixed-top {position: fixed;right: 0;left: 0;z-index: 1030;}
+/*fixed header end*/
+
+
+.main-tr{ background: #0c9b8c; border-bottom: #037a6d solid 3px;border-right:#0c9b8c solid 1px;border-left:#0c9b8c solid 1px; border-top:none;   color: #fff; font-size: 16px; padding: 21px 15px; font-weight: 600; text-align: center;}
+.main-tr2{ background: #0c9b8c; color: #fff; font-size: 16px; padding: 21px 15px; font-weight: 600; text-align: center; border-right:#0c9b8c solid 1px;border-left:#0c9b8c solid 1px; border-top:#0c9b8c solid 2px;}
+.sub-tr{ background: #c7d0d7; color:#000; font-size: 12px; padding: 21px 15px; text-align: center;border-right:#60cdcb solid 1px;border-left:#60cdcb solid 1px;}
+.sub33-tr{ background: #f8f8f8; color:#000; font-size: 13px; padding: 21px 15px; text-align:;border-right:#60cdcb solid 1px;border-left:#60cdcb solid 1px;}
+.sub33-tr{ background: #f3faff;; color:#000; font-size: 13px; padding: 21px 15px; text-align:;border-right:#60cdcb solid 1px;border-left:#60cdcb solid 1px;}
+.sub333-tr{ background: #dce1e7; color:#000; font-size: 13px; padding: 21px 15px; text-align:;border-right:#60cdcb solid 1px;border-left:#60cdcb solid 1px;}
+.subtab{ background: #dce1e7; color:#000; font-size: 13px; padding: 21px 15px; text-align:;border-right:#60cdcb solid 1px;border:#60cdcb solid 2px;}
+.sub2-tr{ background: #828282; color: #fff; font-size: 16px; padding: 21px 15px; text-align: center;border-right:#828282 solid 1px;border-left:#828282 solid 1px;}
+tr{ background: #ffffff; color: #393939; font-size: 14px; padding: 21px 15px;text-align: left;}
+.table-bordered {border: 1px solid #a2a2a2;}
+.table-bordered1>thead>tr>th, .table-bordered1>tbody>tr>th, .table-bordered1>tfoot>tr>th, .table-bordered1>thead>tr>td, .table-bordered1>tbody>tr>td, .table-bordered1>tfoot>tr>td {
+	padding: 8px;
+	line-height: 2.2;
+	vertical-align: top;
+}
+.table-bordered1>thead>tr>th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd
+}
+
+
+
+/*radio checkbox css start*/
+.checkbox {padding-left: 20px;}
+.checkbox label { display: inline-block;vertical-align: middle; position: relative; padding-left: 5px; color: #4D4D4D;    font-size: 16px;    font-weight: normal;    padding-left: 10px;    margin-bottom: 15px;}
+.checkbox label a { color: #4D4D4D; font-size: 16px; font-weight: normal;    text-decoration: underline;}
+.checkbox label::before {    content: "";    display: inline-block;    position: absolute;    width: 17px;    height: 17px;    left: 0;    margin-left: -20px;	margin-top:3px;    border: 1px solid #cccccc;    border-radius: 3px;    background-color: #fff;    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;}
+.checkbox label::after {    display: inline-block;    position: absolute;    width: 16px;    height: 16px;    left: 0;    top: 0;    margin-left: -20px;    padding-left: 3px;    padding-top: 1px;    font-size: 11px;    color: #555555;}
+.checkbox input[type="checkbox"] {    opacity: 0;    z-index: 1;}
+.checkbox input[type="checkbox"]:focus + label::before {    outline: thin dotted;    outline: 5px auto -webkit-focus-ring-color;    outline-offset: -2px;}
+.checkbox input[type="checkbox"]:checked + label::after {    font-family: 'FontAwesome';    content: "\f00c";}
+.checkbox input[type="checkbox"]:disabled + label {    opacity: 0.65;}
+.checkbox input[type="checkbox"]:disabled + label::before {    background-color: #eeeeee;    cursor: not-allowed;}
+.checkbox.checkbox-circle label::before {    border-radius: 50%;}
+.checkbox.checkbox-inline {    margin-top: 0;}
+.checkbox-primary input[type="checkbox"]:checked + label::before {    background-color: #428bca;    border-color: #428bca;}
+.checkbox-primary input[type="checkbox"]:checked + label::after {    color: #fff;}
+.radio-btn-adj{float: left; display: block;}
+.radio {    padding-left: 20px;    margin-bottom: 15px;}
+.radio label {    display: inline-block;    vertical-align: middle;    position: relative;    color: #717577;    font-size: 15px;    font-weight: normal;    padding-left: 10px;    padding-right: 18px;}
+.radio label::before {    content: "";    display: inline-block;    position: absolute;    width: 17px;    height: 17px;    left: 0;    margin-left: -20px;    border: 1px solid #cccccc;    border-radius: 50%;    background-color: #fff;    -webkit-transition: border 0.15s ease-in-out;    -o-transition: border 0.15s ease-in-out;    transition: border 0.15s ease-in-out;}
+.radio label::after {
+    display: inline-block;
+    position: absolute;
+    content: " ";
+    width: 11px;
+    height: 11px;
+    left: 3px;
+    top: 3px;
+    margin-left: -20px;
+    border-radius: 50%;
+    background-color: #555555;
+    -webkit-transform: scale(0, 0);
+    -ms-transform: scale(0, 0);
+    -o-transform: scale(0, 0);
+    transform: scale(0, 0);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+    transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+.radio input[type="radio"] {
+    opacity: 0;
+    z-index: 1;
+}
+.radio input[type="radio"]:focus + label::before {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+.radio input[type="radio"]:checked + label::after {
+    -webkit-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+.radio input[type="radio"]:disabled + label {
+    opacity: 0.65;
+}
+.radio input[type="radio"]:disabled + label::before {
+    cursor: not-allowed;
+}
+.radio.radio-inline {
+    margin-top: 0;
+}
+.radio-primary input[type="radio"] + label::after {
+    background-color: #428bca;
+}
+.radio-primary input[type="radio"]:checked + label::before {
+    border-color: #428bca;
+}
+.radio-primary input[type="radio"]:checked + label::after {
+    background-color: #428bca;
+}
+
+/*radio checkbox css ends*/
+
+/* Grow */
+.hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+/*    -webkit-transform: scale(1.1);
+    transform: scale(1.1);*/
+-webkit-box-shadow: -1px 1px 25px -4px rgba(0,0,0,0.46);
+-moz-box-shadow: -1px 1px 25px -4px rgba(0,0,0,0.46);
+box-shadow: -1px 1px 25px -4px rgba(0,0,0,0.46);
+
+
+}
+.hvr-grow1 {
+    display: block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+}
+.hvr-grow1:hover, .hvr-grow1:focus, .hvr-grow1:active {
+/*    -webkit-transform: scale(1.1);
+    transform: scale(1.1);*/
+-webkit-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.40);
+-moz-box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.40);
+box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.40);
+
+
+
+}
+
+/*
+table tr:first-child td:first-child {
+    -moz-border-radius-topleft:10px !important;
+    -webkit-border-top-left-radius:10px !important;
+    border-top-left-radius:10px !important;
+    border-left-color:transparent !important;
+    border-top-color: transparent !important;
+
+}
+
+table tr:first-child td:last-child {
+    -moz-border-radius-topright:10px !important;
+    -webkit-border-top-right-radius:10px !important;
+    border-top-right-radius:10px !important;
+    border-right-color:transparent !important;
+    border-top-color: transparent !important;*/
+}
+/*table tr:last-child td:first-child {
+    -moz-border-radius-bottomleft:10px !important;
+    -webkit-border-bottom-left-radius:10px !important;
+    border-bottom-left-radius:10px !important;
+    border-left-color:transparent !important;
+    border-bottom-color: transparent !important;
+
+}
+
+table tr:last-child td:last-child {
+    -moz-border-radius-bottom-right:10px !important;
+    -webkit-border-bottom-right-radius:10px !important;
+    border-bottom-right-radius:10px !important;
+    border-right-color:transparent !important;
+    border-bottom-color: transparent !important;
+}*/
+#error h1 {
+    color: #4E4E4E;
+    text-transform: uppercase;
+}
+.error h1 {
+    color: #4E4E4E;
+    text-transform: uppercase;
+}
+#contact-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-contact.jpg);background-position:center top;height:252px;padding:38px 0!important;background-size:cover;}
+#contact-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#contact-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.contact-afya-strip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:46px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.contact-afya-strip span{color:#37393a;padding-left:10px;}
+.contact-afya-strip a{color:#fff;}
+#contact-from { background-color: #fff;}
+#contact-from label { display: inline-block; float: left !important; font-weight: bold; line-height: 39px; margin-bottom: 5px; margin-right: 20px;}
+#contact-from .col-xs-6 {width: 50% !important;}
+#contact-from .help-block {color: #37393a; display: block; font-size: 16px; margin-bottom: 16px; margin-left: 15px; margin-top: 5px;}
+#contact-from p { color:#37393a; font-size: 16px; }
+#google-map { margin: auto; text-align: center; padding: 0 !important; height: 367px;}
+#google-map .col-md-12 .col-sm-12 {padding-left: 0px !important; padding-right: 0px !important;}
+#google-map iframe { margin: 0px; padding: 0px; border: 0px !important; text-align: center;}
+
+.footer-adj-text{font-size:12px !important; cursor:default; text-decoration:none !important;}
+.pagination>li>a, .pagination>li>span {color: #428bca;}
+.approach-ul {    margin-left: -20px;}
+.approach-ul li {
+    color: #6D6D6D;
+    font-size: 16px;
+    margin: 0px 0px 10px;
+    list-style-image: url("/afya-portal/static/images/list-bullet-blue.png");
+}
+.icon-div img{margin-top: 20px;}
+/*search added new style*/
+.Finddoc {
+    width: ;
+	border-right: 1px solid #d2d3d3;
+    border-top: 1px solid #d2d3d3;
+	border-bottom: 1px solid #d2d3d3;
+	float:left;
+}
+.appointments{
+margin: 0;
+/*padding: 18px 8px 28px 20px;*/
+padding: 12px 8px 10px 15px;
+background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+	border-left:2px solid #333;
+    height: 160px;
+    margin-top: -1px;
+
+}
+.photoColumn{height: 110px; width:76px;float: left; border: 1px solid #ddd;}
+.profInfoContainer{
+margin-left: 14px !important;
+width:250px;
+float:left;
+}
+.doctor-name-title-bar{float: left;
+    width: 100%;
+	color: #00aac6;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;}
+.doc-title{ color: #999;
+    font-size: 12px; /*padding-left:5px;*/}
+
+.doctor-address-distance{
+ clear: both;
+    color: #4c4c4c;
+    float: left;
+    height: 78px;
+    padding-right: 10px;
+    padding-top: 6px;
+    width: 100%;
+}
+.speciality {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+}
+.doc-address{
+font-size: 15px;
+    line-height: 18px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+	/*margin:15px 0;*/
+	}
+.doc-visitingHours{
+    font-size: 12px;
+    line-height: 18px;
+    padding-bottom: 0px;
+    padding-top: 2px;
+}
+	.doc-address1{
+font-size: 15px;
+    line-height: 18px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+	margin:5px 0;
+	}
+		.cont1{
+font-size: 15px;
+    line-height: 18px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+	margin:15px 0;
+	}
+.book-online-view{
+    float: left;
+    /*width: 100%;*/
+    width: 30%;
+}
+.distance{
+    float: left;
+    width: 100%;
+	padding:5px 0;
+	color:#0066CC;
+
+}
+
+.datecol{
+	/*width: 45%;*/
+	width: 30%;
+	padding:5px 0;
+	float: left;
+}
+.timecol{
+  float: left;
+    margin-left: 10px;
+    padding: 5px 0;
+    /*width: 45%;*/
+    width: 35%;
+}
+.bookOnlineButtonWrapper {
+	height: 30px;
+	margin: 0;
+	padding: 6px 10px 6px 0;
+	width: 172px;
+	float: left;
+}
+.requestOnlineButtonWrapper {
+	height: 30px;
+	margin: 0;
+	padding: 6px 10px 6px 0;
+	width: 132px;
+	float: left;
+}
+.btn-book {
+    background: #3c9 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    transition: all 0.2s linear 0s;
+}
+.btn-book:hover {
+    background: #45e6b0 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+}
+.btn-book:active, .btn-book:focus {
+    background: #45e6b0 none repeat scroll 0 0;
+    border-bottom: 1px solid #29a37a;
+    color: #fff !important;
+}
+
+.btn-appoinment {
+    background: #3c9 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+    font-size: 14px;
+    padding: 5px 10px;
+    transition: all 0.2s linear 0s;
+}
+.btn-appoinment:hover {
+    background: #45e6b0 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+}
+.btn-appoinment:active, .btn-book:focus {
+    background: #45e6b0 none repeat scroll 0 0;
+    border-bottom: 1px solid #29a37a;
+    color: #fff !important;
+}
+
+.finddoc-afya-strip {
+    background: #EBF3F0  none repeat scroll 0 0;
+    color: #c1c8cb;
+    height: 52px;
+    line-height: 15px;
+    margin-top: 15px;
+    padding: 7px 0;
+}#Afya-blue {
+    background-color: #626c75;
+}
+#Afya-blue h2 {
+    color: #d3dbe6;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 19px;
+}
+.btn-grey {
+    background: #d2dbe4 none repeat scroll 0 0;
+    border-bottom: 2px solid #748ea7;
+    color: #666666;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: all 0.2s linear 0s;
+}
+.btn-grey:hover {
+    background: #abbbca none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+}
+.btn-grey:active, .btn-all:focus {
+    background: #abbbca none repeat scroll 0 0;
+    border-bottom: 1px solid #29a37a;
+    color: #fff !important;
+}
+.btn-dash {
+    background: #3298cb none repeat scroll 0 0;
+    border-bottom: 2px solid #748ea7;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 10px;
+    transition: all 0.2s linear 0s;
+}
+.btn-dash:hover {
+    background: #3298cb none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+    font-size: 12px;
+}
+.btn-dash:active, .btn-all:focus {
+    background: #abbbca none repeat scroll 0 0;
+    border-bottom: 1px solid #29a37a;
+    color: #fff !important;
+}
+.btn-dark {
+    background: #626c75 none repeat scroll 0 0;
+    border-bottom: 2px solid #748ea7;
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: all 0.2s linear 0s;
+}
+.btn-dark1 {
+    background: #626c75 none repeat scroll 0 0;
+    border-bottom: 2px solid #748ea7;
+    color: #fff;
+    font-size: 16px;
+    margin-top: -8px;
+    padding: 5px 10px;
+    transition: all 0.2s linear 0s;
+}
+.btn-dark:hover {
+    background: #6b7985 none repeat scroll 0 0;
+    border-bottom: 2px solid #29a37a;
+    color: #fff;
+}
+.btn-dark:active, .btn-all:focus {
+    background: #838383 none repeat scroll 0 0;
+    border-bottom: 1px solid #29a37a;
+    color: #fff !important;
+}
+.mt501 {
+    margin-top: 12px;
+}
+.menu ul {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.menu li {
+    /* background: #ddd; */
+    border-right: 1px solid rgb(176, 176, 176);
+    display: block;
+    float: left;
+    list-style: none outside none;
+    padding: 8px;
+    position: relative;
+    text-align: center;
+    width: auto;
+	font-weight:bold;
+	color:#999999;
+	font-size:13px;
+}
+.menu li a{ /* background: white; */ font-weight: bold; color:#999999 }
+
+.menu li.active a,
+.menu li:hover a { /* background: white; */ font-weight: bold; color:#006699 }
+
+.menu li.active:after,
+.menu li:hover::after {
+    background: white;
+    /* border: solid black; */
+    border-width: 1px 1px 0 0;
+    bottom: -5px;
+    content: ' ';
+    display: block;
+    height: 10px;
+    left: 23px;
+    position: absolute;
+    width: 10px;
+    z-index: 99;
+    -webkit-transform: rotate(-45deg);
+    -webkit-transform-origin: 50% 50%;
+	transform: rotate(45deg) }
+	#chart{
+  height:400px;
+}
+#carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#slides {
+  overflow: hidden;
+  position: absolute;
+  margin-top: 37px;
+  width: 100%;
+ /* height: 250px;*/
+}
+
+#slides ul {
+  list-style: none;
+  width: 100%;
+ /* height: 250px;*/
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#slides li {
+  width: 100%;
+/*  height: 250px;*/
+  float: left;
+  text-align: center;
+  position: relative;
+  font-family: lato, sans-serif;
+}
+
+/* Styling for prev and next buttons */
+
+.btn-bar {
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+	top: 40px;
+}
+
+#buttons {
+  padding: 0 0 5px 0;
+  float: right;
+}
+
+#buttons a {
+  text-align: center;
+  display: block;
+  font-size: 50px;
+  float: left;
+  outline: 0;
+/*  margin: 0 60px;*/
+  color: #b14943;
+  text-decoration: none;
+  display: block;
+  padding: 9px;
+  width: 35px;
+}
+
+a#prev:hover,
+a#next:hover {
+  color: #000;
+  text-shadow: .5px 0px #b14943;
+}
+
+.quote-phrase,
+.quote-author {
+  font-family: sans-serif;
+  font-weight: 300;
+  display: table-cell;
+/*  vertical-align: middle;
+*/  padding: 5px 20px;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
+.quote-phrase {
+/*	height: 200px;*/
+	font-size: 14px;
+	color: #000;
+	font-style: italic;
+	text-shadow: .5px 0px #b14943;
+}
+
+.quote-marks {
+  font-size: 30px;
+  padding: 0 3px 3px;
+  position: inherit;
+}
+
+.quote-author {
+  font-style: normal;
+  font-size: 20px;
+  color: #b14943;
+  font-weight: 400;
+  height: 30px;
+}
+
+.quoteContainer,
+.authorContainer {
+  display: table;
+  width: 90%;
+}
+
+
+.entry-social {margin-bottom: 20px;color: rgb(126, 126, 126);display: block;font-family: 'Open Sans',Tahoma, Verdana, Arial, sans-serif, Faruma, Faseyha;font-size: 14px;font-weight: normal;height: auto;line-height:23.799999237060547px;margin-bottom: 20px;width: 100%;
+width: 100%;float:left;border: solid 0px #aaa;text-align: center;}
+
+.entry-social div {display: block;width:138px;margin:2px;display: inline-block;
+    vertical-align: middle;}
+
+.entry-social a {text-decoration:none;display: block;padding-left: 20px;color: #FFFFFF !important;font-weight: bold;transition:background-color .3s;    }
+
+.entry-social .fb a {padding: 7px 10px 7px 26px;background: #3B5999 url('http://3.bp.blogspot.com/-yqD2363XuAo/UeDk98twSlI/AAAAAAAAArg/kXIzFBWmczM/s1600/fb14.png') no-repeat 10px center;}
+
+.entry-social .twitter a {padding: 7px 10px 7px 32px;background: #01BBF6 url('http://3.bp.blogspot.com/-0u8P4VQmEeU/UeDlVdilwcI/AAAAAAAAAro/lGTnlvHGyVw/s1600/twitter14.png') no-repeat 8px center;}
+
+.entry-social .gplus a {padding: 7px 10px 7px 32px;background: #D54135 url('http://3.bp.blogspot.com/-A8fFRexz_zk/UeDlgadvpiI/AAAAAAAAArw/TRd7NWNwo9s/s1600/gplus14.png') no-repeat 10px center;}
+
+.entry-social .linkedin a {padding: 7px 10px 7px 32px;background: #136F9B url('http://4.bp.blogspot.com/-yuEMxhpIXPc/UeDltjBGR1I/AAAAAAAAAr4/kgidavlGbY8/s1600/linkedin14.png') no-repeat 10px center;}
+
+.entry-social .pinterest a {padding: 7px 10px 7px 32px;background: #CB2027 url('http://1.bp.blogspot.com/-v-ZkEQhYpug/UeDl6uIio-I/AAAAAAAAAsA/9rqq2cXT08k/s320/pinterest14.png') no-repeat 10px center;}
+
+.entry-social .delicious a {padding: 7px 10px 7px 32px;background: #3173D1 url('http://2.bp.blogspot.com/-J9p31gkQfXw/UeDmILHMQwI/AAAAAAAAAsI/bEws_iRNx7g/s320/delicious14.png') no-repeat 10px center;}
+
+.entry-social .fb a:hover {background-color: rgb(50, 75, 129);}
+.entry-social .twitter a:hover {background-color: rgb(1, 159, 211);}
+.entry-social .gplus a:hover {background-color: rgb(191, 52, 40);}
+.entry-social .linkedin a:hover {background-color: rgb(15, 89, 125);}
+.entry-social .pinterest a:hover {background-color: rgb(174, 28, 35);}
+.entry-social .delicious a:hover {background-color: rgb(38, 90, 168);}
+
+
+.underlinemenu{
+font-weight: bold;
+width: 100%;
+background-color:aliceblue;
+}
+
+.underlinemenu ul{
+padding: 6px 0 7px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+margin: 0;
+text-align: left; //set value to "left", "center", or "right"*/
+
+}
+
+.underlinemenu ul li{
+display: inline;
+}
+
+.underlinemenu ul li a{
+color: #494949;
+padding: 6px 3px 4px 3px; /*top padding is 6px, bottom padding is 4px*/
+margin-right: 20px; /*spacing between each menu link*/
+text-decoration: none;
+border-bottom: 3px solid transparent; /*bottom border is 3px*/
+font-size:14px;
+font-weight:normal;
+}
+
+.underlinemenu ul li a:hover, .underlinemenu ul li a.selected{
+border-bottom-color: black;
+}
+.item>img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-radius: 50% !important;}
+.item>.message {
+  margin-left: 55px;
+  margin-top: -40px;
+}
+  .triangle-isosceles.top::after {
+    border-color: #f3961c transparent;
+    border-width: 0 15px 15px;
+    bottom: auto;
+    left: auto;
+    right: 50px;
+    top: -15px;
+}
+.hiddenRow {
+    padding: 0 !important;
+}
+.hiddenRow {
+   padding: 0 !important;
+}
+
+.accordion-label {
+    position: relative;
+	text-align: center;
+}
+/*.glyphicon {
+	position: absolute;
+	left: -9px;
+	top: 45%;
+}*/
+.accordion-toggle td:first-child::before {
+    content: "?";
+    font-family: "Glyphicons Halflings";
+	font-size: 125%;
+	color: @brand-primary;
+}
+.accordion-toggle.collapsed td:first-child::before {
+    content: "?";
+}
+#Afya-liteblue {
+    background-color: #c7d0d7;
+}
+.sub-tr {
+    background: #c7d0d7 none repeat scroll 0 0;
+    border-left: 1px solid #60cdcb;
+    border-right: 1px solid #60cdcb;
+    color: #000;
+    font-size: 12px;
+    padding: 21px 15px;
+    text-align: center;
+}
+.sub33-tr {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border-left: 1px solid #60cdcb;
+    border-right: 1px solid #60cdcb;
+    color: #000;
+    font-size: 13px;
+    padding: 21px 15px;
+}
+.sub33-tr {
+    background: #f3faff none repeat scroll 0 0;
+    border-left: 1px solid #60cdcb;
+    border-right: 1px solid #60cdcb;
+    color: #000;
+    font-size: 13px;
+    padding: 21px 15px;
+}
+.sub333-tr {
+    background: #dce1e7 none repeat scroll 0 0;
+    border-left: 1px solid #60cdcb;
+    border-right: 1px solid #60cdcb;
+    color: #000;
+    font-size: 13px;
+    padding: 21px 15px;
+}
+.subtab {
+    background: #dce1e7 none repeat scroll 0 0;
+    border: 2px solid #60cdcb;
+    color: #000;
+    font-size: 13px;
+    padding: 21px 15px;
+}
+.sub2-tr {
+    background: #828282 none repeat scroll 0 0;
+    border-left: 1px solid #828282;
+    border-right: 1px solid #828282;
+    color: #fff;
+    font-size: 16px;
+    padding: 21px 15px;
+    text-align: center;
+}
+.pack-whitebg-box {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+    color: #333333;
+    height: auto;
+    padding: 8px 15px 0;
+}
+.pack-whitebg-box a {
+    color: #666666;
+    font-size: 11px;
+    text-decoration: underline;
+    transition: color 300ms ease 0s, background-color 300ms ease 0s;
+}
+.pack-whitebg-box a:hover, a:focus {
+	color: #333333;
+	text-decoration:underline;
+}
+#leftPolicyBox1 a:link,
+#leftPolicyBox1 a:visited,
+#leftPolicyBox1 a:hover {
+ color: #DDDDDD;
+ text-decoration: none;
+}
+
+.smart-pack1-dropdown {
+    -moz-appearance: none;
+    background: #f1f5f4 url("/afya-portal/static/images/down-select-arrow.png") no-repeat scroll 90% center !important;
+    border: 1px solid #d0d3d2;
+    border-radius: 2px;
+    color: #8d8d8d;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 7px;
+    padding-right: 20px;
+    width: 100%;
+}
+.smart-pack2-dropdown {
+    -moz-appearance: none;
+    background: #f1f5f4 none no-repeat scroll 90% center !important;
+    border: 1px solid #d0d3d2;
+    border-radius: 2px;
+    color: #8d8d8d;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    padding-left: 7px;
+    padding-right: 20px;
+    width: 100%;
+}
+#approach1 {
+    background: #ffffff none repeat scroll 0 0;
+    margin-bottom: 30px;
+    padding: 0;
+}
+.breadcrumb a {
+	background: #e4e8eb none repeat scroll 0 0;
+    color: #333;
+    display: block;
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 60px;
+    outline: medium none;
+    padding: 0 70px 0 60px;
+    position: relative;
+    text-decoration: none;
+}
+}
+/*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
+.breadcrumb a:first-child {
+	padding-left: 46px;
+	border-radius: 5px 0 0 5px; /*to match with the parent's radius*/
+}
+.breadcrumb a:first-child:before {
+	left: 14px;
+}
+.breadcrumb a:last-child {
+	border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
+	padding-right: 20px;
+}
+
+/*hover/active styles*/
+.breadcrumb a.active, .breadcrumb a:hover{
+	background: #8a8a8a;
+	color:#FFFFFF;
+/*	background: linear-gradient(#333, #000);
+colo
+*/}
+.breadcrumb a.active:after, .breadcrumb a:hover:after {
+	background: #8a8a8a;
+/*	background: linear-gradient(135deg, #333, #000);
+*/}
+
+/*adding the arrows for the breadcrumbs using rotated pseudo elements*/
+.breadcrumb a:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: -28px; /*half of square's length*/
+	/*same dimension as the line-height of .breadcrumb a */
+	width: 60px;
+	height: 60px;
+	/*as you see the rotated square takes a larger height. which makes it tough to position it properly. So we are going to scale it down so that the diagonals become equal to the line-height of the link. We scale it to 70.7% because if square's:
+	length = 1; diagonal = (1^2 + 1^2)^0.5 = 1.414 (pythagoras theorem)
+	if diagonal required = 1; length = 1/1.414 = 0.707*/
+	transform: scale(0.707) rotate(45deg);
+	/*we need to prevent the arrows from getting buried under the next link*/
+	z-index: 1;
+	/*background same as links but the gradient will be rotated to compensate with the transform applied*/
+	background: #e4e8eb;
+/*	background: linear-gradient(135deg, #666, #333);
+*/	/*stylish arrow design using box shadow*/
+	box-shadow:
+		1px -1px 0 1px rgba(0, 0, 0, 0.4),
+		2px -2px 0 1px rgba(255, 255, 255, 0.1);
+	/*
+		5px - for rounded arrows and
+		50px - to prevent hover glitches on the border created using shadows*/
+	border-radius: 0 5px 0 50px;
+}
+/*we dont need an arrow after the last link*/
+.breadcrumb a:last-child:after {
+	content: none;
+}
+/*we will use the :before element to show numbers*/
+.breadcrumb a:before {
+/*	content: counter(flag);
+	counter-increment: flag;*/
+	/*some styles now*/
+	border-radius: 100%;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin: 8px 0;
+	position: absolute;
+	top: 0;
+	left: 30px;
+	background: #8a8a8a;
+/*	background: linear-gradient(#444, #222);
+*/	font-weight: bold;
+}
+
+
+.flat a, .flat a:after {
+	background: white;
+	color: black;
+	transition: all 0.5s;
+}
+.flat a:before {
+	background: white;
+	box-shadow: 0 0 0 1px #ccc;
+}
+.flat a:hover, .flat a.active,
+.flat a:hover:after, .flat a.active:after{
+	background: #9EEB62;
+}
+.btn-grey{background:#636363 none repeat scroll 0 0;color:#FFF;font-size:14px;padding:8px 10px;border-bottom:#29a37a solid 2px;
+         transition: all linear 0.2s;
+         -webkit-transition: all linear 0.2s;
+         -moz-transition: all linear 0.2s;
+         -o-transition: all linear 0.2s;}
+.btn-grey:hover{background:#333333;color:#fff;border-bottom:#29a37a solid 2px;}
+.blue-white-text-1 { font-size: 24px; color:#333333; font-weight: normal; float: left; margin-right: 22px; font-family: Open Sans;}
+.blue-white-text-2 { font-size: 28px; color:#333; font-weight: 300; float: left; margin-right: 22px; font-family: Open Sans;}
+.blue-white-text-3 { font-size: 42px; color:#333; font-weight: 600; float: left; font-family: Open Sans;}
+#regi-afya-slider{background-image:url(/afya-portal/static/images/banner-afya-member-ship.jpg);background-position:center top;height:198px;padding:38px 0!important;background-size:cover; background-color:#C3C8CC}
+#regi-afya-slider h1{font-size:48px;font-weight:300;color:#37393A;margin:0;text-shadow: 0px 1px 0px #FFF;}
+#regi-afya-slider h2{font-size:30px;font-weight:300;color:#37393A;text-shadow: 0px 1px 0px #FFF;}
+.regi-afya-strip { background-image:url(/afya-portal/static/images/afya-ex-tra.png); background-position:center top; margin-top:45px; height:52px; padding:17px 0; color:#c1c8cb; line-height:15px;}
+.regi-afya-strip span { color:#37393a; padding-left:10px;}
+.regi-afya-strip a { color:#ffffff;}
+.pack-wraper {
+    background-color: #fff;
+    border: 1px solid #ebedf3;
+    border-radius: 5px;
+    height: auto;
+    width: 100%;
+}
+ .doctor-name-title-bar2{width:80%; float:right; color:#0066FF; font-weight:bold;}
+  .doctor-add{width:80%; float:right;}
+  .appoint-time {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 12px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+}
+ .appoint-time p {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 12px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+}
+
+
+[ng:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+ }
+
+ #dvLoading
+ {
+    background:#000 url(/afya-portal/static/images/loading2.gif) no-repeat center center;
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    margin: -25px 0 0 -25px;
+ }
+
+ div > section{padding:45px 0;}
+
+
+ /* Payment Gateway Message */
+ .gateway-message {
+    margin: 10px 0px;
+    color:red;
+    font-size:0.85em;
+ }
+ .gateway-message > div:nth-child(2) {
+    color:blue;
+ }
+.gateway-message div {
+    margin-top: 5px;
+}
+.gateway-message ul {
+    list-style-type: 'disc';
+}
+.gateway-message li {
+    margin-top: 5px;
+}
+
+.sucess-meaasge { font-size:25px;text-transform:none !important}
+
+.clickable { cursor: pointer; }
+
+.app-header
+{
+    background-color:#C9C9C5;
+    height:50px;
+    padding-top:15px;
+    color:Black;
+    font-weight: bold;
+}
+
+.app-body
+{
+    min-height:150px;
+    padding-top:20px;
+    background-color:#E8E8E6;
+    border-bottom:1px solid #FAFAFA;
+}
+
+.inner-doc-content
+{
+    border:5px solid #BEBEBE;
+    background-color:#C9C9C5;
+    display : none;
+}
+
+.padding
+{
+    padding:15px;
+}
+
+.doc-active
+{
+   background-color:white;
+   margin:10px;
+}
+
+#patient-service-afya-message{height:auto;padding:30px 0!important;}
+#patient-service-afya-message h2{font-size:24px;font-weight:600;color:#4e4e4e;margin:0;text-shadow: 0px 1px 0px #fff;}
+#patient-service-afya-message h3{font-size:18px;font-weight:500;color:#4e4e4e;text-shadow: 0px 1px 0px #fff;}
+.patient-service-afya-messageStrip{background-image:url(/afya-portal/static/images/afya-ex-tra.png);background-position:center top;margin-top:10px;height:52px;padding:17px 0;color:#c1c8cb;line-height:15px;}
+.patient-service-afya-messageStrip span{color:#37393a;padding-left:10px;}
+.patient-service-afya-messageStrip a{color:#fff;}
+
+.finddoc-afya-messageStrip {
+    background: #EBF3F0  none repeat scroll 0 0;
+    color: #c1c8cb;
+    height: 52px;
+    line-height: 15px;
+    /*margin-top: 15px;*/
+    padding: 9px 0;
+}
+
+.fullWidth
+{
+    width:100% !important;
+}
+
+.halfWidth
+{
+    width:40% !important;
+}
+
+.request-datecol{
+	/*width: 45%;*/
+	width: 40%;
+	padding:5px 0;
+	float: left;
+}
+.request-timecol{
+  float: left;
+    margin-left: 20px;
+    padding: 5px 0;
+    /*width: 45%;*/
+    width: 55%;
+    min-width:50%;
+}

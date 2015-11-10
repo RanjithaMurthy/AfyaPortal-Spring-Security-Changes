@@ -1,0 +1,144 @@
+<script>
+    ga('send', 'pageview', { 'page': '/AboutAfya/contact-afya', 'title': 'Contact-Afya'});
+</script>
+
+<div ng-controller="ContactUsController">
+    <div class="clearfix"></div>
+    <section id="contact-afya-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left ">
+                    <h2> Partners, Media and General Info. </h2>
+                    <h1>Get in Touch</h1>
+                </div>
+            </div>
+        </div>
+        <div class="contact-afya-strip">
+            <div class="container">
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <a href="/afya-portal">Home</a>
+                    <span><i class="fa fa-angle-right"></i></span>
+                    <span>Contact Afya</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+
+    <section id="contact-from">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <form class="form_member_login" id="form_member_login" method="post">
+                        <span class="help-block"> To connect with Afya community please fill up the form. We will get in touch with you</span>
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <div style="display:none" class="login-error-box text-center">
+                                <!--succe-box-->
+                                <img src="/afya-portal/static/images/error-icon.png" alt="error-img" /> &nbsp;<span>Please fix the errors in the form.</span>
+                            </div>
+                            <form class="frm-submit" id="frm-submit" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="JavaScriptEnabled" value="Y" />
+                                    <input type="text" class="form-control fsize" id="first-name" name="full-name" placeholder="Full Name*" ng-change="changeListener(nameRequired, null)" required tabindex="1" ng-model="contactUsObj.fullName"/>
+                                    <span ng-show="nameRequired" style="color: red">{{nameRequired}}</span>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control fsize" id="email-address" name="email-address" placeholder="Email Address*" ng-change="changeListener(emailRequired, invalidEmail)" ng-model="contactUsObj.emailId" tabindex="2"/>
+                                    <span ng-show="emailRequired" style="color: red">{{emailRequired}}</span>
+                                    <span ng-show="invalidEmail" style="color: red">{{invalidEmail}}</span>
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control fsize" id="contact-number" name="contact-number" placeholder="Contact Number*" ng-change="changeListener(numberRequired, null)" required tabindex="3" ng-model="contactUsObj.contactNumber"/>
+                                    <span ng-show="numberRequired" style="color: red">{{numberRequired}}</span>
+
+                                </div>
+                                <div class="form-group">
+                                    <select id="purpose" class="smart-pack1-dropdown"  ng-model="contactUsObj.purpose" ng-change="changeListener(purposeRequired, null)" tabindex="4" required>
+                                        <option value="">Select Purpose *</option>
+                                        <option value="Care Provider">Care Provider</option>
+                                        <option value="Care Payer">Care Payer</option>
+                                        <option value="Citizen">Citizen</option>
+                                        <option value="Healthcare Technology Company">Healthcare Technology Company</option>
+                                        <option value="Healthcare Device Company">Healthcare Devise Company</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                    <span ng-show="purposeRequired" style="color: red">{{purposeRequired}}</span>
+                                </div>
+                            </form>
+
+
+                        </div>
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <div class="form-group" ng-init="getRandomNumber()">
+                                <label>{{firstNo}} + {{secondNo}} = </label>
+                                <input type="text" class="form-control fsize col-xs-6" id="enter-answer" name="enter-answer" placeholder="Enter Answer*" ng-model="contactUsObj.answer" ng-change="changeListener(answerRequired, wrongAnswer)" required tabindex="5">
+                                <span ng-show="answerRequired" style="color: red">{{answerRequired}}</span>
+                                <span ng-show="wrongAnswer" style="color: red">{{wrongAnswer}}</span>
+                                <div class="clearfix"></div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <textarea class="form-control fsize" placeholder="Write to us*" rows="3"  required tabindex="6" ng-model="contactUsObj.content" ng-change="changeListener(queryRequired, null)" id="query"></textarea>
+                                <span ng-show="queryRequired" style="color: red">{{queryRequired}}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <button name="submit" id="submit" class="btn btn-all mrm30 xs-mb10 xs-mr-auto" type="button" ng-click="emailWhenTriggeredContactUs()"  tabindex="7" >Submit &nbsp;
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                                <button value="click here" id="sign_up_link" name="sign_up_link" class="btn btn-all-learn" type="reset" ng-click="resetForm()" tabindex="8" >
+                                    Reset &nbsp;
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+
+                    <p>
+
+                        <strong> Head Quarter</strong><br><br>
+                        Afya Arabia,<br>
+                        Alqiblla, Ali Al-Salem Street,<br>
+                        Al-Fares Complex,
+                        <br>
+                        Kuwait City, P.O Box 29897 <br>
+                        Safat, 13159 Kuwait<p>
+
+                    <p>For General Contacts: <a href="mailto:info@afyaarabia.com" class="a-class fs14">info@afyaarabia.com</a></p>
+                    <!--<p>For Community Support: <a href="mailto:support@afyaarabia.com" class="a-class fs14">support@afyaarabia.com</a> </p>-->
+
+                    <img src="/afya-portal/static/images/location-map.png" alt="location-map.png" usemap="#Map" class="img-responsive">
+
+
+                    <map name="Map" data-toggle="tooltip" data-placement="top" title="
+                        Head Quarter
+
+                        Afya Arabia,
+                        Alqiblla, Ali Al-Salem Street,
+                        Al-Fares Complex,
+                        Kuwait City, P.O Box 29897
+                        Safat, 13159 Kuwait">
+                        <area shape="rect" coords="141,84,209,121" href="#">
+                    </map>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <div class="clearfix"></div>
+
+
+    <section id="google-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27814.421822780056!2d47.98188535!3d29.376064849999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9c83ce455983%3A0xc3ebaef5af09b90e!2sKuwait+City%2C+Kuwait!5e0!3m2!1sen!2sin!4v1437042551996" width="100%" height="367" frameborder="0"  style="border: 0; pointer-events: none; -webkit-filter: grayscale(100%);
+                        filter: grayscale(100%);" allowfullscreen="allowfullscreen"></iframe>
+    </section>
+    <div class="clearfix"></div>
+</div>

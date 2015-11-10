@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:axon="http://www.axonframework.org/schema/core"
+       xsi:schemaLocation="http://www.axonframework.org/schema/core http://www.axonframework.org/schema/axon-core.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <axon:jpa-repository aggregate-type="com.afya.portal.domain.model.clinic.Clinic" event-bus="eventBus" id="clinicalRepository"/>
+    <axon:jpa-repository aggregate-type="com.afya.portal.domain.model.Tenant" event-bus="eventBus" id="tenantRepository"/>
+    <axon:jpa-repository aggregate-type="com.afya.portal.membercareprovider.domain.Network" event-bus="eventBus" id="networkRepository"/>
+    <axon:jpa-repository aggregate-type="com.afya.portal.domain.model.clinic.Clinic" event-bus="eventBus" id="clinicRepository"/>
+    <axon:jpa-repository aggregate-type="com.afya.portal.domain.model.pharmacy.Pharmacy" event-bus="eventBus" id="pharmacyRepository"/>
+</beans>

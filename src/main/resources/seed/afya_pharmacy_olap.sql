@@ -1,0 +1,348 @@
+-- MySQL dump 10.13  Distrib 5.5.36, for Win64 (x86)
+--
+-- Host: localhost    Database: afya_pharmacy_olap
+-- ------------------------------------------------------
+-- Server version	5.5.36
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `afya_pharmacy_olap`
+--
+
+
+/*Table structure for table `currency_dimension` */
+
+DROP TABLE IF EXISTS `currency_dimension`;
+
+CREATE TABLE `currency_dimension` (
+  `DIMENSION_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `CURRENCY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`DIMENSION_ID`),
+  KEY `CRRNC_DMNSN_TXSTMP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `CRRNC_DMNSN_TXCRTS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `currency_dimension` */
+
+insert  into `currency_dimension`(`DIMENSION_ID`,`CURRENCY_ID`,`DESCRIPTION`,`LAST_UPDATED_STAMP`,`LAST_UPDATED_TX_STAMP`,`CREATED_STAMP`,`CREATED_TX_STAMP`) values ('_NA_',NULL,'Currency Not Set.','2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12'),('_NF_',NULL,'Currency Not Found.','2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12');
+
+/*Table structure for table `date_dimension` */
+
+DROP TABLE IF EXISTS `date_dimension`;
+
+CREATE TABLE `date_dimension` (
+  `DIMENSION_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `DATE_VALUE` date DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `DAY_NAME` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `DAY_OF_MONTH` decimal(20,0) DEFAULT NULL,
+  `DAY_OF_YEAR` decimal(20,0) DEFAULT NULL,
+  `MONTH_NAME` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `MONTH_OF_YEAR` decimal(20,0) DEFAULT NULL,
+  `YEAR_NAME` decimal(20,0) DEFAULT NULL,
+  `WEEK_OF_MONTH` decimal(20,0) DEFAULT NULL,
+  `WEEK_OF_YEAR` decimal(20,0) DEFAULT NULL,
+  `YEAR_MONTH_DAY` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `YEAR_AND_MONTH` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `WEEKDAY_TYPE` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`DIMENSION_ID`),
+  KEY `DT_DMNSN_TXSTMP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `DT_DMNSN_TXCRTS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `date_dimension` */
+
+insert  into `date_dimension`(`DIMENSION_ID`,`DATE_VALUE`,`DESCRIPTION`,`DAY_NAME`,`DAY_OF_MONTH`,`DAY_OF_YEAR`,`MONTH_NAME`,`MONTH_OF_YEAR`,`YEAR_NAME`,`WEEK_OF_MONTH`,`WEEK_OF_YEAR`,`YEAR_MONTH_DAY`,`YEAR_AND_MONTH`,`WEEKDAY_TYPE`,`LAST_UPDATED_STAMP`,`LAST_UPDATED_TX_STAMP`,`CREATED_STAMP`,`CREATED_TX_STAMP`) values ('_NA_',NULL,'Date Not Set.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12'),('_NF_',NULL,'Date Not Found.',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12','2015-07-31 16:32:12');
+
+/*Table structure for table `facility_dimension` */
+
+DROP TABLE IF EXISTS `facility_dimension`;
+
+CREATE TABLE `facility_dimension` (
+  `DIMENSION_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `FACILITY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`DIMENSION_ID`),
+  KEY `FCLT_DMNSN_TXSTMP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `FCLT_DMNSN_TXCRTS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `facility_dimension` */
+
+/*Table structure for table `inventory_item_fact` */
+
+DROP TABLE IF EXISTS `inventory_item_fact`;
+
+CREATE TABLE `inventory_item_fact` (
+  `INVENTORY_ITEM_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `FACILITY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORIG_CURRENCY_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `INVENTORY_DATE_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `QUANTITY_ON_HAND_TOTAL` decimal(18,3) DEFAULT NULL,
+  `AVAILABLE_TO_PROMISE_TOTAL` decimal(18,3) DEFAULT NULL,
+  `UNIT_COST` decimal(18,3) DEFAULT NULL,
+  `SOLDOUT_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  `PRODUCT_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `PARTY_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `OWNER_PARTY_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `STATUS_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `DATETIME_RECEIVED` datetime DEFAULT NULL,
+  `DATETIME_MANUFACTURED` datetime DEFAULT NULL,
+  `EXPIRE_DATE` datetime DEFAULT NULL,
+  `CONTAINER_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `LOT_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `UOM_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `BIN_NUMBER` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `LOCATION_SEQ_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `COMMENTS` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `ACCOUNTING_QUANTITY_TOTAL` decimal(18,3) DEFAULT NULL,
+  `QUANTITY_ON_HAND` decimal(18,3) DEFAULT NULL,
+  `AVAILABLE_TO_PROMISE` decimal(18,3) DEFAULT NULL,
+  `SERIAL_NUMBER` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `SOFT_IDENTIFIER` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `ACTIVATION_NUMBER` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `ACTIVATION_VALID_THRU` datetime DEFAULT NULL,
+  `CURRENCY_UOM_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `PHYSICAL_INVENTORY_ID` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  PRIMARY KEY (`INVENTORY_ITEM_ID`),
+  KEY `IIF_INVPRODUCT` (`PRODUCT_DIM_ID`),
+  KEY `IIF_INVCURRENCY` (`ORIG_CURRENCY_DIM_ID`),
+  KEY `IIF_INVDATE` (`INVENTORY_DATE_DIM_ID`),
+  KEY `IIF_INVLOC` (`LOCATION_SEQ_ID`),
+  KEY `IIF_INVFAC` (`FACILITY_ID`),
+  KEY `INVR_ITM_FCT_TXSTP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `INVR_ITM_FCT_TXCRS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `inventory_item_fact` */
+
+/*Table structure for table `location_dimension` */
+
+DROP TABLE IF EXISTS `location_dimension`;
+
+CREATE TABLE `location_dimension` (
+  `DIMENSION_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `LOCATION_SEQ_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`DIMENSION_ID`),
+  KEY `LCTN_DMNSN_TXSTMP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `LCTN_DMNSN_TXCRTS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `location_dimension` */
+
+/*Table structure for table `product_dimension` */
+
+DROP TABLE IF EXISTS `product_dimension`;
+
+CREATE TABLE `product_dimension` (
+  `DIMENSION_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `PRODUCT_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_TYPE` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `BRAND_NAME` varchar(100) COLLATE latin1_general_cs DEFAULT NULL,
+  `INTERNAL_NAME` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`DIMENSION_ID`),
+  KEY `PRDCT_DMNSN_TXSTMP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `PRDCT_DMNSN_TXCRTS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `product_dimension` */
+
+insert  into `product_dimension`(`DIMENSION_ID`,`PRODUCT_ID`,`PRODUCT_TYPE`,`BRAND_NAME`,`INTERNAL_NAME`,`LAST_UPDATED_STAMP`,`LAST_UPDATED_TX_STAMP`,`CREATED_STAMP`,`CREATED_TX_STAMP`) values ('_NA_',NULL,NULL,NULL,NULL,'2015-07-31 16:32:35','2015-07-31 16:32:35','2015-07-31 16:32:35','2015-07-31 16:32:35'),('_NF_',NULL,NULL,NULL,NULL,'2015-07-31 16:32:35','2015-07-31 16:32:35','2015-07-31 16:32:35','2015-07-31 16:32:35');
+
+/*Table structure for table `purchase_order_item_fact` */
+
+DROP TABLE IF EXISTS `purchase_order_item_fact`;
+
+CREATE TABLE `purchase_order_item_fact` (
+  `ORDER_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `ORDER_ITEM_SEQ_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `ORDER_DATE_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORIG_CURRENCY_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `BILL_TO_CUSTOMER_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORDER_DATE` datetime DEFAULT NULL,
+  `PRODUCT_STORE_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `SALES_CHANNEL_ENUM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `SALE_CHANNEL` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORDER_STATUS` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `VISIT_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `INITIAL_REFERRER` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_PROMO_CODE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `CATEGORY_NAME` longtext COLLATE latin1_general_cs,
+  `QUANTITY` decimal(18,3) DEFAULT NULL,
+  `EXT_GROSS_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_GROSS_COST` decimal(18,3) DEFAULT NULL,
+  `EXT_DISCOUNT_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_NET_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_SHIPPING_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_TAX_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `GROSS_SALES` decimal(18,3) DEFAULT NULL,
+  `GROSS_MERCHANDIZE_SALES` decimal(18,3) DEFAULT NULL,
+  `GROSS_MERCHANDIZE_PROFIT` decimal(18,3) DEFAULT NULL,
+  `GROSS_SHIPPING_PROFIT` decimal(18,3) DEFAULT NULL,
+  `GROSS_PROFIT` decimal(18,3) DEFAULT NULL,
+  `E_BAY` decimal(18,3) DEFAULT NULL,
+  `R_R_C` decimal(18,3) DEFAULT NULL,
+  `OTHER_FREE` decimal(18,3) DEFAULT NULL,
+  `N_B_O` decimal(18,3) DEFAULT NULL,
+  `COUNT_DATE` decimal(18,3) DEFAULT NULL,
+  `GROUP_NAME` varchar(100) COLLATE latin1_general_cs DEFAULT NULL,
+  `PARTY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `INVENTORY_ITEM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_CATEGORY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `QUANTITY_UOM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `QTY_ORDERED` decimal(18,3) DEFAULT NULL,
+  `QTY_SHIPPED` decimal(18,3) DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`ORDER_ID`,`ORDER_ITEM_SEQ_ID`),
+  KEY `POIF_ORDERDATE` (`ORDER_DATE_DIM_ID`),
+  KEY `POIF_CURRENCY` (`ORIG_CURRENCY_DIM_ID`),
+  KEY `POIF_PRODUCT` (`PRODUCT_DIM_ID`),
+  KEY `PRS_ORR_ITM_FCT_TP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `PRS_ORR_ITM_FCT_TS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `purchase_order_item_fact` */
+
+/*Table structure for table `sales_invoice_item_fact` */
+
+DROP TABLE IF EXISTS `sales_invoice_item_fact`;
+
+CREATE TABLE `sales_invoice_item_fact` (
+  `INVOICE_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `INVOICE_ITEM_SEQ_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `ORDER_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `INVOICE_DATE_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `BILL_TO_CUSTOMER_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORIG_CURRENCY_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `QUANTITY` decimal(18,3) DEFAULT NULL,
+  `EXT_GROSS_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_DISCOUNT_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_NET_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_TAX_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_MAN_FIXED_COST` decimal(18,3) DEFAULT NULL,
+  `EXT_MAN_VAR_COST` decimal(18,3) DEFAULT NULL,
+  `EXT_STORAGE_COST` decimal(18,3) DEFAULT NULL,
+  `EXT_DISTRIBUTION_COST` decimal(18,3) DEFAULT NULL,
+  `CONTRIBUTION_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  PRIMARY KEY (`INVOICE_ID`,`INVOICE_ITEM_SEQ_ID`),
+  KEY `SIIF_INVDATE` (`INVOICE_DATE_DIM_ID`),
+  KEY `SIIF_CURRENCY` (`ORIG_CURRENCY_DIM_ID`),
+  KEY `SIIF_PRODUCT` (`PRODUCT_DIM_ID`),
+  KEY `SLS_INC_ITM_FCT_TP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `SLS_INC_ITM_FCT_TS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `sales_invoice_item_fact` */
+
+/*Table structure for table `sales_order_item_fact` */
+
+DROP TABLE IF EXISTS `sales_order_item_fact`;
+
+CREATE TABLE `sales_order_item_fact` (
+  `ORDER_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `ORDER_ITEM_SEQ_ID` varchar(60) COLLATE latin1_general_cs NOT NULL,
+  `ORDER_DATE_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORIG_CURRENCY_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `BILL_TO_CUSTOMER_DIM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_STORE_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `SALES_CHANNEL_ENUM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `SALE_CHANNEL` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `ORDER_STATUS` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `VISIT_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `INITIAL_REFERRER` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_PROMO_CODE` varchar(20) COLLATE latin1_general_cs DEFAULT NULL,
+  `CATEGORY_NAME` longtext COLLATE latin1_general_cs,
+  `QUANTITY` decimal(18,3) DEFAULT NULL,
+  `EXT_GROSS_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_GROSS_COST` decimal(18,3) DEFAULT NULL,
+  `EXT_DISCOUNT_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_NET_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_SHIPPING_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `EXT_TAX_AMOUNT` decimal(18,3) DEFAULT NULL,
+  `GROSS_SALES` decimal(18,3) DEFAULT NULL,
+  `GROSS_MERCHANDIZE_SALES` decimal(18,3) DEFAULT NULL,
+  `GROSS_MERCHANDIZE_PROFIT` decimal(18,3) DEFAULT NULL,
+  `GROSS_SHIPPING_PROFIT` decimal(18,3) DEFAULT NULL,
+  `GROSS_PROFIT` decimal(18,3) DEFAULT NULL,
+  `E_BAY` decimal(18,3) DEFAULT NULL,
+  `R_R_C` decimal(18,3) DEFAULT NULL,
+  `OTHER_FREE` decimal(18,3) DEFAULT NULL,
+  `N_B_O` decimal(18,3) DEFAULT NULL,
+  `COUNT_DATE` decimal(18,3) DEFAULT NULL,
+  `LAST_UPDATED_STAMP` datetime DEFAULT NULL,
+  `LAST_UPDATED_TX_STAMP` datetime DEFAULT NULL,
+  `CREATED_STAMP` datetime DEFAULT NULL,
+  `CREATED_TX_STAMP` datetime DEFAULT NULL,
+  `GROUP_NAME` varchar(100) COLLATE latin1_general_cs DEFAULT NULL,
+  `PARTY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `INVENTORY_ITEM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `PRODUCT_CATEGORY_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE latin1_general_cs DEFAULT NULL,
+  `QUANTITY_UOM_ID` varchar(60) COLLATE latin1_general_cs DEFAULT NULL,
+  `QTY_ORDERED` decimal(18,3) DEFAULT NULL,
+  `QTY_SHIPPED` decimal(18,3) DEFAULT NULL,
+  `ORDER_DATE` datetime DEFAULT NULL,
+  PRIMARY KEY (`ORDER_ID`,`ORDER_ITEM_SEQ_ID`),
+  KEY `SOIF_ORDERDATE` (`ORDER_DATE_DIM_ID`),
+  KEY `SOIF_CURRENCY` (`ORIG_CURRENCY_DIM_ID`),
+  KEY `SOIF_PRODUCT` (`PRODUCT_DIM_ID`),
+  KEY `SLS_ORR_ITM_FCT_TP` (`LAST_UPDATED_TX_STAMP`),
+  KEY `SLS_ORR_ITM_FCT_TS` (`CREATED_TX_STAMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_cs;
+
+/*Data for the table `sales_order_item_fact` */
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

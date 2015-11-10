@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      lang="en" ng-app="aafyaRegistrationModule">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" th:href="@{css/font-awesome.css}"/>
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Afya | Home</title>
+        <!-- Bootstrap -->
+        <link th:href="@{css/bootstrap.css}" rel="stylesheet" type="text/css"/>
+        <link th:href="@{css/style.css}" rel="stylesheet" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'/>
+        <!-- creates country and state dynamically -->
+        <style>
+            .register {
+                font-size: 14px;
+            }
+
+            .register .panel-body {
+                background-color: #fcfdfd;
+            }
+            .inputName {
+                border: 2px solid red;
+                border-color: red!important;
+                /*width: 100%;
+                height: 40px;
+                border-radius: 3px;
+                background: #fff;
+                margin-bottom: 30px;
+                padding-left: 10px;*/
+
+            }
+            .inputEmail{
+                color: red;
+                /*width: 100%;
+                height: 40px;
+                border-radius: 3px;
+                background: #fff;
+                */
+                border: solid;
+                border-color: red!important;
+                /* margin-bottom: 30px;
+                 padding-left: 10px;*/ 
+            }
+        </style>
+    </head>
+    <body class="landing">
+        <div class="preloadimg"></div>
+        <!--top navigation-->
+        <div class="navbar-wrapper hidden-xs hidden-sm">
+            <div class="container">
+                <div class="rightTopDiv">
+                    <ul>
+                        <li><a href="#" data-toggle="modal" data-target="#member-login"><i class="fa fa-user"></i>&nbsp;&nbsp;Member Log in</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-phone"></i>&nbsp;&nbsp;Toll Free: 1800  XXX  XXXX</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Contact Us</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><img src="images/usa.jpg" alt="usa"/>&nbsp;&nbsp;
+                                English<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" class="ml0"><img src="images/lang-en.jpg" alt="Eng"/>&nbsp;&nbsp;English</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--top navigation end-->
+
+        <!--navigation-->
+        <nav class="navbar navbar-white clearfix">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand mt4" href="index.html">
+                        <img src="images/logo.png" alt="logo" class="img-responsive hidden-xs"/>
+                        <img src="images/xs-logo.jpg" alt="logo" class="img-responsive visible-xs"/>                    
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Experience Afya</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Estimate &amp; Subscribe</a></li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Members Area <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Membership &amp; Special Offers</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Membership Care</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Members Speak</a></li>
+                                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Not a Member? Join Now!</a></li>
+                                <!--            <li class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                -->         
+                            </ul>
+
+                        </li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">About Afya</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Events</a></li>
+                        <li class="mt-7 no-border">
+                            <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" class="no-border">
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control hidden"/>
+                                    </div>
+                                    <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                                </form>
+                            </a>
+                        </li>
+                        <li class="img-cir"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" class="no-border"><i class="fa fa-facebook"></i></a></li>
+                        <li class="img-cir"><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" class="no-border"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--navigation end-->
+
+        <div class="bg-blue-text">
+            <h2 class="text-center no-margin">Afya Member Sign Up</h2>
+        </div>
+        <div class="container register" style="padding-top: 15px">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="col-md-4 control-label">Register as</label>
+					
+					
+					
+					
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="registerAs" name="registerAs" value="PATIENT"/> Patient
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="registerAs" name="registerAs" value="PROVIDER"/> Provider
+                            </label>
+
+                    </div>
+                    </div>
+                    <div class="animate-switch-container" ng-switch="" on="registerAs">
+                        <div class="animate-switch" ng-switch-when="PROVIDER">
+                            <form name="providerForm" ng-controller="ProviderController">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Provider Type</label>
+                                            <select name="providerType" ng-model="provider.facilityType"
+                                                    ng-required="true"
+                                                    type="text" class="form-control input-sm">
+                                                <option value="CLINIC">Clinic</option>
+                                                <option value="LABORATORY">Lab</option>
+                                                <option value="PHARMACY">Pharmacy</option>
+                                            </select>
+                                            <ng-messages class="has-error" for="providerForm.providerType.$error"
+                                                         role="alert" ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please select Provider
+                                                    Type
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Organization Name</label>
+                                            <input id="organizationName" name="organizationName"
+                                                   ng-model="provider.facilityName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.organizationName.$error"
+                                                         role="alert" ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Organization
+                                                    Name
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Office Phone Number</label>
+                                            <input type="text" ng-pattern="onlyNumbers" name="officeNumber"
+                                                   class="form-control" placeholder="Enter email"
+                                                   ng-model="provider.officeNumber"
+                                                   ng-required="true"/>
+                                            <ng-messages class="has-error" for="providerForm.officeNumber.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Office Phone
+                                                    Number
+                                                </ng-message>
+                                                <ng-message when="pattern" class="help-block">Please enter numbers only.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h4 style="margin-left:10px"> Key Person </h4>
+                                    <hr style="border-style: dashed"/>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">First Name</label>
+                                            <input name="keyPersonFn" ng-model="provider.keyPerson.firstName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.keyPersonFn.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter First Name
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Middle Name</label>
+                                            <input name="keyPersonMidName" ng-model="provider.keyPerson.middleName"
+                                                   type="text" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Last Name</label>
+                                            <input name="keyPersonLn" ng-model="provider.keyPerson.lastName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.keyPersonLn.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Last Name
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Email</label>
+                                            <input name="keyPersonEmail" ng-model="provider.keyPerson.email"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.keyPersonEmail.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Email.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Mobile Number</label>
+                                            <input name="keyPersonMobile" ng-model="provider.keyPerson.mobileNumber"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.keyPersonMobile.$error"
+                                                         role="alert" ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Mobile
+                                                    Number.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h4 style="margin-left:10px"> Admin Details </h4>
+                                    <hr style="border-style: dashed"/>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">First Name</label>
+                                            <input name="adminFn" ng-model="provider.adminDetail.firstName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.adminFn.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter First Name.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Middle Name</label>
+                                            <input ng-model="provider.adminDetail.middleName"
+                                                   type="text" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Last Name</label>
+                                            <input name="adminLn" ng-model="provider.adminDetail.lastName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.adminLn.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Last Name
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Email</label>
+                                            <input name="adminEmail" ng-model="provider.adminDetail.email"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.adminEmail.$error"
+                                                         role="alert"
+                                                         ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Email.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Mobile Number</label>
+                                            <input name="adminMobile" ng-model="provider.adminDetail.mobile"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="providerForm.adminMobile.$error"
+                                                         role="alert" ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Mobile
+                                                    Number.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Login Preference</label>
+                                            <select ng-required="true" class="form-control" name="loginPreference"
+                                                    ng-model="provider.adminDetail.loginPreference">
+                                                <option value="EMAIL">Email</option>
+                                                <option value="MOBILE">Mobile</option>
+                                            </select>
+                                            <ng-messages class="has-error" for="providerForm.loginPreference.$error"
+                                                         role="alert" ng-if="providerForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please select Login
+                                                    Preference
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Password</label>
+                                            <input name="adminPassword" ng-model="provider.adminDetail.password"
+                                                   ng-required="true"
+                                                   type="password" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label>Confirm Password</label>
+                                            <input name="adminPassword2" ng-model="provider.adminDetail.password2"
+                                                   ng-required="true"
+                                                   type="password" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="mb20">
+                                        <button type="submit"
+                                                ng-click="submitProviderData()" ng-disabled="providerForm.$invalid"
+                                                class="btn btn-green" name="log_in">Sign Up<span
+                                                class="glyphicon glyphicon-chevron-right"></span></button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="animate-switch" ng-switch-when="PATIENT">
+                            <form ng-controller="PatientController" class="animate-switch"
+                                  name="patientForm" no-validate="true">
+                                <button ng-click="testFn()"> Test</button>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">First Name</label>
+                                            <input name="patientFn" ng-model="patient.firstName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="patientForm.patientFn.$error"
+                                                         role="alert" ng-if="patientForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter First Name
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Middle Name</label>
+                                            <input ng-model="patient.middleName"
+                                                   type="text" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label>Last Name</label>
+                                            <input name="patientLn" ng-model="patient.lastName"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="patientForm.patientLn.$error"
+                                                         role="alert" ng-if="patientForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Last Name
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Email</label>
+                                            <input name="patientEmail" ng-model="patient.emailId"
+                                                   ng-required="true"
+                                                   type="email" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="patientForm.patientEmail.$error"
+                                                         role="alert" ng-if="patientForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Email
+                                                </ng-message>
+                                                <ng-message when="email" class="help-block">Please enter valid email
+                                                    address.
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Mobile Number</label>
+                                            <input name="patientMobile" ng-model="patient.mobileNumber"
+                                                   type="text" class="form-control input-sm"/>
+                                            <ng-messages class="has-error" for="patientForm.patientMobile.$error"
+                                                         role="alert" ng-if="patientForm.$dirty">
+                                                <ng-message when="required" class="help-block">Please enter Mobile
+                                                </ng-message>
+                                            </ng-messages>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label class="control-label">Login Preference</label>
+                                            <select ng-required="true" class="form-control"
+                                                    ng-model="patient.loginPreference">
+                                                <option value="EMAIL">Email</option>
+                                                <option value="MOBILE">Mobile</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Password</label>
+                                            <input name="adminPassword" ng-model="patient.password"
+                                                   ng-required="true"
+                                                   type="password" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group required">
+                                            <label>Confirm Password</label>
+                                            <input name="adminPassword2"
+                                                   ng-required="true"
+                                                   type="text" class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="mb20">
+                                        <button type="submit" ng-disabled="patientForm.$invalid"
+                                                ng-click="submitPatientData()"
+                                                class="btn btn-green" name="log_in" id="patient_sign_up">Sign Up<span
+                                                class="glyphicon glyphicon-chevron-right"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer -->
+        <footer>
+            <div class="container mb90 clearfix">
+                <div class="foot-text col-sm-2">
+                    <h6>Site Map</h6>
+                    <ul class="ul-map">
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Afya Home</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Experience Afya</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Estimate &amp; Subscribe</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">About Us</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Contact Us</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="foot-text col-sm-3">
+                    <h6>Members Area</h6>
+                    <ul class="ul-map">
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Membership &amp; Special Offers</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Membership Care</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Members Speak</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Not a Member? Join Now!</a></li>
+                    </ul>
+                </div>
+                <div class="foot-text col-sm-2">
+                    <h6>Access Afya Services</h6>
+                    <ul class="ul-map">
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Teleconsultation</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Appointment</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Home Visit</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Home Care</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Home Pharmacy</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">Home Phlebotomy</a></li>
+                    </ul>
+                </div>
+                <div class="foot-text col-sm-3">
+                    <h6>Connect to Afya Social Network</h6>
+                    <ul class="ul-soci">
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><div class="soci-mr"><i class="fa fa-facebook"></i></div></a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><div class="soci-mr"><i class="fa fa-twitter"></i></div></a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><div class="soci-mr"><i class="fa fa-google-plus"></i></div></a></li>
+                    </ul>
+                </div>
+                <div class="foot-text col-sm-2">
+                    <h6>&nbsp;</h6>
+                    <a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><img src="images/foot-logo.png" alt="foot-logo"/></a>
+                </div>
+            </div>
+        </footer>
+        <!--footer end-->
+        <!--footer-copy -->
+        <div class="foot-copy clearfix">
+            <div class="container">
+                <div class=" col-sm-offset-4">
+                    <ul class="foot-copy-ul">
+                        <li><a>© 2015 All Rights Reserved.</a></li>
+                        <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg"><u>Privacy Statement</u></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--footer-copy end -->
+
+        <!--launch for-->
+        <div class="div-launch">
+            <div class="container">
+                <p class="text-center">From July 2015 - Experience Afya in Kuwait</p>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" id="registration">
+            <div class="modal-dialog" style="margin:100px auto !important;">
+                <div class="modal-content" style="padding:15px;">
+                    <div class="modal-body">
+                        <p class="alert alert-success alert-dismissible fade in">
+                            You have successfully created an account. An email has been sent to address containing the
+                            instructions to verify your
+                            account. Please check your email.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>ø
+
+
+        <!--launch for - end-->
+
+        <!-- for show only Small modal-->
+        <!-- Small modal -->
+        <div class="modal fade bs-example-modal-lg bs-example-modal-md bs-example-modal-sm bs-example-modal-xs" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <img src="images/popup-logo.png" alt="logo" class="img-responsive center-block pt50"/>
+                    <h3 class="pop-up-h3 pb50">
+                        Visit back soon
+                    </h3>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Small modal end-->        
+        <!-- Small modal end-->
+        <!-- for forget password Small modal -->
+        <!-- Small modal end-->
+        <!-- meber login Small modal start-->
+        <div class="modal fade" id="member-login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modal-member">
+                    <div class="modal-header modal-header-member text-left">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <img src="images/popup-logo2.png" alt="logo" class="img-mr"/>
+                        <span class="modal-head" style="margin-left:50px">Member Login</span>
+
+                    </div>
+                    <div class="modal-body no-padding">
+                        <div style="display:none" class="login-error-box text-center">
+                            <!--succe-box-->
+                            <img src="images/error-icon.png" alt="error-img"/> &nbsp;<span>Please fix the errors in the form.</span>
+                        </div>
+                        <br/>
+
+                        <form class="frm_member_login" id="frm_member_login" method="post">
+                            <div class="form-group mb30">
+                                <input type="text" class="form-control fsize" id="username" name="USERNAME" placeholder="Username"
+                                       onBlur="if (this.value === '') {
+                                                   $(this).removeClass('input');
+                                                   $(this).addClass('inputName');
+                                                   /*$(this).focus();*/
+                                               } else {
+                                                   $(this).addClass('input');
+                                                   $(this).removeClass('inputName');
+                                               }" onkeyup="if (this.value === '') {
+                                                           $(this).removeClass('input');
+                                                           $(this).addClass('inputName');
+                                                       } else {
+                                                           $(this).removeClass('inputName');
+                                                           $(this).addClass('input');
+                                                       }" required="true" tabindex="1"/>
+                            </div>
+                            <div class="form-group mb30">
+                                <input type="password" class="form-control fsize" id="password" name="PASSWORD" placeholder="Password"
+                                       onBlur="if (this.value === '') {
+                                                   $(this).removeClass('input');
+                                                   $(this).addClass('inputName');
+                                                   /*$(this).focus();*/
+                                               } else {
+                                                   $(this).addClass('input');
+                                                   $(this).removeClass('inputName');
+                                               }" onkeyup="if (this.value === '') {
+                                                           $(this).removeClass('input');
+                                                           $(this).addClass('inputName');
+                                                       } else {
+                                                           $(this).removeClass('inputName');
+                                                           $(this).addClass('input');
+                                                       }" required="true" tabindex="2"/>
+                            </div>
+                            <div class="form-group mb30">
+                                <select  class="faci-text-box" id="facility_type" name="facility_type" onBlur="if (this.value === '') {
+                                            $(this).removeClass('input');
+                                            $(this).addClass('inputName');
+                                            /*$(this).focus();*/
+                                        } else {
+                                            $(this).addClass('input');
+                                            $(this).removeClass('inputName');
+                                        }" onkeyup="if (this.value === '') {
+                                                    $(this).removeClass('input');
+                                                    $(this).addClass('inputName');
+                                                } else {
+                                                    $(this).removeClass('inputName');
+                                                    $(this).addClass('input');
+                                                }" onChange="if (this.value === '') {
+                                                            $(this).addClass('inputName');
+                                                            $(this).removeClass('input');
+                                                        } else {
+                                                            $(this).addClass('input');
+                                                            $(this).removeClass('inputName');
+                                                        }" required="true" tabindex="3">
+                                    <option value="">Facility Type*</option>
+                                    <option value="PHARMACY">Pharmacy</option>
+                                    <option value="CLINIC">Clinic</option>
+                                    <option value="LABORATORY">Laboratory</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb30">
+                                <input type="text" class="form-control fsize" id="client_name" name="tenantId_notused" placeholder="Client Name"
+                                       onBlur="if (this.value === '') {
+                                                   $(this).removeClass('input');
+                                                   $(this).addClass('inputName');
+                                                   /*$(this).focus();*/
+                                               } else {
+                                                   $(this).addClass('input');
+                                                   $(this).removeClass('inputName');
+                                               }" onkeyup="if (this.value === '') {
+                                                           $(this).removeClass('input');
+                                                           $(this).addClass('inputName');
+                                                       } else {
+                                                           $(this).removeClass('inputName');
+                                                           $(this).addClass('input');
+                                                       }" required="true" tabindex="4"/>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="mb20">
+                                    <button type="submit" class="btn btn-green" id="log_in" name="log_in">Log In<span class="glyphicon glyphicon-chevron-right"></span></button>
+                                    <button type="button" class="btn btn-gray" name="sign_up" id="sign_up" onClick="window.location = './sign_up';" value="click here">
+                                        Sign Up<span class="glyphicon glyphicon-chevron-right"></span></button>
+                                </div>
+                                <!--<div class="forget-pwd">
+                                     &lt;!&ndash;<input type="checkbox" value="Remember me"/> Remember me&ndash;&gt;
+                                     <a href="#" data-toggle="modal" data-target="#member-forget-psd" class="ml25" onClick="$('.close').trigger('click');"><u>Forget Password?</u></a>
+                                 </div>-->
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Small modal end-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-messages.min.js"></script>
+        <script src="js/registration.js"></script>
+
+    </body>
+</html>

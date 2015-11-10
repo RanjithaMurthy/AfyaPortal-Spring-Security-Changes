@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="qoute_training" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e41a0ab3-cfdf-48f6-995f-91597934d266">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="username" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[select price_package.package_name,price_package.package_id,
+price_package_service.service_name,user_package_service.activated,user_package_service.packs,
+user_package_service.rate,user_package_service.amount,user_package_service.number_of_hours,
+price_package_service.expire_days
+from price_package,  price_package_service, user_package, user_package_service
+where price_package.package_id = user_package.package_id
+and user_package_service.username = user_package.username
+and user_package_service.package_id = user_package.package_id
+and price_package_service.service_id = user_package_service.service_id
+and user_package_service.activated = 1
+and price_package_service.service_type="TRAINING"
+and user_package.username = $P{username}]]>
+	</queryString>
+	<field name="package_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="package_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="service_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="activated" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="packs" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rate" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="amount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="number_of_hours" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="expire_days" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="package_id">
+		<groupExpression><![CDATA[$F{package_id}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="2" width="100" height="20" uuid="1a9d7a79-8255-4cb3-ab05-2c73468f7c17"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="2" width="100" height="20" uuid="40095fed-1f10-4f4a-9ac9-4cd33062408a"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[# Hours]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="2" width="100" height="20" uuid="37d56a9d-cdfc-4257-9653-a179a2adc5d4"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Per Hour Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="2" width="100" height="20" uuid="64903973-8c28-42a8-8aed-e76ea9aeb2d7"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="10" width="165" height="20" uuid="bbf9e067-9fd1-46d0-bacc-73426b5a04e2"/>
+				<textFieldExpression><![CDATA[$F{service_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="10" width="100" height="20" uuid="17ced11f-ce30-4483-a878-623874a764d9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{number_of_hours}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="10" width="100" height="20" uuid="5d71d58e-8c3d-4a51-b022-5f3145b71dbe"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="10" width="100" height="20" uuid="30cb5ebf-dd42-4317-90e5-86d91e8fd23d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

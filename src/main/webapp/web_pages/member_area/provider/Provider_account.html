@@ -1,0 +1,605 @@
+<script>
+    ga('send', 'pageview', { 'page': '/ProviderDashboard', 'title': 'Provider Dashboard'});
+</script>
+
+<div>
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/afya-portal/static/css/datepicker.css">
+
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                           </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 text-right mt501 ">
+                    <!--<button data-target="" class="btn btn-grey xs-mb15 mt501" onClick="window.location.href = 'security.html'" type="button"><span class="label label-primary pull-left">12</span>  <i class="fa fa-envelope-o"></i> Messages</button>
+                    <button data-target="" class="btn btn-grey xs-mb15 mt501" onClick="window.location.href = 'security.html'" type="button"> <i class="fa fa-cog fa-3"></i> Settings &nbsp;</button>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li class="active" ><a href="#ProviderDashboard">Account Summary</a></li>
+                            <li> <a href="#ProviderDashboard/Provider_account_Service_Subscribe">Services</a></li>
+                            <!--<li><a href="#ProviderDashboard/Provider_account_LoyaltyProg_information">Loyalty Program</a></li>-->
+                            <!--<li><a href="#">Training</a></li>-->
+                            <!--<li><a href="#">Consent &amp; Notifications</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_ExistingNetwork">My Network</a></li>
+                            <!--<li><a href="#">Member Support</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_policies">Afya Policies</a></li>
+                            <li><a class="clickable" onclick="redirectClinic()">My Facility</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+    </div>
+    <!--menu end-->
+    <section id="approach1">
+    <div class="container" id="ProviderAccountContentDiv">
+        <!--    row1 start-->
+        <div class="row mb30">
+
+            <!-- 1st div Start-->
+            <div class="row col-sm-12 col-xs-12 col-md-6" style="margin-left:0;margin-right:0">
+                <div ng-controller="YesterdayRevenue" class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td width="64%"><b>Today’s <span ng-bind="data.providerType"></span> Revenue breakdown</b> </td>
+                                <!--<td width="26%"><a href="#" class="text-center">Download Pdf</a></td>-->
+                            </tr>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="height: 200px;overflow-y: scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+                            <tr> </tr>
+                            <tr class="sub-tr">
+                                <th> </th>
+                                <th class="text-center">Revenue</th>
+                                <th class="text-center"><span ng-bind="data.providerType"></span></th>
+                                <th class="text-center">Smart Services to Patient</th>
+                                <th class="text-center">Referral Due</th>
+                            </tr>
+                            <tr>
+                                <td ng-bind-template="{{yesterDayDate | date:'dd/MM/yyyy'}}">  </td>
+                                <td style="text-align: right;"><span ng-bind="data.totalRevenue"></span></td>
+                                <td style="text-align: right;"><span ng-bind="data.clinicRevenue"></span></td>
+                                <td style="text-align: right;"><span ng-bind="data.smartServicesRevenue"></span></td>
+                                <td style="text-align: right;"><span ng-bind="data.referralAmount"></span></td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #ddd !important">  </td>
+                                <td>  </td>
+                                <td style="text-align: right;"><span ng-bind="dataPercent.clinicRevenue"></span>%</td>
+                                <td style="text-align: right;"><span ng-bind="dataPercent.smartServicesRevenue"></span>%</td>
+                                <td style="text-align: right;border: 1px solid #ddd !important"><span ng-bind="dataPercent.clinicReferralAmount"></span>%</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                </div>
+            <div class="row col-sm-12 col-xs-12 col-md-6" style="margin-left:0;margin-right:0">
+                <div ng-controller="MonthRevenue" class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="64%"><b>Month to Date <span ng-bind="data.providerType"></span> Revenue breakdown </b></td>
+                                    <!--<td width="26%"><a href="#" class="text-center">Download Pdf</a></td>-->
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div style="height: 200px;overflow-y: scroll;">
+                            <table width="100%" border="0" class="table table-bordered">
+                                <tr> </tr>
+                                <tr class="sub-tr">
+                                    <!--<th> </th>-->
+                                    <th class="text-center">Revenue</th>
+                                    <th class="text-center"><span ng-bind="data.providerType"></span></th>
+                                    <th class="text-center">Smart Services to Patient</th>
+                                    <th class="text-center">Referral Due</th>
+                                </tr>
+                                <tr>
+                                    <!--<td> {{yesterDayDate | date:'dd/MM/yyyy'}} </td>-->
+                                    <td style="text-align: right;" ng-bind="data.totalRevenue">  </td>
+                                    <td style="text-align: right;" ng-bind="data.clinicRevenue">  </td>
+                                    <td style="text-align: right;" ng-bind="data.smartServicesRevenue">  </td>
+                                    <td style="text-align: right;" ng-bind="data.referralAmount"> </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ddd !important">  </td>
+                                    <td style="text-align: right;" > <span ng-bind="dataPercent.clinicRevenue"></span> % </td>
+                                    <td style="text-align: right;" > <span ng-bind="dataPercent.smartServicesRevenue"></span> % </td>
+                                    <td style="text-align: right;border: 1px solid #ddd !important" > <span ng-bind="dataPercent.clinicReferralAmount"></span> % </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+            </div>
+
+            <!-- 1st div End-->
+        </div>
+        <!--   row1 end  -->
+        <!--  row2 start  -->
+        <div class="row mb30">
+            <div ng-controller="ServiceIncomeAnalysis">
+               <div class="row col-sm-12 col-xs-12 col-md-6" style="margin-left:0;margin-right:0">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td width="25%"><b>Income Analysis by Service Type</b></td>
+                                <td width="30%">
+                                    <div class="input-daterange" id="datepicker5">
+                                        <input type="text" class="input-small"  ng-model="startDate"/>
+                                        <span class="add-on" style="vertical-align: top; height:26px">to</span>
+                                        <input type="text" class="input-small"  ng-model="endDate"/>
+                                    </div>
+                                </td>
+                                <td width="9%">show<button data-widget="show" class="btn btn-default btn-sm pull-right" ng-click="show()"><i class="fa fa-check"></i></button></td>
+                                <td width="8%">hide<button data-widget="remove" class="btn btn-default btn-sm pull-right" ng-click="hide()"><i class="fa fa-times"></i></button></td>
+                            </tr>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="height: 200px;overflow-y: scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+                            <tr> </tr>
+                            <tr class="sub-tr">
+                                <th class="text-center"> Service Type </th>
+                                <th class="text-center"> Revenue </th>
+                            </tr>
+                            <tbody ng-repeat="data in datas" >
+                            <tr>
+                                <td ng-bind="data.description">  </td>
+                                <td style="text-align: right;" ng-bind-template="{{data.totalAmount | number : 3}}">  </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div ng-hide="disp">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="46%">Graphical View</td>
+                                    <td  ng-bind-template="{{startDate}}-{{endDate}}"></td>
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div id="chartServiceTypeIncomeAnalysis">
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div ng-controller="SpecialtyIncomeAnalysis">
+                <div class="row col-sm-12 col-xs-12 col-md-6" style="margin-left:0;margin-right:0">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="25%"><b>Income Analysis by Specialty</b></td>
+                                    <td width="30%">
+                                        <div class="input-daterange" id="datepicker6">
+                                            <input type="text" class="input-small"  ng-model="startDate"/>
+                                            <span class="add-on" style="vertical-align: top; height:26px">to</span>
+                                            <input type="text" class="input-small"  ng-model="endDate"/>
+                                        </div>
+                                    </td>
+                                    <td width="9%">show<button data-widget="show" class="btn btn-default btn-sm pull-right" ng-click="show()"><i class="fa fa-check"></i></button></td>
+                                    <td width="8%">hide<button data-widget="remove" class="btn btn-default btn-sm pull-right" ng-click="hide()"><i class="fa fa-times"></i></button></td>
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div style="height: 200px;overflow-y: scroll;">
+                            <table width="100%" border="0" class="table table-bordered">
+                                <tr> </tr>
+                                <tr class="sub-tr">
+                                    <th  class="text-center"> Service Category </th>
+                                    <th class="text-center"> Revenue </th>
+                                </tr>
+                                <tbody ng-repeat="data in datas" >
+                                <tr>
+                                    <td  ng-bind="data.speciality">  </td>
+                                    <td style="text-align: right;" ng-bind-template="{{data.totalAmount | number : 3}}">  </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div ng-hide="disp">
+                        <div class="pack-wraper hvr-grow1">
+                            <div class="pack-whitebg-box">
+                                <table width="100%" border="0">
+                                    <tr>
+                                        <td width="46%">Graphical View</td>
+                                        <td ng-bind-template="{{startDate}}-{{endDate}}"></td>
+                                    </tr>
+                                </table>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="chartSpecialtyIncomeAnalysis">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--    row2 end-->
+        <!--   row3 start  -->
+        <div class="row mb30">
+            <div ng-controller="DoctorIncomeAnalysis">
+            <!-- 1st div-->
+            <div class="row col-sm-12 col-xs-12 col-md-6" style="margin-left:0;margin-right:0">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box" style="height:50px !important">
+                        <table width="100%" border="0">
+                            <tr>
+                                <td width="25%"><b>Income Trend by Doctor</b></td>
+                                <td width="30%">
+                                    <div class="input-daterange" id="datepicker">
+                                        <input type="text" class="input-small"  ng-model="startDate"/>
+                                        <span class="add-on" style="vertical-align: top; height:26px">to</span>
+                                        <input type="text" class="input-small"  ng-model="endDate"/>
+                                    </div>
+                                </td>
+                                <td width="9%">show<button data-widget="show" class="btn btn-default btn-sm pull-right" ng-click="show()"><i class="fa fa-check"></i></button></td>
+                                <td width="8%">hide<button data-widget="remove" class="btn btn-default btn-sm pull-right" ng-click="hide()"><i class="fa fa-times"></i></button></td>
+                            </tr>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div style="height: 200px;overflow-y: scroll;">
+                        <table width="100%" border="0" class="table table-bordered">
+                            <tr> </tr>
+                            <tr class="sub-tr">
+                                <th class="text-center"> Doctor </th>
+                                <th class="text-center"> Revenue </th>
+                            </tr>
+                            <tbody ng-repeat="data in datas" >
+                            <tr>
+                                <td ng-bind="data.doctor">  </td>
+                                <td style="text-align: right;" ng-bind-template="{{data.amount | number : 3}}">  </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div ng-hide="disp">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="46%">Graphical View</td>
+                                    <!--<td width="44%"><a href="#" class="text-center">11/03/15 - 20/03/2015</a></td>-->
+                                    <td ng-bind-template="{{startDate}}-{{endDate}}"></td>
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div id="chartDoctorIncomeAnalysis">
+                            <!--<img src="/afya-portal/static/donut.jpg">-->
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 1st div-->
+        </div>
+        <div ng-controller="PatientByCategoryIncomeAnalysis">
+                <!-- 1st div-->
+                <div class="row col-sm-12 col-xs-12 col-md-6" style="margin-left:0;margin-right:0">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box" style="height:50px !important">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="25%"><b>Income Trend by Patient Category</b></td>
+                                    <td width="30%">
+                                        <div class="input-daterange" id="datepicker1">
+                                            <input type="text" class="input-small"  ng-model="startDate"/>
+                                            <span class="add-on" style="vertical-align: top; height:26px">to</span>
+                                            <input type="text" class="input-small"  ng-model="endDate"/>
+                                        </div>
+                                    </td>
+                                    <td width="9%">show<button data-widget="show" class="btn btn-default btn-sm pull-right" ng-click="show()"><i class="fa fa-check"></i></button></td>
+                                    <td width="8%">hide<button data-widget="remove" class="btn btn-default btn-sm pull-right" ng-click="hide()"><i class="fa fa-times"></i></button></td>
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div style="height: 200px;overflow-y: scroll;">
+                            <table width="100%" border="0" class="table table-bordered">
+                                <tr> </tr>
+                                <tr class="sub-tr">
+                                    <th class="text-center"> Patient Category </th>
+                                    <th class="text-center"> Revenue </th>
+                                </tr>
+                                <tbody ng-repeat="data in datas" >
+                                <tr>
+                                    <td ng-bind="data.category">  </td>
+                                    <td style="text-align: right;" ng-bind-template="{{data.amount | number : 3}}">  </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div ng-hide="disp">
+                        <div class="pack-wraper hvr-grow1">
+                            <div class="pack-whitebg-box">
+                                <table width="100%" border="0">
+                                    <tr>
+                                        <td width="46%">Graphical View</td>
+                                        <!--<td width="44%"><a href="#" class="text-center">11/03/15 - 20/03/2015</a></td>-->
+                                        <td ng-bind-template="{{startDate}}-{{endDate}}"></td>
+                                    </tr>
+                                </table>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="chartPatientByCategoryIncomeAnalysis">
+                                <!--<img src="/afya-portal/static/donut.jpg">-->
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 1st div-->
+
+                <!-- 2nd div-->
+
+                <!-- 2nddiv-->
+            </div>
+        </div>
+        <!--  row3 end    -->
+
+        <!--  row4 start  -->
+        <div class="row mb30" >
+            <div ng-controller="ReferralDataController">
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box" style="height:50px !important">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="68%"><b>Referral Income</b> </td>
+                                    <td width="20%">
+                                        <div class="input-daterange" id="datepicker7">
+                                            <input type="text" class="input-small"  ng-model="startDate"/>
+                                            <span class="add-on" style="vertical-align: top; height:26px">to</span>
+                                            <input type="text" class="input-small"  ng-model="endDate"/>
+                                        </div>
+                                    </td>
+                                    <!--<td width="8%">show<button data-widget="show" class="btn btn-default btn-sm pull-right" ng-click="submit()"><i class="fa fa-check"></i></button></td>-->
+                                    <td width="6%">show<button data-widget="show" class="btn btn-default btn-sm pull-right" ng-click="show()"><i class="fa fa-check"></i></button></td>
+                                    <td width="6%">hide<button data-widget="remove" class="btn btn-default btn-sm pull-right" ng-click="hide()"><i class="fa fa-times"></i></button></td>
+                                </tr>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div style="height: 200px;overflow-y: scroll;">
+                            <table width="64%" border="0" class="table table-bordered">
+                                <tr> </tr>
+                                <tr class="sub-tr">
+                                    <th>Referral Source</th>
+                                    <th>Fees Invoiced</th>
+                                    <th>Received</th>
+                                    <th>O/s</th>
+                                </tr>
+                                <tbody ng-repeat="data in datas track by $index" >
+                                <tr>
+                                    <td ng-bind="data.referralSource">  </td>
+                                    <td ng-bind="data.totalRefAmountPayable">  </td>
+                                    <td ng-bind="data.totalRefAmountTobePaid">  </td>
+                                    <td ng-bind-template="{{data.totalRefAmountPayable-data.totalRefAmountTobePaid}}">  </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  row4 end    -->
+    </div>
+    </section>
+
+    <div id="dvLoading"></div>
+
+    <section id="adapt-method">
+        <div class="center container">
+
+        </div>
+    </section>
+    <!--/#care-provider-payer-->
+
+    <script src="/afya-portal/static/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>-->
+    <!--<script type="text/javascript">-->
+    <!--$(document).ready(function ($) {-->
+
+        <!--// delegate calls to data-toggle="lightbox"-->
+        <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+            <!--event.preventDefault();-->
+            <!--return $(this).ekkoLightbox({-->
+                <!--onShown: function () {-->
+                    <!--if (window.console) {-->
+                        <!--return console.log('Checking our the events huh?');-->
+                    <!--}-->
+                <!--},-->
+                <!--onNavigate: function (direction, itemIndex) {-->
+                    <!--if (window.console) {-->
+                        <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+
+        <!--//Programatically call-->
+        <!--$('#open-image').click(function (e) {-->
+            <!--e.preventDefault();-->
+            <!--$(this).ekkoLightbox();-->
+        <!--});-->
+        <!--$('#open-youtube').click(function (e) {-->
+            <!--e.preventDefault();-->
+            <!--$(this).ekkoLightbox();-->
+        <!--});-->
+
+        <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+            <!--event.preventDefault();-->
+            <!--return $(this).ekkoLightbox({-->
+                <!--onShown: function () {-->
+                    <!--var a = this.modal_content.find('.modal-footer a');-->
+                    <!--if (a.length > 0) {-->
+                        <!--a.click(function (e) {-->
+                            <!--e.preventDefault();-->
+                            <!--this.navigateTo(2);-->
+                        <!--}.bind(this));-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--});-->
+
+
+        <!--// fade in #back-top-->
+        <!--$(function () {-->
+
+            <!--// scroll body to 0px on click-->
+            <!--$('#back-top').click(function () {-->
+                <!--$('body,html').animate({-->
+                    <!--scrollTop: 0-->
+                <!--}, 800);-->
+                <!--return false;-->
+            <!--});-->
+        <!--});-->
+
+    <!--});-->
+<!--</script>-->
+    <script type="text/javascript">
+        // When the document is ready
+        $(document).ready(function () {
+
+            $('.input-daterange').datepicker({
+                todayBtn: "linked"
+            });
+
+        });
+    </script>
+    <script>
+        $(function() {
+
+            $( ".btn" ).click(function() {
+                var icon = $( this );
+                icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+                icon.closest( ".box" ).find( ".box-body" ).toggle();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            //rotation speed and timer
+            var speed =5000;
+
+            var run = setInterval(rotate, speed);
+            var slides = $('.slide');
+            var container = $('#slides ul');
+            var elm = container.find(':first-child').prop("tagName");
+            var item_width = container.width();
+            var previous = 'prev'; //id of previous button
+            var next = 'next'; //id of next button
+            slides.width(item_width); //set the slides to the correct pixel width
+            container.parent().width(item_width);
+            container.width(slides.length * item_width); //set the slides container to the correct total width
+            container.find(elm + ':first').before(container.find(elm + ':last'));
+            resetSlides();
+
+
+            //if user clicked on prev button
+
+            $('#buttons a').click(function (e) {
+                //slide the item
+
+                if (container.is(':animated')) {
+                    return false;
+                }
+                if (e.target.id == previous) {
+                    container.stop().animate({
+                        'left': 0
+                    }, 1500, function () {
+                        container.find(elm + ':first').before(container.find(elm + ':last'));
+                        resetSlides();
+                    });
+                }
+
+                if (e.target.id == next) {
+                    container.stop().animate({
+                        'left': item_width * -2
+                    }, 1500, function () {
+                        container.find(elm + ':last').after(container.find(elm + ':first'));
+                        resetSlides();
+                    });
+                }
+
+                //cancel the link behavior
+                return false;
+
+            });
+
+            //if mouse hover, pause the auto rotation, otherwise rotate it
+            container.parent().mouseenter(function () {
+                clearInterval(run);
+            }).mouseleave(function () {
+                        run = setInterval(rotate, speed);
+                    });
+
+
+            function resetSlides() {
+                //and adjust the container so current is in the frame
+                container.css({
+                    'left': -1 * item_width
+                });
+            }
+
+        });
+        //a simple function to click next link
+        //a timer will call this function, and the rotation will begin
+
+        function rotate() {
+            $('#next').click();
+        }
+    </script>
+    <script>
+        $('#ProviderAccountContentDiv').ready(function(){
+            $('#dvLoading').fadeOut(2000);
+        });
+    </script>
+</div>
+

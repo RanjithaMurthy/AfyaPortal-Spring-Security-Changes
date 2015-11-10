@@ -1,0 +1,68 @@
+#
+# Copyright (c) 1/22/15 8:50 PM.Nth Dimenzion, Inc - All Rights Reserved
+# Unauthorized copying of this file, via any medium is strictly prohibited
+# Proprietary and confidential
+#
+
+server:
+  port: 7879
+  context-path: /afya-portal
+
+spring:
+  thymeleaf:
+      check-template-location: true
+      cache: false
+      mode: XHTML
+
+  jpa:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        ddl-auto: update
+      database: MYSQL
+      show-sql: true
+
+  datasource:
+      primary:
+        name: primaryDataSource
+        url: jdbc:mysql://5.9.249.196:3306/afya_portal?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&rewriteBatchedStatements=true&autoReconnect=true&autoReconnectForPools=true
+        driverClassName: com.mysql.jdbc.Driver
+        username: root
+        password: NthR0#t
+        timeBetweenEvictionRunsMillis: 5000
+        validationQuery: SELECT 1
+        testWhileIdle: true
+
+      jobs:
+        name: jobsDataSource
+        url: jdbc:mysql://localhost:3306/afya_portal_jobs?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&rewriteBatchedStatements=true&autoReconnect=true
+        driverClassName: com.mysql.jdbc.Driver
+        username: root
+        password: NthR0#t
+
+  mail:
+      debug: false
+      host: smtp.afyaarabia.com
+      port: 25
+      auth: true
+      socketFactoryClass: javax.net.SocketFactory
+      username: CommunityCare@afyaarabia.com
+      password: Co@3256789
+      sentFrom: CommunityCare@afyaarabia.com
+      confirmationUrl: http://5.9.249.196:7879/afya-portal/confirmation
+      confirmationSubject: "Afya Registration :: Confirmation Required"
+      resetUrl: http://5.9.249.196:7879/afya-portal/#/ResetPassword
+      resetSubject: "Afya Password Reset"
+      packageQuotationSubject: "Afya Package Quotation"
+      trialSubscriptionSubject: "Afya Subscription :: Subscription For a Free Trial"
+      subscriptionSubject: "Afya Subscription :: Subscription For Afya Services"
+      providerConfirmationSubject: "Afya Registration :: Provider Confirmation Required"
+      patientConfirmationSubject: "Afya Registration :: Patient Confirmation Required"
+      autoRegisteredPatientPasswordSubject: "Afya Registration :: Patient Registration"
+      payerConfirmationSubject: "Afya Registration :: Payer Confirmation Required"
+      patientRegistrationSubject: "Afya Registration :: Patient Registered"
+
+  sms:
+        smsServerUrl: http://62.215.226.164/fccsms_P.aspx?UID={UID}&P={P}&S={S}&L={L}&G={G}&M={M}
+        smsSender: Afyaarabia
+        smsUid: afyaar
+        smsPassword: afyaarabia@2015

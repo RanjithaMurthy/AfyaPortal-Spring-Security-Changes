@@ -1,0 +1,562 @@
+<script>
+    ga('send', 'pageview', { 'page': '/ProviderDashboard/Provider_account_policies', 'title': 'Provider Account Policies'});
+</script>
+
+<div ng-controller="AfyaPoliciesController">
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/afya-portal/static/css/datepicker.css">
+
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12 text-right mt501 ">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#ProviderDashboard">Account Summary</a></li>
+                            <li> <a href="#ProviderDashboard/Provider_account_Service_Subscribe">Services</a></li>
+                            <!--<li><a href="#ProviderDashboard/Provider_account_LoyaltyProg_information">Loyalty Program</a></li>-->
+                            <!--<li><a href="#">Training</a></li>-->
+                            <!--<li><a href="#">Consent &amp; Notifications</a></li>-->
+                            <li><a href="#ProviderDashboard/Provider_account_MyNetwork_ExistingNetwork">My Network</a></li>
+                            <!--<li><a href="#">Member Support</a></li>-->
+                            <li class="active" ><a href="#ProviderDashboard/Provider_account_policies">Afya Policies</a></li>
+                            <li><a class="clickable" onclick="redirectClinic()">My Facility</a></li>
+                        </ul>
+                   </div>
+               </div>
+           </div>
+           <div class="row"  >
+           </div>
+    </div>
+
+    </div>
+    <!--menu end-->
+<section>
+    <div class="container">
+        <div class="row mb30">
+
+
+          <div class="col-sm-12 col-xs-12 col-md-12">
+            <div class="pack-wraper hvr-grow1">
+               <div class="pack-whitebg-box">
+
+             <table width="100%" border="0">
+<tbody><tr>
+<td width="33%"><strong>Afya's Policy to Care Providers</strong></td>
+<td width="11%">&nbsp;</td>
+</tr>
+</tbody></table>
+
+            <div class="clearfix"></div>
+          </div>
+                <div >
+                <table width="100%" border="0" class="table table-bordered">
+
+                  <tr class="sub333-tr">
+                    <th width="2%">
+                    <th width="35%">Smart Solutions
+                    <th width="63%">Policy
+                  </td>                          </tr>
+                    <tr class="sub33-tr">
+                      <td>1</td>
+                    <td align="left" valign="middle">Time Period</td>
+                    <td>
+
+                        Trial period starts from the time member subscribes for Afya Services.
+                        <br>
+
+                        Scope of Afya Services during Trial Period - All Services included in the selected pack are available for effective use during Trial Period.
+                        <br>
+
+                        Trial period will be valid for  30 days from date of subscription.
+                        <br>
+
+                        When the member subscribes during the trial period, the member gets the benefit of the complete trial period, as the subscription days are counted from the date of on completion of Trial Period.
+                        <br>
+
+                        Trial period is not applicable for any future subscription renewals or upgrades. This is an initial one-time facility provided to the member.
+                        <br>
+
+                    </td>
+                  </tr>
+                    <tr class="sub33-tr">
+                      <td>2</td>
+                      <td>Subscription</td>
+                      <td>
+
+                          A member can subscribe by making on-line payment through www.afyaarabia.com's payment gateway.
+                          <br>
+
+                          The subscription fees has to be paid in advance for either half yearly or an annual subscription - as per members choice.
+                          <br>
+
+                          A subscription once made, cannot be cancelled, transferred or exchanged with any manner.
+                          <br>
+
+                          Kindly accept the 'Subscription Agreement' as directed to on Afya's portal.
+                          <br>
+                      </td>
+                    </tr>
+                    <tr class="sub33-tr">
+                      <td>3</td>
+                      <td>Additional Training Service</td>
+                      <td>
+
+                          Upon subscribing, the member is requested  to ensure that the users undergo self learning sessions to get themselves acquainted and trained for the effective usage of Afya services.
+                          <br>
+
+                          Afya will provide fixed hours of online support, to the users, while they train by themselves.
+                          <br>
+
+                          The member has the facility to request for Additional Training Services on Afya, if the same is needed.
+                          <br>
+
+                          Additional Training Services once booked & paid cannot be cancelled / transferred or  exchanged with any other services of Afya.
+                          <br>
+                    </tr>
+                    <tr class="sub33-tr">
+                      <td>4</td>
+                      <td>Notification Pack</td>
+                      <td>
+
+                          A member needs to subscribe for the Notification Pack, if the member wants to send SMS notification, that are enabled by Afya's services, as a part of optimizing the members workflows.
+                          <br>
+
+                          Notification pack is not required if only emails are to be sent.
+                          <br>
+
+                          Afya provides the facility to its members to have a personalised touch to the SMS, that are enabled through Afya. For this, the member needs to state the Sender ID, while registering or it can be updated subsequently. However, till the member does not provide the Sender ID, the member still enjoys the privilege of sending SMS with the Sender ID as 'afyaarabia'.
+                          <br>
+                      </td>
+                    </tr>
+                    <tr class="sub33-tr">
+                      <td>5</td>
+                      <td>Renewal </td>
+                      <td>
+
+                          In order to ensure smooth operations and continued services of Afya, the member is adviced to renew their subscription any time before the active subscription expires.
+                          <br>
+
+                          Upon renewal, the member would enjoy the privileges & benefits as per Afya's policy prevailing at the time of renewal. Like-wise the members responsibility & the charges payable would be as applicable, as per the Afya's policy prevailing at the time of renewal.
+                          <br>
+
+                          The member has the option to redeem the loyalty points, if any, while renewing the subscription.
+                          <br>
+
+                          If the member has loyally points and the member does not renew the services, then Afya will provide the member the option to request to convert the loyalty points thereby extending the validity of the services, by a proportionate number of days. However, if
+                          the member does not request such conversion and if the membership expires, then the loyalty points get forfeited.
+                          <br>
+
+                          Upon discontinuation of Smart Solutions Service, the Smart Services facility would be stopped 7 days in advance.
+                          <br>
+
+                          Once the subscription is expired due to non renewal, the Premium member becomes a Community Member.
+                          <br>
+
+                          The Community Member would be able to login to the portal & download his DB backup only, within 15 days of expiry.
+                          <br>
+
+                          For any reason, if the member is unable to renew the subscription on time, but later decides to re-join Afya's community, then the member is most welcome back to Afya Community Care.
+                          In such event of a break and rejoining thereafter, the member can choose to be considered as a new member or  to request for the past data, while continuing the services.
+                          Afya will be able to provide the past data with a additional fees
+                          1) for only activating the masters or
+                          2) activating with all past records. Re-training, will be charged separately.
+                          The re-activation fees does not include free re-training.
+                          <br>
+
+                      </td>
+                    </tr>
+                    <tr class="sub33-tr">
+                      <th class="sub333-tr">&nbsp;</th>
+                      <th class="sub333-tr">Smart Services
+                      <th class="sub333-tr">Afya Policy
+                        </td>for Care Provider                                                       </tr>
+                    <tr class="sub33-tr">
+                      <td>1.</td>
+                      <td>Appointment Premium - Doctors </td>
+                      <td>
+
+                          Appointment Booking is possible only 7 days in advance.
+                          <br>
+
+                          Cancellation by Patient - Can be done upto 48 hrs prior to appointment time. Afya will refund 100%  to the Patient in 10 days from cancellation
+                          <br>
+
+                          Cancellation by Clinic/Doctor -  On behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          Rescheduling by Patient - Can be done until 48 Hrs prior only.
+                          <br>
+
+                          Rescheduling by Clinic / Doctor - If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then rescheduling by the doctor is valid. Else, this would be considered as cancellation by Clinic/Doctor. Thus, on behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          No Show of Patient - The advance is non-refundable to the Patient.
+                          <br>
+
+                          No Show of Doctor (not communicated to Patient) - 100% advance is to be refunded to the Patient by the Clinic/Doctor. The Patient would be expected to collect the refund while visiting the Clinic.
+                          <br>
+<!--
+                          Cancellation Fees from Patient : These are the Value Added Fees which is termed as Cancellation Fees when recovered from the patient on cancellation of the Smart Services.
+                          <br>
+                          --->
+
+                      </td>
+                    </tr>
+                    <tr class="sub33-tr">
+                      <td>2.</td>
+                      <td>Appointment Request  - Doctors</td>
+                      <td>
+
+                          Appointment Booking is possible in advance.
+                          <br>
+
+                          Cancellation by Patient - Can be done upto 48 hrs prior to appointment time. Afya will refund 100% to the Patient in 10 days from cancellation.
+                          <br>
+
+                          Cancellation by Clinic/Doctor -  On behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          Rescheduling by Patient - Can be done until 48 Hrs prior only.
+                          <br>
+
+                          Rescheduling by Clinic / Doctor - If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then rescheduling by the doctor is valid. Else, this would be considered as cancellation by Clinic/Doctor. Thus, on behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          No Show of Patient - The advance is non-refundable to the Patient.
+                          <br>
+
+                          No Show of Doctor (not communicated to Patient) - 100% advance is to be refunded to the Patient by the Clinic/Doctor. The Patient would be expcted to collect the refund while visiting the Clinic.
+                          <br>
+<!--
+                          Cancellation Fees from Patient : These are the Value Added Fees which is termed as Cancellation Fees when recovered from the patient on cancellation of the Smart Services.
+                          <br>
+
+                          -->
+                      </td>
+                    </tr>
+                    <tr class="sub33-tr">
+                      <td>3.</td>
+                      <td>Appointment - Home Visit Doctor</td>
+                      <td>
+                          Appointment Booking for Home Visit of Doctor is possible only 7 in advance.
+                          <br>
+
+                          Cancellation by Patient - Can be done upto 48 hrs prior to appointment time. Afya will refund 100% to the Patient in 10 days from cancellation
+                          <br>
+
+                          Cancellation by Clinic/Doctor -  On behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          Rescheduling by Patient - Can be done until 48 Hrs prior only.
+                          <br>
+
+
+                          Rescheduling by Clinic / Doctor - If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then rescheduling by the doctor is valid. Else, this would be considered as cancellation by Clinic/Doctor. Thus, on behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          No Show of Patient - The advance is non-refundable to the Patient.
+                          <br>
+
+                          No Show of Doctor (not communicated to Patient) -  On behalf of the Clinic / Doctor, Afya will refund 100% advance to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                          <br>
+
+                          <!--
+                          Cancellation Fees from Patient : These are the Value Added Fees which is termed as Cancellation Fees when recovered from the patient on cancellation of the Smart Services.
+                          <br>
+
+                          -->
+                      </td>
+                    </tr>
+
+
+                    <tr class="sub33-tr">
+                        <td>4.</td>
+                        <td>Tele Consultation</td>
+                        <td>
+                            Booking is possible for 7 days in advance.
+                            <br>
+
+                            Cancellation by Patient - Cancellation facility is not available for Tele Consultation.
+                            <br>
+
+                            Cancellation by Clinic/Doctor -  Cancellation facility is not available for Tele Consultation.
+                            <br>
+
+                            Rescheduling by Patient - Can be done until 24 Hrs prior only.
+                            <br>
+
+                            Rescheduling by Clinic / Doctor - If the Patient agrees for the rescheduling proposed by the Clinic/Doctor, then rescheduling by the doctor is valid. Else, this would be considered as cancellation by Clinic/Doctor.  Thus, on behalf of Clinic / Doctor, Afya will refund Full advance  to the Patient. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                            <br>
+
+                            No Show of Patient - The advance is non-refundable.
+                            <br>
+
+                            No Show of Doctor (not communicated to Patient) - On written confirmation from the Clinic/Doctor. Full advance will be refunded to the patient by Afya. Value Added Fees for this transaction will be deducted while making payment to the Clinic/Doctor.
+                            <br>
+
+                        </td>
+                    </tr>
+
+
+                    <!--<tr class="sub33-tr">
+                        <td>5.</td>
+                        <td>Home Pharmacy</td>
+                        <td>
+                            Refill Request is possible directly by the Patient or can be enabled by the  Doctor while prescribing. The Pharmacy is expected to accept the order only if the they can fulfill all medicines in a given prescription. Thus partial orders cannot be accepted.
+                            <br>
+
+                            Cancellation by Patient - Cancellation facility is not available for this service.
+                            <br>
+
+                            Cancellation by Pharmacy -  Cancellation facility is not available for this service.
+                            <br>
+
+                        </td>
+                    </tr>-->
+
+
+                    <tr class="sub33-tr">
+                        <td>5.</td>
+                        <td>Payment Policy - Common for all Smart Services</td>
+                        <td>
+                            Payment received from Patients will be transferred to the Provider members bank account, on a weekly basis net of Afya's Value Added fees.
+                            <br>
+
+                            Value Add Fees are the charges payable to Afya for enabling the Smart Service.This would be visible to the member while they set their charges for Smart Services. This is not to be disclosed to the Patients.
+                            <br>
+
+                            Afya’s Smart Services are for Cash Paying Patients only.
+                            <br>
+
+                            Afya’s policies are applicable as per the local standard time.
+                            <br>
+
+                            Payment Status of Smart Services can be verified by the member by accessing "My Account" section in the afyaarabia portal.
+                            <br>
+
+                            In case of any clarification on the payment status, the member may send an email at <a href="mailto:info@afyaarabia.com">info@afyaarabia.com</a>
+                            <br>
+                        </td>
+                    </tr>
+
+
+
+                  </table>
+              </div>
+
+
+                <div class="clearfix"></div>
+              </div>
+
+
+
+          </div>
+        </div>
+          </div>
+            <!--/.container--> 
+        </section>
+        <section id="approach1">
+        <div class="container">
+        <!--    row1 start-->
+  			<div class="row mb30">
+                    
+                  
+                  
+                 
+			</div>
+            
+        <!--    row1 end-->
+
+
+   
+
+
+
+
+
+
+        
+        </div>
+        </section>
+        <!--/#care-provider-payer-->
+
+        <section id="adapt-method">
+            <div class="center container">
+           
+            </div>
+
+        </section>
+
+        <!--<script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
+
+        <!--<script type="text/javascript">-->
+            <!--$(document).ready(function () {-->
+                <!--$('.carousel').carousel();-->
+               <!--$('a').click(function () {-->
+                   <!--$('html, body').animate({-->
+                      <!--scrollTop: $($.attr(this, 'href')).offset().top-->
+                   <!--}, 800);-->
+                   <!--return false;-->
+                <!--});-->
+            <!--});-->
+        <!--</script>-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script> -->
+        <!--<script type="text/javascript">-->
+                            <!--$(document).ready(function ($) {-->
+
+                                <!--// delegate calls to data-toggle="lightbox"-->
+                                <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+                                    <!--event.preventDefault();-->
+                                    <!--return $(this).ekkoLightbox({-->
+                                        <!--onShown: function () {-->
+                                            <!--if (window.console) {-->
+                                                <!--return console.log('Checking our the events huh?');-->
+                                            <!--}-->
+                                        <!--},-->
+                                        <!--onNavigate: function (direction, itemIndex) {-->
+                                            <!--if (window.console) {-->
+                                                <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                                            <!--}-->
+                                        <!--}-->
+                                    <!--});-->
+                                <!--});-->
+
+                                <!--//Programatically call-->
+                                <!--$('#open-image').click(function (e) {-->
+                                    <!--e.preventDefault();-->
+                                    <!--$(this).ekkoLightbox();-->
+                                <!--});-->
+                                <!--$('#open-youtube').click(function (e) {-->
+                                    <!--e.preventDefault();-->
+                                    <!--$(this).ekkoLightbox();-->
+                                <!--});-->
+
+                                <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+                                    <!--event.preventDefault();-->
+                                    <!--return $(this).ekkoLightbox({-->
+                                        <!--onShown: function () {-->
+                                            <!--var a = this.modal_content.find('.modal-footer a');-->
+                                            <!--if (a.length > 0) {-->
+                                                <!--a.click(function (e) {-->
+                                                    <!--e.preventDefault();-->
+                                                    <!--this.navigateTo(2);-->
+                                                <!--}.bind(this));-->
+                                            <!--}-->
+                                        <!--}-->
+                                    <!--});-->
+                                <!--});-->
+
+
+                                <!--// fade in #back-top-->
+                                <!--$(function () {-->
+
+                                    <!--// scroll body to 0px on click-->
+                                    <!--$('#back-top').click(function () {-->
+                                        <!--$('body,html').animate({-->
+                                            <!--scrollTop: 0-->
+                                        <!--}, 800);-->
+                                        <!--return false;-->
+                                    <!--});-->
+                                <!--});-->
+
+                            <!--});-->
+        <!--</script> -->
+        <!--<script>-->
+             <!--$(function() {-->
+                <!--$( ".btn" ).click(function() {-->
+                <!--var icon = $( this );-->
+                <!--icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );-->
+                <!--icon.closest( ".box" ).find( ".box-body" ).toggle();-->
+                <!--});-->
+            <!--});-->
+
+        <!--</script>-->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+        <!--<script>-->
+        <!--$(document).ready(function () {-->
+            <!--//rotation speed and timer-->
+            <!--var speed =5000;-->
+
+            <!--var run = setInterval(rotate, speed);-->
+            <!--var slides = $('.slide');-->
+            <!--var container = $('#slides ul');-->
+            <!--var elm = container.find(':first-child').prop("tagName");-->
+            <!--var item_width = container.width();-->
+            <!--var previous = 'prev'; //id of previous button-->
+            <!--var next = 'next'; //id of next button-->
+            <!--slides.width(item_width); //set the slides to the correct pixel width-->
+            <!--container.parent().width(item_width);-->
+            <!--container.width(slides.length * item_width); //set the slides container to the correct total width-->
+            <!--container.find(elm + ':first').before(container.find(elm + ':last'));-->
+            <!--resetSlides();-->
+
+
+            <!--//if user clicked on prev button-->
+
+            <!--$('#buttons a').click(function (e) {-->
+                <!--//slide the item-->
+
+                <!--if (container.is(':animated')) {-->
+                    <!--return false;-->
+                <!--}-->
+                <!--if (e.target.id == previous) {-->
+                    <!--container.stop().animate({-->
+                        <!--'left': 0-->
+                    <!--}, 1500, function () {-->
+                        <!--container.find(elm + ':first').before(container.find(elm + ':last'));-->
+                        <!--resetSlides();-->
+                    <!--});-->
+                <!--}-->
+
+                <!--if (e.target.id == next) {-->
+                    <!--container.stop().animate({-->
+                        <!--'left': item_width * -2-->
+                    <!--}, 1500, function () {-->
+                        <!--container.find(elm + ':last').after(container.find(elm + ':first'));-->
+                        <!--resetSlides();-->
+                    <!--});-->
+                <!--}-->
+
+                <!--//cancel the link behavior-->
+                <!--return false;-->
+
+            <!--});-->
+
+            <!--//if mouse hover, pause the auto rotation, otherwise rotate it-->
+            <!--container.parent().mouseenter(function () {-->
+                <!--clearInterval(run);-->
+            <!--}).mouseleave(function () {-->
+                <!--run = setInterval(rotate, speed);-->
+            <!--});-->
+
+
+            <!--function resetSlides() {-->
+                <!--//and adjust the container so current is in the frame-->
+                <!--container.css({-->
+                    <!--'left': -1 * item_width-->
+                <!--});-->
+            <!--}-->
+
+        <!--});-->
+        <!--//a simple function to click next link-->
+        <!--//a timer will call this function, and the rotation will begin-->
+
+        <!--function rotate() {-->
+            <!--$('#next').click();-->
+        <!--}-->
+        <!--</script>-->
+</div>

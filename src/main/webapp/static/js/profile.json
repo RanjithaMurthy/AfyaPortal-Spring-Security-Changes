@@ -1,0 +1,19 @@
+{
+  "username" : "someemail@email.com",
+  "afyaId": "KWT525",
+  "civilId": "",
+  "salutation": null,
+  "firstName": "patient",
+  "middleName": "",
+  "lastName": "four",
+  "endMostName": "",
+  "gender": "Male",
+  "age": "",
+  "dateOfBirth": "1980-02-01",
+  "emailId": "pfour@email.com",
+  "mobileNumber": "1111111",
+  "patientType": "",
+  "nationality": "Kuwaiti",
+  "loginPreference": "",
+  "isCommunityMember": 1
+}

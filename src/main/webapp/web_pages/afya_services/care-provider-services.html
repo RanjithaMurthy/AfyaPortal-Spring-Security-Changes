@@ -1,0 +1,1212 @@
+<script>
+    ga('send', 'pageview', { 'page': '/AfyaServices/care-provider-services', 'title': 'Care-Provider-Services'});
+</script>
+
+<div ng-controller="CareProviderServices">
+
+    <link href="/afya-portal/static/tab/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+    <!--<link href="css/afya-provider-services.css" rel="stylesheet" type="text/css">-->
+
+<div class="clearfix"></div>
+<section id="care-service-afya-slider">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left ">
+                <h2>AFYA  Services </h2>
+                <h1>For a Better Care Experience</h1>
+            </div>
+        </div>
+    </div>
+    <div class="care-service-afya-strip">
+        <div class="container">
+            <div class="col-sm-12 col-xs-12 col-md-12 text-left"> <a href="/afya-portal">Home</a> <span>
+        <i class="fa fa-angle-right"></i></span> <span><a ui-sref="ExperienceAfya/afya-services">Afya Services</a></span>
+                <span><i class="fa fa-angle-right"></i></span> <span>Afya Provider Services</span> </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+<section id="compair-now-pack">
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <!--<div class="visible-xs comp-btn-adj">
+                    <button onclick="window.location.href = '#'" class="btn btn-all" type="button">Compare Now  &nbsp;<i class="fa fa-chevron-right"></i></button>
+                </div>-->
+                <!--<a  class="close-btn1"><i class="fa fa-times"></i></a>-->
+                <!--<ul id="flexiselDemo2" >-->
+                <ul>
+                    <li ng-repeat="PackageCompare in PackageCompareList" class="nbs-flexisel-item" style="width: 267.5px;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" >
+                            <div class="compair-wrap">
+                                <div class="blue-wrap">
+                                    <div class="left-content">
+                                        <p ng-bind-template="Pack {{PackageCompare.IndividualPackageId}}"> <!--Pack 1--></p>
+                                        <h2 ng-bind="PackageCompare.PackageName"></h2>
+                                    </div>
+                                    <div class="right-content"> <a  class="close-btn" ng-click="onCloseComparePackageClick(PackageCompare)"><i class="fa fa-times"></i></a>
+                                        <h2 title="per month" ng-bind-template="{{PackageCompare.Currency}}.{{PackageCompare.MonthlyPrice}}"></h2>
+                                        <p ng-bind-template="{{PackageCompare.TotalPackageServiceDisplayCount}} Services"></p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="white-wrap">
+                                    <p>Smart Solutions: <span ng-bind-template="{{PackageCompare.TopLevelServiceCount}} Services"></span></p>
+                                    <p>Smart Services for Patients: <span ng-bind-template="{{PackageCompare.PatientServiceCount}} Services"></span></p>
+                                    <p>Smart Services for Providers: <span ng-bind-template="{{PackageCompare.ProviderServiceCount}} Services"></span></p>
+                                    <p>Training Services : <span ng-bind-template="{{PackageCompare.TrainingServiceCount}} Services"></span></p>
+                                    <p>Notifications : <span ng-bind-template="{{PackageCompare.NotificationServiceCount}} Services"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="compair-wrap-blank"> Add Pack </div>
+                        </div>
+                    </li>-->
+                    <li ng-show="PackageCompareList.length > 1">
+                        <!--<div class="col-md-12 col-sm-12  hidden-xs mtc70">-->
+                        <div class="col-md-12 col-sm-12">
+                            <button ng-click="onCompareServicePackagesClick()" class="btn btn-all" type="button" title="Click to Compare">Compare Now  &nbsp;<i class="fa fa-chevron-right"></i></button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="packs">
+    <div class="container" id="providerServiceContentDiv">
+        <div class="row">
+            <div id="carousel-slider" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div >
+                    <div class="item active">
+                        <div id="tabs">
+                            <ul id="myTab">
+                                <li><a data-toggle="tab" href="#tabs-1" ng-click="onServiceTypeTabClick('CLINIC')" ng-show="ClinicTabShow">Clinic</a></li>
+                                <li><a data-toggle="tab" href="#tabs-2" ng-click="onServiceTypeTabClick('PHARMACY')" ng-show="PharmacyTabShow">Pharmacy </a></li>
+                                <!--<li><a href="#tabs-3">Lab</a></li>
+                                <li><a href="#tabs-4">Pharmacy </a></li>
+                                <li><a href="#tabs-5">Clinic </a></li>-->
+                            </ul>
+                            <div class="clearfix"></div>
+                            <div id="tabs-1">
+                                <!--<div class="row">
+                                  <div class="col-sm-12 col-xs-12 col-md-12">
+                                    <div class="form-group pull-right pack-s">
+                                      <label>Showing pricing plan package for </label>
+                                      <select class="fsize s-small">
+                                        <option>All</option>
+                                        <option>Smart</option>
+                                        <option>Training</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>-->
+                                <div class="clearfix"></div>
+                                <div ng-show="!providerServiceList.length"  style="text-align: center" >
+                                    <text><i>No Data Found</i></text>
+                                </div>
+                                <div ng-repeat="clinicService in providerServiceList track by $index">
+                                    <div class="col-sm-6 col-xs-6 col-md-6">
+                                        <div class="pack-wraper hvr-grow1">
+                                            <div class="pack-blue-box">
+                                                <p ng-bind-template="Pack {{$index+1}}"></p>
+                                                <div class="blue-box-text-1" ng-bind="clinicService.PackageName"></div>
+                                                <div class="blue-box-text-2" ng-bind-template="{{clinicService.TotalPackageServiceDisplayCount}} Services"></div>
+                                                <div class="blue-box-text-3" style="font-size: 26px;"> <span ng-bind-template="{{clinicService.Currency}}.{{clinicService.MonthlyPrice}}"></span> <span style="font-size: 11px;">per month</span></div>
+                                                <div class="right-content"> <p>Subscription - Half Yearly & Annual </p></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="pack-white-box">
+                                                <p class="gry-small-text">Description: <span class="gry-text" ng-bind="clinicService.Description"> </span></p>
+                                                <hr>
+                                                <p>Smart Solutions: <span class="clickable" ng-click="onServiceDetailsClick(clinicService, 'TOP_LEVEL', clinicService.TopLevelServiceCount)" ng-bind-template="{{clinicService.TopLevelServiceCount}} Services"> </span></p>
+                                                <p>Smart Services for Patients: <span class="clickable" ng-click="onServiceDetailsClick(clinicService, 'PATIENT', clinicService.PatientServiceCount)" ng-bind-template="{{clinicService.PatientServiceCount}} Services"></span></p>
+                                                <p>Smart Services for Providers: <span class="clickable" ng-click="onServiceDetailsClick(clinicService, 'PROVIDER', clinicService.ProviderServiceCount)" ng-bind-template="{{clinicService.ProviderServiceCount}} Services"></span></p>
+                                                <p>Training Services : <span class="clickable" ng-click="onServiceDetailsClick(clinicService, 'TRAINING', clinicService.TrainingServiceCount)" ng-bind-template="{{clinicService.TrainingServiceCount}} Services"></span></p>
+                                                <p>Notifications : <span class="clickable" ng-click="onServiceDetailsClick(clinicService, 'NOTIFICATION', clinicService.NotificationServiceCount)" ng-bind-template="{{clinicService.NotificationServiceCount}} Services"></span></p>
+                                            </div>
+                                            <div class="pack-gry-box">
+                                                <div class="checkbox">
+                                                    <!--<input id="checkboxAdd" type="checkbox">-->
+                                                    <input id="checkboxAdd_{{$index+1}}" type="checkbox" ng-model="selectedObjs" value="{{clinicService.PackageId}}"
+                                                           ng-click="toggleAddtoCompareChecked($event, clinicService, $index+1, selectedObjs)" />
+                                                    <label for="checkboxAdd_{{$index+1}}">Add to compare</label>
+                                                </div>
+                                                <span>
+                                                <button ng-click="onViewDetailsClick(clinicService, $index+1)" class="btn btn-all-learn" type="button" title="Click to View Full Details">View Detail</button>
+                                                </span>  <span>
+                                                <button ng-click="onProceedSubscriptionClick(clinicService)" class="btn btn-all" type="button" title="Click to Proceed to Subscription">Subscribe</button>
+                                                </span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="tabs-2">
+                                <!--<div class="row">
+                                  <div class="col-sm-12 col-xs-12 col-md-12">
+                                    <div class="form-group pull-right pack-s">
+                                      <label>Showing pricing plan package for </label>
+                                      <select class="fsize s-small">
+                                        <option>All</option>
+                                        <option>Smart</option>
+                                        <option>Training</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>-->
+                                <div class="clearfix"></div>
+                                <div ng-show="!providerServiceList.length"  style="text-align: center" >
+                                    <text><i><span id="PharmacyUnavailableMsg"> No Data Found</span></i></text>
+                                </div>
+                                <div ng-repeat="providerService in providerServiceList track by $index">
+                                    <div class="col-sm-6 col-xs-6 col-md-6">
+                                        <div class="pack-wraper hvr-grow1">
+                                            <div class="pack-blue-box">
+                                                <p ng-bind-template="Pack {{$index+1}}"></p>
+                                                <div class="blue-box-text-1" ng-bind="providerService.PackageName"></div>
+                                                <div class="blue-box-text-2" ng-bind-template="{{providerService.TotalPackageServiceDisplayCount}} Services"></div>
+                                                <div class="blue-box-text-3" style="font-size: 26px;"> <span ng-bind-template="{{providerService.Currency}}.{{providerService.MonthlyPrice}}"></span>  <span style="font-size: 11px;">per month</span></div>
+                                                <div class="right-content"> <p>Subscription - Half Yearly & Annual </p></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="pack-white-box">
+                                                <p class="gry-small-text">Description: <span class="gry-text" ng-bind="providerService.Description"> </span></p>
+                                                <hr>
+                                                <p>Smart Solutions: <span class="clickable" ng-click="onServiceDetailsClick(providerService, 'TOP_LEVEL', providerService.TopLevelServiceCount)" ng-bind-template="{{providerService.TopLevelServiceCount}} Services"> </span></p>
+                                                <p>Smart Services for Patients: <span class="clickable" ng-click="onServiceDetailsClick(providerService, 'PATIENT', providerService.PatientServiceCount)" ng-bind-template="{{providerService.PatientServiceCount}} Services"></span></p>
+                                                <p>Smart Services for Providers: <span class="clickable" ng-click="onServiceDetailsClick(providerService, 'PROVIDER', providerService.ProviderServiceCount)" ng-bind-template="{{providerService.ProviderServiceCount}} Services"></span></p>
+                                                <p>Training Services : <span class="clickable" ng-click="onServiceDetailsClick(providerService, 'TRAINING', providerService.TrainingServiceCount)" ng-bind-template="{{providerService.TrainingServiceCount}} Services"></span></p>
+                                                <p>Notifications : <span class="clickable" ng-click="onServiceDetailsClick(providerService, 'NOTIFICATION', providerService.NotificationServiceCount)" ng-bind-template="{{providerService.NotificationServiceCount}} Services"></span></p>
+                                            </div>
+                                            <div class="pack-gry-box">
+                                                <div class="checkbox">
+                                                    <!--<input id="checkboxAdd" type="checkbox">-->
+                                                    <input id="checkbox_{{$index+1}}" type="checkbox" ng-model="selectedObjs" value="{{providerService.PackageId}}"
+                                                           ng-click="toggleAddtoCompareChecked($event, providerService, $index+1, selectedObjs)" />
+                                                    <label for="checkbox_{{$index+1}}">Add to compare</label>
+                                                </div>
+                                                <span>
+                                                <button ng-click="onViewDetailsClick(providerService, $index+1)" class="btn btn-all-learn" type="button" title="Click to View Full Details">View Detail</button>
+                                                </span>  <span>
+                                                <button ng-click="onProceedSubscriptionClick(providerService)" class="btn btn-all" type="button" title="Click to Proceed Subscription">Subscribe</button>
+                                                </span>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev"> <i class="nbs-flexisel-nav-left1"></i> </a> <a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next"> <i class="nbs-flexisel-nav-right1"></i> </a>--> </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+    <div id="dvLoading"></div>
+
+<!-- Service Details Start -->
+<div class="modal fade bs-example-modal-lg" id="modalServiceDetails" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: left">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                <span class="modal-head ml53">Service Details</span>
+            </div>
+            <div class="modal-body">
+                <!-- Put Content Here -->
+                <!--<table class="table table-condensed">
+                    <thead>
+                    <tr class="active">
+                        <th></th>
+                        <th>Package Name</th>
+                        <th>Service Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="PackageDetail in PackageDetailsData | orderBy:'ServiceSequence'">
+                        <td ng-bind="$index+1"></td>
+                        <td ng-bind="PackageDetail.PackageName"></td>
+                        <td ng-bind="PackageDetail.ServiceDisplayName"></td>
+                    </tr>
+                    </tbody>
+                </table>-->
+                <div class="row"  ng-repeat="PackageDetail in PackageDetailsData | orderBy:'ServiceSequence'">
+                    <div class="col-md-1">
+                        <div class="input-group" ng-bind="$index+1"></div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="input-group" ng-bind="PackageDetail.PackageName"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group" ng-bind="PackageDetail.ServiceDisplayName">
+                            <!--{{PackageDetail.ServiceName}}-->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service Details End -->
+
+<!-- Compare Product Start -->
+<div class="modal fade bs-example-modal-lg" id="modalCompareProduct" role="dialog" data-backdrop="static" data-keyboard="true">
+    <div style="max-width: 960px; width:100%; margin: 30px auto;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: left">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                <span class="modal-head" style="margin-left:300px !important;">Comparative View</span>
+            </div>
+            <div class="modal-body">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr class="active">
+                        <th>Afya Packs - Comparative view of your chosen packs</th>
+                        <th ng-repeat="uniquePackage in UniquePackages" align="center"><label>{{uniquePackage.PackageName}}<!--JOIN IN--></label></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h2>SMART SOLUTIONS SERVICES </h2></td>
+                            <td ng-repeat="uniquePackage in UniquePackages"></td>
+                        </tr>
+                        <tr ng-repeat="Package in PackageHTMLResult.SmartSolutionServices">
+                            <td ng-bind="Package.ServiceName"></td>
+                            <td align="center" ng-repeat="packageType in UniquePackages">
+                                <div class="input-group">
+                                    <div ng-switch on="Package['Package'+ $index]">
+                                        <div ng-switch-when="1">
+                                            <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                        </div>
+                                        <div ng-switch-when="0">
+                                            <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                        </div>
+                                        <div ng-switch-default>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h2>SMART SERVICES for PATIENTS</h2> </td>
+                            <td ng-repeat="uniquePackage in UniquePackages"></td>
+                        </tr>
+                        <tr ng-repeat="Package in PackageHTMLResult.SmartServicesPatients">
+                            <td ng-bind="Package.ServiceName"></td>
+                            <td align="center" ng-repeat="packageType in UniquePackages">
+                                <div class="input-group">
+                                    <div ng-switch on="Package['Package'+ $index]">
+                                        <div ng-switch-when="1">
+                                            <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                        </div>
+                                        <div ng-switch-when="0">
+                                            <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                        </div>
+                                        <div ng-switch-default>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h2>SMART SERVICES for OTHER CARE PROVIDERS</h2> </td>
+                            <td ng-repeat="uniquePackage in UniquePackages"></td>
+                        </tr>
+                        <tr ng-repeat="Package in PackageHTMLResult.SmartServicesOtherCareProviders">
+                            <td ng-bind="Package.ServiceName"></td>
+                            <td align="center" ng-repeat="packageType in UniquePackages">
+                                <div class="input-group">
+                                    <div ng-switch on="Package['Package'+ $index]">
+                                        <div ng-switch-when="1">
+                                            <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                        </div>
+                                        <div ng-switch-when="0">
+                                            <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                        </div>
+                                        <div ng-switch-default>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h2>NOTIFICATION SERVICES</h2> </td>
+                            <td ng-repeat="uniquePackage in UniquePackages"></td>
+                        </tr>
+                        <tr ng-repeat="Package in PackageHTMLResult.NotificationServices">
+                            <td ng-bind="Package.ServiceName"></td>
+                            <td align="center" ng-repeat="packageType in UniquePackages">
+                                <div class="input-group">
+                                    <div ng-switch on="Package['Package'+ $index]">
+                                        <div ng-switch-when="1">
+                                            <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                        </div>
+                                        <div ng-switch-when="0">
+                                            <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                        </div>
+                                        <div ng-switch-default>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h2> SELF LEARNING HOURS</h2></td>
+                            <td ng-repeat="uniquePackage in UniquePackages"></td>
+                        </tr>
+                        <tr ng-repeat="Package in PackageHTMLResult.SelfLearningHours">
+                            <td ng-bind="Package.ServiceName"></td>
+                            <td align="center" ng-repeat="packageType in UniquePackages">
+                                <div class="input-group">
+                                    <div ng-switch on="Package['Package'+ $index]">
+                                        <div ng-switch-when="1">
+                                            <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                        </div>
+                                        <div ng-switch-when="0">
+                                            <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                        </div>
+                                        <div ng-switch-default>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><h2>SUBSCRIPTION</h2> </td>
+                            <td ng-repeat="uniquePackage in UniquePackages"></td>
+                        </tr>
+                        <tr ng-repeat="Package in PackageHTMLResult.Subscription">
+                            <td ng-bind="Package.ServiceName"></td>
+                            <td align="center" ng-repeat="packageType in UniquePackages">
+                                <div class="input-group">
+                                    <div>
+                                        {{Package["Package"+ $index]}}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><i class="glyphicon glyphicon-warning-sign" aria-hidden="true"></i> Disclaimer</div>
+                            <div class="panel-body">
+                                <p>
+                                    The contents of this document including the attachments, are LEGALLY PRIVILEGED AND CONFIDENTIAL to the intended recipient at the email address to which it has been addressed. If you receive it in error, please notify the sender immediately by return email and then permanently delete it from your system. The unauthorized use, distribution, copying or alteration of this email, including the attachments, is strictly forbidden. Thank you. Please note that neither Aafya Arabia nor the sender accepts any responsibility for viruses and it is your responsibility to scan the email and attachments. (if any).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+                <!-- Here is the Old UI[With Div Implementation]-->
+                <!--<div class="row" >
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            Afya Packs - Comparative view of your chosen packs
+                        </div>
+                    </div>
+                    <div class="col-md-2" ng-repeat="uniquePackage in UniquePackages">
+                        <div class="input-group">
+                            <label>{{uniquePackage.PackageName}}&lt;!&ndash;JOIN IN&ndash;&gt;</label>
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="col-md-2">
+                        <div class="input-group">
+                            <label>SMART</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            <label>INTELLIGENT</label>
+                        </div>
+                    </div>&ndash;&gt;
+                </div>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <label>SMART SOLUTIONS SERVICES</label>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+
+                    </div>
+                </div>
+            </div>
+                <div class="row" ng-repeat="Package in PackageHTMLResult.SmartSolutionServices">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            {{Package.ServiceName}}&lt;!&ndash;Front Desk - Operations&ndash;&gt;
+                        </div>
+                    </div>
+                    <div class="col-md-2" align="center" ng-repeat="packageType in UniquePackages">
+                        <div class="input-group">
+                            <div ng-switch on="Package['Package'+ $index]">
+                                <div ng-switch-when="1">
+                                    <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                </div>
+                                <div ng-switch-when="0">
+                                    <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                </div>
+                                <div ng-switch-default>
+                                </div>
+                            </div>
+                            &lt;!&ndash;{{Package["Package"+ $index]}}&ndash;&gt;
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>&ndash;&gt;
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label>SMART SERVICES for PATIENTS</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="Package in PackageHTMLResult.SmartServicesPatients">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            {{Package.ServiceName}}&lt;!&ndash;Appointment Premium - Doctors&ndash;&gt;
+                        </div>
+                    </div>
+                    <div class="col-md-2"  align="center" ng-repeat="uniquePackage in UniquePackages">
+                        <div class="input-group">
+                            <div ng-switch on="Package['Package'+ $index]">
+                                <div ng-switch-when="1">
+                                    <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                </div>
+                                <div ng-switch-when="0">
+                                    <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                </div>
+                                <div ng-switch-default>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>&ndash;&gt;
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label>SMART SERVICES for OTHER CARE PROVIDERS</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="Package in PackageHTMLResult.SmartServicesOtherCareProviders">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            {{Package.ServiceName}}&lt;!&ndash;Refer to Clinics / Doctors&ndash;&gt;
+                        </div>
+                    </div>
+                    <div class="col-md-2"  align="center" ng-repeat="uniquePackage in UniquePackages">
+                        <div class="input-group">
+                            <div ng-switch on="Package['Package'+ $index]">
+                                <div ng-switch-when="1">
+                                    <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                </div>
+                                <div ng-switch-when="0">
+                                    <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                </div>
+                                <div ng-switch-default>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>&ndash;&gt;
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label>NOTIFICATION SERVICES</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="Package in PackageHTMLResult.NotificationServices">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            {{Package.ServiceName}}
+                        </div>
+                    </div>
+                    <div class="col-md-2"  align="center" ng-repeat="uniquePackage in UniquePackages">
+                        <div class="input-group">
+                            <div ng-switch on="Package['Package'+ $index]">
+                                <div ng-switch-when="1">
+                                    <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                </div>
+                                <div ng-switch-when="0">
+                                    <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                </div>
+                                <div ng-switch-default>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            True
+                        </div>
+                    </div>&ndash;&gt;
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label>SELF LEARNING HOURS</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="Package in PackageHTMLResult.SelfLearningHours">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            {{Package.ServiceName}}
+                        </div>
+                    </div>
+                    <div class="col-md-2"  align="center" ng-repeat="uniquePackage in UniquePackages">
+                        <div class="input-group">
+                            <div ng-switch on="Package['Package'+ $index]">
+                                <div ng-switch-when="1">
+                                    <img src='/afya-portal/static/images/right-blue-icon.png' alt="True" title="Available" />
+                                </div>
+                                <div ng-switch-when="0">
+                                    <img src='/afya-portal/static/images/cross-red-icon.png' width="19" height="18" alt="False" title="Unavailable" />
+                                </div>
+                                <div ng-switch-default>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    &lt;!&ndash;<div class="col-md-2">
+                        <div class="input-group">
+                            4
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+                            6
+                        </div>
+                    </div>&ndash;&gt;
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label>SUBSCRIPTION</label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-repeat="Package in PackageHTMLResult.Subscription">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            {{Package.ServiceName}}
+                        </div>
+                    </div>
+                    <div class="col-md-2"  align="center" ng-repeat="uniquePackage in UniquePackages">
+                        <div class="input-group">
+                            {{Package["Package"+ $index]}}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                &lt;!&ndash;Disclaimer - Sample&ndash;&gt;
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">&lt;!&ndash;<i class="glyphicon glyphicon-warning-sign" aria-hidden="true"></i>&ndash;&gt; Disclaimer</div>
+                            <div class="panel-body">
+                                <p>
+                                    The contents of this document including the attachments, are LEGALLY PRIVILEGED AND CONFIDENTIAL to the intended recipient at the email address to which it has been addressed. If you receive it in error, please notify the sender immediately by return email and then permanently delete it from your system. The unauthorized use, distribution, copying or alteration of this email, including the attachments, is strictly forbidden. Thank you. Please note that neither Aafya Arabia nor the sender accepts any responsibility for viruses and it is your responsibility to scan the email and attachments. (if any).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Compare Product End -->
+
+<div id="modalViewFullDetails" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="true">
+    <div style="max-width: 960px; width:100%; margin: 30px auto;">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: left">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                <span class="modal-head" style="margin-left:300px !important;" ng-bind-template="{{serviceFullDetails.PackageName}} Details"></span>
+            </div>
+            <!--<div class="modal-header" style="text-align: center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                <h4 class="modal-head mrm30">{{serviceFullDetails.PackageName}} - Details</h4>
+            </div>-->
+            <div class="modal-body">
+                <div>
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <div class="pack-wraper hvr-grow1">
+                            <div class="pack-blue-box">
+                                <p>Pack <span ng-bind="serviceFullDetails.PackageId"></span> </p>
+                                <div class="blue-box-text-1 col-md-4" ng-bind="serviceFullDetails.PackageName"></div>
+                                <div class="blue-box-text-2 col-md-3" ng-bind-template="{{serviceFullDetails.TotalPackageServiceDisplayCount}} Services"> </div>
+                                <div class="blue-box-text-3 col-md-4"> <span ng-bind-template="{{serviceFullDetails.Currency}}.{{serviceFullDetails.MonthlyPrice}}"></span> <span style="font-size: 14px;">per month</span></div>
+                                <div class="right-content"> <p>Subscription - Half Yearly & Annual</p></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="pack-white-box">
+                                <p class="gry-small-text">Description: <span class="gry-text" ng-bind="serviceFullDetails.Description"> </span></p>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Smart Solutions (<span ng-bind-template="{{serviceFullDetails.TopLevelServiceCount}} Services"> </span>)</div>
+                                            <div class="panel-body">
+                                                <div ng-show="!PackageFullDetailsResult.SmartSolutionServiceItems.length"  style="text-align: center" >
+                                                    <text><i>No Data Found</i></text>
+                                                </div>
+
+                                                <div class="panel-group" ng-repeat="service in PackageFullDetailsResult.SmartSolutionServiceItems | unique:'ServiceName'">
+                                                        <!--<div class="panel-heading">
+                                                            <span class="panel-title">Smart Services for Patients <span class="clickable panel-collapsed"><i class="fa fa-plus"></i></span></span>
+                                                        </div>
+                                                        <div class="panel-body1 collapse">
+                                                        </div>-->
+                                                    <span ng-init="serviceSerial = $index"></span>
+                                                    <!--<p ng-bind="serviceSerial"></p>-->
+                                                    <h4 style="margin-top: 8px;" ng-bind="service.ServiceName"></h4>
+                                                    <hr>
+                                                    <div ng-repeat="item in PackageFullDetailsResult.SmartSolutionServiceItems | myFilter:service.ServiceName"  package-item-repeat-directive>
+                                                        <!--<div class="panel-heading">
+                                                            <span class="panel-title"><span ng-bind="item.ServiceItemName"></span> <span class="clickable panel-collapsed"><i class="fa fa-plus"></i></span></span>
+                                                        </div>
+                                                        <div class="panel-body1 collapse">
+                                                            <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                        </div>-->
+                                                        <div ng-if="$index == 0 && serviceSerial == 0">
+                                                            <div class="panel panel-default">
+                                                                <div class="panel-heading" role="tab">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#smartSolutionsItem{{item.ServiceId}}_{{$index}}" aria-expanded="false" aria-controls="collapseTwo">
+                                                                            <span ng-bind="item.ServiceItemName"></span>
+                                                                        </a>
+                                                                </div>
+                                                                <div id="smartSolutionsItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse in" role="tabpanel">
+                                                                    <div class="panel-body" ng-bind-html="item.ServiceItemHighlight">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--<a data-toggle="collapse" data-parent="#accordion" href="#smartSolutionsItem{{item.ServiceId}}_{{$index}}">
+                                                                <span ng-bind="item.ServiceItemName"></span>
+                                                            </a>
+                                                            <div id="smartSolutionsItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse in">
+                                                                <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                            </div>-->
+                                                        </div>
+                                                        <div ng-if="$index > 0">
+                                                            <div class="panel panel-default" style="margin-top: 5px;">
+                                                                <div class="panel-heading" role="tab">
+                                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#smartSolutionsItem{{item.ServiceId}}_{{$index}}" aria-expanded="false" aria-controls="collapseTwo">
+                                                                            <span ng-bind="item.ServiceItemName"></span>
+                                                                        </a>
+                                                                </div>
+                                                                <div id="smartSolutionsItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse" role="tabpanel">
+                                                                    <div class="panel-body" ng-bind-html="item.ServiceItemHighlight">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--<a data-toggle="collapse" data-parent="#accordion" href="#smartSolutionsItem{{item.ServiceId}}_{{$index}}" title="click to view items">
+                                                                <span ng-bind="item.ServiceItemName"></span> &lt;!&ndash;<i class="fa fa-plus"></i>&ndash;&gt;  &lt;!&ndash;Front Desk Operations Dashboard&ndash;&gt;
+                                                            </a>
+                                                            <div id="smartSolutionsItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse">
+                                                                <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                            </div>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Smart Services for Patients (<span ng-bind-template="{{serviceFullDetails.PatientServiceCount}} Services"> </span>)</div>
+                                            <div class="panel-body">
+                                                <div ng-show="!PackageFullDetailsResult.SmartServicesPatientItems.length"  style="text-align: center" >
+                                                    <text><i>No Data Found</i></text>
+                                                </div>
+
+
+                                                <div class="panel-group" ng-repeat="service in PackageFullDetailsResult.SmartServicesPatientItems | unique:'ServiceName'" package-item-repeat-directive> <!-- add ng-repeat here -->
+                                                    <!--<div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <span class="panel-title"> <span ng-bind="service.ServiceName"></span> <span class="clickable panel-collapsed"><i class="fa fa-plus"></i></span></span>
+                                                        </div>
+                                                        <div class="panel-body1 collapse">
+                                                            <div ng-repeat="item in PackageFullDetailsResult.SmartServicesPatientItems | myFilter:service.ServiceName">
+                                                                <a data-toggle="collapse" data-parent="#accordion" href="#smartServicesForPatientItem{{item.ServiceId}}_{{$index}}">
+                                                                    <span ng-bind="item.ServiceItemName"></span>  &lt;!&ndash;Front Desk Operations Dashboard&ndash;&gt;
+                                                                </a>
+                                                                <div id="smartServicesForPatientItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse">
+                                                                    &lt;!&ndash;{{item.ServiceItemHighlight}}&ndash;&gt;
+                                                                    <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>-->
+                                                    <label style="margin-top: 5px;" ng-bind="service.ServiceName"></label>
+                                                    <hr>
+                                                    <div ng-repeat="item in PackageFullDetailsResult.SmartServicesPatientItems | myFilter:service.ServiceName">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#smartServicesForPatientItem{{item.ServiceId}}_{{$index}}" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <span ng-bind="item.ServiceItemName"></span>
+                                                                </a>
+                                                            </div>
+                                                            <div id="#smartServicesForPatientItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse" role="tabpanel">
+                                                                <div class="panel-body" ng-bind-html="item.ServiceItemHighlight">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--<a data-toggle="collapse" data-parent="#accordion" href="#smartServicesForPatientItem{{item.ServiceId}}_{{$index}}">
+                                                            <span ng-bind="item.ServiceItemName"></span>  &lt;!&ndash;Front Desk Operations Dashboard&ndash;&gt;
+                                                        </a>
+                                                        <div id="smartServicesForPatientItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse">
+                                                            <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                        </div>-->
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Smart Services for Providers (<span ng-bind-template="{{serviceFullDetails.ProviderServiceCount}} Services"> </span>)</div>
+                                            <div class="panel-body">
+                                                <div ng-show="!PackageFullDetailsResult.SmartServicesOtherCareProviderItems.length"  style="text-align: center" >
+                                                    <text><i>No Data Found</i></text>
+                                                </div>
+
+                                                <div class="panel-group" ng-repeat="service in PackageFullDetailsResult.SmartServicesOtherCareProviderItems | unique:'ServiceName'"> <!-- add ng-repeat here -->
+                                                    <label style="margin-top: 5px;" ng-bind="service.ServiceName"></label>
+                                                    <hr>
+                                                    <div ng-repeat="item in PackageFullDetailsResult.SmartServicesOtherCareProviderItems | myFilter:service.ServiceName">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#smartServicesForProviderItem{{item.ServiceId}}_{{$index}}" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <span ng-bind="item.ServiceItemName"></span>
+                                                                </a>
+                                                            </div>
+                                                            <div id="#smartServicesForProviderItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse" role="tabpanel">
+                                                                <div class="panel-body" ng-bind-html="item.ServiceItemHighlight">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--<a data-toggle="collapse" data-parent="#accordion" href="#smartServicesForProviderItem{{item.ServiceId}}_{{$index}}">
+                                                            <span ng-bind="item.ServiceItemName"></span> &lt;!&ndash;Front Desk Operations Dashboard&ndash;&gt;
+                                                        </a>
+                                                        <div id="smartServicesForProviderItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse">
+                                                            <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                        </div>-->
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Training Services (<span ng-bind-template="{{serviceFullDetails.TrainingServiceCount}} Services"> </span>)</div>
+                                            <div class="panel-body">
+                                                <div ng-show="!PackageFullDetailsResult.SelfLearningHourItems.length"  style="text-align: center" >
+                                                    <text><i>No Data Found</i></text>
+                                                </div>
+
+                                                <div class="panel-group" ng-repeat="service in PackageFullDetailsResult.SelfLearningHourItems | unique:'ServiceName'"> <!-- add ng-repeat here -->
+                                                    <label style="margin-top: 5px;" ng-bind="service.ServiceName"></label>
+                                                    <hr>
+                                                    <div ng-repeat="item in PackageFullDetailsResult.SelfLearningHourItems | myFilter:service.ServiceName">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#trainingSolutionItem{{item.ServiceId}}_{{$index}}" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <span ng-bind="item.ServiceItemName"></span>
+                                                                </a>
+                                                            </div>
+                                                            <div id="#trainingSolutionItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse" role="tabpanel">
+                                                                <div class="panel-body" ng-bind-html="item.ServiceItemHighlight">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--<a data-toggle="collapse" data-parent="#accordion" href="#trainingSolutionItem{{item.ServiceId}}_{{$index}}">
+                                                            <span ng-bind="item.ServiceItemName"></span> &lt;!&ndash;Front Desk Operations Dashboard&ndash;&gt;
+                                                        </a>
+                                                        <div id="trainingSolutionItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse">
+                                                            <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                        </div>-->
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Notifications (<span ng-bind-template="{{serviceFullDetails.NotificationServiceCount}} Services"> </span>)</div>
+                                            <div class="panel-body">
+                                                <div ng-show="!PackageFullDetailsResult.NotificationServiceItems.length"  style="text-align: center" >
+                                                    <text><i>No Data Found</i></text>
+                                                </div>
+
+                                                <div class="panel-group" ng-repeat="service in PackageFullDetailsResult.NotificationServiceItems | unique:'ServiceName'"> <!-- add ng-repeat here -->
+                                                    <label style="margin-top: 5px;" ng-bind="service.ServiceName"></label>
+                                                    <hr>
+                                                    <div ng-repeat="item in PackageFullDetailsResult.NotificationServiceItems | myFilter:service.ServiceName">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading" role="tab">
+                                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#notificationItem{{item.ServiceId}}_{{$index}}" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    <span ng-bind="item.ServiceItemName"></span>
+                                                                </a>
+                                                            </div>
+                                                            <div id="#notificationItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse" role="tabpanel">
+                                                                <div class="panel-body" ng-bind-html="item.ServiceItemHighlight">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--<a data-toggle="collapse" data-parent="#accordion" href="#notificationItem{{item.ServiceId}}_{{$index}}">
+                                                            <span ng-bind="item.ServiceItemName"></span> &lt;!&ndash;Front Desk Operations Dashboard&ndash;&gt;
+                                                        </a>
+                                                        <div id="notificationItem{{item.ServiceId}}_{{$index}}" class="panel-collapse collapse">
+                                                            <div ng-bind-html="item.ServiceItemHighlight"></div>
+                                                        </div>-->
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="pack-gry-box">
+                                &lt;!&ndash;<div class="checkbox">
+                                    <input id="checkboxFullDetailsAdd_{{$index}}" type="checkbox" ng-model="selectedObjs" value="{{serviceFullDetails.PackageId}}"
+                                           ng-click="toggleAddtoCompareChecked($event, serviceFullDetails, $index+1, selectedObjs)" />
+                                    <label for="checkboxFullDetailsAdd_{{$index}}">Add to compare</label>
+                                </div>
+                                <div class="col-md-12" align="right">
+                                    <button ng-click="onProceedSubscriptionClick(serviceFullDetails)" class="btn btn-all" type="button" title="Click to Proceed to Subscription">Subscribe</button>
+                                </div>&ndash;&gt;
+
+                                <div class="clearfix"></div>
+                            </div>-->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- Login Modal Starts-->
+<div class="modal fade" id="myLogin" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="container">
+        <div class="row">
+            <div class="modal-dialog">
+                <div class="modal-content modal-member mw370">
+                    <div class="modal-header modal-header-member text-left xs-text-left">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="member_login_close_spring_ajax"><span aria-hidden="true">&times;</span></button>
+                        <img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/>
+                        <span class="modal-head mrm30" style="margin-left:50px">Member Login</span>
+                    </div>
+                    <div class="modal-body pd30">
+                        <div style="display:none" class="login-error-box text-center">
+                            <!--succe-box-->
+                            <img src="/afya-portal/static/images/error-icon.png" alt="error-img"/> &nbsp;<span>Please fix the errors in the form.</span>
+                        </div>
+                        <form id="loginform_appointment" name="loginform_appointment">
+                            <div class="form-group mb30">
+                                <div class="input-icon">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" class="form-control fsize" id="careProviderUsername" name="careProviderUsername" placeholder="Username"/>
+                                </div>
+                            </div>
+                            <div class="form-group mb30">
+                                <div class="input-icon">
+                                    <i class="fa fa-key"></i>
+                                    <input type="password" class="form-control fsize" id="careProviderPassword" name="careProviderPassword" placeholder="Password" oncopy="return false;" onpaste="return false;" oncut="return false;"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="mb20">
+                                    <button type="submit" class="btn btn-all mrm30" id="careProviderLog_in_spring_ajax" name="log_in">Log In &nbsp;
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-all-learn" name="sign_up_link" id="careProvidersign_up_link_ajax" value="click here"
+                                            onclick="onJoinInClicked('myLogin')">
+                                        Join in &nbsp;
+                                        <i class="fa fa-chevron-right"></i>
+                                    </button>
+                                    <hr>
+                                    <a href="#" data-toggle="modal" data-target="#member-forget-psd" class="link-log-in" onClick="$('#member_login_close').trigger('click')">Forgot Password</a>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Login Modal Ends-->
+
+    <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel3" id="mySmallModalComingSoonPharmacy">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-label="Close" data-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 id="mySmallModalLabel3" class="modal-title"><img src="/afya-portal/static/images/popup-logo2.png" alt="logo" class=""/></h4>
+                </div>
+
+                <div class="modal-body  text-center pd30" > <h2 style="color:rgb(67,182,230)">Coming soon for Pharmacy</h2> </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+$(function () {
+$("#tabs").tabs();
+$("#tabs2").tabs();
+});
+</script>
+    <!--<script src="/afya-portal/static/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/afya-portal/static/js/main.js" type="text/javascript"></script>
+        <script src="/afya-portal/static/js/wow.min.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+$(window).load(function () {
+$("#flexiselDemo2").flexisel({
+enableResponsiveBreakpoints: true,
+responsiveBreakpoints: {
+portrait: {
+changePoint: 320,
+visibleItems: 1
+},
+portrait: {
+changePoint: 480,
+visibleItems: 2
+},
+landscape: {
+changePoint: 640,
+visibleItems: 3
+},
+tablet: {
+changePoint: 768,
+visibleItems: 4
+}
+}
+});
+});
+</script>
+<!--<style>
+    .panel-group .panel-heading a:after {
+      content: '-';
+      position: absolute;
+      right: 20px;
+      top:5px;
+    }
+    .panel-group .panel-heading a.collapsed:after {
+      content: '+';
+    }
+</style>-->
+<!--<script src="/afya-portal/static/js/angular.min.js"></script>-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-sanitize.js"></script>-->
+<!--<script src="/afya-portal/static/js/angular-messages.min.js"></script>
+<script src="/afya-portal/static/js/CareProviderServices.js"></script>
+<script src="/afya-portal/static/js/jquery_cookie.js" type="text/javascript"></script>-->
+    <script>
+        $('#providerServiceContentDiv').ready(function(){
+            $('#dvLoading').fadeOut(2000);
+        });
+    </script>
+</div>

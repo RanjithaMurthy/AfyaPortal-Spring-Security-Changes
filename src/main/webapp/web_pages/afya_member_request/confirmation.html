@@ -1,0 +1,95 @@
+<script>
+    ga('send', 'pageview', { 'page': '/confirmation', 'title': 'confirmation'});
+</script>
+
+<div ng-controller="ConfirmationController">
+
+    <div class="clearfix">
+    </div>
+    <div class="clearfix">
+    </div>
+    <section id="error" class="container ">
+        <h1 class="text-center">
+            <i class="fa fa-check-circle fa-1x"></i>{{successMsg}}<!--Your Appointment is booked!--></h1>
+        <div style="width: 600px; margin: auto;">
+            <div class="col-sm-12 col-xs-12 col-md-12">
+                <div class="pack-wraper hvr-grow1">
+                    <div class="pack-whitebg-box">
+                        <div align="left">
+                            <strong><span ng-bind="doctor.speciality_code"></span></strong>
+                        </div>
+                        <div class="clearfix">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="appointments">
+                            <div class="photoColumn left">
+                                <img src="/afya-portal/static/images/doc.png"></div>
+                            <div class=" doctor-name-title-bar2">
+                                <label ng-show="doctor.salutation != null">
+                                    <span ng-bind="doctor.salutation"></span>.</label><span ng-bind="doctor.firstName"></span> <span ng-bind="doctor.lastName"></span> <span class="doc-title">
+                                        <span ng-bind="doctor.qualification"></span></span><!--Dr. Diana Tadros<span class="doc-title">DDS</span>--></div>
+                            <div class="doctor-add">
+                                <span ng-bind="doctor.address"></span><!--191 Third Avenue--></div>
+                        </div>
+                    </div>
+                    <div style="padding: 10px;">
+                        <table width="100%">
+                            <tr>
+                                <td width="15%">
+                                    When :
+                                </td>
+                                <td width="85%">
+                                    <span ng-bind="bookedOn"></span><!--Mon Aug 03 2015 2:30PM-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Patient :
+                                </td>
+                                <td>
+                                    <span ng-bind="patientName"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    Reason :
+                                </td>
+                                <td>
+                                    <span ng-bind="reason"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p>
+                                        If you have any questions, Please contact the office of
+                                        <br>
+                                        <label ng-show="doctor.salutation != null">
+                                            <span ng-bind="doctor.salutation"></span>.</label><span ng-bind="doctor.firstName"></span> <span ng-bind="doctor.lastName"></span> </p>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="left" >
+                                    <i> <span id="spnNotes"></span> </i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="right" >
+                                    <button ng-click="onViewUpcomingServicesClick()" id="btnUpcomingServices" class="btn btn-all" type="button">View Upcoming Services</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="clearfix">
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="clearfix">
+    </div>
+
+
+</div>

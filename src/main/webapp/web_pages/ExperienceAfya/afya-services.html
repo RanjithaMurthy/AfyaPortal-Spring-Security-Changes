@@ -1,0 +1,311 @@
+<script>
+    ga('send', 'pageview', { 'page': '/ExperienceAfya/afya-services', 'title': 'Afya-Services'});
+</script>
+<script>
+    // showing coming soon template for Provider[Type Pharmacy]
+    $("#btnPricingPlan").click(function() {
+        // get provider member type
+        var data = getProviderByUsername();
+        if(data.providerType == 'Pharmacy')
+            $('#mySmallModalComingSoonPharmacy').modal('show');// show coming soon modal
+        else if(data.providerType == 'Clinic'){
+            window.location.href = '#AfyaServices/pricing-plan';
+        }else if(!data.username){           // if no user is logged in
+            $("#member_login").modal('show');
+        }
+    });
+</script>
+<div lang="en">
+
+        <div class="clearfix"></div>
+        <section id="services-afya-slider">
+            <div class="container">
+                <div class="row">
+                    <div  class="col-sm-12 col-xs-12 col-md-12 text-left  ">
+                        <h2>Afya Arabia - </h2>
+                        <h1>Ecosystem Care Services on demand   </h1>
+                        
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="services-afya-strip ">
+                <div class="container">
+                    <div class="col-sm-12 col-xs-12 col-md-12 text-left"> 
+                        <a ui-sref="index">Home</a>
+                        <span><a ui-sref="ExperienceAfya">Experience Afya</a></span>
+                        <span><i class="fa fa-angle-right"></i></span> <span>Afya Services</span> 
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="clearfix"></div>
+        <section id="afya-care-services">
+            <div class="center container">
+                <h1 class="no-margin">Afya Arabia Ecosystem Services</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-12 lg-pl140">
+                        <div class="row amb-40 ">
+                            <div class="col-md-3 col-sm-3 col-xs-4"> <img src="/afya-portal/static/images/service-iocn15.svg" alt="service-iocn9"/> </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <h4>Patient</h4>
+                            </div>
+                        </div>
+
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn2.svg" alt="service-iocn2"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Appointment Request </p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn3.svg" alt="service-iocn3"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Premium Appointment </p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn4.svg" alt="service-iocn4"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Tele Consultation</p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn5.svg" alt="service-iocn1"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Home Visit</p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn1.svg" alt="service-iocn1"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Home Pharmacy</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-all alm-30" ui-sref="AfyaServices/afya-patient-service">View all Services &nbsp;<i class="fa fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 text-left lg-pl140">
+                        <div class="row amb-40 ">
+                            <div class="col-md-3 col-sm-3 col-xs-3"> <img src="/afya-portal/static/images/service-iocn16.svg" alt="service-iocn10"/> </div>
+                            <div class="col-md-9 col-sm-8 col-xs-8">
+                                <h4 class="no-margin">Care Provider</h4>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn5.svg" alt="service-iocn5"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Smart Solutions</p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn6.svg" alt="service-iocn6"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p>Smart Services</p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn7.svg" alt="service-iocn7"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8">
+                                <p> Notification Services</p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1"> <img src="/afya-portal/static/images/service-iocn8.svg" alt="service-iocn8"/> </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8 ">
+                                <p>Training Services</p>
+                            </div>
+                        </div>
+                        <div class="row amb-40 ">
+                            <div class="col-md-1 col-sm-1 col-xs-1">  </div>
+                            <div class="col-md-11 col-sm-8 col-xs-8 ">
+                                <p><br></p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-all alm-30 mr30" ui-sref="AfyaServices/care-provider-services">View all Services &nbsp; <i class="fa fa-chevron-right"></i></button>
+                        <!--<button data-target="" class="btn btn-all-learn xs-mb15" type="button" ui-sref="AfyaServices/pricing-plan" >Pricing Plans &nbsp;<i class="fa fa-chevron-right"></i></button>-->
+                        <button data-target="" id="btnPricingPlan" class="btn btn-all-learn xs-mb15" type="button" >Pricing Plans &nbsp;<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <section id="afya-services-join">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span>To Avail The Afya's Services &nbsp; &nbsp;</span>
+                        <button type="button" class="btn btn-all"  ui-sref="JoinIn" >Join In &nbsp;<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>  
+        </section>
+        <div class="clearfix"></div>
+        <section id="experience-afya-about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 col-md-12">
+                        <h2>Afya offers personalized healthcare services that empower patients, providers and payers to make informed decisions.</h2>
+                        <p>
+
+                            Afya offers a diverse range of services to the three pillars of healthcare - patients, care-providers and care-payers. Afya's service model is designed to meet the specific requirements of all stakeholders. The scope of Afya's services also extends to provide a consistent connectivity amongst three member pillars of healthcare. Afya's services to individual stakeholders include the following aspects:
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+    <section id="afya-apps">
+        <div  class="center">
+            <h1 class="no-margin">Download Afya Mobile App</h1>
+        </div>
+        <div class="container">
+            <div class="row mb40">
+                <!--<div  class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2 xs-mb15 ">-->
+                <!--<img src="/afya-portal/static/images/mobile_device.png"class="img-responsive" style="align:center">-->
+                <!--</div>-->
+                <div  class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2 xs-mb15 ">
+                    <div class="hvr-grow">
+
+                        <img src="/afya-portal/static/images/mobile_device.png" alt="apps-store-mobile1" class="img-responsive sm-mr-auto">
+                        <div class="apps-class-wrap">
+                            <h2>Patient Apps </h2>
+                            <p>Afya's Patient Apps are designed with unique features and functionality that mimic the user convenience of the online desktop/laptop portal. These mobile apps are user friendly. You can use these apps to access your dashboard and avail all the services including booking doctor appointments or requesting for medicine refill within seconds. You can hence enjoy the benefits of smart and easy quality care using Afya app.</p>
+                            <p><br>
+                                <!--                                    Download this app from-->
+                            </p>
+                            <div class="text-center">
+                                <a href="https://www.apple.com/itunes/charts/free-apps/" target="_blank"><img src="/afya-portal/static/images/apple-btn.png" alt="apple-btn"></a>
+                                <a href="https://play.google.com/store/search?q=afyaarabia" target="_blank" class="xs-float-right"><img src="/afya-portal/static/images/android-btn.png" alt="android-btn"></a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--<div  class="col-md-4 col-sm-4 col-xs-12  xs-mb15 ">-->
+                <!--<div class="hvr-grow">-->
+
+                <!--&lt;!&ndash;<img src="/afya-portal/static/images/apps-store-mobile.jpg" alt="apps-store-mobile1" class="img-responsive sm-mr-auto">&ndash;&gt;-->
+                <!--<div class="apps-class-wrap">-->
+                <!--<h2>Care Provider App</h2>-->
+                <!--<p class="text-center h233 pt100">Launching Shortly for Providers</p>-->
+
+
+                <!--<a href="#"><img src="/afya-portal/static/images/apple-btn.png" alt="apple-btn"></a>-->
+                <!--<a href="#" class="xs-float-right"><img src="/afya-portal/static/images/android-btn.png" alt="android-btn"></a>-->
+                <!--<div class="clearfix"></div>  -->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--</div>-->
+
+
+
+
+            </div>
+            <div style="font-weight:bold; " class="text-center"> <h2 style="color:rgb(67,182,230)">Coming Soon for Care Providers </h2> </div>
+        </div>
+    </section>
+        <div class="clearfix"></div>
+        <section id="adapt-method">
+            <div  class="center container">
+                <h1 class="no-margin">Ecosystem Adaptation Methodology</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div  class="col-md-4 col-sm-4 col-xs-12 xs-mb15 "> 
+
+                        <div class="row amb-40  ">
+                            <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-1"> <img src="/afya-portal/static/images/approach-training.svg" alt="approach-training"> </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <h4>Approach to Training</h4>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div  class="col-md-4 col-sm-4 col-xs-12   xs-mb15 "> 
+                        <div class="row amb-40  ">
+                            <div class="col-md-3 col-sm-3 col-xs-3 col-md-offset-1"> <img src="/afya-portal/static/images/assigment.svg" alt="assigment"> </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <h4>Assessment</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="col-md-4 col-sm-4 col-xs-12   xs-mb15 "> 
+                        <div class="row amb-40  ">
+                            <div class="col-md-3 col-sm-3 col-xs-3"> <img src="/afya-portal/static/images/certificate.svg" alt="certificate"> </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <h4>Certification</h4>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                    <div class="btn-center">                        
+                        <button ui-sref="AfyaServices/ecosystem-adaptation" class="btn btn-all-learn xs-mb15" type="button">Learn More... &nbsp;<i class="fa fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <section id="regi-member">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12  bg-member1">
+                        <a ui-sref="AfyaServices/scalability-of-afya">
+                            <div class="row ">
+                                <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-1">
+                                    <img src="/afya-portal/static/images/scalibility.svg" alt="scalibility">
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <h4>Scalability of Afya</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12  bg-member">
+                        <a ui-sref="AfyaServices/member-support">
+                            <div class="row ">
+                                <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-1">
+                                    <img src="/afya-portal/static/images/member-support.svg" alt="member-support">
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <h4>Member Support</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>       
+                    <div class="col-md-4 col-sm-4 col-xs-12  bg-member1">
+                        <a ui-sref="AfyaServices/security-confidentiality">
+                            <div class="row ">
+                                <div class="col-md-3 col-sm-4 col-xs-4 col-md-offset-1">
+                                    <img src="/afya-portal/static/images/security12.svg" alt="security">
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                    <h4>Security and Confidentiality</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="clearfix"></div>
+
+
+
+
+
+
+
+</div>

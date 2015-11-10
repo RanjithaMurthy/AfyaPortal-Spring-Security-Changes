@@ -1,0 +1,351 @@
+<script>
+    ga('send', 'pageview', { 'page': '/PatientDashboard/Patient-service-list', 'title': 'Patient-Service-List'});
+</script>
+
+<div ng-controller="ServiceListController">
+
+    <script src="/afya-portal/static/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="/afya-portal/static/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="/afya-portal/static/css/afya-provider-services.css" rel="stylesheet" type="text/css">
+
+    <script>
+        $(document).ready(function () {
+            //rotation speed and timer
+            var speed =5000;
+
+            var run = setInterval(rotate, speed);
+            var slides = $('.slide');
+            var container = $('#slides ul');
+            var elm = container.find(':first-child').prop("tagName");
+            var item_width = container.width();
+            var previous = 'prev'; //id of previous button
+            var next = 'next'; //id of next button
+            slides.width(item_width); //set the slides to the correct pixel width
+            container.parent().width(item_width);
+            container.width(slides.length * item_width); //set the slides container to the correct total width
+            container.find(elm + ':first').before(container.find(elm + ':last'));
+            resetSlides();
+
+
+            //if user clicked on prev button
+
+            $('#buttons a').click(function (e) {
+                //slide the item
+
+                if (container.is(':animated')) {
+                    return false;
+                }
+                if (e.target.id == previous) {
+                    container.stop().animate({
+                        'left': 0
+                    }, 1500, function () {
+                        container.find(elm + ':first').before(container.find(elm + ':last'));
+                        resetSlides();
+                    });
+                }
+
+                if (e.target.id == next) {
+                    container.stop().animate({
+                        'left': item_width * -2
+                    }, 1500, function () {
+                        container.find(elm + ':last').after(container.find(elm + ':first'));
+                        resetSlides();
+                    });
+                }
+
+                //cancel the link behavior
+                return false;
+
+            });
+
+            //if mouse hover, pause the auto rotation, otherwise rotate it
+            container.parent().mouseenter(function () {
+                clearInterval(run);
+            }).mouseleave(function () {
+                run = setInterval(rotate, speed);
+            });
+
+
+            function resetSlides() {
+                //and adjust the container so current is in the frame
+                container.css({
+                    'left': -1 * item_width
+                });
+            }
+
+        });
+        //a simple function to click next link
+        //a timer will call this function, and the rotation will begin
+
+        function rotate() {
+            $('#next').click();
+        }
+    </script>
+
+    <!--<script type="text/javascript">
+        $(document).ready(function(){
+            $(".popover-top").popover({
+                placement : 'top'
+            });
+            $(".popover-right").popover({
+                placement : 'right'
+            });
+            $(".popover-bottom").popover({
+                placement : 'bottom'
+            });
+            $(".popover-left").popover({
+                placement : 'left'
+            });
+        });
+    </script>-->
+    <!--/header-->
+    <div id="Afya-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-6 col-xs-12 mt501" id="nameDiv">
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 text-right mt501 ">
+                    <!--<button data-target="" class="btn btn-grey xs-mb15 mt501" onClick="window.location.href = 'security.html'" type="button"><span class="label label-primary pull-left">12</span>  <i class="fa fa-envelope-o"></i> Messages</button>-->
+                    <!--<button data-target="" class="btn btn-grey xs-mb15 mt501" onClick="window.location.href = 'security.html'" type="button"> <i class="fa fa-cog fa-3"></i> Settings &nbsp;</button>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--menu-->
+    <div>
+        <div class="container">
+            <div class="row" id="Afya-liteblue" >
+                <div class="col-sm-12 col-xs-12 col-md-12 text-left">
+                    <div class="menu">
+                        <ul>
+                            <li><a href="#PatientDashboard/Patient-upcoming-smart-services">Upcoming Services</a></li>
+                            <li> <a href="#PatientDashboard">Account Summary</a></li>
+                            <li class="active" ><a href="#PatientDashboard/Patient-service-list">Services &amp History</a></li>
+                            <li><a href="#PatientDashboard/Patient-consent">Consent &amp; Notifications</a></li>
+                            <li><a href="#PatientDashboard/Patient_account_policies">Afya Policies</a></li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row"  >
+                <div class="underlinemenu">
+                    <ul>
+                        <li><a href="#PatientDashboard/Patient-service-list" class="selected">Service List</a></li>
+                        <li><a href="#PatientDashboard/Patient-visit-records" >Visit History</a></li>
+                        <li><a href="#PatientDashboard/Patient-smart-service" >Smart Service History</a></li>
+                        <li><a href="#PatientDashboard/Patient-previous-record" > Previous Records</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--menu end-->
+    <!--menu end-->
+    <section>
+        <div class="container">
+            <div class="row mb30">
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <div class="pack-wraper hvr-grow1">
+                        <div class="pack-whitebg-box">
+                            <table width="100%" border="0">
+                                <tbody>
+                                <tr>
+                                    <td width="33%"><strong>&nbsp;</strong></td>
+                                    <td width="11%">&nbsp;</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div >
+                            <table width="100%" border="0" class="table table-bordered">
+                                <tr class="sub333-tr">
+                                    <th style="text-align: center;">Sr.No.</th>
+                                    <th style="text-align: center;">Service Name</th>
+                                    <th style="text-align: center;">Service Availed</th>
+                                    <th style="text-align: center;">Actions</th>
+                                </tr>
+                                <tr ng-show="!serviceList.length"  style="text-align: center">
+                                    <td colspan="4"><text><i>No Data Found</i></text></td>
+                                </tr>
+                                <tbody ng-repeat="service in serviceList">
+                                <tr>
+                                    <td valign="middle" style="text-align: center;" ng-bind="$index + 1"></td>
+                                    <td><text ng-bind="service.visitType"></text>
+                                    </td>
+                                    <td ng-bind="service.visitCount" style="text-align: right;"></td>
+                                    <td>
+                                        <cell><button ng-show="service.visitType == 'Home Pharmacy'" class="btn btn-dash xs-mb15 " type="button" data-target="#mySmallModalLabel2" data-toggle="modal">Avail Service</button></cell>
+
+                                        <cell><button ng-show="service.visitType == 'Appointment Request' || service.visitType == 'Premium Appointment' || service.visitType == 'Tele Consultation' || service.visitType == 'Home Visit' || service.visitType == 'Tele Consultation Visit' || service.visitType == 'Premium Visit'" data-target="" class="btn btn-dash xs-mb15 " type="button" ng-click="availService(service)">Avail Service</button></cell>&nbsp;&nbsp;
+                                        <!--<cell><button data-target="" class="btn btn-dash xs-mb15 " type="button" ng-click="availService(service)">Avail Service</button></cell>&nbsp;&nbsp;-->
+
+                                        <cell><a class="" data-toggle="modal" data-target="#myModalWin" ng-click="openModal(service)"><i class="fa fa-eye"></i>&nbsp;View</a></cell>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="modal" id="myModalWin" role="dialog">
+                    <div class="modal-dialog modal-lg"  style="max-width: 800px !important;">
+                        <div class="modal-content"  style="width: 800px !important;">
+                            <div class="modal-header">
+                                <h4 class="modal-title" ng-bind-template="{{serviceForModal.visitType}} Details"> </h4>
+                            </div>
+                            <div class="modal-body" style="padding: 20px 0px 20px 0px !important;">
+                                <table width="100%">
+                                    <tr ng-repeat-end="">
+                                        <td colspan="6">
+                                            <div style="height:200px; overflow-y: auto;">
+                                                <table width="100%" class="table table-bordered text-left">
+                                                    <tbody>
+                                                    <tr>
+                                                        <th>Provider Name</th>
+                                                        <th>Doctor Name</th>
+                                                        <th ng-show="serviceForModal.visitType == 'Home Pharmacy'">Clinic</th>
+                                                        <th>Afya Id</th>
+                                                        <th>Visit Type</th>
+                                                        <th>Visit Date</th>
+                                                        <th ng-show="serviceForModal.visitType != 'Home Pharmacy'">Start Time</th>
+                                                        <th ng-show="serviceForModal.visitType != 'Home Pharmacy'">End Time</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                    <tr ng-show="!listOfAvailedService.length"  style="text-align: center">
+                                                        <td colspan="7"><text><i>No Data Found</i></text></td>
+                                                    </tr>
+                                                    <tr class="sub33-tr" id="$index" ng-repeat="availedService in listOfAvailedService">
+                                                        <td ng-bind="availedService.provider"/>
+                                                        <td ng-bind="availedService.doctor"/>
+                                                        <th ng-bind="availedService.pharmacyClinic" ng-show="serviceForModal.visitType == 'Home Pharmacy'"></th>
+                                                        <td ng-bind="availedService.AFYA_ID"/>
+                                                        <td ng-bind="availedService.visitType"/>
+                                                        <td ng-bind="availedService.visitDate | date : 'dd/MM/yyyy'"/>
+                                                        <td ng-bind="availedService.visitStartTime| date : 'hh:mm a'" ng-show="serviceForModal.visitType != 'Home Pharmacy'"/>
+                                                        <td ng-bind="availedService.visitEndTime| date : 'hh:mm a'" ng-show="serviceForModal.visitType != 'Home Pharmacy'"/>
+                                                        <td>
+                                                            <button ng-if="serviceForModal.visitType == 'Home Pharmacy'" class="btn btn-dash xs-mb15 " type="button" data-target="#mySmallModalLabel2" data-toggle="modal">Avail Service</button>
+                                                            <button ng-if="serviceForModal.visitType == 'Appointment Request' || serviceForModal.visitType == 'Premium Appointment' || serviceForModal.visitType == 'Tele Consultation' || serviceForModal.visitType == 'Home Visit'" class="btn btn-dash xs-mb15 " type="button" ng-click="availServiceFromServiceListItem(availedService)">Avail Service</button>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" align="center">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.container-->
+    </section>
+    <section id="approach1">
+        <div class="container">
+            <!--    row1 start-->
+            <div class="row mb30">
+
+
+
+
+            </div>
+
+            <!--    row1 end-->
+        </div>
+    </section>
+    <!--/#care-provider-payer-->
+
+    <section id="adapt-method">
+        <div class="center container">
+
+        </div>
+
+    </section>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js"></script>-->
+    <!--<script type="text/javascript">-->
+        <!--$(document).ready(function ($) {-->
+
+            <!--// delegate calls to data-toggle="lightbox"-->
+            <!--$(document).delegate('*[data-toggle="lightbox"]:not([data-gallery="navigateTo"])', 'click', function (event) {-->
+                <!--event.preventDefault();-->
+                <!--return $(this).ekkoLightbox({-->
+                    <!--onShown: function () {-->
+                        <!--if (window.console) {-->
+                            <!--return console.log('Checking our the events huh?');-->
+                        <!--}-->
+                    <!--},-->
+                    <!--onNavigate: function (direction, itemIndex) {-->
+                        <!--if (window.console) {-->
+                            <!--return console.log('Navigating ' + direction + '. Current item: ' + itemIndex);-->
+                        <!--}-->
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+
+            <!--//Programatically call-->
+            <!--$('#open-image').click(function (e) {-->
+                <!--e.preventDefault();-->
+                <!--$(this).ekkoLightbox();-->
+            <!--});-->
+            <!--$('#open-youtube').click(function (e) {-->
+                <!--e.preventDefault();-->
+                <!--$(this).ekkoLightbox();-->
+            <!--});-->
+
+            <!--$(document).delegate('*[data-gallery="navigateTo"]', 'click', function (event) {-->
+                <!--event.preventDefault();-->
+                <!--return $(this).ekkoLightbox({-->
+                    <!--onShown: function () {-->
+                        <!--var a = this.modal_content.find('.modal-footer a');-->
+                        <!--if (a.length > 0) {-->
+                            <!--a.click(function (e) {-->
+                                <!--e.preventDefault();-->
+                                <!--this.navigateTo(2);-->
+                            <!--}.bind(this));-->
+                        <!--}-->
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+
+
+            <!--// fade in #back-top-->
+            <!--$(function () {-->
+
+                <!--// scroll body to 0px on click-->
+                <!--$('#back-top').click(function () {-->
+                    <!--$('body,html').animate({-->
+                        <!--scrollTop: 0-->
+                    <!--}, 800);-->
+                    <!--return false;-->
+                <!--});-->
+            <!--});-->
+
+        <!--});-->
+    <!--</script>-->
+    <script>
+        $(function() {
+
+            $( ".btn" ).click(function() {
+                var icon = $( this );
+                icon.toggleClass( "ui-icon-minusthick ui-icon-plusthick" );
+                icon.closest( ".box" ).find( ".box-body" ).toggle();
+            });
+        });
+
+
+    </script>
+</div>
